@@ -43,15 +43,23 @@ def _command(method, params):
         "DOM.getDocument": {"depth", "pierce"},
         "DOM.querySelectorAll": {"nodeId", "selector"},
         "DOM.getOuterHTML": {"nodeId"}, "DOM.getAttributes": {"nodeId"},
+        "DOM.describeNode": {"nodeId", "depth", "pierce"},
+        "DOMSnapshot.captureSnapshot": {"computedStyles", "includeDOMRects", "includePaintOrder"},
     }
     if method not in fields or set(params) != fields[method]:
         return False
+    if method == "DOMSnapshot.captureSnapshot":
+        return (type(params["computedStyles"]) is list
+                and params["computedStyles"] == ["display", "visibility", "opacity", "content-visibility"]
+                and params["includeDOMRects"] is True and params["includePaintOrder"] is False)
     if method == "Target.getTargetInfo":
         return type(params["targetId"]) is str and 0 < len(params["targetId"]) <= 256
     if method == "DOM.getDocument":
         return type(params["depth"]) is int and params["depth"] == 0 and params["pierce"] is False
     if "nodeId" in params and (type(params["nodeId"]) is not int or not 0 < params["nodeId"] <= 2**31 - 1):
         return False
+    if method == "DOM.describeNode":
+        return type(params["depth"]) is int and params["depth"] == 0 and params["pierce"] is False
     if "selector" in params:
         s = params["selector"]
         return type(s) is str and 0 < len(s) <= 1024 and not any(ord(c) < 32 for c in s)
@@ -179,10 +187,12 @@ class CdpDomObservation:
 class CdpDomReader:
     """Read exactly one selected subtree, bracketed by target/frame checks."""
 
+    URL_VALIDATOR = staticmethod(_valid_url)
+
     def __init__(self, session, *, target_id, expected_url, selector):
         invalid = False
         try:
-            invalid = (type(session) is not CdpReadOnlySession or not _valid_url(expected_url)
+            invalid = (type(session) is not CdpReadOnlySession or not self.URL_VALIDATOR(expected_url)
                        or not _command("Target.getTargetInfo", {"targetId": target_id})
                        or urlsplit(session.endpoint).path != "/devtools/page/" + target_id
                        or not _command("DOM.querySelectorAll", {"nodeId": 1, "selector": selector}))

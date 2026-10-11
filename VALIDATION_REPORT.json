@@ -1,71 +1,25 @@
 {
   "schema_version": 1,
-  "status": "ATOMIC_REJECTION_BOUNDARY_PASS_SUCCESSFUL_RESERVATION_BLOCKED",
-  "source_digest": "a9a75c4de776e5ee8450d74112aecc02d2c0ccfde399812ab653a7e37506a278",
+  "status": "P09_LAYOUT_PREPARATION_PASS_NOT_PHASE_ACCEPTANCE",
+  "source_digest": "51c588b776fef6c068670743e7a96e3a5d5d3116c6cab6c309bcd61f264d6702",
   "native_report": {
-    "path": "evidence/targets/Linux/20261011T134858Z_cd064acc/RUN.json",
-    "sha256": "5aa211d8dfa18132f33d64cb264229db8ccc61d439689ae3eff80ff4deec4e3d"
+    "path": "evidence/targets/Linux/20261011T140423Z_dbc973a2/RUN.json",
+    "sha256": "373fb6835ae6e85fccbf752c2e1319a1ec30b2278b60b9f4d1086b050a39ee74"
   },
-  "new_tests": 9,
-  "counts": {
-    "maintenance_report": {},
-    "environment_report": {},
-    "control_report": {
-      "tests": 123,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0,
-      "expected_failures": 0,
-      "unexpected_successes": 0
-    },
-    "foundation_report": {
-      "tests": 60,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0
-    },
-    "persistence_report": {
-      "tests": 104,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0
-    },
-    "browser_probe_report": {
-      "tests": 238,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0
-    },
-    "architect_report": {
-      "tests": 264,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0
-    },
-    "council_report": {
-      "tests": 50,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0
-    },
-    "quality_report": {
-      "tests": 15,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0
-    },
-    "pilot_report": {
-      "tests": 73,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0
-    },
-    "api_report": {
-      "tests": 147,
+  "counts_per_native_os": {
+    "Linux": {
+      "tests": 1086,
       "failures": 0,
       "errors": 0,
       "skipped": 0
     }
+  },
+  "browser_test_count": 250,
+  "new_portable_tests": 12,
+  "actual_local_chromium_tests": 6,
+  "browser_report": {
+    "path": "evidence/p09-layout/20261011/BROWSER_RUN.json",
+    "sha256": "9466e71633ef84d7801b8e87b5f67c0c03982b679b50ef3a813c219f747ef14e"
   },
   "quality_checks": [
     {
@@ -78,67 +32,121 @@
       "id": "types",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.112
+      "elapsed_seconds": 0.076
     },
     {
       "id": "conformance",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.028
+      "elapsed_seconds": 0.025
     },
     {
       "id": "transitions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.108
+      "elapsed_seconds": 0.091
     },
     {
       "id": "properties_and_regressions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 3.571
+      "elapsed_seconds": 2.224
     },
     {
       "id": "targeted_coverage",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.055
+      "elapsed_seconds": 0.056
     }
   ],
-  "strict_types": "PASS_TWO_API_BOUNDARY_MODULES",
   "build": "PASS_WHEEL",
-  "live_provider_calls": 0,
-  "successful_reservation_implemented": false,
-  "dispatch_enabled": false,
-  "phase_advanced": false,
-  "initial_test_failures": {
-    "status": "CORRECTED_TEST_FIXTURE_FAILURES",
-    "first_run": {
-      "tests": 23,
-      "failures": 1,
-      "errors": 1,
-      "issues": [
-        "replacement fixture missing actor/reason",
-        "trace assertion included unrelated read transaction commit"
-      ]
+  "native_smoke_tests": 4,
+  "provider_calls": 0,
+  "api_calls": 0,
+  "p08_implementation_modified": false,
+  "p08_label": "P08_DEFERRED_INCOMPLETE_NOT_ACCEPTED",
+  "p08_only_key_missing": false,
+  "p08_acceptance": false,
+  "p09_acceptance": false,
+  "previous_failed_browser_receipts": [
+    {
+      "receipt": {
+        "scope": "ACTUAL_CHROMIUM_LOCAL_LAYOUT_NOT_PROVIDER_ACCEPTANCE",
+        "status": "FAIL",
+        "source_digest_before": "b7e5a401755da766fcfa0a79ef847adfd101cc4c77791f5adf23ff91affb0215",
+        "provider_calls": 0,
+        "api_calls": 0,
+        "browser_profile": "OWNED_DISPOSABLE_NO_LOGIN",
+        "phase_accepted": false,
+        "host": "Linux",
+        "tests": 0,
+        "browser_version": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+        "reason": "RuntimeError",
+        "source_digest_after": "b7e5a401755da766fcfa0a79ef847adfd101cc4c77791f5adf23ff91affb0215"
+      },
+      "local_log": "browser-initial.log",
+      "log_sha256": "64cf71838d7465a68b9646efb8196ffc173111ad2ccd116d09768db6168e5581"
     },
-    "second_run": {
-      "tests": 23,
-      "errors": 1,
-      "issue": "binding revisions start at zero"
+    {
+      "receipt": {
+        "scope": "ACTUAL_CHROMIUM_LOCAL_LAYOUT_NOT_PROVIDER_ACCEPTANCE",
+        "status": "FAIL",
+        "source_digest_before": "c1bf84a818fa122b1cd2303c2fa7f0ff7909cd182bf197dc8941c7e889a979a9",
+        "provider_calls": 0,
+        "api_calls": 0,
+        "browser_profile": "OWNED_DISPOSABLE_NO_LOGIN",
+        "phase_accepted": false,
+        "host": "Linux",
+        "tests": 6,
+        "browser_version": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+        "failures": 0,
+        "errors": 4,
+        "skipped": 0,
+        "source_digest_after": "c1bf84a818fa122b1cd2303c2fa7f0ff7909cd182bf197dc8941c7e889a979a9"
+      },
+      "local_log": "browser-second.log",
+      "log_sha256": "ee028044f570022d59591c0f9cd0325e6fb710f38baf9fd5eb3b0bb8d5ba596d"
     },
-    "correction": "Use explicit actor/reason and current zero-based binding revision; constrain SQL assertion to reservation transaction. Product guards unchanged."
-  },
-  "limitations": [
-    "No registered trusted live observer; no successful durable reservation or live dispatch implemented.",
-    "Current-source Windows evidence not yet verified."
+    {
+      "receipt": {
+        "scope": "ACTUAL_CHROMIUM_LOCAL_LAYOUT_NOT_PROVIDER_ACCEPTANCE",
+        "status": "FAIL",
+        "source_digest_before": "c1bf84a818fa122b1cd2303c2fa7f0ff7909cd182bf197dc8941c7e889a979a9",
+        "provider_calls": 0,
+        "api_calls": 0,
+        "browser_profile": "OWNED_DISPOSABLE_NO_LOGIN",
+        "phase_accepted": false,
+        "host": "Linux",
+        "tests": 6,
+        "browser_version": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+        "failures": 0,
+        "errors": 4,
+        "skipped": 0,
+        "source_digest_after": "c1bf84a818fa122b1cd2303c2fa7f0ff7909cd182bf197dc8941c7e889a979a9"
+      },
+      "local_log": "browser-third.log",
+      "log_sha256": "a1d314059997c0d88f0ce50a2ba0ac25c2c850c27cdeccbc477b679831739a8d"
+    }
   ],
-  "scope": "OFFLINE_ATOMIC_API_RESERVATION_REJECTION_NOT_LIVE_ACCEPTANCE",
+  "corrections": [
+    "Disposable Chromium fixture requires explicit no-sandbox in this container; never a live-browser setting.",
+    "Installed declared optional websockets==16.0 without changing pins.",
+    "Handled actual CDP empty document-root styles and -1 absent-text sentinel; regression added."
+  ],
+  "limitations": [
+    "Layout is not viewport/pixel visibility or a complete provider transcript.",
+    "Provider selectors, independent authenticated context and end-to-end browser council evidence remain incomplete.",
+    "Current-source Windows outcome not yet independently verified."
+  ],
+  "environment_start_skill_draft_saved": true,
+  "environment_draft_published": false,
   "current_phase": "P08",
+  "execution_phase": "P09",
+  "last_accepted_phase": "P07",
+  "github_authorization_changed": false,
   "previous_validation_report": {
-    "path": "evidence/p08-api-reservation/20261011/PREVIOUS_VALIDATION_REPORT.json",
-    "sha256": "37845fc1daad00dfef704780fa8e8b45ca91c79a33bebdea9fc739d84c4b981b"
+    "path": "evidence/p09-layout/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "e5ddab3122719c352ec95033714c77959ebd7a12d2eb9df99f44970d79f277e0"
   },
-  "next_action": "Design and implement the registered API observation provenance contract offline, then complete successful atomic durable reservation with exact plan persistence and concurrency/recovery tests. Keep live dispatch blocked and live API testing deferred by the user.",
-  "github_authorization_changed": false
+  "next_action": "Continue P09 only: obtain and verify the first browser provider selectors and independently observed account/model/conversation context, then bind rendered-layout messages to the product operation without inferring completion or live provenance. Do not implement further P08 work; P08 remains deferred and incomplete by user instruction."
 }

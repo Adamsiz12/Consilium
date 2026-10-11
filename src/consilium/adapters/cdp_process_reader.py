@@ -7,12 +7,17 @@ import tempfile
 from pathlib import Path
 
 from consilium.adapters.cdp_dom_wire import decode_dom_output
+from consilium.adapters.cdp_layout_reader import CdpLayoutReader, decode_layout_output
 from consilium.adapters.cdp_read_only import CdpDomReader, CdpReadOnlySession
 from consilium.shell.bounded_read_process import BoundedReadProcess
 
 
 class CdpProcessDomReader:
     """Use only the packaged read-only command, with a private temporary config."""
+
+    COMMAND_MODULE = "consilium.shell.cdp_dom_read"
+    DECODE = staticmethod(decode_dom_output)
+    READER = CdpDomReader
 
     def __init__(self, *, endpoint, target_id, expected_url, selector, timeout_seconds=10):
         invalid = False
@@ -21,7 +26,7 @@ class CdpProcessDomReader:
                     or not 0 < timeout_seconds <= 60):
                 raise ValueError("timeout")
             session = CdpReadOnlySession(endpoint, lambda *_: None, timeout=timeout_seconds)
-            CdpDomReader(session, target_id=target_id, expected_url=expected_url, selector=selector)
+            self.READER(session, target_id=target_id, expected_url=expected_url, selector=selector)
             session.close()
         except Exception:  # noqa: BLE001 -- private configuration
             invalid = True
@@ -37,9 +42,9 @@ class CdpProcessDomReader:
                 config = Path(directory) / "read.json"
                 config.write_text(json.dumps(self.config, ensure_ascii=False), encoding="utf-8")
                 config.chmod(0o600)
-                process = BoundedReadProcess((sys.executable, "-m", "consilium.shell.cdp_dom_read", str(config)),
+                process = BoundedReadProcess((sys.executable, "-m", self.COMMAND_MODULE, str(config)),
                                              timeout_seconds=self.config["timeout_seconds"])
-                observation = decode_dom_output(process.run(), selector=self.config["selector"])
+                observation = self.DECODE(process.run(), selector=self.config["selector"])
                 if (observation.target_id != self.config["target_id"]
                         or observation.url != self.config["expected_url"]):
                     raise ValueError("binding")
@@ -48,3 +53,11 @@ class CdpProcessDomReader:
         if invalid:
             raise ValueError("CDP_PROCESS_READ_FAILED")
         return observation
+
+
+class CdpProcessLayoutReader(CdpProcessDomReader):
+    """Same owned process and private config, with a distinct layout contract."""
+
+    COMMAND_MODULE = "consilium.shell.cdp_layout_read"
+    DECODE = staticmethod(decode_layout_output)
+    READER = CdpLayoutReader

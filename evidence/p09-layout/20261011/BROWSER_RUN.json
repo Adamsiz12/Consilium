@@ -1,0 +1,16 @@
+{
+  "scope": "ACTUAL_CHROMIUM_LOCAL_LAYOUT_NOT_PROVIDER_ACCEPTANCE",
+  "status": "PASS",
+  "source_digest_before": "51c588b776fef6c068670743e7a96e3a5d5d3116c6cab6c309bcd61f264d6702",
+  "provider_calls": 0,
+  "api_calls": 0,
+  "browser_profile": "OWNED_DISPOSABLE_NO_LOGIN",
+  "phase_accepted": false,
+  "host": "Linux",
+  "tests": 6,
+  "browser_version": "Chromium 154.0.8037.57 built on Debian GNU/Linux 13 (trixie)",
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "source_digest_after": "51c588b776fef6c068670743e7a96e3a5d5d3116c6cab6c309bcd61f264d6702"
+}

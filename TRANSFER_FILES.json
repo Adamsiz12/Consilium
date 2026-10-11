@@ -1021,7 +1021,15 @@
     "tests/api/test_api_dispatch_reservation.py",
     "docs/decisions/ADR-059-API-RESERVATION-BOUNDARY.md",
     "evidence/p08-api-reservation/20261011/RUN.json",
-    "evidence/p08-api-reservation/20261011/PREVIOUS_VALIDATION_REPORT.json"
+    "evidence/p08-api-reservation/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "src/consilium/adapters/cdp_layout_reader.py",
+    "src/consilium/shell/cdp_layout_read.py",
+    "tests/browser_probe/test_cdp_layout_reader.py",
+    "tools/run_cdp_layout_browser_probe.py",
+    "docs/decisions/ADR-060-P08-DEFERRAL-AND-P09-LAYOUT.md",
+    "evidence/p09-layout/20261011/RUN.json",
+    "evidence/p09-layout/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "evidence/p09-layout/20261011/BROWSER_RUN.json"
   ],
   "note": "Every public source, canonical progress and selected supplemental evidence. Accepted proofs, latest current-phase attempt and native report graphs are collected automatically. Application foundation exists; V1 runtime acceptance is pending."
 }

@@ -2,7 +2,7 @@
 
 Generated from `ROADMAP.json`, `PROGRESS.json`, and `CHECKS.json`. Manual edits are not authoritative; regenerate after canonical inputs change. Original source text, including historical quotations, is preserved.
 
-Input digest: `9c1cfe0ac5e70c57f0c11d50e8bf0a92e8915a59077520bbecb81cc7f9cc4b40`.
+Input digest: `d406f0558d3e3948d9593ad4ec2f9c0486546e6bb4052344d4f96e10db8bbcd0`.
 
 Current phase: `P08`. Last accepted phase: `P07`.
 
@@ -30,7 +30,7 @@ Verified application requirements: `0/30`. Passing development tooling does not 
     "Publication block resolved after direct permanent user authorization. Exact five-file tree, commit, parent, message, branch and blob contents independently verified. CI38069235311: both native hosts 830 tests including 106 browser and five new cases; ZIP and nested artifact hashes verified; matrix PASS. No live calls; P08/P09 final acceptance remains open.",
     "Published one-read Qwen ingest bridge: exact before/raw/after binding checks, committed-event reuse without reread, stale/closed preflight, private reader failure quarantine and optimistic commit race checks. Eight new tests, 838 per native host including 114 browser tests; CI38070682276, ZIP/nested artifact hashes and matrix PASS. Driver is injected/unregistered; no live authority, model calls or phase acceptance. Initial lint failure retained."
   ],
-  "next_action": "Design and implement the registered API observation provenance contract offline, then complete successful atomic durable reservation with exact plan persistence and concurrency/recovery tests. Keep live dispatch blocked and live API testing deferred by the user.",
+  "next_action": "Continue P09 only: obtain and verify the first browser provider selectors and independently observed account/model/conversation context, then bind rendered-layout messages to the product operation without inferring completion or live provenance. Do not implement further P08 work; P08 remains deferred and incomplete by user instruction.",
   "next_command": null,
   "note": "Update this record with precise subtask and pending work during development.",
   "github_authorization": {
@@ -83,11 +83,11 @@ Verified application requirements: `0/30`. Passing development tooling does not 
     "reviewer_independent": false
   },
   "next_task": {
-    "id": "P08-DURABLE-LIVE-GATE",
-    "phase": "P08",
-    "status": "OFFLINE_INTEGRATION_PENDING_LIVE_TESTS_DEFERRED",
-    "title_fa": "اتصال گیت مشاهده و رزرو پایدار به مسیر API",
-    "next_action_fa": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر و شاهد نسخهٔ فعلی ویندوز باز می‌مانند."
+    "id": "P09-FIRST-PROVIDER-CONTEXT",
+    "phase": "P09",
+    "status": "PREPARATION_PENDING_GENUINE_BROWSER_CONTEXT",
+    "title": "Bind first-provider selectors and independently observed context to rendered messages",
+    "next_action": "Continue P09 only: obtain and verify the first browser provider selectors and independently observed account/model/conversation context, then bind rendered-layout messages to the product operation without inferring completion or live provenance. Do not implement further P08 work; P08 remains deferred and incomplete by user instruction."
   },
   "p07_chunks": [
     {
@@ -1273,6 +1273,46 @@ Verified application requirements: `0/30`. Passing development tooling does not 
       "Operation-bound result integration",
       "Genuine P08 acceptance checks"
     ]
+  },
+  "execution_phase": "P09",
+  "p08_work_deferral": {
+    "status": "P08_DEFERRED_INCOMPLETE_NOT_ACCEPTED",
+    "further_implementation_allowed": false,
+    "live_api_test_status": "NOT_RUN_USER_DEFERRED_NO_KEYS",
+    "only_api_key_missing": false,
+    "remaining_non_key_work": [
+      "Successful durable reservation and exact plan persistence",
+      "Full product council send/receive integration",
+      "Complete provider coverage",
+      "Executable genuine P08 acceptance checks"
+    ],
+    "decision": "docs/decisions/ADR-060-P08-DEFERRAL-AND-P09-LAYOUT.md",
+    "authorization": "Current user instruction to suspend P08 work and continue P09",
+    "acceptance_dependency_unchanged": true,
+    "previous_next_task": {
+      "id": "P08-DURABLE-LIVE-GATE",
+      "phase": "P08",
+      "status": "OFFLINE_INTEGRATION_PENDING_LIVE_TESTS_DEFERRED",
+      "title_fa": "اتصال گیت مشاهده و رزرو پایدار به مسیر API",
+      "next_action_fa": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر و شاهد نسخهٔ فعلی ویندوز باز می‌مانند."
+    }
+  },
+  "p09_rendered_layout": {
+    "status": "P09_LAYOUT_PREPARATION_PASS_NOT_PHASE_ACCEPTANCE",
+    "implementation": "src/consilium/adapters/cdp_layout_reader.py",
+    "owned_cli": "src/consilium/shell/cdp_layout_read.py",
+    "decision": "docs/decisions/ADR-060-P08-DEFERRAL-AND-P09-LAYOUT.md",
+    "report": "evidence/p09-layout/20261011/RUN.json",
+    "new_portable_tests": 12,
+    "actual_local_chromium_tests": 6,
+    "linux_tests": 1086,
+    "native_report": {
+      "path": "evidence/targets/Linux/20261011T140423Z_dbc973a2/RUN.json",
+      "sha256": "373fb6835ae6e85fccbf752c2e1319a1ec30b2278b60b9f4d1086b050a39ee74"
+    },
+    "provider_calls": 0,
+    "phase_accepted": false,
+    "github_authorization_changed": false
   }
 }
 ```
@@ -1290,7 +1330,7 @@ Verified application requirements: `0/30`. Passing development tooling does not 
 | `P06` | `COMPLETED` | 0 |
 | `P07` | `COMPLETED` | 0 |
 | `P08` | `BLOCKED` | 3 |
-| `P09` | `BLOCKED` | 1 |
+| `P09` | `BLOCKED` | 2 |
 | `P10` | `BLOCKED` | 1 |
 | `P11` | `BLOCKED` | 1 |
 | `P12` | `BLOCKED` | 1 |
