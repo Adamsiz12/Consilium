@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "TWELVE_APPROVED_ENGLISH_GUIDE_IMPROVEMENTS_AND_DEFERRED_TASK_REGISTRATION_ONLY",
+  "approved_proposals": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "github_authorization_changed": false,
+  "resume_compaction_performed": false,
+  "evidence_relocation_performed": false,
+  "phase_advanced": false,
+  "live_provider_calls": 0,
+  "updated_at_utc": "2026-10-11T12:23:01.336627+00:00",
+  "source_digest": "a485d99b2b4317d14aa1136def4052a74a511522167f439fe9f6379acbe14e5c",
+  "command": "python tools/development_supervisor.py native",
+  "linux_native_report": {
+    "path": "evidence/targets/Linux/20261011T122047Z_0ff9067a/RUN.json",
+    "sha256": "69e84a568565309fd506bbf7149487d9f34224f2031fc138a1fa434b904e3db6"
+  },
+  "counts": {
+    "tests": 1050,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "smoke_cases": [
+    {
+      "mode": "API",
+      "scenario": "success",
+      "status": "PASS"
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "success",
+      "status": "PASS"
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "timeout_after_send",
+      "status": "PASS"
+    },
+    {
+      "mode": "API",
+      "scenario": "partial",
+      "status": "PASS"
+    }
+  ],
+  "quality_checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.041
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.427
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.03
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.098
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 3.577
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.057
+    }
+  ],
+  "windows_current_source": "NOT_RUN_LOCALLY",
+  "independent_review": false
+}

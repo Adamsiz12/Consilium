@@ -139,6 +139,8 @@
     "evidence/accepted/P03_a1134261e9ea/proofs/evidence/target-matrix/RUN.json",
     "evidence/accepted/P03_a1134261e9ea/proofs/src/consilium/shell/browser_probe.py",
     "evidence/accepted/P03_a1134261e9ea/proofs/tools/run_browser_probe.py",
+    "evidence/agent-guide-english/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "evidence/agent-guide-english/20261011/RUN.json",
     "evidence/api-https-history/e34be5fab1b6/CDP_RUN.json",
     "evidence/api-https-history/e34be5fab1b6/TLS_RUN.json",
     "evidence/api-https-history/initial-port-failure/RUN.json",

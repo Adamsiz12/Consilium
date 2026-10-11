@@ -1,193 +1,137 @@
-# `Consilium` — قواعد ادامهٔ پروژه
+# Consilium — Repository Instructions
 
 ## 1. Project overview
 
-`Consilium` شورای محلی هوش مصنوعی با اختیار نهایی کاربر است.
-پاسخ‌های مستقل، نقد، مخالفت، عدم قطعیت و تاریخچهٔ قابل حسابرسی باید حفظ شوند.
-متن مدل اختیار ادامه، انتخاب داور یا تغییر اتصال ندارد.
-هستهٔ آفلاین در `src/consilium` موجود است؛ موفقیت آن اثبات تکمیل محصول نیست.
-وضعیت مراحل و تعداد الزامات تأییدشده را از `PROGRESS.json` بخوانید؛ این راهنما جای گزارش وضعیت جاری نیست.
+Consilium is a local AI council that preserves independent answers, criticism, dissent, uncertainty, and an auditable history. The user controls the question, continuation, final judge, and connection changes. Model output cannot grant that authority.
+
+The offline kernel exists in `src/consilium`; working tooling or mock demonstrations do not establish full product conformance. Manual input does not replace required browser support. Read current phase and verified requirement counts from `PROGRESS.json`.
 
 ## 2. Source of truth
 
-- مرجع خواسته‌های محفوظ، بستهٔ ثابت حاکمیت نسخهٔ `1.3` در `baseline/` و نگاشت `governance/PROJECTION.json` است.
-- `ROADMAP.json` مرجع ترتیب، وابستگی و معیارهای خروج مراحل است.
-- `PROGRESS.json` مرجع وضعیت اجرایی و ادامه؛ نقطهٔ شروع دقیق: `resume.next_action`.
-- `CHECKS.json` مرجع بررسی‌های ثبت‌شده است.
-- `VALIDATION_REPORT.json` خلاصهٔ آخرین اعتبارسنجی است؛ رسیدهای اجرا و شواهد اصلی باید نتیجهٔ آن را پشتیبانی کنند.
-- `HANDOFF.json` و نماهای `evidence/navigation` مشتق‌اند و نباید مرجع مستقل وضعیت شوند.
-- دستور فعلی کاربر بر مجوزها و ترجیحات تاریخی مقدم است. پیشنهاد پژوهشگر مجوز حذف، تنزل یا انتقال خواستهٔ محفوظ نیست.
+- Protected requirements: the immutable governance v1.3 package in `baseline/`, mapped by `governance/PROJECTION.json`.
+- `ROADMAP.json`: phase order, dependencies, and exit criteria.
+- `PROGRESS.json`: implementation state and the exact continuation entry point, `resume.next_action`.
+- `CHECKS.json`: registered checks, execution modes, and their scope.
+- `VALIDATION_REPORT.json`: the latest validation summary, supported by actual execution receipts.
+- `HANDOFF.json`, `MANIFEST.json`, and navigation views are generated snapshots, not independent state authorities.
+- Current user instructions override historical permissions and preferences. Researcher recommendations cannot remove, weaken, or postpone protected requirements.
 
 ## 3. Repository structure
 
-- `src/consilium/core`: قراردادها، تحلیل‌گرها و منطق خالص.
-- `src/consilium/shell`: ذخیره‌سازی `SQLite`، دفتر عملیات و هماهنگی اجرا.
-- `src/consilium/ports` و `adapters`: قراردادها و پیاده‌سازی اتصال‌ها.
-- `tests/`: آزمون‌های رفتار، دوام، امنیت و رگرسیون.
-- `tools/`: بررسی، ناظر توسعه، تولید نما و بستهٔ انتقال.
-- `docs/` و `docs/decisions/`: راهنماها و تصمیم‌های دارای علت و شاهد.
-- `baseline/` و `governance/protected/`: مرجع محفوظ.
-- `evidence/`: رسیدها، گزارش‌ها و تصاویر ثابت پذیرش.
-- فایل‌های `JSON` ریشه: نقشه، وضعیت، بررسی و انتقال پروژه.
+- `src/consilium/core`: pure contracts and analyzers; `shell`: SQLite persistence, operation ledgers, and orchestration.
+- `src/consilium/ports` and `adapters`: transport contracts and implementations.
+- `tests/` and `tools/`: behavioral tests, supervised checks, and snapshot utilities.
+- `docs/` and `docs/decisions/`: runbooks and decisions with reasons, impacts, and evidence.
+- `baseline/` and `governance/protected/`: protected authority; `evidence/`: receipts and immutable acceptance proofs.
 
 ## 4. Mandatory reading order
 
-1. `AGENTS.md` و دستورهای فعلی کاربر.
-2. `PROGRESS.json`: مقدارهای `current_phase`، وضعیت و موانع مرحله و `resume.next_action`.
-3. `START_HERE_FA.md` و `HANDOFF.json`؛ اختلاف با مرجع پیشرفت را گزارش کنید.
-4. `SCOPE.json`، مرحلهٔ جاری `ROADMAP.json` و `INVENTORY.json`.
-5. `CHECKS.json` و `VALIDATION_REPORT.json`.
-6. `README.md`، `docs/RUNBOOK_FA.md` و تصمیم‌های مرتبط با همان تسک.
-7. کد، آزمون و شواهد مرتبط؛ خواندن کل تاریخچه بدون نیاز الزامی نیست.
+1. Read `AGENTS.md` and current user instructions; inspect Git state without disturbing existing work.
+2. Read `PROGRESS.json`: `resume.next_action`, `current_phase`, phase status, and blockers.
+3. Read `START_HERE_FA.md` and `HANDOFF.json`; report disagreements with canonical progress.
+4. Read `SCOPE.json`, the current phase in `ROADMAP.json`, and relevant `INVENTORY.json` entries.
+5. Read `CHECKS.json`, `VALIDATION_REPORT.json`, `README.md`, and the relevant runbook and ADRs.
+6. Inspect only the source, tests, and evidence needed for the selected task; do not reread unrelated history.
 
-برای ادامهٔ `P08`، تصمیم `ADR-038` دربارهٔ تعویق آزمون زنده و استثنای آماده‌سازی آفلاین `P09` را نیز بخوانید.
+For deferred live API work and authorized P09 preparation, read [ADR-038](docs/decisions/ADR-038-DEFERRED-LIVE-AND-P09-PREPARATION_FA.md). During read-only review, do not run commands that write files or dispatch operations.
 
 ## 5. Setup and commands
 
-نسخهٔ `Python` باید مطابق `pyproject.toml` از شاخهٔ `3.12` باشد.
-از محیط مجازی موجود استفاده کنید؛ نصب موفق را بی‌دلیل تکرار نکنید.
+Use Python 3.12 as required by `pyproject.toml`, preferably the existing virtual environment. Run commands from the repository root. Do not reinstall validated dependencies without a reason.
 
-فرمان‌های نصب از ریشهٔ مخزن:
+| Purpose | Command | Effect / scope |
+|---|---|---|
+| Install locked dependencies | `python -m pip install -r requirements.lock -r requirements-dev.lock` | Changes the environment |
+| Install editable package | `python -m pip install -e . --no-deps --no-build-isolation` | Changes the environment and creates packaging metadata |
+| Development checks | `python tools/development_supervisor.py check` | Runs checks and writes evidence |
+| Native host evidence | `python tools/development_supervisor.py native` | Includes development checks and writes source-bound native evidence |
+| Development and current phase | `python tools/development_supervisor.py local` | Includes phase checks; a blocked phase remains blocked |
+| Scoped lint, types, coverage | `python tools/check_quality.py` | Also runs quality tests and writes evidence |
+| Offline API tests | `python tools/run_api_tests.py` | Writes test evidence; no live provider certification |
+| Refresh navigation | `python tools/qualityctl.py navigation` | Regenerates derived views |
+| Offline demonstration | `python -m consilium demo --scripted --output NEW_DIRECTORY` | Uses synthetic decisions; choose a fresh directory outside the checkout |
 
-```sh
-python -m pip install -r requirements.lock -r requirements-dev.lock
-python -m pip install -e . --no-deps --no-build-isolation
-```
-
-بررسی‌های مستند:
-
-```sh
-python tools/qualityctl.py navigation
-python tools/development_supervisor.py check
-python tools/development_supervisor.py native
-python tools/development_supervisor.py local
-```
-
-فرمان `navigation` فایل تولید می‌کند؛ `check` و `native` نیز گزارش می‌نویسند.
-در مرحلهٔ فقط خواندنی، این فرمان‌ها را اجرا نکنید.
-فرمان `local` بررسی مرحلهٔ جاری را نیز درخواست می‌کند؛ خالی‌بودن بررسی‌های `P08` باید `BLOCKED` گزارش شود، نه موفقیت پذیرش.
-
-دموی غیرزنده:
-
-```sh
-python -m consilium demo --scripted --output NEW_DIRECTORY
-```
-
-خروجی دمو باید در مسیر تازه خارج از مخزن باشد؛ این دمو شاهد اتصال زنده یا کیفیت مدل نیست.
-محیط ابری از قبل ایزوله است؛ بدون درخواست کاربر `Worktree` نسازید.
-وابستگی‌ها، فایل‌های قفل و تأیید `TLS` یا اصالت بسته‌ها را برای رفع خطا تغییر یا غیرفعال نکنید.
+These commands overlap: select the required workflow instead of running every row. `tools/check.py` is the internal development runner; prefer the supervisor. Each cloud task is already isolated; do not create a Git worktree unless the user requests one. Preserve dependency pins, TLS, package signatures, and checksum verification.
 
 ## 6. Development workflow
 
-- همیشه از `resume.next_action` شروع کنید.
-- در هر اجرا فقط یک تسک مشخص یا یک مرحلهٔ دارای دامنهٔ مصوب انجام دهید.
-- پیش از نوشتن یا تغییر کد، `Plan` شامل وضعیت، مانع، فایل‌ها، روش، آزمون‌ها، شواهد، تغییرات وضعیت و ریسک‌ها ارائه کنید و منتظر تأیید بمانید.
-- تأیید بررسی خواندنی، مجوز نوشتن فایل نیست.
-- فقط دامنهٔ تأییدشده را اجرا کنید؛ افزایش دامنه تأیید تازه می‌خواهد.
-- تصمیم مهم را با علت، پیامد و شاهد در `docs/decisions` ثبت کنید؛ این دفتر جای دفتر عملیات محصول نیست.
-- نقص و کار نیمه‌تمام را حفظ کنید و نتیجهٔ شکست را پنهان نکنید.
-- از یافته‌ها و خروجی‌های معتبر استفاده کنید؛ تکرار بررسی فقط با تغییر منبع، شکست، خروجی کهنه یا ابهام حل‌نشده توجیه دارد.
-- برای کاهش مصرف، خواندن و بررسی را به دامنهٔ کار محدود کنید؛ کیفیت، آزمون‌های لازم و اعتبار شواهد نباید کاهش یابند.
-- پس از پایان تسک، اقدام بعدی را ثبت کنید و آن را خودکار اجرا نکنید.
+- Start from `resume.next_action` and work on only one approved task or one explicitly scoped phase per execution.
+- Before writing or changing code, present a Plan covering state, blockers, files, approach, checks, evidence, metadata updates, and risks; wait for user approval. Read-only approval is not write approval.
+- Preserve existing user changes. Expansion beyond approved implementation scope requires approval.
+- Record important decisions in `docs/decisions`; ADRs do not replace the product operation ledger.
+- For protected requirement changes, follow [CHANGE_CONTROL.md](governance/protected/governance/CHANGE_CONTROL.md): identify affected `UR-*`, the delta, reasons, alternatives, impacts, migration implications, and explicit user approval. An ADR alone is not approval.
+- Phase-order exceptions require an ADR and a recorded user instruction. Preserve phase acceptance dependencies.
+- Reuse valid findings and outputs. Repeat work only after source changes, failure, stale evidence, or unresolved ambiguity; never reduce required checks to save resources.
+- Record the next action when the task ends; do not implement it automatically.
 
 ## 7. Testing standards
 
-- پس از هر تغییر مصوب، بررسی‌های قابل‌اعمال `CHECKS.json` و آزمون‌های رفتار تغییرکرده، موارد منفی و رگرسیون را اجرا کنید.
-- بررسی‌های تاریخی `acceptance_only` را بدون علت و مجوز تکرار نکنید.
-- خالی‌بودن بررسی‌های مرحله مجوز حذف آزمون یا اعلام پذیرش نیست.
-- از ناظر توسعه استفاده کنید؛ `native` شامل بررسی توسعه است، بنابراین همان بررسی را بی‌دلیل دوباره اجرا نکنید.
-- ساخت یا بررسی نصب بسته را مطابق `Plan` اجرا و نتیجه را جدا گزارش کنید.
-- بررسی‌های `Lint`، `Type Check` و `Coverage` موجود دامنهٔ محدود دارند؛ موفقیت آن‌ها را بررسی کامل همهٔ محصول معرفی نکنید.
-- شمار آزمون‌ها، `failure`، `error`، `skipped`، `expected failure` و موارد اجرا‌نشده را جدا ثبت کنید. اجرای صفر آزمون اعتبارسنجی نیست.
-- خروج موفق، رفتار مورد انتظار، شناسهٔ اجرا و هش منبع را بررسی کنید.
-- آزمون ساختگی، قطع پردازه و `Linux` به‌ترتیب شاهد سرویس زنده، قطع برق و `Windows` نیستند.
-- آزمون را برای سبزشدن ضعیف نکنید و شکست را به `skipped` تبدیل نکنید.
+After each approved change, run applicable registered checks in `CHECKS.json` and relevant regression checks. Runtime changes need meaningful positive and negative cases; documentation changes do not require invented behavioral tests.
+
+Use the supervisor. A completed `native` run already includes development checks; do not repeat covered checks unnecessarily. Run build or packaging validation when required by the approved task and report omissions. Existing lint, strict typing, and coverage are scoped; do not claim whole-product verification.
+
+Verify actual execution, exit status, test counts, expected behavior, run identity, and source hashes. Distinguish failures, errors, skipped cases, expected failures, disabled checks, and unrun checks. Zero tests do not validate a workflow. Never weaken assertions or turn failures into skips to obtain a pass.
+
+Historical `acceptance_only` checks are excluded from routine regression unless their execution is specifically required and authorized. Mock success is not live evidence; process termination is not a power-loss test; Linux execution is not Windows evidence.
 
 ## 8. Acceptance and validation workflow
 
-پذیرش مرحله نیازمند بررسی‌های ثبت‌شده، شواهد خروج واقعی، تطبیق منبع و بازبینی معیارها در دور جداست.
-نقص باز در محدودهٔ مرحله مانع بستن آن است. بازبینی همان نویسنده مستقل معرفی نشود.
-شواهد بومی لازم `Windows` و `Linux` باید با منبع مربوط تطبیق داشته باشند.
-اجرای خودکار `Windows` و دریافت گزارش بر عهدهٔ دستیار است؛ آن را به کاربر واگذار نکنید. نبود میزبان یا مجوز لازم را صریح گزارش کنید.
-گیت فقط برای مرحلهٔ جاری و پس از تکمیل پیش‌نیازها اجرا شود.
-گزینهٔ `--commit` در `qualityctl gate` ثبت وضعیت است، نه ثبت `Git Commit`.
-شواهد معیار پذیرفته‌شده باید تصویر ثابت داشته باشند.
+Task completion, phase acceptance, and publication are separate outcomes. Acceptance requires registered phase checks, genuine exit evidence, matching source, and a separate criterion-based review. Open in-scope defects block acceptance. Same-author review must not be called independent.
 
-تا تعویق آزمون زنده برقرار است:
+Require native Windows and Linux evidence where registered acceptance checks demand it. The assistant owns authorized Windows automation and report retrieval; do not delegate those duties to the user. Report unavailable capabilities accurately. Do not impose a new requirement for a live demo or two-host execution on every documentation task.
 
-- مرحلهٔ `P08` صرفاً با آزمون آفلاین `COMPLETED` نمی‌شود.
-- اتصال `LIVE_VERIFIED` ثبت یا فعال نشود.
-- آماده‌سازی `P09` فقط در دامنهٔ مجاز `ADR-038` انجام شود؛ وابستگی پذیرش مراحل حذف نمی‌شود.
-- کلید از کاربر درخواست نشود؛ آماده‌سازی امن، آزمون غیرزنده و مستندسازی نام متغیرها ادامه یابد.
+Run an acceptance gate only for the current phase after its prerequisites are satisfied. `qualityctl gate --commit` updates progress; it does not create a Git commit. Preserve immutable criterion snapshots.
+
+When a phase is blocked, read its exact blockers and distinguish repository defects, missing checks, and external prerequisites. Continue only approved independent work. Ask for an indispensable missing input clearly, without repeating answered requests. While the user's no-key instruction remains active, do not request API keys: prepare safely and test offline.
+
+Empty P08 checks or passing mock tests cannot close P08 or mark a connection `LIVE_VERIFIED`. Authorized offline P09 preparation does not accept P09 or remove P08 dependencies. Report comparative P06 results honestly, including inconclusive or unfavorable results; obtain verified requirement counts from `PROGRESS.json`, never a hard-coded count.
 
 ## 9. Git workflow
 
-- پیش از تغییر، وضعیت `Git` و کار موجود کاربر را بررسی و حفظ کنید.
-- پس از تأیید `Plan`، شاخهٔ `feature/continue-<STAGE-ID>-<SHORT-NAME>` بسازید.
-- فقط فایل‌های مربوط و بازبینی‌شده را ثبت کنید؛ `reset`، حذف یا بازنویسی کار موجود بدون مجوز ممنوع است.
-- مجوز دائمی دسترسی به گیت‌هاب و انتشار کار تأییدشده برقرار است؛ فقط دستور جداگانه و صریح کاربر آن را متوقف می‌کند. برای همان دامنهٔ تأییدشده، مجوز تکراری نخواهید.
-- گزارش‌ها و آزمون‌ها تا پایان مرحله در محیط محلی نگه داشته شوند؛ پیش از `Commit`، اجرای `Push` یا ساخت `PR`، نتیجه و بستهٔ عمومی را بررسی کنید.
-- مجوز گیت‌هاب، مجوز افزایش دامنهٔ پیاده‌سازی، تغییر خواستهٔ محفوظ یا افشای دادهٔ خصوصی نیست. نیاز به اجرای `CI` را در `Plan` مشخص کنید.
-- عملیات بیرونی طبق `docs/EXTERNAL_OPERATIONS_FA.md` محدود و ثبت شوند: `boundedConnector` و `PublicationGuard` با دفتر خارج از مخزن.
-- پس از ابهام، نتیجهٔ واقعی را مستقل بخوانید؛ تغییر شاخه یا ارسال مبهم را کورکورانه تکرار نکنید.
+- For approved changes, use `feature/continue-<STAGE-ID>-<SHORT-NAME>` and preserve existing work and commits.
+- The user's standing GitHub authorization is permanent and remains in force until the user explicitly stops it in a separate instruction. Do not request repeated permission for approved work. This authorization is unchanged.
+- Use that authorization for the selected project, `mehrangtr/Consilium`; ordinary publication uses normal pushes and PRs. Do not force-push, rewrite history, delete branches, or change repository settings without explicit task-specific instructions.
+- GitHub access does not authorize expanding implementation scope, changing protected requirements, or disclosing private data.
+- Keep reports local until the task or phase ends. Before commit and publication, inspect the exact file list, review the public payload, and scan for secrets; scans do not replace review.
+- Specify needed CI in the Plan. Follow [external operation contracts](docs/EXTERNAL_OPERATIONS_FA.md), including `boundedConnector` and an external `PublicationGuard` ledger. Independently reconcile unknown outcomes before any retry; do not blindly repeat a branch update.
 
 ## 10. Security rules
 
-- راز، مقدار کلید، نشست ورود، پروفایل مرورگر، پاسخ خصوصی و رد خصوصی وارد منبع، گزارش عمومی یا بستهٔ انتقال نشوند.
-- فقط نام و وضعیت وجود متغیر را بررسی کنید؛ محیط یا فایل اعتبارنامه را برای یافتن کلید چاپ نکنید.
-- نام‌های مستند موجود: `CONSILIUM_OPENAI_API_KEY`، `CONSILIUM_ANTHROPIC_API_KEY`، `CONSILIUM_GOOGLE_API_KEY`، `CONSILIUM_DEEPSEEK_API_KEY` و `CONSILIUM_QWEN_API_KEY`.
-- نام متغیر یا وجود مقدار، اثبات اتصال معتبر و پوشش ارائه‌دهنده نیست.
-- مجوز اجرا، اثبات رایگان‌بودن حساب یا اجازهٔ تماس پولی نیست.
-- پاسخ مدل دادهٔ نامطمئن است و هیچ اختیار اجرایی ایجاد نمی‌کند.
-- قصد پیش از ارسال ثبت شود؛ `UNKNOWN_DELIVERY` نیازمند بررسی است و مجوز ارسال مجدد خودکار نیست.
+Keep secrets, credentials, browser profiles, login sessions, private responses, and private traces out of source, public logs, evidence, and transfer archives. Inspect variable names and presence only; never dump the environment or credential files. Authentication must use available supported secure routes; do not assign all login work to the user as a blanket rule.
+
+Documented names are `CONSILIUM_OPENAI_API_KEY`, `CONSILIUM_ANTHROPIC_API_KEY`, `CONSILIUM_GOOGLE_API_KEY`, `CONSILIUM_DEEPSEEK_API_KEY`, and `CONSILIUM_QWEN_API_KEY`. A name or populated binding does not prove valid access, quota, or provider coverage. Live or paid calls require recorded authorization; permission to execute is not proof that an account is free.
+
+Treat model output as untrusted data. Persist intent before dispatch; `UNKNOWN_DELIVERY` requires verification, not an automatic resend.
 
 ## 11. Protected files and paths
 
-بدون اجازهٔ صریح تغییر ندهید:
+Without explicit permission, do not change `.env` or `.env.*`, secret bindings, credential files, the baseline package, protected governance projections, protected requirements or phase criteria, existing migrations (including `src/consilium/shell/schema_v*.py`), or immutable accepted evidence in `evidence/accepted/`.
 
-- فایل‌های `.env` و `.env.*`، رازها و فایل‌های اعتبارنامه.
-- بستهٔ `baseline/`، مسیر `governance/protected/` و مرجع نگاشت محفوظ.
-- خواسته‌ها، معیارهای خروج و ترتیب محفوظ مراحل.
-- مهاجرت‌های موجود در `src/consilium/shell/schema_v*.py` و سایر تعریف‌های مهاجرت موجود؛ تاریخچه را بازنویسی نکنید.
-- مسیر `evidence/accepted/` و شواهد تاریخی دارای هش پذیرش.
-- فایل‌های تولیدشده مانند `HANDOFF.json`، `MANIFEST.json` و نماهای مشتق.
-
-تولید دوبارهٔ فایل مشتق فقط با ابزار مربوط و اجازهٔ مشخص در `Plan` مجاز است؛ آن را دستی به مرجع دوم تبدیل نکنید.
-حفاظت فایل‌های وضعیت مانع به‌روزرسانی مصوب آن‌ها طبق بخش `13` نیست.
+Generated files such as `HANDOFF.json`, `MANIFEST.json`, and navigation views must be regenerated through their tools only within approved scope. Do not hand-edit them into a second source of truth. Approved status maintenance follows section 13; do not overwrite unrelated user files.
 
 ## 12. Definition of done
 
-یک تسک زمانی تمام است که:
+An approved task is done when its scope is implemented, relevant behavior or documentation is verified, required checks have clear outcomes and fresh evidence, limitations and unfinished work are recorded, and status and continuation records match the result. The change set must contain no unintended files or secrets.
 
-- دامنهٔ مصوب اجرا و رفتار مورد انتظار بررسی شده باشد.
-- بررسی‌های لازم نتیجهٔ روشن و شاهد تازه داشته باشند.
-- نقص باز، محدودیت و بررسی اجرا‌نشده صریح ثبت شده باشند.
-- فایل‌های وضعیت و اقدام بعدی مطابق نتیجه به‌روزرسانی شده باشند.
-- فایل ناخواسته یا راز وارد تغییرات نشده باشد.
-
-تمام‌شدن تسک آفلاین، پذیرش `P08` یا تکمیل `V1` نیست.
-انتشار نیز نتیجه‌ای جداست که طبق مجوز جاری کاربر انجام و مستقل بررسی می‌شود.
+Runtime changes should expose the relevant existing demo, smoke test, or observable behavior when appropriate; do not manufacture a demo for every task. Offline task completion is not P08 acceptance or full V1 conformance. Publication has its own independently verified outcome.
 
 ## 13. Rules for updating status files and evidence/
 
-- `PROGRESS.json`: وضعیت واقعی، انجام‌شده‌ها، باقی‌مانده‌ها، موانع و `resume.next_action` را پس از کار مصوب به‌روز کنید؛ خواستهٔ محفوظ یا سابقهٔ پذیرش را برای عبور گیت تغییر ندهید.
-- `HANDOFF.json`: از مرجع پیشرفت و ابزار انتقال تولید شود. فرمان `qualityctl handoff` نسخه را داخل آرشیو می‌سازد؛ این فرمان به‌تنهایی فایل `HANDOFF.json` ریشه را به‌روزرسانی نمی‌کند. همگام‌سازی فایل ریشه باید جداگانه در `Plan` مجاز و بررسی شود.
-- `CHECKS.json`: بررسی تازه را با فرمان، شناسه، دامنه، خروجی، مهلت و معیار نتیجهٔ واقعی ثبت کنید؛ آزمون غیرزنده پذیرش زنده محسوب نشود.
-- `VALIDATION_REPORT.json`: پس از هر اعتبارسنجی مصوب، نتیجه، منبع، ارجاع شواهد، شکست‌ها و موارد اجرا‌نشده را به‌روز کنید؛ نتیجهٔ پیشین را در شواهد حفظ کنید.
-- `evidence/`: اجرای تازه با شناسه و هش منبع، فرمان، وضعیت خروج، شمار آزمون و فایل‌های نتیجه ثبت شود. شکست و توقف نیز محفوظ بمانند.
-- شواهد پذیرفته‌شده بازنویسی نشوند؛ نماهای قابل‌تولید با شواهد ثابت پذیرش یکسان نیستند.
-- در مرحلهٔ فقط خواندنی هیچ‌یک از این فایل‌ها نوشته نشوند؛ یافته‌ها در پاسخ گزارش شوند و ثبت آن‌ها به مرحلهٔ مصوب بعدی موکول شود.
+- `PROGRESS.json`: update actual status, completed and remaining work, blockers, and `resume.next_action`; preserve protected requirements and acceptance history.
+- `HANDOFF.json`: generate from canonical progress with the transfer tool. `qualityctl handoff` writes it inside the archive, not to the checkout root; any root synchronization must be explicitly included in approved work.
+- `CHECKS.json`: register new checks with their identifier, command, scope, execution mode where required, outputs, timeout, and genuine result criteria. Offline checks cannot substitute for live acceptance.
+- `VALIDATION_REPORT.json`: update after each approved validation with source, evidence references, outcomes, failures, and omissions; preserve the previous result in evidence.
+- `evidence/`: retain command, exit status, source hash, run identity, counts, and results, including failures and interruptions. Never overwrite accepted proofs.
+- Keep continuation state concise; reference history rather than copying narratives. Existing `resume` compaction requires a separate approved migration covering readers, generators, and tests. Do not prune it during routine guide updates.
+- Referenced artifacts require verified hashes, retention, retrieval, and reproducibility. Evidence relocation is a separate approved task; do not delete proofs or move them to another branch without a preservation plan.
+- Read-only review must not write any of these files. Generated views and summaries are not acceptance evidence by themselves.
 
 ## 14. Rules for continuing from resume.next_action
 
-- مقدار دقیق `resume.next_action` را در آغاز `Plan` نقل کنید.
-- آن را با `current_phase`، موانع و دستور فعلی کاربر تطبیق دهید.
-- یادداشت تاریخی، `next_task` یا `next_command` جای آن را نمی‌گیرد؛ اختلاف را گزارش کنید و بدون دلیل دامنه را عوض نکنید.
-- اگر اقدام چند بخش دارد، فقط یک تسک محدود از آن برای تأیید پیشنهاد دهید.
-- مانع خارجی فقط بخش وابسته را متوقف می‌کند؛ کار مستقل صرفاً در دامنهٔ مصوب ادامه یابد.
-- مرحلهٔ بعد فقط پس از پذیرش معتبر مشخص شود و خودکار پیاده نشود.
-- پس از توقف، نتیجهٔ همان اجرا بررسی شود. ناظر پس از `300` ثانیه بدون پایان کار مشخص، درخت پردازهٔ متعلق به خود را متوقف می‌کند؛ سقف مطلق فرمان `900` ثانیه است.
-- خروجی مکرر و زنده‌بودن پردازه پیشرفت نیستند. تکرار خودکار فقط برای بررسی محلی امن، حداکثر یک بار و پس از تشخیص علت مجاز است.
-- وضعیت ناظر در `evidence/development-supervisor` حفظ می‌شود؛ توقف خود گفتگو یا سرویس ابزار تحت کنترل ناظر نیست و موفقیت خودکار محسوب نشود.
-- گزارش فارسی باشد و شناسه‌ها، مسیرها و فرمان‌های انگلیسی داخل کد درون‌خطی یا بلوک جدا نوشته شوند.
-- پیام تکراری «فعلاً لازم نیست کاری انجام دهید» ارسال نکنید؛ فقط اقدام واقعی لازم از کاربر را کوتاه و مشخص توضیح دهید.
+Quote the exact `resume.next_action` in the Plan and reconcile it with the current phase, blockers, and current user instruction. Historical notes, `next_task`, and `next_command` do not override it. If it combines multiple activities, propose only one bounded task for approval.
+
+A user-requested guide or maintenance task does not silently replace the product continuation action. Preserve that action unless changing it is explicitly within approved scope. Deferred maintenance records do not grant implementation permission or advance phase order.
+
+After interruption, verify the outcome of the same run before continuing. Follow [supervisor recovery rules](docs/DEVELOPMENT_SUPERVISOR_FA.md); heartbeat output is not completed work, and the supervisor does not control the conversation or external tool service. Automatic replay is restricted to safe local checks under the documented limits, never unknown external dispatch.
+
+Report to the user in Persian, with English identifiers and commands visibly isolated. Keep updates concise; do not repeat “no action needed” messages. Explain only concrete user actions that are actually necessary.

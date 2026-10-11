@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "status": "AGENT_RULES_LINUX_VALIDATED_PRODUCT_P08_BLOCKED",
-  "scope": "APPROVED_AGENT_RULES_DOCUMENTATION_UPDATE_NOT_P08_IMPLEMENTATION",
+  "status": "ENGLISH_AGENT_GUIDE_LINUX_VALIDATED_PRODUCT_P08_BLOCKED",
+  "scope": "TWELVE_APPROVED_ENGLISH_GUIDE_IMPROVEMENTS_AND_DEFERRED_TASK_REGISTRATION_ONLY",
   "current_phase": "P08",
   "last_accepted_phase": "P07",
-  "source_digest": "73196a91c36b9ffc5a4bd2f395fb33aafc6d50366506908a8434d981d883596d",
+  "source_digest": "a485d99b2b4317d14aa1136def4052a74a511522167f439fe9f6379acbe14e5c",
   "native_target_reports": [
     {
-      "path": "evidence/targets/Linux/20261011T115053Z_e1f3c288/RUN.json",
-      "sha256": "8e596e964a6a0480e29d30e851dc5198fad4ecc7be060bbaa299a96ed1cb4cd7"
+      "path": "evidence/targets/Linux/20261011T122047Z_0ff9067a/RUN.json",
+      "sha256": "69e84a568565309fd506bbf7149487d9f34224f2031fc138a1fa434b904e3db6"
     }
   ],
   "counts_per_native_os": {
@@ -19,46 +19,46 @@
       "skipped": 0
     }
   },
-  "windows_current_source": "NOT_RUN_LOCALLY_CI_TRIGGERED_ON_PUSH",
+  "windows_current_source": "NOT_RUN_LOCALLY",
   "quality_checks": [
     {
       "id": "lint",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.045
+      "elapsed_seconds": 0.041
     },
     {
       "id": "types",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.35
+      "elapsed_seconds": 0.427
     },
     {
       "id": "conformance",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.027
+      "elapsed_seconds": 0.03
     },
     {
       "id": "transitions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.111
+      "elapsed_seconds": 0.098
     },
     {
       "id": "properties_and_regressions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 3.686
+      "elapsed_seconds": 3.577
     },
     {
       "id": "targeted_coverage",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.062
+      "elapsed_seconds": 0.057
     }
   ],
-  "build_result": "NOT_RERUN_DOCUMENTATION_ONLY_EXISTING_EDITABLE_INSTALL_VALIDATED",
+  "build_result": "NOT_RERUN_DOCUMENTATION_AND_TRANSFER_METADATA_ONLY",
   "dependency_audit": "NOT_RERUN_NO_DEPENDENCY_CHANGE",
   "full_application_requirements_verified": 0,
   "phase_advanced": false,
@@ -66,14 +66,21 @@
   "live_provider_calls": 0,
   "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
   "next_action": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر باز می‌ماند.",
+  "github_authorization_changed": false,
+  "deferred_task_ids": [
+    "MAINT-RESUME-COMPACTION",
+    "MAINT-EVIDENCE-RETENTION"
+  ],
+  "resume_compaction_performed": false,
+  "evidence_relocation_performed": false,
   "validation_summary": {
-    "path": "evidence/agent-rules/20261011/RUN.json",
-    "sha256": "6ba083d0f60367180d6fd2d5d74d9457b1dca29e0fa3fe16114f89bdef2cf17a"
+    "path": "evidence/agent-guide-english/20261011/RUN.json",
+    "sha256": "891283eadc113f12cc4d4ff6be8f1aaa267da287a794e01071314ad20d850450"
   },
   "previous_validation_report": {
-    "path": "evidence/agent-rules/20261011/PREVIOUS_VALIDATION_REPORT.json",
-    "sha256": "ac2b7fef89515f5cc4c46f291a5352f9b1f3b9591ab811fdf266847e3a372126",
-    "scope": "HISTORICAL_BEFORE_AGENTS_SOURCE_CHANGE"
+    "path": "evidence/agent-guide-english/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "6542c1a12a7f552b0ecfa3e1248bdc037d04d8fc9afdfccbc8ecf0f97a2030f6",
+    "scope": "HISTORICAL_BEFORE_ENGLISH_GUIDE_CHANGE"
   },
-  "updated_at_utc": "2026-10-11T11:54:09.226341+00:00"
+  "updated_at_utc": "2026-10-11T12:23:01.336627+00:00"
 }

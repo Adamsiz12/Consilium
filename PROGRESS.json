@@ -108,6 +108,12 @@
       "phase_order_changed": false,
       "protected_requirements_changed": false,
       "reason": "اعمال متن ۱۴ بخشی AGENTS.md پس از تأیید کاربر؛ ثبت مجوز دائمی گیت‌هاب، الزام Plan و یک تسک، و اعتبارسنجی مستندات بدون شروع پیاده‌سازی P08."
+    },
+    {
+      "date": "2026-10-11",
+      "phase_order_changed": false,
+      "protected_requirements_changed": false,
+      "reason": "اعمال دوازده اصلاح مصوب راهنمای انگلیسی؛ حفظ مجوز دائمی گیت‌هاب و ثبت صرفاً دو تسک مستقل کوچک‌سازی resume و نگهداری شواهد، بدون اجرای آن‌ها یا شروع P08."
     }
   ],
   "control_tooling_status": {
@@ -832,6 +838,20 @@
           "status": "STARTED_AUTHORIZED_ORDER_EXCEPTION",
           "title_fa": "اتصال دفتر مشاهده به دفتر عملیات اصلی و درایور سایت نخست",
           "next_action_fa": "دفتر ماندگار ساخته‌شده را به عملیات اصلی ثبت‌شده وابسته کن؛ سپس خواندن سایت نخست و شاهد قابل اعتماد صفحه را بساز."
+        },
+        {
+          "id": "MAINT-RESUME-COMPACTION",
+          "phase": "P08",
+          "status": "DEFERRED_REQUIRES_SEPARATE_APPROVED_PLAN",
+          "title_fa": "کوچک‌سازی وضعیت ادامه بدون ازبین‌بردن تاریخچه و قرارداد ابزارها",
+          "next_action_fa": "در تسک مستقل، خوانندگان resume، تولید HANDOFF، حفظ تاریخچه و آزمون‌های انتقال را بررسی و Plan مهاجرت ارائه کن؛ اکنون اجرا نشود."
+        },
+        {
+          "id": "MAINT-EVIDENCE-RETENTION",
+          "phase": "P08",
+          "status": "DEFERRED_REQUIRES_SEPARATE_APPROVED_PLAN",
+          "title_fa": "بررسی نگهداری و ارجاع شواهد حجیم بدون حذف تصاویر پذیرش",
+          "next_action_fa": "در تسک مستقل، حفظ بایت‌ها و هش‌ها، دسترسی و ماندگاری artifact و بازتولید انتقال را بررسی و Plan ارائه کن؛ اکنون جابه‌جایی یا حذف انجام نشود."
         }
       ]
     },
@@ -1816,7 +1836,46 @@
       "github_permission": "PERSISTENT_UNTIL_EXPLICIT_SEPARATE_REVOCATION",
       "p08_implementation_started": false,
       "next_user_step": "REVIEW_STAGE_3_PLAN_BEFORE_P08_CODE",
-      "updated_at_utc": "2026-10-11T11:54:09.226341+00:00"
+      "updated_at_utc": "2026-10-11T11:54:09.226341+00:00",
+      "english_revision": {
+        "status": "COMPLETED_LOCAL_VALIDATION",
+        "approved_proposals": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "report": {
+          "path": "evidence/agent-guide-english/20261011/RUN.json",
+          "sha256": "891283eadc113f12cc4d4ff6be8f1aaa267da287a794e01071314ad20d850450"
+        },
+        "deferred_task_ids": [
+          "MAINT-RESUME-COMPACTION",
+          "MAINT-EVIDENCE-RETENTION"
+        ],
+        "github_authorization_unchanged": true,
+        "product_next_action_unchanged": true,
+        "updated_at_utc": "2026-10-11T12:23:01.336627+00:00",
+        "source_digest": "a485d99b2b4317d14aa1136def4052a74a511522167f439fe9f6379acbe14e5c",
+        "linux_native_report": {
+          "path": "evidence/targets/Linux/20261011T122047Z_0ff9067a/RUN.json",
+          "sha256": "69e84a568565309fd506bbf7149487d9f34224f2031fc138a1fa434b904e3db6"
+        },
+        "counts": {
+          "tests": 1050,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
     }
   },
   "runtime_conformance": [
@@ -2002,7 +2061,7 @@
     }
   ],
   "schema_version": 1,
-  "updated_at": "2026-10-11T11:54:09.226341+00:00",
-  "updated_at_utc": "2026-10-11T11:54:09.226341+00:00",
+  "updated_at": "2026-10-11T12:23:01.336627+00:00",
+  "updated_at_utc": "2026-10-11T12:23:01.336627+00:00",
   "verified_application_requirements": 0
 }
