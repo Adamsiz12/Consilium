@@ -10,6 +10,7 @@ from pydantic import Field
 
 from consilium.adapters.api_codec import WireRequest, encode
 from consilium.adapters.api_http import AccessBlocked, HttpGrant
+from consilium.adapters.api_process_wire import grant_hash
 from consilium.core.contracts import AdapterRequest, Contract, Sha256, Text
 
 
@@ -43,6 +44,8 @@ class ApiPlan:
     wire: WireRequest
     input_tokens: int
     reserved_output_tokens: int
+    operation_hash: str
+    grant_hash: str
     live_admitted: bool = False
     scope: str = "DECLARED_OFFLINE_PLAN_NOT_LIVE_ADMISSION"
 
@@ -62,8 +65,14 @@ def prepare_api(
     """
     from consilium.core.dispatch_policy import destination_hash
 
-    request = AdapterRequest.model_validate(request)
-    profile = ApiProfile.model_validate(profile)
+    invalid = False
+    try:
+        request = AdapterRequest.model_validate(request)
+        profile = ApiProfile.model_validate(profile)
+    except (ValueError, TypeError):
+        invalid = True
+    if invalid:
+        raise AccessBlocked("API_PLAN_INPUT_INVALID")
     connection = request.connection
     if (
         type(grant) is not HttpGrant
@@ -93,12 +102,22 @@ def prepare_api(
     # Endpoint validation only; replacement must never become an executable grant.
     replace(grant, enabled=True, free_only_confirmed=True).validate(wire)
     return ApiPlan(
-        request.intent.request_hash,
-        destination_hash(connection),
-        profile.content_hash,
-        wire,
-        input_tokens,
-        output,
+        request_hash=request.intent.request_hash,
+        destination_hash=destination_hash(connection),
+        profile_hash=profile.content_hash,
+        wire=wire,
+        input_tokens=input_tokens,
+        reserved_output_tokens=output,
+        operation_hash=hashlib.sha256(
+            json.dumps(
+                request.model_dump(mode="json"),
+                sort_keys=True,
+                separators=(",", ":"),
+                ensure_ascii=False,
+                allow_nan=False,
+            ).encode()
+        ).hexdigest(),
+        grant_hash=grant_hash(grant),
     )
 
 

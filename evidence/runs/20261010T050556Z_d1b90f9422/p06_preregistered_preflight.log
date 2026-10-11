@@ -1,0 +1,17 @@
+{
+  "phase": "P06",
+  "mode": "preflight",
+  "status": "PASS",
+  "scope": "PILOT_PREFLIGHT_ONLY",
+  "source_digest_before": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "source_digest_after": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "task_count": 8,
+  "method_count": 3,
+  "required_final_outputs": 24,
+  "recorded_final_outputs": 0,
+  "blinded_scores_status": "NOT_REGISTERED",
+  "blockers": [],
+  "phase_accepted": false,
+  "model_superiority_claimed": false
+}
+

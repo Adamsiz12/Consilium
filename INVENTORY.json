@@ -2,7 +2,7 @@
   "schema_version": 1,
   "scope": "SUPPLIED_INPUTS_AND_CURRENT_WORKSPACE",
   "application_source_supplied": true,
-  "application_runtime_tests": "P01_FOUNDATION_AND_P02_DURABLE_KERNEL",
+  "application_runtime_tests": "P01_P07_ACCEPTED_KERNEL_AND_P08_P09_OFFLINE_PREPARATION",
   "real_browser_tests": "NOT_RUN",
   "protected_requirements": 30,
   "governance_version": "1.3.0",
@@ -40,7 +40,7 @@
     "os": "Linux",
     "python": "3.12.14"
   },
-  "live_account_access": "UNKNOWN",
+  "live_account_access": "UNVERIFIED; LIVE_API_USER_DEFERRED",
   "evaluation_budget": {
     "current_amount": 0,
     "paid_calls_authorized": false,
@@ -59,8 +59,8 @@
     "scope": "P01_OFFLINE_FOUNDATION",
     "release_acceptance": "P01_OFFLINE_FOUNDATION_ACCEPTED_NOT_FULL_V1"
   },
-  "windows_execution": "P01_NATIVE_EXECUTED_PASS; CURRENT_SOURCE_SEE_evidence/targets/Windows/LATEST.json",
-  "remote_ci": "PUBLISHED_AND_EXECUTED; CURRENT_SOURCE_SEE_NATIVE_REPORTS",
+  "windows_execution": "SEE_CURRENT_SOURCE_BOUND_NATIVE_REPORTS; HISTORICAL_REPORTS_DO_NOT_VERIFY_CHANGED_SOURCE",
+  "remote_ci": "SEE_PROGRESS_RESUME_REPOSITORY_SYNC_AND_NATIVE_TARGET_REPORTS",
   "application_source_commit_reference": "PROGRESS.json.application_source_commit",
   "fresh_environment_installation": "SEE_evidence/audit/installation/RUN.json_LINUX_ONLY",
   "development_execution_policy": {
@@ -70,7 +70,7 @@
     "remote_visibility": "public",
     "repository_state_observed": "PUBLISHED",
     "remote_mutations_performed": true,
-    "public_publication_permission": "GRANTED_EXPLICITLY_2026-10-06",
+    "public_publication_permission": "PERMANENT_USER_AUTHORIZATION_RENEWED",
     "authorization_scope": "Publish reviewed checkpoint; autonomously execute Windows/Linux; continue the approved roadmap."
   },
   "native_ci_hosts": [
@@ -87,5 +87,17 @@
     "report": "evidence/persistence-tests/RUN.json",
     "scope": "P02_DURABLE_KERNEL",
     "phase_acceptance": "SEE_PROGRESS_AND_ACCEPTED_EVIDENCE"
+  },
+  "current_work": {
+    "status": "SEE_CANONICAL_REPOSITORY_SYNC_RECORD",
+    "record": "PROGRESS.json.resume.repository_sync",
+    "formal_current_phase": "P08",
+    "last_accepted_phase": "P07",
+    "native_verification": "SOURCE_BOUND_REPORTS_AT_evidence/targets",
+    "provider_calls_in_repository_sync": 0,
+    "p09_scope": "USER_AUTHORIZED_OFFLINE_PREPARATION_ONLY",
+    "report": "docs/CURRENT_STATUS_FA.md",
+    "continuation_map": "docs/PROJECT_CONTINUATION_MASTER_FA.md",
+    "review": "SEPARATE_SAME_AUTHOR_NOT_INDEPENDENT"
   }
 }

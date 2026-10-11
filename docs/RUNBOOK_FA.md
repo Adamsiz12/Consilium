@@ -4,22 +4,24 @@
 
 ## ساخت محیط
 
+برای نقطهٔ جاری `P08`، ابتدا نماهای وضعیت را تازه و فرمان `check` را اجرا کنید. فرمان `local` علاوه بر بررسی کد، پذیرش مرحلهٔ جاری را درخواست می‌کند؛ نبود بررسی‌های پذیرش ثبت‌شدهٔ مرحلهٔ هشتم باعث مسدودماندن همان بخش می‌شود. نصب ابزارهای توسعه برای بررسی کامل لازم است. وضعیت و محدودیت‌های جاری در `CURRENT_STATUS_FA.md` ثبت شده‌اند.
+
 در لینوکس، از ریشهٔ مخزن:
 
 ```bash
 python3.12 -m venv .venv
-.venv/bin/python -m pip install -r requirements.lock
+.venv/bin/python -m pip install -r requirements.lock -r requirements-dev.lock
 .venv/bin/python tools/qualityctl.py navigation
-.venv/bin/python tools/development_supervisor.py local
+.venv/bin/python tools/development_supervisor.py check
 ```
 
 در ویندوز، برای پژوهشگر دارای محیط:
 
 ```powershell
 py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.lock
+.\.venv\Scripts\python.exe -m pip install -r requirements.lock -r requirements-dev.lock
 .\.venv\Scripts\python.exe tools/qualityctl.py navigation
-.\.venv\Scripts\python.exe tools/development_supervisor.py local
+.\.venv\Scripts\python.exe tools/development_supervisor.py check
 ```
 
 این دستورهای بازتولید، تکلیف کاربر نیستند. دستیار آزمون ویندوز را در گردش‌کار دوردست انجام می‌دهد و گزارش را خودش دریافت می‌کند.

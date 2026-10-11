@@ -9,6 +9,7 @@ from __future__ import annotations
 import http.client
 import os
 import re
+import threading
 import time
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -45,6 +46,7 @@ class HttpGrant:
         if (
             type(wire) is not WireRequest
             or type(wire.body) is not bytes
+            or not wire.body
             or len(wire.body) > MAX_BYTES
             or type(wire.streaming) is not bool
             or type(wire.model) is not str
@@ -129,7 +131,7 @@ class Secret:
 
 
 def https_once(
-    endpoint: str, headers: dict[str, Secret | str], body: bytes, timeout: float
+    endpoint: str, headers: dict[str, Secret | str], body: bytes, timeout: float, *, on_progress=None
 ) -> HttpFrames:
     """No redirects, no retry, bounded response and per-socket remaining deadline.
 
@@ -138,7 +140,7 @@ def https_once(
     """
     parts = urlsplit(endpoint)
     deadline = time.monotonic() + timeout
-    connection = http.client.HTTPSConnection(parts.hostname, timeout=timeout)
+    connection = http.client.HTTPSConnection(parts.hostname, port=parts.port, timeout=timeout)
     chunks = []
     status = 0
     interrupted = False
@@ -161,6 +163,8 @@ def https_once(
         remaining()
         response = connection.getresponse()
         status = response.status
+        if on_progress is not None:
+            on_progress(status, b"")
         size = 0
         while True:
             remaining()
@@ -172,6 +176,8 @@ def https_once(
                 interrupted = True
                 break
             chunks.append(chunk)
+            if on_progress is not None:
+                on_progress(status, chunk)
     except (OSError, http.client.HTTPException):
         interrupted = True
     finally:
@@ -179,18 +185,43 @@ def https_once(
     return HttpFrames(status, tuple(chunks), interrupted)
 
 
+def credential_value(grant):
+    """Runtime-only credential; callers must never serialize or log it."""
+    value = os.environ.get(grant.credential_env)
+    if not value or len(value) > 4096 or any(c.isspace() for c in value):
+        raise AccessBlocked("CREDENTIAL_UNAVAILABLE")
+    return value
+
+
 @dataclass
 class ApiHttpTransport:
     grant: HttpGrant
     _http: Callable = field(default=https_once, repr=False)
     _attempts: set[UUID] = field(default_factory=set, init=False, repr=False)
+    _lock: threading.Lock = field(default_factory=threading.Lock, init=False, repr=False)
 
     def send(
         self, wire: WireRequest, *, attempt_id: UUID, timeout_seconds: float
     ) -> HttpOutcome:
+        grant = self.grant
+        grant.validate(wire)
+        with self._lock:
+            value = self._reserve(grant, attempt_id, timeout_seconds)
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "text/event-stream" if wire.streaming else "application/json",
+        }
+        auth = Secret(value if wire.provider == "google" else "Bearer " + value)
+        headers["x-goog-api-key" if wire.provider == "google" else "Authorization"] = auth
+        try:
+            frames = self._http(grant.endpoint, headers, wire.body, float(timeout_seconds))
+        except Exception:  # noqa: BLE001 -- private client errors never escape
+            return HttpOutcome("UNKNOWN_DELIVERY", "TRANSPORT_INTERRUPTED")
+        return outcome_from_frames(wire, frames)
+
+    def _reserve(self, grant, attempt_id, timeout_seconds):
         import math
 
-        self.grant.validate(wire)
         if (
             type(attempt_id) is not UUID
             or not attempt_id.int
@@ -200,61 +231,51 @@ class ApiHttpTransport:
             or not 0 < timeout_seconds <= 900
         ):
             raise AccessBlocked("INVALID_OR_REPEATED_ATTEMPT")
-        value = os.environ.get(self.grant.credential_env)
-        if not value or len(value) > 4096 or any(c.isspace() for c in value):
-            raise AccessBlocked("CREDENTIAL_UNAVAILABLE")
-        headers = {
-            "Content-Type": "application/json",
-            "Accept": "text/event-stream" if wire.streaming else "application/json",
-        }
-        auth = Secret(value if wire.provider == "google" else "Bearer " + value)
-        headers["x-goog-api-key" if wire.provider == "google" else "Authorization"] = (
-            auth
+        value = credential_value(grant)
+        self._attempts.add(attempt_id)
+        return value
+
+
+def outcome_from_frames(wire, frames):
+    """Interpret retained bytes without dispatching or changing attempt state."""
+    if (
+        type(frames) is not HttpFrames
+        or type(frames.status) is not int
+        or type(frames.interrupted) is not bool
+        or type(frames.chunks) is not tuple
+        or not (100 <= frames.status <= 599 or frames.status == 0 and frames.interrupted and not frames.chunks)
+        or any(type(c) is not bytes for c in frames.chunks)
+        or sum(len(c) for c in frames.chunks) > MAX_BYTES
+    ):
+        return HttpOutcome("UNKNOWN_DELIVERY", "INVALID_HTTP_FRAMES")
+    if frames.status == 0:
+        return HttpOutcome("UNKNOWN_DELIVERY", "TRANSPORT_INTERRUPTED")
+    if frames.status != 200:
+        code = (
+            "AUTH_REQUIRED"
+            if frames.status in (401, 403)
+            else "QUOTA"
+            if frames.status == 429
+            else "HTTP_ERROR"
         )
-        self._attempts.add(
-            attempt_id
-        )  # A thrown/ambiguous send is never retried by this transport.
-        try:
-            frames = self._http(
-                self.grant.endpoint, headers, wire.body, float(timeout_seconds)
-            )
-        except Exception:  # noqa: BLE001 - do not expose a client exception containing auth headers.
-            return HttpOutcome("UNKNOWN_DELIVERY", "TRANSPORT_INTERRUPTED")
-        if (
-            type(frames) is not HttpFrames
-            or type(frames.status) is not int
-            or type(frames.interrupted) is not bool
-            or type(frames.chunks) is not tuple
-            or any(type(c) is not bytes for c in frames.chunks)
-            or sum(len(c) for c in frames.chunks) > MAX_BYTES
-        ):
-            return HttpOutcome("UNKNOWN_DELIVERY", "INVALID_HTTP_FRAMES")
-        if frames.status != 200:
-            code = (
-                "AUTH_REQUIRED"
-                if frames.status in (401, 403)
-                else "QUOTA"
-                if frames.status == 429
-                else "HTTP_ERROR"
-            )
-            return HttpOutcome("UNKNOWN_DELIVERY", code)
-        try:
-            if wire.streaming:
-                parser = StreamDecoder(wire.provider)
-                try:
-                    for chunk in frames.chunks:
-                        parser.feed(chunk)
-                except CodecError:
-                    pass
-                observation = parser.close(interrupted=frames.interrupted)
-            elif frames.interrupted:
-                observation = ApiObservation(None, "NONE", None, None)
-            else:
-                observation = decode(wire.provider, b"".join(frames.chunks))
-            return HttpOutcome(
-                "CONFIRMED_DELIVERY" if observation.content else "UNKNOWN_DELIVERY",
-                "RESPONSE_" + observation.state,
-                observation,
-            )
-        except CodecError:
-            return HttpOutcome("UNKNOWN_DELIVERY", "MALFORMED_RESPONSE")
+        return HttpOutcome("UNKNOWN_DELIVERY", code)
+    try:
+        if wire.streaming:
+            parser = StreamDecoder(wire.provider)
+            try:
+                for chunk in frames.chunks:
+                    parser.feed(chunk)
+            except CodecError:
+                pass
+            observation = parser.close(interrupted=frames.interrupted)
+        elif frames.interrupted:
+            observation = ApiObservation(None, "NONE", None, None)
+        else:
+            observation = decode(wire.provider, b"".join(frames.chunks))
+        return HttpOutcome(
+            "CONFIRMED_DELIVERY" if observation.content else "UNKNOWN_DELIVERY",
+            "RESPONSE_" + observation.state,
+            observation,
+        )
+    except CodecError:
+        return HttpOutcome("UNKNOWN_DELIVERY", "MALFORMED_RESPONSE")

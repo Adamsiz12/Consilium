@@ -8,6 +8,7 @@ import re
 from dataclasses import dataclass
 from typing import Literal
 
+from consilium.adapters.sse_framer import SseFramer, SseFramingError
 from consilium.core.contracts import FrozenInput
 
 Provider = Literal["google", "qwen"]
@@ -53,6 +54,7 @@ def _json(raw: bytes):
             result[key] = value
         return result
 
+    invalid = False
     try:
         value = json.loads(
             raw.decode("utf-8"),
@@ -61,8 +63,11 @@ def _json(raw: bytes):
                 CodecError("NONFINITE_JSON")
             ),
         )
+        json.dumps(value, allow_nan=False, ensure_ascii=False).encode("utf-8")
     except (UnicodeError, ValueError, RecursionError):
-        raise CodecError("INVALID_JSON") from None
+        invalid = True
+    if invalid:
+        raise CodecError("INVALID_JSON")
     if type(value) is not dict:
         raise CodecError("OBJECT_REQUIRED")
     return value
@@ -247,7 +252,7 @@ class StreamDecoder:
         if provider not in ("google", "qwen"):
             raise CodecError("UNSUPPORTED_PROVIDER")
         self.provider = provider
-        self.buffer = b""
+        self.framer = SseFramer(max_bytes=MAX_BYTES)
         self.size = 0
         self.text = ""
         self.remote = None
@@ -265,50 +270,53 @@ class StreamDecoder:
         if self.size > MAX_BYTES:
             self.broken = True
             raise CodecError("STREAM_TOO_LARGE")
-        self.buffer += chunk
-        # Normalise only full CRLF pairs; a split CRLF remains buffered.
-        self.buffer = self.buffer.replace(b"\r\n", b"\n")
-        while b"\n\n" in self.buffer:
-            event, self.buffer = self.buffer.split(b"\n\n", 1)
-            data = b"\n".join(
-                line[5:].lstrip(b" ")
-                for line in event.split(b"\n")
-                if line.startswith(b"data:")
+        if self.broken:
+            raise CodecError("STREAM_BROKEN")
+        failure = None
+        try:
+            for data in self.framer.feed(chunk):
+                self._event(data)
+        except SseFramingError as exc:
+            failure = str(exc)
+        if failure:
+            self.broken = True
+            raise CodecError(failure)
+
+    def _event(self, data):
+        if not data:
+            return
+        if self.done:
+            self.broken = True
+            raise CodecError("EVENT_AFTER_DONE")
+        if data == b"[DONE]":
+            if self.provider != "qwen":
+                self.broken = True
+                raise CodecError("UNEXPECTED_DONE")
+            self.done = True
+            return
+        try:
+            text, finish, remote, usage, unsupported = _extract(
+                self.provider, _json(data), stream=True
             )
-            if not data:
-                continue
-            if self.done:
-                self.broken = True
-                raise CodecError("EVENT_AFTER_DONE")
-            if data == b"[DONE]":
-                if self.provider != "qwen":
-                    self.broken = True
-                    raise CodecError("UNEXPECTED_DONE")
-                self.done = True
-                continue
-            try:
-                text, finish, remote, usage, unsupported = _extract(
-                    self.provider, _json(data), stream=True
-                )
-                if (
-                    remote is not None
-                    and self.remote is not None
-                    and remote != self.remote
-                ):
-                    raise CodecError("RESPONSE_ID_CHANGED")
-                if self.finish is not None and (text or finish is not None):
-                    raise CodecError("CONTENT_AFTER_FINISH")
-                self.text += text
-                self.remote = remote or self.remote
-                self.finish = finish or self.finish
-                self.usage = tuple(
-                    new if new is not None else old
-                    for old, new in zip(self.usage, usage)
-                )
-                self.unsupported |= unsupported
-            except CodecError:
-                self.broken = True
-                raise
+            if (
+                remote is not None
+                and self.remote is not None
+                and remote != self.remote
+            ):
+                raise CodecError("RESPONSE_ID_CHANGED")
+            if self.finish is not None and (text or finish is not None):
+                raise CodecError("CONTENT_AFTER_FINISH")
+            self.text += text
+            self.remote = remote or self.remote
+            self.finish = finish or self.finish
+            self.usage = tuple(
+                new if new is not None else old
+                for old, new in zip(self.usage, usage)
+            )
+            self.unsupported |= unsupported
+        except CodecError:
+            self.broken = True
+            raise
 
     def close(self, *, interrupted: bool = False) -> ApiObservation:
         if self.closed:
@@ -318,7 +326,7 @@ class StreamDecoder:
         if self.provider == "qwen":
             valid_end &= self.done
         complete = valid_end and not (
-            interrupted or self.broken or self.buffer.strip() or self.unsupported
+            interrupted or self.broken or self.framer.pending or self.unsupported
         )
         state = (
             "COMPLETE"

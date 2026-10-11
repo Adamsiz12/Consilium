@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "findings": [
+    {
+      "cause": "Wrong/stale UI prompt from synchronized mutable handoff file",
+      "id": "F01",
+      "resolution": "Immutable per-call files, SHA256 and call ID verification, actual sent prompt capture; failed attempt and linked repair preserved."
+    },
+    {
+      "cause": "Partially inconsistent SQLite product tail; exact cause unknown",
+      "id": "F02",
+      "resolution": "Forensic original quarantined; valid prefix checked; proper product API replay and judge retry; live databases moved out of synchronization."
+    },
+    {
+      "cause": "Browser closure captured stale elapsed timer",
+      "id": "F03",
+      "resolution": "Append-only timing amendments bind immutable STARTED record and original capture bytes; operator overhead disclosed."
+    },
+    {
+      "cause": "Architect schema/semantic validation and missing operator verification",
+      "id": "F04",
+      "resolution": "Explicit semantic operator gate and actual linked repairs; no failed attempts removed."
+    },
+    {
+      "cause": "Judge PILOT-005 switches A/B source attribution internally",
+      "id": "F05",
+      "resolution": "Raw response preserved with attribution warning. Functional acceptance covers independently verified common conclusion only; no model identity ranking or superiority claim is accepted."
+    },
+    {
+      "cause": "Single scheduling answer initially says six before correcting to five",
+      "id": "F06",
+      "resolution": "Original retained; reviewed final answer is five with feasible schedule and lower bound."
+    },
+    {
+      "id": "F07",
+      "cause": "Failed aggregate development-regression timeout allowed late inherited log output, invalidating a historical failed log hash",
+      "resolution": "Original failed receipt and full observed bytes quarantined; invalid latest pointer retired. Aggregate allowance aligned to existing 240-second native budget; final local supervisor and all 720 tests passed without weakening test assertions."
+    }
+  ],
+  "open_functional_control_defects": [],
+  "known_model_content_limit": "Judge alias attribution inconsistency is preserved and excluded from identity ranking; this is not a claim that all model text is flawless."
+}

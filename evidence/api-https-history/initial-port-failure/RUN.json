@@ -1,0 +1,19 @@
+{
+  "scope": "REAL_LOOPBACK_TLS_AND_OWNED_PROCESS_NOT_PROVIDER_CERTIFICATION",
+  "status": "FAIL",
+  "tests": 4,
+  "failures": 4,
+  "errors": 0,
+  "source_digest_before": "08e6941a56a079ce15c4f0ecd2c8acffe00cbb82f5bbae352d4083ab32f35955",
+  "source_digest_after": "08e6941a56a079ce15c4f0ecd2c8acffe00cbb82f5bbae352d4083ab32f35955",
+  "date_utc": "2026-10-10T19:59:09.834473+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14",
+    "ssl": "OpenSSL 3.5.8 25 Aug 2026"
+  },
+  "provider_calls": 0,
+  "real_credentials_used": false,
+  "phase_accepted": false,
+  "windows_execution": "NOT_RUN"
+}

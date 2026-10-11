@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "workflow_run_id": 38021912018,
+  "commit_sha": "bd8822e69da8765708b46bd2f892f64388e1481f",
+  "source_digest": "5208dc9add5bb60d2df4c7cc156b1a2dc8c59afbd368ee836440009e87c96567",
+  "tests_per_target": 720,
+  "pilot_tests_per_target": 73,
+  "jobs": {
+    "Native Windows": "success",
+    "Native Linux": "success",
+    "Dependency advisory audit": "success",
+    "Validate both native report graphs": "success"
+  },
+  "artifact_imports": [
+    {
+      "artifact_id": 11658887768,
+      "target": "Linux",
+      "sha256": "e7807a0f43e07d97c590cc4f88059624b3cd23ec3db5461d2330c05cb96d5575",
+      "run_id": 38021912018,
+      "head_sha": "bd8822e69da8765708b46bd2f892f64388e1481f",
+      "status": "HASH_VERIFIED_IMPORTED",
+      "previous_pointer_preserved": true
+    },
+    {
+      "artifact_id": 11658163777,
+      "target": "Windows",
+      "sha256": "804f5848b71463ff8cf904b2a599c2f5aa0d50c051fe64534deaccda015ef16d",
+      "run_id": 38021912018,
+      "head_sha": "bd8822e69da8765708b46bd2f892f64388e1481f",
+      "status": "HASH_VERIFIED_IMPORTED",
+      "previous_pointer_preserved": true
+    }
+  ]
+}

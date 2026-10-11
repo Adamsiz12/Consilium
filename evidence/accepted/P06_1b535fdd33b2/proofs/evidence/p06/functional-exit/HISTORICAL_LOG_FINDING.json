@@ -1,0 +1,16 @@
+{
+  "scope": "FAILED_HISTORICAL_RECEIPT_QUARANTINED_NOT_VALID_ACCEPTANCE",
+  "receipt": {
+    "phase": "P06",
+    "receipt": "evidence/runs/20261010T033651Z_83835a6d55/RUN.json",
+    "sha256": "e6584f79e065cb6a496353ec32b0f351b47a8cab2e3a141216e3e45d33b0a997"
+  },
+  "log_sha256_expected": "70770c3681b0d910041c795e3cb80f4e154d1b675eeb4d9a40af48fa12d4ff54",
+  "log_sha256_observed": "1cfc530f1b900018d82d0afc712a36e33a1e1193f4292cb37aeb090c500ce8df",
+  "observed_returncode": -1,
+  "observed_error": "TimeoutExpired",
+  "root_cause": "The aggregate development_regression was limited to 60s. subprocess.run timed out and killed its parent while inherited log writers could finish later. This historical log cannot be repaired by changing its expected digest.",
+  "mitigation": "Aggregate timeout 240s matches the existing native recorder; unchanged production 300/900 supervisor limits. Invalid latest pointer retired, full original attempt retained.",
+  "current_phase_accepted": false,
+  "at_utc": "2026-10-10T03:44:55.169822+00:00"
+}

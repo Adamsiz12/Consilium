@@ -227,3 +227,49 @@ class ApiHttpTests(unittest.TestCase):
         self.assertTrue(frames.interrupted)
         self.assertEqual(frames.status, 0)
         self.assertNotIn("fake-key", repr(frames))
+
+    def test_concurrent_same_attempt_reservation_is_atomic(self):
+        import threading
+
+        entered, second_credential = threading.Event(), threading.Event()
+        results, errors, credentials = [], [], []
+        calls = []
+        def credential(_grant):
+            credentials.append(1)
+            if len(credentials) == 1:
+                entered.set()
+                second_credential.wait(0.2)
+            else:
+                second_credential.set()
+            return "synthetic-key"
+        def exchange(*_args):
+            calls.append(1)
+            return HttpFrames(429, ())
+        transport = ApiHttpTransport(self.grant, exchange)
+        attempt = uuid4()
+        def send():
+            try:
+                results.append(transport.send(self.wire, attempt_id=attempt, timeout_seconds=1))
+            except AccessBlocked as error:
+                errors.append(str(error))
+        with patch("consilium.adapters.api_http.credential_value", credential):
+            first = threading.Thread(target=send)
+            second = threading.Thread(target=send)
+            first.start()
+            self.assertTrue(entered.wait(1))
+            second.start()
+            first.join(2)
+            second.join(2)
+        self.assertFalse(first.is_alive() or second.is_alive())
+        self.assertEqual((len(calls), len(credentials), len(results)), (1, 1, 1))
+        self.assertEqual(errors, ["INVALID_OR_REPEATED_ATTEMPT"])
+
+    def test_invalid_status_and_empty_request_never_claim_http_success(self):
+        from dataclasses import replace
+
+        from consilium.adapters.api_http import outcome_from_frames
+        for frames in (HttpFrames(-1, ()), HttpFrames(600, ()), HttpFrames(0, ()), HttpFrames(0, (b"unexpected",), True)):
+            self.assertEqual(outcome_from_frames(self.wire, frames).code, "INVALID_HTTP_FRAMES")
+        self.assertEqual(outcome_from_frames(self.wire, HttpFrames(0, (), True)).code, "TRANSPORT_INTERRUPTED")
+        with self.assertRaises(AccessBlocked):
+            self.grant.validate(replace(self.wire, body=b""))

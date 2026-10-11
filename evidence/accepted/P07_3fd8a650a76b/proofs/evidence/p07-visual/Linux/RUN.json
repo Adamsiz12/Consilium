@@ -1,0 +1,22 @@
+{
+  "status": "CAPTURED_REQUIRES_HUMAN_VISUAL_REVIEW",
+  "host": "Linux",
+  "browser": "Google Chrome 154.0.8037.97",
+  "source_digest": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "scope": "P07_SYNTHETIC_MIXED_TEXT_OFFLINE_HTML_VIEWER_NOT_LIVE_MODEL_EVIDENCE",
+  "source_html_sha256": "ab45d19776171732be0d86a1d3b2fd0f01d69995e3483664e2b57148e550f2f7",
+  "records": [
+    {
+      "name": "desktop",
+      "viewport_requested": "1280,900",
+      "sha256": "a47e5380dd9cd296133db7b773ef1185303b82047d02de23940c2902203d6778",
+      "screenshot": "desktop.png"
+    },
+    {
+      "name": "mobile",
+      "viewport_requested": "390,844",
+      "sha256": "767165ec91b903ec4d880c5c200c4c1927f286d37643885d1b6657b02304fc7a",
+      "screenshot": "mobile.png"
+    }
+  ]
+}

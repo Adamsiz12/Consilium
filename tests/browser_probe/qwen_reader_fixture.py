@@ -19,7 +19,15 @@ elif mode == "child":
         with Path(path).open("ab") as file:
             file.write(b".")
         time.sleep(0.03)
-elif mode == "hang":
+elif mode == "truncated":
+    raw = Path(path).read_bytes()
+    sys.stdout.buffer.write(raw[:len(raw) // 2])
+elif mode in ("hang", "partial"):
+    if mode == "partial":
+        raw = Path(path).read_bytes()
+        sys.stdout.buffer.write(raw[:len(raw) // 2])
+        sys.stdout.buffer.flush()
+        path += ".heartbeat"
     subprocess.Popen([sys.executable, __file__, "child", path])
     while True:
         time.sleep(0.05)

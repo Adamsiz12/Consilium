@@ -1,0 +1,17 @@
+{
+  "scope": "REAL_LOOPBACK_WEBSOCKET_CDP_FIXTURE_NOT_LIVE_BROWSER",
+  "status": "PASS",
+  "tests": 8,
+  "failures": 0,
+  "errors": 0,
+  "source_digest_before": "e34be5fab1b675cdf631372f6580114fcd0fb56e9886190ededd206e395a690b",
+  "source_digest_after": "e34be5fab1b675cdf631372f6580114fcd0fb56e9886190ededd206e395a690b",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14",
+    "websockets": "16.0"
+  },
+  "browser_connected": false,
+  "provider_calls": 0,
+  "phase_accepted": false
+}

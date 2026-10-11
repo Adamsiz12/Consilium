@@ -4,7 +4,7 @@
   "verified_application_requirements": 0,
   "status": "PASS",
   "counts": {
-    "tests": 119,
+    "tests": 122,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
@@ -12,17 +12,18 @@
     "unexpected_successes": 0
   },
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
-  "date": "2026-10-09T09:29:09.821162+00:00",
+  "date": "2026-10-10T23:49:16.199356+00:00",
   "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
   "source_files_before": {
     "tools/qualityctl.py": "b9e9956f8b689ff5e23c1cad766148bc07525a2960db62b3b09c00289e7cc528",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
-    "tools/check.py": "e30c90f1b65c1acefba92080fb15ba19b554ddfffba2934bdde1b8e8093e0bc6",
-    "tools/check_target_matrix.py": "3eff14ae3a2714bb3ed680c27de6e7cedd47b7394e4d72071f8a33d39f8898c4",
-    "tools/record_target_checks.py": "7153e22e802efa0b3778f01cd2e0109d1d1141ad1aada1a9bf925f6942b5663b",
-    "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "f310642cb6ef86d3c12c8990c1d49c8cda5a23d9e253d42fe460ff20ba85d62f",
+    "tools/check.py": "d43f7e98bfd269d00827c5b073e84690b53891aacf233fb655d07e2b90324763",
+    "tools/check_target_matrix.py": "29b2827e7405a01560851f9899f038c5346ae716239cb65892a605f44eb611d4",
+    "tools/record_target_checks.py": "928e4d29c6951c3e1eabf8e41b636fb507f1ae0754ed98dfb6b2585287b70ee0",
+    "ROADMAP.json": "c156e4376907c662420cff0f0fdbab7e2a645cba755ebbe967b0c5e87e312ef4",
+    "PROGRESS.json": "1c69c0d34aa75270003d49a511cd2755aee6134e351df0ab4f7f440a33109585",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
+    "tests/test_development_progress.py": "9a38121986b6596d26285bed1761f3a33176f50d63dc9d32a9f6fd3747792bc1",
     "tests/test_development_supervisor.py": "d3185e867b15036d17c2ea5a51add3aff00c7b1423849ca3594488e0ffe762ab",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "4a33cd2e61fd3c3f6fd1760c5a517b00d44a16188f76b30bf8560f8bb3eed078",
@@ -35,17 +36,18 @@
     "system": "Linux",
     "python": "3.12.14"
   },
-  "source_digest_before": "afff2f7d9fd7b5c1e1db586be09ddd4a6463c3e9c5a8ab2ce011bbd12668797a",
-  "source_digest_after": "afff2f7d9fd7b5c1e1db586be09ddd4a6463c3e9c5a8ab2ce011bbd12668797a",
+  "source_digest_before": "7ae11e269445ae1c21671f979e82f905d2480d7588873ff8494c7e8f08155fd8",
+  "source_digest_after": "7ae11e269445ae1c21671f979e82f905d2480d7588873ff8494c7e8f08155fd8",
   "source_files_after": {
     "tools/qualityctl.py": "b9e9956f8b689ff5e23c1cad766148bc07525a2960db62b3b09c00289e7cc528",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
-    "tools/check.py": "e30c90f1b65c1acefba92080fb15ba19b554ddfffba2934bdde1b8e8093e0bc6",
-    "tools/check_target_matrix.py": "3eff14ae3a2714bb3ed680c27de6e7cedd47b7394e4d72071f8a33d39f8898c4",
-    "tools/record_target_checks.py": "7153e22e802efa0b3778f01cd2e0109d1d1141ad1aada1a9bf925f6942b5663b",
-    "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "f310642cb6ef86d3c12c8990c1d49c8cda5a23d9e253d42fe460ff20ba85d62f",
+    "tools/check.py": "d43f7e98bfd269d00827c5b073e84690b53891aacf233fb655d07e2b90324763",
+    "tools/check_target_matrix.py": "29b2827e7405a01560851f9899f038c5346ae716239cb65892a605f44eb611d4",
+    "tools/record_target_checks.py": "928e4d29c6951c3e1eabf8e41b636fb507f1ae0754ed98dfb6b2585287b70ee0",
+    "ROADMAP.json": "c156e4376907c662420cff0f0fdbab7e2a645cba755ebbe967b0c5e87e312ef4",
+    "PROGRESS.json": "1c69c0d34aa75270003d49a511cd2755aee6134e351df0ab4f7f440a33109585",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
+    "tests/test_development_progress.py": "9a38121986b6596d26285bed1761f3a33176f50d63dc9d32a9f6fd3747792bc1",
     "tests/test_development_supervisor.py": "d3185e867b15036d17c2ea5a51add3aff00c7b1423849ca3594488e0ffe762ab",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "4a33cd2e61fd3c3f6fd1760c5a517b00d44a16188f76b30bf8560f8bb3eed078",
@@ -56,6 +58,18 @@
   },
   "source_unchanged": true,
   "cases": [
+    {
+      "id": "test_development_progress.DevelopmentProgressTests.test_first_milestone_waits_for_owner_record_and_preserves_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_progress.DevelopmentProgressTests.test_missing_ownership_remains_bounded_and_does_not_create_progress",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_progress.DevelopmentProgressTests.test_wrong_owner_record_cannot_authorize_child_milestone",
+      "status": "PASS"
+    },
     {
       "id": "test_development_supervisor.DevelopmentSupervisorTests.test_blocked_phase_reporting_finishes_supervised_task_without_accepting_phase",
       "status": "PASS"

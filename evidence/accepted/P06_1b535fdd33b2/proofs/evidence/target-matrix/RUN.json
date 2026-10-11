@@ -1,0 +1,40 @@
+{
+  "phase": "P01",
+  "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
+  "source_digest": "5208dc9add5bb60d2df4c7cc156b1a2dc8c59afbd368ee836440009e87c96567",
+  "targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "control_tests": 119,
+      "foundation_tests": 60,
+      "persistence_tests": 104,
+      "browser_probe_tests": 44,
+      "architect_tests": 264,
+      "council_tests": 41,
+      "quality_tests": 15,
+      "pilot_tests": 73,
+      "evidence": {
+        "path": "evidence/targets/Windows/20261010T035004Z_549c6a27/RUN.json",
+        "sha256": "699a14f8b56a87b6d9d02a744555f47fc0b65b4f6527018549c3f5fbc609ca58"
+      }
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 119,
+      "foundation_tests": 60,
+      "persistence_tests": 104,
+      "browser_probe_tests": 44,
+      "architect_tests": 264,
+      "council_tests": 41,
+      "quality_tests": 15,
+      "pilot_tests": 73,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/RUN.json",
+        "sha256": "dde3f8eb51fa399aa067acf9c6e5ea625b3661c00a9097d18a6cefa96aa00c22"
+      }
+    }
+  ],
+  "status": "PASS"
+}

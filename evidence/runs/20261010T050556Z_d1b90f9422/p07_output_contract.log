@@ -1,0 +1,15 @@
+test_generation_rejects_extra_files_tampering_and_unsupported_format (test_output.OutputCase.test_generation_rejects_extra_files_tampering_and_unsupported_format) ... ok
+test_html_escapes_untrusted_code_and_links_without_scripts (test_output.OutputCase.test_html_escapes_untrusted_code_and_links_without_scripts) ... ok
+test_import_rejects_invalid_versions_references_and_completion (test_output.OutputCase.test_import_rejects_invalid_versions_references_and_completion) ... ok
+test_json_import_requires_confirmed_exact_hash_without_db_mutation (test_output.OutputCase.test_json_import_requires_confirmed_exact_hash_without_db_mutation) ... ok
+test_legacy_generation_not_overwritten_at_same_revision (test_output.OutputCase.test_legacy_generation_not_overwritten_at_same_revision) ... ok
+test_mixed_paths_links_tables_and_code_have_visible_isolation (test_output.OutputCase.test_mixed_paths_links_tables_and_code_have_visible_isolation) ... ok
+test_real_process_exits_during_export_keep_recoverable_complete_generation (test_output.OutputCase.test_real_process_exits_during_export_keep_recoverable_complete_generation) ... ok
+test_recovery_ignores_newest_invalid_generation_and_broken_pointer (test_output.OutputCase.test_recovery_ignores_newest_invalid_generation_and_broken_pointer) ... ok
+test_stable_identity_survives_reordered_participants (test_output.OutputCase.test_stable_identity_survives_reordered_participants) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 4.441s
+
+OK
+{"phase": "P07", "scope": "P07_OUTPUT_IMPORT_PROCESS_EXIT_RECOVERY", "status": "PASS", "counts": {"tests": 9, "failures": 0, "errors": 0, "skipped": 0}}

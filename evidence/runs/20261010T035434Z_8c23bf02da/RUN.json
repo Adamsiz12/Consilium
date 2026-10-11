@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "development_step_id": "c01abd30598d451ba536dd9481155973",
+  "phase": "P06",
+  "plan_version": "1.2",
+  "source_digest_before": "5208dc9add5bb60d2df4c7cc156b1a2dc8c59afbd368ee836440009e87c96567",
+  "source_digest_after": "5208dc9add5bb60d2df4c7cc156b1a2dc8c59afbd368ee836440009e87c96567",
+  "progress_sha256": "332a46cff88417f35634cae5b850b1cc70a5695d33069b7df769a08367caf44b",
+  "checks": [
+    {
+      "id": "scope_inventory",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/check_scope.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/scope_inventory.log",
+      "log_sha256": "7929b207120460fc8a4ab049d564aa93a4d4b890050201b2b730bb1af70eea94",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "development_regression",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/check.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/development_regression.log",
+      "log_sha256": "00ce90e2b4e4838bf1b5aad6558f27478ecfa57f7de7cd962bdf1299091a388c",
+      "counts": {
+        "tests": 119,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261010T035434Z_8c23bf02da/development_regression.xml",
+      "junit_input": "evidence/control-tests/JUNIT.xml",
+      "junit_sha256": "00e9c1595c9cfd828cb042a70b89412a6241c445fd8a4bc735c2abee6c873e27",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "foundation_behavior",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/run_foundation_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/foundation_behavior.log",
+      "log_sha256": "762efb9e5f24b621767b3b82d594c1b8ad24b37c87c97cb85525827560539b17",
+      "counts": {
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261010T035434Z_8c23bf02da/foundation_behavior.xml",
+      "junit_input": "evidence/foundation-tests/JUNIT.xml",
+      "junit_sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "environment_lock",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/check_environment.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/environment_lock.log",
+      "log_sha256": "d483169b60e63849270f8eff398d77e6a63bd69a8a83f685541a7a9ed2e037b3",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "native_target_matrix",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/check_target_matrix.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/native_target_matrix.log",
+      "log_sha256": "6c21208bc8efdcfb6c9bafd3b5a3c9726b52d74e757b7b3087d057103e81f1d9",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "persistence_durable_kernel",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/run_persistence_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/persistence_durable_kernel.log",
+      "log_sha256": "a0a15b055ae0783cea0bdb5fbb9f823396a38fa230846aea476e5ba09a8c0a5a",
+      "counts": {
+        "tests": 104,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261010T035434Z_8c23bf02da/persistence_durable_kernel.xml",
+      "junit_input": "evidence/persistence-tests/JUNIT.xml",
+      "junit_sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "browser_probe_preflight_and_durability",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/run_browser_probe_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/browser_probe_preflight_and_durability.log",
+      "log_sha256": "8b8152d9d3373e35a20edeff4511c45644636a536e6a912ce97d048fd1690ace",
+      "counts": {
+        "tests": 44,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261010T035434Z_8c23bf02da/browser_probe_preflight_and_durability.xml",
+      "junit_input": "evidence/browser-probe-tests/JUNIT.xml",
+      "junit_sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "architect_and_independent_context",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/run_architect_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/architect_and_independent_context.log",
+      "log_sha256": "5d0042805d31ac42d395800f6e4f5a677fa3ea78e132122b2f8b1d2bd2649830",
+      "counts": {
+        "tests": 264,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261010T035434Z_8c23bf02da/architect_and_independent_context.xml",
+      "junit_input": "evidence/architect-tests/JUNIT.xml",
+      "junit_sha256": "6ac89d475fe50da36fcdfc3c216607779488b7207e7b17bcbfb14f6e41bdcf06",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "p04_executed_context_exit_examples",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/record_p04_context_examples.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/p04_executed_context_exit_examples.log",
+      "log_sha256": "ab5395e3a3c60d79a18405299f92c04395b372d6f2aebf44fac0c9ebed0abd16",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "council_offline_pipeline",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/run_council_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/council_offline_pipeline.log",
+      "log_sha256": "592cf96458ddec6df7247f113397c6982c116c9f0017c6bc85ffc2a2d3516d71",
+      "counts": {
+        "tests": 41,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261010T035434Z_8c23bf02da/council_offline_pipeline.xml",
+      "junit_input": "evidence/council-tests/JUNIT.xml",
+      "junit_sha256": "4affb898c1c0a1c2f9504d26dbff714b9cf5d80248bafff81e0c580d8ad286ee",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "council_exit_examples",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/record_p05_council_examples.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/council_exit_examples.log",
+      "log_sha256": "be75dbe3c29b0c69c97b3dceb155ad342a572d26bba4e1f11ab9f6f319e725fd",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "p06_accounting_protocol",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/run_pilot_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/p06_accounting_protocol.log",
+      "log_sha256": "e3b2b4c82fea00a608232560a82de47144a8458157efd3ba959ccbf315809d97",
+      "counts": {
+        "tests": 73,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261010T035434Z_8c23bf02da/p06_accounting_protocol.xml",
+      "junit_input": "evidence/pilot-tests/JUNIT.xml",
+      "junit_sha256": "94a9022966ddb9200fa68e2a8f080714b8510a2e54fe92f2d28ad25d0d9a12c6",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "p06_preregistered_preflight",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/check_p06.py",
+        "preflight"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/p06_preregistered_preflight.log",
+      "log_sha256": "e5dd92d0939967ce215f9bf57be948fe514bf3bfb8a7df167d66180974cd1088",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "p06_real_quality_evidence",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/96afc5b34761/consilium-p05/.venv/bin/python",
+        "tools/check_p06_functional.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261010T035434Z_8c23bf02da/p06_real_quality_evidence.log",
+      "log_sha256": "eac599c3171ab657160d97a2a19fd9ea5e4214093e01dc964d9a8a50f179e8d9",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    }
+  ],
+  "status": "PASS",
+  "scope": "CONFIGURED_CHECKS_NOT_PROOF_OF_CORRECTNESS"
+}

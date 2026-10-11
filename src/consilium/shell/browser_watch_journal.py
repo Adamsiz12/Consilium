@@ -34,6 +34,12 @@ def digest(value):
 
 
 def page_from_event(value):
+    if type(value) is not dict:
+        raise ValueError("JOURNAL_EVENT_INVALID")
+    if value.get("kind") == "QWEN_SITE_PAGE":
+        from consilium.shell.qwen_site_journal import site_read_from_event
+
+        return read_qwen_capture(site_read_from_event(value).packet.raw)
     if set(value) == {"kind", "snapshot"} and value["kind"] == "PAGE":
         return PageSnapshot.model_validate_json(encoded(value["snapshot"]))
     if (
@@ -263,10 +269,10 @@ class BrowserWatchJournal:
             if row is None:
                 raise ValueError("JOURNAL_QWEN_CAPTURE_NOT_FOUND")
             value = json.loads(row[1])
-            if value.get("kind") != "QWEN_RENDERED_PAGE":
+            if value.get("kind") not in {"QWEN_RENDERED_PAGE", "QWEN_SITE_PAGE"}:
                 raise ValueError("JOURNAL_EVENT_IS_NOT_QWEN_CAPTURE")
             raw = value["raw_capture_utf8"].encode("utf-8")
-            return {
+            result = {
                 "revision": row[0],
                 "raw": raw,
                 "sha256": hashlib.sha256(raw).hexdigest(),
@@ -274,6 +280,27 @@ class BrowserWatchJournal:
                 "scope": "LOCAL_CAPTURE_INTEGRITY_NOT_LIVE_AUTHORITY",
                 "live_origin_verified": False,
             }
+            if value["kind"] == "QWEN_SITE_PAGE":
+                result.update({key: value[key] for key in ("before", "after", "site_receipt")})
+            return result
+
+    def append_qwen_site_read(self, observation, *, event_id: UUID, expected_revision: int):
+        """Commit raw capture, declared context and receipt in the same event."""
+        from consilium.shell.qwen_site_journal import site_event
+
+        return self._append(site_event(observation), event_id, expected_revision)
+
+    def read_qwen_site_read(self, *, event_id: UUID):
+        from consilium.shell.qwen_site_journal import site_read_from_event
+
+        capture = self.read_qwen_capture(event_id=event_id)
+        if "site_receipt" not in capture:
+            raise ValueError("JOURNAL_QWEN_SITE_RECEIPT_NOT_FOUND")
+        return site_read_from_event({
+            "kind": "QWEN_SITE_PAGE", "reader_contract": capture["reader_contract"],
+            "raw_capture_utf8": capture["raw"].decode("utf-8"),
+            **{key: capture[key] for key in ("before", "after", "site_receipt")},
+        })
 
     def interrupt(self, *, event_id: UUID, expected_revision: int):
         return self._append({"kind": "INTERRUPT"}, event_id, expected_revision)

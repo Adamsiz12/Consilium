@@ -1,0 +1,169 @@
+{
+  "phase": "P08",
+  "scope": "P08_SYNTHETIC_API_CODEC_AND_COUNCIL",
+  "status": "PASS",
+  "counts": {
+    "tests": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "92665167a06ec9df793b5f6bd57dedfe58eee65b4add6243a5e99fde95a5119e",
+  "source_digest_after": "92665167a06ec9df793b5f6bd57dedfe58eee65b4add6243a5e99fde95a5119e",
+  "date_utc": "2026-10-10T18:06:41.542177+00:00",
+  "host": {
+    "system": "Windows",
+    "python": "3.12.10"
+  },
+  "windows_execution": "THIS_RUN",
+  "real_process_exit_cases": 1,
+  "manual_origin": "USER_ACCEPTED_SYNTHETIC_FIXTURES_NOT_AUTHENTICATED_EXTERNAL_GENERATION",
+  "live_provider_calls": 0,
+  "verified_application_requirements": 0,
+  "cases": [
+    {
+      "id": "test_api_codec.ApiCodecTests.test_complete_both_providers_and_usage_unknown_is_not_zero",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_empty_blocked_and_thought_only_responses_are_not_answers",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_google_does_not_reorder_interleaved_system_messages",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_google_wire_preserves_roles_unicode_and_limits",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_invalid_models_providers_and_unsupported_seed_fail_before_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_length_finish_is_partial_and_unknown_finish_not_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_malformed_duplicate_nonfinite_and_oversized_json_fixed_errors",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_missing_done_truncated_frames_and_interruption_preserve_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_multiple_candidates_bad_identity_usage_and_nontext_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_qwen_nullable_delta_role_matches_documented_stream",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_qwen_wire_preserves_roles_parameters_and_stream_usage",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_stream_bounds_and_double_close",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_stream_every_byte_split_unicode_crlf_comments_and_usage",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_stream_id_change_extra_content_and_corruption_cannot_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_codec.ApiCodecTests.test_tool_calls_cannot_masquerade_as_text_answer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_http.ApiHttpTests.test_auth_header_redacted_success_and_duplicate_blocked",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_http.ApiHttpTests.test_default_disabled_and_missing_key_block_before_http",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_http.ApiHttpTests.test_errors_and_bad_frames_do_not_claim_unsent_or_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_http.ApiHttpTests.test_https_transport_closes_connection_never_follows_redirect_and_bounds_body",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_http.ApiHttpTests.test_qwen_uses_region_bound_bearer_and_stream_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_http.ApiHttpTests.test_socket_failure_returns_unknown_and_does_not_leak_headers",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_http.ApiHttpTests.test_transport_exception_drops_secret_error_and_never_retries",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_http.ApiHttpTests.test_wrong_models_credentials_endpoints_and_query_keys_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_driver_rejects_live_binding_subclass_and_repeated_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_each_codec_passes_typed_durable_confirmation_and_mock_provenance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_full_two_codec_council_preserves_dissent_and_recovers_final",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_http_errors_never_claim_not_sent_or_repeat",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_invalid_fixture_configuration_rejected_without_keys_or_network",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_malformed_envelope_and_invalid_typed_response_do_not_publish",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_partial_stream_survives_restart_without_publication_or_resend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_preflight_rejection_does_not_advance_ledger_or_call_driver",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_integration.ApiIntegrationTests.test_real_exit_after_api_result_preserves_partial_and_prevents_resend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_plan.ApiPlanTests.test_account_destination_and_profile_revision_are_bound",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_plan.ApiPlanTests.test_exact_budget_boundary_and_unicode_do_not_enable_live",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_plan.ApiPlanTests.test_forged_wire_and_live_admission_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_api_plan.ApiPlanTests.test_invalid_capacity_bool_and_unsupported_stream_fail_before_send",
+      "status": "PASS"
+    }
+  ]
+}

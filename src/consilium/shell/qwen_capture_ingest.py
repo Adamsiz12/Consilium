@@ -20,7 +20,7 @@ def record_qwen_read(
 ):
     """Read once and atomically ingest, or return an already committed capture.
 
-    The reader must only observe and return a QwenCaptureRead. It owns browser
+    The reader must only observe and return a QwenCaptureRead or QwenSiteRead. It owns browser
     deadlines/cancellation; this bridge cannot cancel a blocking callable.
     Contexts are declarations pending live driver verification. No authority or
     main-ledger delivery is granted, and no dispatch interface is provided.
@@ -53,6 +53,12 @@ def record_qwen_read(
     if failed:
         # Raise outside the handler so private reader exceptions are not chained.
         raise ValueError("QWEN_READ_FAILED")
+    from consilium.adapters.qwen_site_reader import QwenSiteRead, verify_site_receipt
+
+    observation = packet if type(packet) is QwenSiteRead else None
+    if observation is not None:
+        verify_site_receipt(observation)
+        packet = observation.packet
     if type(packet) is not QwenCaptureRead:
         raise ValueError("QWEN_READ_PACKET_REQUIRED")
     invalid = False
@@ -69,9 +75,14 @@ def record_qwen_read(
     if not context_matches(binding, page.context):
         raise ValueError("QWEN_READ_CAPTURE_CONTEXT_CHANGED")
     # The transaction rechecks revision after the read; no stale writer can commit.
-    journal.append_qwen_capture(
-        packet.raw, event_id=event_id, expected_revision=expected_revision
-    )
+    if observation is not None:
+        journal.append_qwen_site_read(
+            observation, event_id=event_id, expected_revision=expected_revision
+        )
+    else:
+        journal.append_qwen_capture(
+            packet.raw, event_id=event_id, expected_revision=expected_revision
+        )
     return {
         **journal.read_qwen_capture(event_id=event_id),
         "reused": False,

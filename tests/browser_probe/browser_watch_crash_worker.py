@@ -40,7 +40,14 @@ def main():
             os._exit(74)
 
     sqlite3.connect = CrashConnection
-    if "raw_capture_utf8" in value:
+    if "site_event" in value:
+        from consilium.shell.qwen_site_journal import site_read_from_event
+
+        journal.append_qwen_site_read(
+            site_read_from_event(value["site_event"]),
+            event_id=UUID(value["event_id"]), expected_revision=0,
+        )
+    elif "raw_capture_utf8" in value:
         journal.append_qwen_capture(
             value["raw_capture_utf8"].encode("utf-8"),
             event_id=UUID(value["event_id"]),

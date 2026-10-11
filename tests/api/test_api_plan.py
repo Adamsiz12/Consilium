@@ -119,3 +119,37 @@ class ApiPlanTests(unittest.TestCase):
         ):
             with self.assertRaises(AccessBlocked):
                 verify_plan(changed, self.request, self.grant, self.profile)
+
+    def test_unvalidated_request_with_wrong_frozen_hash_has_private_error(self):
+        intent = type(self.request.intent).model_construct(
+            **{
+                **self.request.intent.model_dump(mode="python"),
+                "request_hash": "b" * 64,
+            }
+        )
+        request = type(self.request).model_construct(
+            **{**self.request.model_dump(mode="python"), "intent": intent}
+        )
+        with self.assertRaisesRegex(AccessBlocked, "^API_PLAN_INPUT_INVALID$") as error:
+            prepare_api(request, self.grant, self.profile, input_tokens=1)
+        self.assertIsNone(error.exception.__context__)
+
+    def test_unvalidated_profile_invalid_capacity_has_private_error(self):
+        for changes in (
+            {"context_capacity": True},
+            {"max_output_tokens": -1},
+            {"revision": -1},
+        ):
+            profile = type(self.profile).model_construct(
+                **{**self.profile.model_dump(mode="python"), **changes}
+            )
+            with self.assertRaisesRegex(AccessBlocked, "^API_PLAN_INPUT_INVALID$"):
+                prepare_api(self.request, self.grant, profile, input_tokens=1)
+
+    def test_unvalidated_request_invalid_timeout_has_private_error(self):
+        for timeout in (True, 0, float("nan")):
+            request = type(self.request).model_construct(
+                **{**self.request.model_dump(mode="python"), "timeout_seconds": timeout}
+            )
+            with self.assertRaisesRegex(AccessBlocked, "^API_PLAN_INPUT_INVALID$"):
+                prepare_api(request, self.grant, self.profile, input_tokens=1)
