@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "scope": "APPROVED_AGENT_RULES_DOCUMENTATION_UPDATE_NOT_P08_IMPLEMENTATION",
+  "status": "PASS",
+  "source_digest": "73196a91c36b9ffc5a4bd2f395fb33aafc6d50366506908a8434d981d883596d",
+  "linux_native_report": {
+    "path": "evidence/targets/Linux/20261011T115053Z_e1f3c288/RUN.json",
+    "sha256": "8e596e964a6a0480e29d30e851dc5198fad4ecc7be060bbaa299a96ed1cb4cd7"
+  },
+  "counts": {
+    "tests": 1050,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "smoke_cases": 4,
+  "quality_checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.045
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.35
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.027
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.111
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 3.686
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.062
+    }
+  ],
+  "windows_current_source": "NOT_RUN_LOCALLY",
+  "github_api_read": "FORBIDDEN_BY_PROXY",
+  "live_provider_calls": 0,
+  "phase_advanced": false,
+  "independent_review": false,
+  "updated_at_utc": "2026-10-11T11:54:09.226341+00:00"
+}

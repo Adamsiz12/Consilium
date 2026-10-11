@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "CURRENT_NATIVE_CHECKPOINT_VERIFIED_PRODUCT_P08_BLOCKED",
+  "current_phase": "P08",
+  "last_accepted_phase": "P07",
+  "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
+  "code_commit": "27b709545707e73802636c6450ac6003ced40730",
+  "native_workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/38124929160",
+  "native_target_reports": [
+    {
+      "path": "evidence/targets/Windows/20261011T082919Z_4d238e66/RUN.json",
+      "sha256": "754a146802aabf9a3c75e20fe09519457d7425c5363a760bc855f811dfe7297b"
+    },
+    {
+      "path": "evidence/targets/Linux/20261011T082904Z_04223a9e/RUN.json",
+      "sha256": "74b5014e57a9aa90df5a4591371b837150bb28c5d685626b51c828b6ebf70bd2"
+    }
+  ],
+  "counts_per_native_os": {
+    "all_tests": 1050,
+    "api_tests": 124,
+    "browser_tests": 238,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "target_matrix": {
+    "path": "evidence/target-matrix/RUN.json",
+    "sha256": "cb8ea756c134bc620bd886a428fec2da169e0dd024dfb5d86bc14996ce294643"
+  },
+  "dependency_audit": "PASS",
+  "full_application_requirements_verified": 0,
+  "phase_advanced": false,
+  "independent_review": false,
+  "live_provider_calls": 0,
+  "live_api_tests": "USER_DEFERRED",
+  "last_accepted_evidence": [
+    "evidence/accepted/P07_3fd8a650a76b/REVIEW.json"
+  ],
+  "next_action": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر باز می‌ماند.",
+  "previous_validation_report": {
+    "path": "evidence/repository-sync/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "e9c574fb61292b1dda65adf23f29807f4f0d437e2e61d46c7be56a2c46424f97"
+  },
+  "updated_at_utc": "2026-10-11T08:56:05.609619+00:00",
+  "final_machine_readable_metadata_publication": "COMPLETE_AFTER_EXPLICIT_USER_APPROVAL"
+}

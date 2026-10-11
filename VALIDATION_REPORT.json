@@ -1,47 +1,79 @@
 {
   "schema_version": 1,
-  "status": "CURRENT_NATIVE_CHECKPOINT_VERIFIED_PRODUCT_P08_BLOCKED",
+  "status": "AGENT_RULES_LINUX_VALIDATED_PRODUCT_P08_BLOCKED",
+  "scope": "APPROVED_AGENT_RULES_DOCUMENTATION_UPDATE_NOT_P08_IMPLEMENTATION",
   "current_phase": "P08",
   "last_accepted_phase": "P07",
-  "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
-  "code_commit": "27b709545707e73802636c6450ac6003ced40730",
-  "native_workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/38124929160",
+  "source_digest": "73196a91c36b9ffc5a4bd2f395fb33aafc6d50366506908a8434d981d883596d",
   "native_target_reports": [
     {
-      "path": "evidence/targets/Windows/20261011T082919Z_4d238e66/RUN.json",
-      "sha256": "754a146802aabf9a3c75e20fe09519457d7425c5363a760bc855f811dfe7297b"
-    },
-    {
-      "path": "evidence/targets/Linux/20261011T082904Z_04223a9e/RUN.json",
-      "sha256": "74b5014e57a9aa90df5a4591371b837150bb28c5d685626b51c828b6ebf70bd2"
+      "path": "evidence/targets/Linux/20261011T115053Z_e1f3c288/RUN.json",
+      "sha256": "8e596e964a6a0480e29d30e851dc5198fad4ecc7be060bbaa299a96ed1cb4cd7"
     }
   ],
   "counts_per_native_os": {
-    "all_tests": 1050,
-    "api_tests": 124,
-    "browser_tests": 238,
-    "failures": 0,
-    "errors": 0,
-    "skipped": 0
+    "Linux": {
+      "all_tests": 1050,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
   },
-  "target_matrix": {
-    "path": "evidence/target-matrix/RUN.json",
-    "sha256": "cb8ea756c134bc620bd886a428fec2da169e0dd024dfb5d86bc14996ce294643"
-  },
-  "dependency_audit": "PASS",
+  "windows_current_source": "NOT_RUN_LOCALLY_CI_TRIGGERED_ON_PUSH",
+  "quality_checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.045
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.35
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.027
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.111
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 3.686
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.062
+    }
+  ],
+  "build_result": "NOT_RERUN_DOCUMENTATION_ONLY_EXISTING_EDITABLE_INSTALL_VALIDATED",
+  "dependency_audit": "NOT_RERUN_NO_DEPENDENCY_CHANGE",
   "full_application_requirements_verified": 0,
   "phase_advanced": false,
   "independent_review": false,
   "live_provider_calls": 0,
-  "live_api_tests": "USER_DEFERRED",
-  "last_accepted_evidence": [
-    "evidence/accepted/P07_3fd8a650a76b/REVIEW.json"
-  ],
+  "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
   "next_action": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر باز می‌ماند.",
-  "previous_validation_report": {
-    "path": "evidence/repository-sync/20261011/PREVIOUS_VALIDATION_REPORT.json",
-    "sha256": "e9c574fb61292b1dda65adf23f29807f4f0d437e2e61d46c7be56a2c46424f97"
+  "validation_summary": {
+    "path": "evidence/agent-rules/20261011/RUN.json",
+    "sha256": "6ba083d0f60367180d6fd2d5d74d9457b1dca29e0fa3fe16114f89bdef2cf17a"
   },
-  "updated_at_utc": "2026-10-11T08:56:05.609619+00:00",
-  "final_machine_readable_metadata_publication": "COMPLETE_AFTER_EXPLICIT_USER_APPROVAL"
+  "previous_validation_report": {
+    "path": "evidence/agent-rules/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "ac2b7fef89515f5cc4c46f291a5352f9b1f3b9591ab811fdf266847e3a372126",
+    "scope": "HISTORICAL_BEFORE_AGENTS_SOURCE_CHANGE"
+  },
+  "updated_at_utc": "2026-10-11T11:54:09.226341+00:00"
 }

@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `2dfdb43120c8a37525b8cc447dc9ab3fabb94560a9fc7656c2482ffd53794835`.
+شناسهٔ مبنای نما: `d5a8c45404a40335e70ae7ddf759f8f82ab3f96191eeeebb4f88a43e18319f1a`.
 
 مرحلهٔ فعلی: `P08`. آخرین مرحلهٔ پذیرفته‌شده: `P07`.
 
@@ -35,11 +35,11 @@
   "note": "Update this record with precise subtask and pending work during development.",
   "github_authorization": {
     "scope": "FULL_GITHUB_ACCESS_PERSISTENT_UNTIL_USER_REVOKES",
-    "user_quote": "بله تایید",
-    "renewed_at_utc": "2026-10-11T08:07:37.557240+00:00",
+    "user_quote": "مجوز دسترسی به گیت هاب را برای همیشه داری و فقط زمانی مجوز نداری که خودم آنرا در یک دستور جداگانه متوقف کنم",
+    "renewed_at_utc": "2026-10-11T11:54:09.226341+00:00",
     "repeated_permission_not_needed": true,
     "repository": "mehrangtr/Consilium",
-    "approved_request": "انتشار تمام کدها، آزمون‌ها، گزارش‌ها و شواهد عمومیِ بررسی‌شدهٔ نسخهٔ به‌روز در مخزن عمومی mehrangtr/Consilium"
+    "approved_request": "اعمال قواعد تأییدشدهٔ AGENTS.md و انتشار کار تأییدشده؛ دامنهٔ پیاده‌سازی با Plan مصوب محدود می‌ماند."
   },
   "p07_publication": {
     "url": "https://github.com/mehrangtr/Consilium/pull/19",
@@ -1114,6 +1114,29 @@
       "reviewable_payload": "Consilium_Updated_Checkpoint_20261010.zip"
     },
     "superseded_by": "resume.repository_sync"
+  },
+  "agent_rules_update": {
+    "status": "COMPLETED_LOCAL_VALIDATION",
+    "scope": "APPROVED_AGENT_RULES_DOCUMENTATION_ONLY",
+    "report": {
+      "path": "evidence/agent-rules/20261011/RUN.json",
+      "sha256": "6ba083d0f60367180d6fd2d5d74d9457b1dca29e0fa3fe16114f89bdef2cf17a"
+    },
+    "linux_native_report": {
+      "path": "evidence/targets/Linux/20261011T115053Z_e1f3c288/RUN.json",
+      "sha256": "8e596e964a6a0480e29d30e851dc5198fad4ecc7be060bbaa299a96ed1cb4cd7"
+    },
+    "source_digest": "73196a91c36b9ffc5a4bd2f395fb33aafc6d50366506908a8434d981d883596d",
+    "tests": {
+      "tests": 1050,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "github_permission": "PERSISTENT_UNTIL_EXPLICIT_SEPARATE_REVOCATION",
+    "p08_implementation_started": false,
+    "next_user_step": "REVIEW_STAGE_3_PLAN_BEFORE_P08_CODE",
+    "updated_at_utc": "2026-10-11T11:54:09.226341+00:00"
   }
 }
 ```
