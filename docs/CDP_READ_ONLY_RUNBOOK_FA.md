@@ -1,6 +1,7 @@
 # Read-only CDP acquisition
 
-This is preparation, not accepted Qwen/live product integration. It neither opens a browser nor navigates/logs in. Endpoint, target, and selector must come from explicitly authorized observation, not model inference.
+This is provider-neutral preparation, not accepted live product integration.
+Gemini is currently selected for P09; see docs/P09_GEMINI_RUNBOOK.md. It neither opens a browser nor navigates/logs in. Endpoint, target, and selector must come from explicitly authorized observation, not model inference.
 
 Optional transport dependencies:
 

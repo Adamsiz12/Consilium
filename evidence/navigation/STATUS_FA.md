@@ -2,7 +2,7 @@
 
 Generated from `ROADMAP.json`, `PROGRESS.json`, and `CHECKS.json`. Manual edits are not authoritative; regenerate after canonical inputs change. Original source text, including historical quotations, is preserved.
 
-Input digest: `d406f0558d3e3948d9593ad4ec2f9c0486546e6bb4052344d4f96e10db8bbcd0`.
+Input digest: `a2a98167f7ab24ebf3afec2e1f6ec1f7a08da67a4ac9d72dff38670ff3097659`.
 
 Current phase: `P08`. Last accepted phase: `P07`.
 
@@ -30,7 +30,7 @@ Verified application requirements: `0/30`. Passing development tooling does not 
     "Publication block resolved after direct permanent user authorization. Exact five-file tree, commit, parent, message, branch and blob contents independently verified. CI38069235311: both native hosts 830 tests including 106 browser and five new cases; ZIP and nested artifact hashes verified; matrix PASS. No live calls; P08/P09 final acceptance remains open.",
     "Published one-read Qwen ingest bridge: exact before/raw/after binding checks, committed-event reuse without reread, stale/closed preflight, private reader failure quarantine and optimistic commit race checks. Eight new tests, 838 per native host including 114 browser tests; CI38070682276, ZIP/nested artifact hashes and matrix PASS. Driver is injected/unregistered; no live authority, model calls or phase acceptance. Initial lint failure retained."
   ],
-  "next_action": "Continue P09 only: obtain and verify the first browser provider selectors and independently observed account/model/conversation context, then bind rendered-layout messages to the product operation without inferring completion or live provenance. Do not implement further P08 work; P08 remains deferred and incomplete by user instruction.",
+  "next_action": "Continue P09 with Gemini (google) at https://gemini.google.com: acquire a supported authenticated browser, independently verify the exact account/model/conversation and actual selectors, then bind rendered messages to product operations without inferring completion or live provenance. Keep all five V1 provider targets and the P08 implementation deferral unchanged.",
   "next_command": null,
   "note": "Update this record with precise subtask and pending work during development.",
   "github_authorization": {
@@ -83,11 +83,11 @@ Verified application requirements: `0/30`. Passing development tooling does not 
     "reviewer_independent": false
   },
   "next_task": {
-    "id": "P09-FIRST-PROVIDER-CONTEXT",
+    "id": "P09-GEMINI-CONTEXT",
     "phase": "P09",
-    "status": "PREPARATION_PENDING_GENUINE_BROWSER_CONTEXT",
-    "title": "Bind first-provider selectors and independently observed context to rendered messages",
-    "next_action": "Continue P09 only: obtain and verify the first browser provider selectors and independently observed account/model/conversation context, then bind rendered-layout messages to the product operation without inferring completion or live provenance. Do not implement further P08 work; P08 remains deferred and incomplete by user instruction."
+    "status": "WAITING_GENUINE_AUTHENTICATED_BROWSER_AND_SELECTORS",
+    "title": "Observe Gemini context and selectors before product message integration",
+    "next_action": "Continue P09 with Gemini (google) at https://gemini.google.com: acquire a supported authenticated browser, independently verify the exact account/model/conversation and actual selectors, then bind rendered messages to product operations without inferring completion or live provenance. Keep all five V1 provider targets and the P08 implementation deferral unchanged."
   },
   "p07_chunks": [
     {
@@ -254,7 +254,22 @@ Verified application requirements: `0/30`. Passing development tooling does not 
     "read_only_attachment": "src/consilium/shell/browser_watch_journal.py",
     "ledger_view": "src/consilium/shell/browser_watch_ledger.py",
     "source_published": true,
-    "current_source_published": false
+    "current_source_published": false,
+    "first_provider": {
+      "provider_id": "google",
+      "service_name": "Gemini",
+      "browser_origin": "https://gemini.google.com",
+      "model_id": null,
+      "account_access": "UNKNOWN",
+      "live_verification": "NOT_RUN",
+      "selectors_verified": false,
+      "registered_live_driver": false,
+      "scope": "FIRST_P09_BROWSER_PROVIDER_NOT_V1_PROVIDER_REMOVAL",
+      "replaces_first_provider": "qwen",
+      "user_instruction_fa": "بجای Qwen از glm یا gemini استفاده کن",
+      "decision": "docs/decisions/ADR-061-GEMINI-FIRST-BROWSER.md",
+      "runbook": "docs/P09_GEMINI_RUNBOOK.md"
+    }
   },
   "current_native_check": {
     "ci_run": 38074183545,
@@ -1313,6 +1328,25 @@ Verified application requirements: `0/30`. Passing development tooling does not 
     "provider_calls": 0,
     "phase_accepted": false,
     "github_authorization_changed": false
+  },
+  "p09_provider_switch": {
+    "status": "GEMINI_FIRST_PROVIDER_SELECTED_VALIDATED_NOT_LIVE_ACCEPTANCE",
+    "branch": "feature/continue-P09-gemini-first",
+    "previous_first_provider": "qwen",
+    "selected_provider": "google",
+    "model_id": null,
+    "protected_v1_provider_list_changed": false,
+    "github_authorization_changed": false,
+    "p08_implementation_changed": false,
+    "decision": "docs/decisions/ADR-061-GEMINI-FIRST-BROWSER.md",
+    "report": "evidence/p09-gemini-selection/20261011/RUN.json",
+    "source_digest": "aecbf4fd6433efd5a14dab014d551ea4860ffe457f138ee3a0b1ae6dec05b736",
+    "native_report": {
+      "path": "evidence/targets/Linux/20261011T194235Z_25071d68/RUN.json",
+      "sha256": "8fb84fd181ff374af1274397852a8419ca7d301822080b19e3595c3a55f8681f"
+    },
+    "linux_tests": 1086,
+    "validated_at_utc": "2026-10-11T19:43:52.031628+00:00"
   }
 }
 ```

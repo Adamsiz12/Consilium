@@ -6,7 +6,9 @@ by the user. Missing API keys are not the only unfinished item: successful
 reservation, full council integration, provider coverage and executable acceptance
 checks remain open. No live API test is authorized or inferred.
 
-The execution focus is P09 under ADR-038 and ADR-060. Formal current_phase remains
+The execution focus is P09 under ADR-038, ADR-060 and ADR-061. Gemini (google)
+is the selected first browser provider at https://gemini.google.com; the exact
+model and authenticated context remain unverified. Formal current_phase remains
 P08, the first unaccepted phase; protected acceptance dependencies are unchanged.
 P09 preparation includes durable journals, operation correlation, raw CDP reads
 and now selected rendered-layout text acquired without page JavaScript. Its new

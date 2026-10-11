@@ -1029,7 +1029,11 @@
     "docs/decisions/ADR-060-P08-DEFERRAL-AND-P09-LAYOUT.md",
     "evidence/p09-layout/20261011/RUN.json",
     "evidence/p09-layout/20261011/PREVIOUS_VALIDATION_REPORT.json",
-    "evidence/p09-layout/20261011/BROWSER_RUN.json"
+    "evidence/p09-layout/20261011/BROWSER_RUN.json",
+    "docs/decisions/ADR-061-GEMINI-FIRST-BROWSER.md",
+    "docs/P09_GEMINI_RUNBOOK.md",
+    "evidence/p09-gemini-selection/20261011/RUN.json",
+    "evidence/p09-gemini-selection/20261011/PREVIOUS_VALIDATION_REPORT.json"
   ],
   "note": "Every public source, canonical progress and selected supplemental evidence. Accepted proofs, latest current-phase attempt and native report graphs are collected automatically. Application foundation exists; V1 runtime acceptance is pending."
 }

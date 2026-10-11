@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "status": "GEMINI_FIRST_PROVIDER_SELECTED_VALIDATED_NOT_LIVE_ACCEPTANCE",
+  "scope": "P09_PROVIDER_PRIORITY_DOCUMENTATION_AND_CONTINUATION",
+  "source_digest": "aecbf4fd6433efd5a14dab014d551ea4860ffe457f138ee3a0b1ae6dec05b736",
+  "native_report": {
+    "path": "evidence/targets/Linux/20261011T194235Z_25071d68/RUN.json",
+    "sha256": "8fb84fd181ff374af1274397852a8419ca7d301822080b19e3595c3a55f8681f"
+  },
+  "selected_provider": {
+    "id": "google",
+    "service": "Gemini",
+    "origin": "https://gemini.google.com",
+    "model_id": null,
+    "authentication_verified": false,
+    "selectors_verified": false,
+    "live_driver_registered": false
+  },
+  "previous_first_provider": "qwen",
+  "protected_v1_provider_list_changed": false,
+  "code_changed": false,
+  "p08_implementation_changed": false,
+  "github_authorization_changed": false,
+  "counts_per_native_os": {
+    "Linux": {
+      "tests": 1086,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "new_tests": 0,
+  "quality_checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.077
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.027
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.095
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 2.373
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.062
+    }
+  ],
+  "build": "PASS_WHEEL",
+  "native_cli_smokes": 4,
+  "live_model_calls": 0,
+  "public_site_requests": 1,
+  "network_readiness": {
+    "origin": "https://gemini.google.com",
+    "provider_calls": 0,
+    "model_calls": 0,
+    "authenticated_context_verified": false,
+    "status": "UNAVAILABLE",
+    "reason_type": "OSError",
+    "proxy_403": true
+  },
+  "network_draft_saved": true,
+  "network_draft_activated": false,
+  "new_custom_domain": "gemini.google.com",
+  "first_provider_selection_implemented": true,
+  "p09_accepted": false,
+  "current_source_windows": "REMOTE_CI_REQUIRES_SEPARATE_VERIFICATION",
+  "limitations": [
+    "Exact Gemini model/account/conversation must be independently observed.",
+    "Live Gemini selectors, message mapper and complete product driver remain unverified/unimplemented.",
+    "Provider priority change preserves all five protected V1 targets and Qwen history."
+  ]
+}
