@@ -1,31 +1,47 @@
 {
   "schema_version": 1,
-  "status": "P05_ACCEPTED",
-  "current_phase": "P06",
-  "phase_status": "P05_COMPLETED; P06_READY_NOT_STARTED",
-  "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
-  "code_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
-  "acceptance_review": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
-  "acceptance_receipt": "evidence/runs/20261008T093202Z_2c8a59775c/RUN.json",
-  "native_workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37756543373",
+  "status": "CURRENT_NATIVE_CHECKPOINT_VERIFIED_PRODUCT_P08_BLOCKED",
+  "current_phase": "P08",
+  "last_accepted_phase": "P07",
+  "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
+  "code_commit": "27b709545707e73802636c6450ac6003ced40730",
+  "native_workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/38124929160",
+  "native_target_reports": [
+    {
+      "path": "evidence/targets/Windows/20261011T082919Z_4d238e66/RUN.json",
+      "sha256": "754a146802aabf9a3c75e20fe09519457d7425c5363a760bc855f811dfe7297b"
+    },
+    {
+      "path": "evidence/targets/Linux/20261011T082904Z_04223a9e/RUN.json",
+      "sha256": "74b5014e57a9aa90df5a4591371b837150bb28c5d685626b51c828b6ebf70bd2"
+    }
+  ],
   "counts_per_native_os": {
-    "all_tests": 622,
-    "council_tests": 40,
-    "product_process_exit_cases": 39,
-    "skipped": 0,
+    "all_tests": 1050,
+    "api_tests": 124,
+    "browser_tests": 238,
     "failures": 0,
-    "errors": 0
+    "errors": 0,
+    "skipped": 0
   },
+  "target_matrix": {
+    "path": "evidence/target-matrix/RUN.json",
+    "sha256": "cb8ea756c134bc620bd886a428fec2da169e0dd024dfb5d86bc14996ce294643"
+  },
+  "dependency_audit": "PASS",
   "full_application_requirements_verified": 0,
+  "phase_advanced": false,
   "independent_review": false,
-  "manual_generation_scope": "UNVERIFIED_SYNTHETIC_FIXTURES",
-  "next_action": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
-  "standing_github_authorization": "USER_AUTHORIZED_UNTIL_EXPLICIT_STOP",
-  "execution_recovery_policy": {
-    "idle_seconds": 300,
-    "hard_seconds": 900,
-    "native_verified": true,
-    "scope": "OWNED_PROCESSES_NOT_CHATGPT_OR_MCP_CANCELLATION"
+  "live_provider_calls": 0,
+  "live_api_tests": "USER_DEFERRED",
+  "last_accepted_evidence": [
+    "evidence/accepted/P07_3fd8a650a76b/REVIEW.json"
+  ],
+  "next_action": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر باز می‌ماند.",
+  "previous_validation_report": {
+    "path": "evidence/repository-sync/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "e9c574fb61292b1dda65adf23f29807f4f0d437e2e61d46c7be56a2c46424f97"
   },
-  "historical_validation_report": "Previous P02/P03 status report is superseded; its bytes remain in Git history and prior immutable accepted evidence."
+  "updated_at_utc": "2026-10-11T08:56:05.609619+00:00",
+  "final_machine_readable_metadata_publication": "COMPLETE_AFTER_EXPLICIT_USER_APPROVAL"
 }

@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `0f20fe2197ce6654f39ba5a25b62e6901f101b6d26def552b50997e05f7c4b07`.
+شناسهٔ مبنای نما: `2dfdb43120c8a37525b8cc447dc9ab3fabb94560a9fc7656c2482ffd53794835`.
 
 مرحلهٔ فعلی: `P08`. آخرین مرحلهٔ پذیرفته‌شده: `P07`.
 
@@ -30,7 +30,7 @@
     "Publication block resolved after direct permanent user authorization. Exact five-file tree, commit, parent, message, branch and blob contents independently verified. CI38069235311: both native hosts 830 tests including 106 browser and five new cases; ZIP and nested artifact hashes verified; matrix PASS. No live calls; P08/P09 final acceptance remains open.",
     "Published one-read Qwen ingest bridge: exact before/raw/after binding checks, committed-event reuse without reread, stale/closed preflight, private reader failure quarantine and optimistic commit race checks. Eight new tests, 838 per native host including 114 browser tests; CI38070682276, ZIP/nested artifact hashes and matrix PASS. Driver is injected/unregistered; no live authority, model calls or phase acceptance. Initial lint failure retained."
   ],
-  "next_action": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر و شاهد نسخهٔ فعلی ویندوز باز می‌مانند.",
+  "next_action": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر باز می‌ماند.",
   "next_command": null,
   "note": "Update this record with precise subtask and pending work during development.",
   "github_authorization": {
@@ -213,12 +213,18 @@
     "credential_storage": "NO_CREDENTIALS_STORED"
   },
   "publication": {
-    "status": "SOURCE_PUBLISHED_DRAFT_PR",
-    "commit": "74de0434fb317127984a13357a3737d26c2ce760",
-    "tree": "bc0421ec3ea8613a6196a54f024a092ea3141fcc",
-    "source_digest": "92665167a06ec9df793b5f6bd57dedfe58eee65b4add6243a5e99fde95a5119e",
+    "status": "COMPLETE_FULL_SOURCE_REPORTS_AND_PUBLIC_EVIDENCE",
+    "source_commit": "27b709545707e73802636c6450ac6003ced40730",
+    "source_tree": "55b3a7e0f47b629d61d135fde379d9b1e9a0b843",
+    "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
+    "branch": "main",
     "pull_request": "https://github.com/mehrangtr/Consilium/pull/20",
-    "merged": false
+    "verification_record": "resume.repository_sync",
+    "phase_advanced": false,
+    "merged": true,
+    "metadata_published": true,
+    "final_commit_reference": "refs/heads/main",
+    "main_head_before_final_metadata": "a7f1db493ee435efc7d75fb098d72bf17f83727e"
   },
   "p09_preparation": {
     "status": "STARTED_USER_AUTHORIZED_BEFORE_P08_LIVE_ACCEPTANCE",
@@ -708,6 +714,356 @@
     "recorded_utc": "2026-10-10T20:28:06.567944+00:00"
   },
   "current_checkpoint": {
+    "record": "resume.repository_sync",
+    "formal_current_phase": "P08",
+    "last_accepted_phase": "P07",
+    "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
+    "source_commit": "27b709545707e73802636c6450ac6003ced40730",
+    "native_tests_per_target": 1050,
+    "live_provider_calls": 0,
+    "phase_accepted": false,
+    "final_commit_reference": "refs/heads/main"
+  },
+  "planning_estimate": {
+    "kind": "ROUGH_ENGINEERING_ESTIMATE_NOT_MEASURED_ACCEPTANCE",
+    "p08_complete_percent_range": [
+      45,
+      55
+    ],
+    "p09_preparation_complete_percent_range": [
+      25,
+      35
+    ],
+    "p08_remaining_engineering_hours_range": [
+      20,
+      35
+    ],
+    "external_wait_duration": "UNKNOWN_WHILE_LIVE_API_DEFERRED",
+    "recorded_utc": "2026-10-10T23:02:40.551844+00:00",
+    "actual_hours_tracking": "NOT_RECORDED; zero fields are not evidence of no work"
+  },
+  "repository_sync": {
+    "status": "COMPLETE_FULL_SOURCE_REPORTS_AND_PUBLIC_EVIDENCE_SYNCHRONIZED",
+    "requested_at_utc": "2026-10-10T23:48:48.095656+00:00",
+    "user_quote_fa": "همه گزارش ها و فایل های پروژه را به روز کن و در گیت هاب قرار بده",
+    "repository": "mehrangtr/Consilium",
+    "visibility": "public",
+    "work_branch": "work/p08-api-offline-20261010",
+    "default_branch": "main",
+    "scope": "ALL_REVIEWED_PUBLIC_PROJECT_SOURCE_TESTS_DOCS_AND_EVIDENCE_WITH_PRIVATE_ENVIRONMENT_EXCLUDED",
+    "explicit_user_approval": {
+      "received_at_utc": "2026-10-11T08:07:37.557240+00:00",
+      "user_quote_fa": "بله تایید",
+      "approved_request_fa": "انتشار تمام کدها، آزمون‌ها، گزارش‌ها و شواهد عمومیِ بررسی‌شدهٔ نسخهٔ به‌روز در مخزن عمومی mehrangtr/Consilium",
+      "repository": "mehrangtr/Consilium",
+      "visibility": "public",
+      "excludes": "CREDENTIALS_SESSIONS_PRIVATE_ENVIRONMENT_AND_PRIVATE_CAPTURES",
+      "standing_authorization_continues": true
+    },
+    "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
+    "published_source_commit": "27b709545707e73802636c6450ac6003ced40730",
+    "published_source_tree": "55b3a7e0f47b629d61d135fde379d9b1e9a0b843",
+    "source_file_hashes_verified": 342,
+    "all_public_source_paths_exactly_matched": true,
+    "formal_current_phase": "P08",
+    "last_accepted_phase": "P07",
+    "phase_advanced": false,
+    "phase_accepted": false,
+    "live_provider_calls": 0,
+    "live_api_test_policy": "USER_DEFERRED_UNCHANGED",
+    "source_report": "docs/CURRENT_STATUS_FA.md",
+    "continuation_map": "docs/PROJECT_CONTINUATION_MASTER_FA.md",
+    "review": "SEPARATE_PASS_BY_SAME_AUTHOR_NOT_INDEPENDENT",
+    "native_workflow_run_id": 38124929160,
+    "native_workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/38124929160",
+    "native_workflow_jobs": [
+      {
+        "id": 114427218047,
+        "name": "Dependency advisory audit",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/mehrangtr/Consilium/actions/runs/38124929160/job/114427218047"
+      },
+      {
+        "id": 114427218184,
+        "name": "Native Linux",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/mehrangtr/Consilium/actions/runs/38124929160/job/114427218184"
+      },
+      {
+        "id": 114427218237,
+        "name": "Native Windows",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/mehrangtr/Consilium/actions/runs/38124929160/job/114427218237"
+      },
+      {
+        "id": 114428169542,
+        "name": "Validate both native report graphs",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/mehrangtr/Consilium/actions/runs/38124929160/job/114428169542"
+      }
+    ],
+    "current_linux_evidence": {
+      "path": "evidence/targets/Linux/20261011T082904Z_04223a9e/RUN.json",
+      "sha256": "74b5014e57a9aa90df5a4591371b837150bb28c5d685626b51c828b6ebf70bd2"
+    },
+    "current_windows_evidence": {
+      "path": "evidence/targets/Windows/20261011T082919Z_4d238e66/RUN.json",
+      "sha256": "754a146802aabf9a3c75e20fe09519457d7425c5363a760bc855f811dfe7297b"
+    },
+    "native_targets": [
+      {
+        "target": "Windows",
+        "status": "PASS",
+        "report": {
+          "path": "evidence/targets/Windows/20261011T082919Z_4d238e66/RUN.json",
+          "sha256": "754a146802aabf9a3c75e20fe09519457d7425c5363a760bc855f811dfe7297b"
+        },
+        "host": {
+          "system": "Windows",
+          "python": "3.12.10"
+        },
+        "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
+        "counts": {
+          "api": {
+            "tests": 124,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "architect": {
+            "tests": 264,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "browser_probe": {
+            "tests": 238,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "control": {
+            "tests": 122,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "council": {
+            "tests": 50,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "foundation": {
+            "tests": 60,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "persistence": {
+            "tests": 104,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "pilot": {
+            "tests": 73,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "quality": {
+            "tests": 15,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        },
+        "artifacts_verified": 25
+      },
+      {
+        "target": "Linux",
+        "status": "PASS",
+        "report": {
+          "path": "evidence/targets/Linux/20261011T082904Z_04223a9e/RUN.json",
+          "sha256": "74b5014e57a9aa90df5a4591371b837150bb28c5d685626b51c828b6ebf70bd2"
+        },
+        "host": {
+          "system": "Linux",
+          "python": "3.12.14"
+        },
+        "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
+        "counts": {
+          "api": {
+            "tests": 124,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "architect": {
+            "tests": 264,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "browser_probe": {
+            "tests": 238,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "control": {
+            "tests": 122,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "council": {
+            "tests": 50,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "foundation": {
+            "tests": 60,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "persistence": {
+            "tests": 104,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "pilot": {
+            "tests": 73,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "quality": {
+            "tests": 15,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        },
+        "artifacts_verified": 25
+      }
+    ],
+    "native_tests_per_target": 1050,
+    "api_tests_per_target": 124,
+    "native_failures": 0,
+    "native_errors": 0,
+    "native_skipped": 0,
+    "native_report_artifacts_verified_per_target": 25,
+    "target_matrix": {
+      "path": "evidence/target-matrix/RUN.json",
+      "sha256": "cb8ea756c134bc620bd886a428fec2da169e0dd024dfb5d86bc14996ce294643"
+    },
+    "dependency_advisory_audit": "PASS",
+    "local_protected_check": {
+      "status": "PASS",
+      "source_digest": "702df54f79a8ab842c98575bbe0dc3ae2b0f203ce4978007d2da15f9f2edc586",
+      "receipt": {
+        "path": "evidence/development-supervisor/25fffbc6bda446c09dddd9c0b9cc48f5/STATE.json",
+        "sha256": "820faf38fb3f4d837bd617ab53fd3171a104244963e82c26efc5a8028ed33010"
+      }
+    },
+    "initial_native_ci": {
+      "run_id": 38124146173,
+      "source_commit": "a78b2ae7427d34df736611e471f812b74f7c12b9",
+      "source_digest": "ac0ba5abb06da0085fdb774260a33cb8c7201a3532edcdafd5b102230ae8c514",
+      "native_targets": [
+        {
+          "target": "Linux",
+          "status": "PASS",
+          "report": {
+            "path": "evidence/targets/Linux/20261011T081530Z_10a4453c/RUN.json",
+            "sha256": "b028c8295dd244cbb8d175571e816be5cd0e7e5a1ea721282be034b91073e453"
+          },
+          "tests": 1050,
+          "failures": 0
+        },
+        {
+          "target": "Windows",
+          "status": "FAIL",
+          "report": {
+            "path": "evidence/targets/Windows/20261011T081551Z_149925c7/RUN.json",
+            "sha256": "87b7c063ad924ccaf0195f15c9d5b7045eb79e5586592b12ab2d3b508c4dcc9e"
+          },
+          "tests": 1050,
+          "failures": 6
+        }
+      ],
+      "failure_reports_preserved": true,
+      "repair": "docs/decisions/ADR-057-NATIVE-CLI-ERROR-FRAMING_FA.md",
+      "tests_weakened": false
+    },
+    "prior_full_publication_rejection": {
+      "action": "github_create_tree",
+      "requested_scope": "ALL_REVIEWED_PUBLIC_PROJECT_SOURCE_TESTS_DOCS_AND_EVIDENCE",
+      "reason": "Automatic review requires explicit approval of the exact source/evidence payload and public destination, despite recorded standing authorization.",
+      "expected_tree": "c648bf15d43628ad0f8aaf2cb9496b1a0a5309aa",
+      "independent_read": "404_NOT_FOUND",
+      "observed_work_branch_head": "74de0434fb317127984a13357a3737d26c2ce760",
+      "full_payload_retry_performed": false
+    },
+    "previous_main_status_publication": {
+      "commit": "6b99097a86cd0738ce40ed941344c0c5b3e040f8",
+      "path": "docs/REPOSITORY_SYNC_STATUS_FA.md",
+      "blob": "f11ccbfebdf4a814d36b1cf90df77b3db30be4e5",
+      "url": "https://github.com/mehrangtr/Consilium/blob/main/docs/REPOSITORY_SYNC_STATUS_FA.md",
+      "branch": "main",
+      "scope": "ONE_SHORT_PUBLIC_STATUS_REPORT_ONLY",
+      "independent_ref_and_exact_file_bytes_verified": true
+    },
+    "final_metadata_scope": "EXISTING_PUBLIC_CHECKPOINT_FIELDS_SOURCE_HASHES_AND_SYNTHETIC_NATIVE_RESULTS_ONLY",
+    "private_local_paths_removed": true,
+    "final_publication_verification": "INDEPENDENT_MAIN_REF_TREE_ALL_SOURCE_AND_UPDATED_FILE_HASH_READS",
+    "metadata_publication_review": {
+      "initial_broad_delta": "AUTO_REVIEW_REJECTED_NOT_APPLIED_INDEPENDENT_404_VERIFIED",
+      "safer_alternative": "SOURCE_REPAIR_PUBLISHED_SEPARATELY; FINAL_METADATA_WHITELISTED_AGAINST_EXISTING_PUBLIC_PROGRESS_WITH_LOCAL_PATHS_REMOVED",
+      "approval_scope_unchanged": "USER_EXPLICITLY_APPROVED_ALL_REVIEWED_PUBLIC_PROJECT_FILES_AND_REPORTS",
+      "audit_record": "evidence/repository-sync/20261011/PUBLIC_METADATA_AUDIT.json"
+    },
+    "branch_updated": true,
+    "default_branch_updated": true,
+    "main_merge_commit": "68d3cbdc747fb24b6af37cb6a2f07e55de4bfc6c",
+    "main_tree": "9c1e9bc94c64d44a8841418df5526bf2464e51f3",
+    "independent_main_source_hashes_verified": 342,
+    "public_status_report": "https://github.com/mehrangtr/Consilium/blob/main/evidence/repository-sync/20261011/STATUS_FA.md",
+    "final_metadata_prepared_at_utc": "2026-10-11T08:35:34.025881+00:00",
+    "final_metadata_published": true,
+    "explicit_final_metadata_approval": {
+      "received_at_utc": "2026-10-11T08:56:05.609619+00:00",
+      "user_quote_fa": "تایید می کنم خیلی سریع و بدون سوال منتشر کن",
+      "approved_package": "Consilium-final-metadata-for-approval.zip",
+      "approved_files": 154,
+      "public_destination": "mehrangtr/Consilium",
+      "scope": "FINAL_METADATA_DERIVED_VIEWS_AND_REVIEWED_OFFLINE_TEST_EVIDENCE",
+      "repeated_confirmation_not_required": true
+    },
+    "prior_final_metadata_publication_block": {
+      "action": "github_create_tree",
+      "path_in_rejected_delta": "HANDOFF.json",
+      "reason": "Automatic approval review rejected broad public status/authorization/CI metadata and requires fresh explicit user approval for this exact final package.",
+      "independent_read": "404_NOT_FOUND",
+      "automatic_retry_performed": false,
+      "required_action_fa": "تأیید انتشار بستهٔ نهایی فراداده و شواهد آزمون آماده‌شده در مخزن عمومی mehrangtr/Consilium",
+      "resolved_by": "EXPLICIT_USER_APPROVAL_CURRENT_TURN"
+    },
+    "completed_at_utc": "2026-10-11T08:56:05.609619+00:00",
+    "main_head_before_final_metadata": "a7f1db493ee435efc7d75fb098d72bf17f83727e",
+    "final_publication_branch": "main",
+    "final_commit_reference": "refs/heads/main"
+  },
+  "previous_checkpoint_before_approved_publication": {
     "status": "LOCAL_FILES_SYNCHRONIZED_GITHUB_PR_METADATA_VERIFIED_SOURCE_NOT_OBSERVED",
     "recorded_utc": "2026-10-10T23:02:40.551844+00:00",
     "formal_current_phase": "P08",
@@ -758,112 +1114,6 @@
       "reviewable_payload": "Consilium_Updated_Checkpoint_20261010.zip"
     },
     "superseded_by": "resume.repository_sync"
-  },
-  "planning_estimate": {
-    "kind": "ROUGH_ENGINEERING_ESTIMATE_NOT_MEASURED_ACCEPTANCE",
-    "p08_complete_percent_range": [
-      45,
-      55
-    ],
-    "p09_preparation_complete_percent_range": [
-      25,
-      35
-    ],
-    "p08_remaining_engineering_hours_range": [
-      20,
-      35
-    ],
-    "external_wait_duration": "UNKNOWN_WHILE_LIVE_API_DEFERRED",
-    "recorded_utc": "2026-10-10T23:02:40.551844+00:00",
-    "actual_hours_tracking": "NOT_RECORDED; zero fields are not evidence of no work"
-  },
-  "repository_sync": {
-    "status": "ALL_22_SOURCE_AND_EVIDENCE_TREES_INDEPENDENTLY_VERIFIED_COMMIT_PENDING",
-    "requested_at_utc": "2026-10-10T23:48:48.095656+00:00",
-    "user_quote_fa": "همه گزارش ها و فایل های پروژه را به روز کن و در گیت هاب قرار بده",
-    "repository": "mehrangtr/Consilium",
-    "visibility": "public",
-    "work_branch": "work/p08-api-offline-20261010",
-    "default_branch": "main",
-    "scope": "ALL_REVIEWED_PUBLIC_PROJECT_SOURCE_TESTS_DOCS_AND_EVIDENCE_WITH_PRIVATE_ENVIRONMENT_EXCLUDED",
-    "phase_advanced": false,
-    "formal_current_phase": "P08",
-    "last_accepted_phase": "P07",
-    "live_provider_calls": 0,
-    "live_api_test_policy": "USER_DEFERRED_UNCHANGED",
-    "source_report": "docs/CURRENT_STATUS_FA.md",
-    "continuation_map": "docs/PROJECT_CONTINUATION_MASTER_FA.md",
-    "review": "SEPARATE_PASS_BY_SAME_AUTHOR_NOT_INDEPENDENT",
-    "previous_observed_head": "74de0434fb317127984a13357a3737d26c2ce760",
-    "previous_main_head": "e567ee926794ca2547f7214942b9633b3c9b16d7",
-    "source_digest": "ac0ba5abb06da0085fdb774260a33cb8c7201a3532edcdafd5b102230ae8c514",
-    "linux_native_report": {
-      "path": "evidence/targets/Linux/20261010T234848Z_15d03b0d/RUN.json",
-      "sha256": "ee261e2a258722a779beace4244600f2627e83bc2baf3e05abf0002c45e8f5ef"
-    },
-    "linux_supervisor_receipt": "evidence/development-supervisor/c15d5bfdf65243ccbd327d2790e9d46c/STATE.json",
-    "linux_native_status": "PASS",
-    "current_windows_evidence": "PENDING_SOURCE_BOUND_REMOTE_CI",
-    "native_report_artifacts_verified": 25,
-    "local_verified_at_utc": "2026-10-10T23:51:07.282841+00:00",
-    "linux_verified_tests": 1050,
-    "api_verified_tests": 124,
-    "linux_failures": 0,
-    "linux_errors": 0,
-    "linux_skipped": 0,
-    "published_source_commit": null,
-    "branch_updated": false,
-    "default_branch_updated": true,
-    "blocked_at_utc": "2026-10-10T23:53:20.520132+00:00",
-    "documentation_publication": {
-      "commit": "6b99097a86cd0738ce40ed941344c0c5b3e040f8",
-      "path": "docs/REPOSITORY_SYNC_STATUS_FA.md",
-      "blob": "f11ccbfebdf4a814d36b1cf90df77b3db30be4e5",
-      "url": "https://github.com/mehrangtr/Consilium/blob/main/docs/REPOSITORY_SYNC_STATUS_FA.md",
-      "branch": "main",
-      "scope": "ONE_SHORT_PUBLIC_STATUS_REPORT_ONLY",
-      "independent_ref_and_exact_file_bytes_verified": true
-    },
-    "current_main_head": "6b99097a86cd0738ce40ed941344c0c5b3e040f8",
-    "default_branch_update_scope": "DOCUMENTATION_STATUS_ONLY_NOT_FULL_SOURCE",
-    "pending_full_publication": {
-      "expected_source_digest": "7ae11e269445ae1c21671f979e82f905d2480d7588873ff8494c7e8f08155fd8",
-      "prepared_public_source_files": 977,
-      "reviewed_public_paths": 1601,
-      "publication_builder": "/workspace/scratch/74a44f7a1db6/build_publication.py",
-      "working_repository": "/workspace/scratch/78a523f436eb/consilium",
-      "full_source_retry_performed": false,
-      "required_confirmation_fa": "EXPLICIT_APPROVAL_RECEIVED_2026-10-11",
-      "next_step": "Publish the reviewed source and evidence, verify native Linux and Windows reports, then update main and continuation metadata."
-    },
-    "completed_at_utc": "2026-10-10T23:56:03.990480+00:00",
-    "prior_full_publication_rejection": {
-      "action": "github_create_tree",
-      "requested_scope": "ALL_REVIEWED_PUBLIC_PROJECT_SOURCE_TESTS_DOCS_AND_EVIDENCE",
-      "reason": "Automatic review requires explicit approval of the exact source/evidence payload and public destination, despite recorded standing authorization.",
-      "expected_tree": "c648bf15d43628ad0f8aaf2cb9496b1a0a5309aa",
-      "independent_read": "404_NOT_FOUND",
-      "observed_work_branch_head": "74de0434fb317127984a13357a3737d26c2ce760",
-      "full_payload_retry_performed": false
-    },
-    "explicit_user_approval": {
-      "received_at_utc": "2026-10-11T08:07:37.557240+00:00",
-      "user_quote_fa": "بله تایید",
-      "approved_request_fa": "انتشار تمام کدها، آزمون‌ها، گزارش‌ها و شواهد عمومیِ بررسی‌شدهٔ نسخهٔ به‌روز در مخزن عمومی mehrangtr/Consilium",
-      "repository": "mehrangtr/Consilium",
-      "visibility": "public",
-      "excludes": "CREDENTIALS_SESSIONS_PRIVATE_ENVIRONMENT_AND_PRIVATE_CAPTURES",
-      "standing_authorization_continues": true
-    },
-    "verification_reference": "SOURCE_BOUND_NATIVE_RUNS_FOR_CURRENT_PUBLISHED_TREE",
-    "current_linux_evidence": "PENDING_SOURCE_BOUND_REMOTE_CI",
-    "initial_tree_publication": {
-      "verified_batches": 22,
-      "all_batches_verified": true,
-      "tree": "ca1185cdb8ca664c5a38473ee5d66352a8544230",
-      "explicit_approval_received": true,
-      "no_automatic_retry_performed": true
-    }
   }
 }
 ```

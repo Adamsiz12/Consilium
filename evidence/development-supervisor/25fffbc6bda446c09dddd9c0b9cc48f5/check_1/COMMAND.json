@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/workspace/scratch/78a523f436eb/consilium/.venv/bin/python",
+    "tools/check.py"
+  ],
+  "root": "/workspace/scratch/78a523f436eb/consilium",
+  "nonce": "4b508b677877441981ea2c908aab9208",
+  "supervisor_pid": 5
+}

@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/workspace/scratch/78a523f436eb/consilium/.venv/bin/python",
+    "tools/run_current_phase.py",
+    "--report-blocked"
+  ],
+  "root": "/workspace/scratch/78a523f436eb/consilium",
+  "nonce": "f1ee869a97e3450981f4b5570adad1b7",
+  "supervisor_pid": 5
+}

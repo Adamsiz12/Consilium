@@ -1,0 +1,20 @@
+{
+  "phase": "P06",
+  "scope": "OFFLINE_PILOT_ACCOUNTING_NOT_MODEL_QUALITY",
+  "status": "PASS",
+  "counts": {
+    "tests": 73,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "ac0ba5abb06da0085fdb774260a33cb8c7201a3532edcdafd5b102230ae8c514",
+  "source_digest_after": "ac0ba5abb06da0085fdb774260a33cb8c7201a3532edcdafd5b102230ae8c514",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14"
+  },
+  "date_utc": "2026-10-11T08:17:31.274171+00:00",
+  "real_model_runs": 0,
+  "phase_accepted": false
+}

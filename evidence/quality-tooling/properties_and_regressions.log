@@ -16,6 +16,6 @@ test_unicode_span_binds_exact_bytes_and_rejects_modified_text (test_quality.Qual
 runTest (hypothesis.stateful.DurableDispatchMachine.TestCase.runTest) ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 4.473s
+Ran 15 tests in 3.879s
 
 OK

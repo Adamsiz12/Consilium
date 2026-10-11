@@ -1,0 +1,10 @@
+{
+  "nonce": "f1ee869a97e3450981f4b5570adad1b7",
+  "task_pid": 317,
+  "sequence": 1,
+  "milestone": "blocked_phase_recorded",
+  "receipt": {
+    "path": "/workspace/scratch/78a523f436eb/consilium/evidence/phase-blockers/3168061a6dca4717b66ff354f46a144d/RUN.json",
+    "sha256": "e1119b3e82998af097161048845dba57bd8e6780fee5262178e2766a37db0944"
+  }
+}
