@@ -57,4 +57,6 @@ def main(argv=None):
 
 
 if __name__ == "__main__":
+    # CLI error codes are an exact byte protocol on both native targets.
+    sys.stderr.reconfigure(newline="\n")
     raise SystemExit(main())

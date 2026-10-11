@@ -41,4 +41,6 @@ def main(argv=None):
 
 
 if __name__ == "__main__":
+    # Preserve the fixed error-code framing when Windows translates newlines.
+    sys.stderr.reconfigure(newline="\n")
     raise SystemExit(main())

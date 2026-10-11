@@ -11,6 +11,8 @@
   packet producers, read-only CDP transport, and owned bounded DOM acquisition.
 - Refresh the current status, continuation map, source inventory, transfer
   metadata, and repository guides from the canonical progress record.
+- Keep private API and CDP CLI error-code framing identical on Windows and
+  Linux; retain the initial six Windows failures and rerun the strict checks.
 
 P08 remains blocked and P09 work is authorized offline preparation. Live API
 testing is deferred; full V1 acceptance, the broad comparative pilot, and

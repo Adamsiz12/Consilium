@@ -104,6 +104,7 @@
     "docs/decisions/ADR-054-INCREMENTAL-SSE-FRAMING_FA.md",
     "docs/decisions/ADR-055-OWNED-API-PROCESS-AND-PREFIX-RECOVERY_FA.md",
     "docs/decisions/ADR-056-BOUND-API-PRODUCT-RESULT_FA.md",
+    "docs/decisions/ADR-057-NATIVE-CLI-ERROR-FRAMING_FA.md",
     "docs/p06/FUNCTIONAL_EXIT.json",
     "docs/p06/PREREGISTRATION.json",
     "docs/p06/RECOVERY_COUNCIL_20261009.json",
