@@ -2,7 +2,7 @@
 
 Generated from `ROADMAP.json`, `PROGRESS.json`, and `CHECKS.json`. Manual edits are not authoritative; regenerate after canonical inputs change. Original source text, including historical quotations, is preserved.
 
-Input digest: `f465ffc2eaeefff5d32e6c524518a1acf023888494f49a1a15f53283ac6e5004`.
+Input digest: `9c1cfe0ac5e70c57f0c11d50e8bf0a92e8915a59077520bbecb81cc7f9cc4b40`.
 
 Current phase: `P08`. Last accepted phase: `P07`.
 
@@ -30,7 +30,7 @@ Verified application requirements: `0/30`. Passing development tooling does not 
     "Publication block resolved after direct permanent user authorization. Exact five-file tree, commit, parent, message, branch and blob contents independently verified. CI38069235311: both native hosts 830 tests including 106 browser and five new cases; ZIP and nested artifact hashes verified; matrix PASS. No live calls; P08/P09 final acceptance remains open.",
     "Published one-read Qwen ingest bridge: exact before/raw/after binding checks, committed-event reuse without reread, stale/closed preflight, private reader failure quarantine and optimistic commit race checks. Eight new tests, 838 per native host including 114 browser tests; CI38070682276, ZIP/nested artifact hashes and matrix PASS. Driver is injected/unregistered; no live authority, model calls or phase acceptance. Initial lint failure retained."
   ],
-  "next_action": "Implement atomic durable API dispatch reservation that rechecks the exact request plan, current ledger state, and trusted admission inside the write transaction. Keep live dispatch blocked until genuine registered observations exist; live API testing remains deferred by the user.",
+  "next_action": "Design and implement the registered API observation provenance contract offline, then complete successful atomic durable reservation with exact plan persistence and concurrency/recovery tests. Keep live dispatch blocked and live API testing deferred by the user.",
   "next_command": null,
   "note": "Update this record with precise subtask and pending work during development.",
   "github_authorization": {
@@ -1250,6 +1250,28 @@ Verified application requirements: `0/30`. Passing development tooling does not 
       "Atomic durable dispatch reservation with trusted admission",
       "Operation-bound result persistence through the product ledger",
       "Genuine registered live observers and executable P08 acceptance evidence"
+    ]
+  },
+  "api_dispatch_reservation": {
+    "status": "ATOMIC_REJECTION_BOUNDARY_PASS_SUCCESSFUL_RESERVATION_BLOCKED",
+    "branch": "feature/continue-P08-api-reservation",
+    "implementation": "src/consilium/shell/api_dispatch_reservation.py",
+    "decision": "docs/decisions/ADR-059-API-RESERVATION-BOUNDARY.md",
+    "report": "evidence/p08-api-reservation/20261011/RUN.json",
+    "native_report": {
+      "path": "evidence/targets/Linux/20261011T134858Z_cd064acc/RUN.json",
+      "sha256": "5aa211d8dfa18132f33d64cb264229db8ccc61d439689ae3eff80ff4deec4e3d"
+    },
+    "new_tests": 9,
+    "successful_reservation_implemented": false,
+    "live_provider_calls": 0,
+    "phase_advanced": false,
+    "github_authorization_changed": false,
+    "remaining_work": [
+      "Registered trusted observer provenance",
+      "Successful durable reservation with exact plan persistence",
+      "Operation-bound result integration",
+      "Genuine P08 acceptance checks"
     ]
   }
 }

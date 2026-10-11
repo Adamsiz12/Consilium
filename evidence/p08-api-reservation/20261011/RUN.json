@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "ATOMIC_REJECTION_BOUNDARY_PASS_SUCCESSFUL_RESERVATION_BLOCKED",
+  "source_digest": "a9a75c4de776e5ee8450d74112aecc02d2c0ccfde399812ab653a7e37506a278",
+  "native_report": {
+    "path": "evidence/targets/Linux/20261011T134858Z_cd064acc/RUN.json",
+    "sha256": "5aa211d8dfa18132f33d64cb264229db8ccc61d439689ae3eff80ff4deec4e3d"
+  },
+  "new_tests": 9,
+  "counts": {
+    "maintenance_report": {},
+    "environment_report": {},
+    "control_report": {
+      "tests": 123,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0
+    },
+    "foundation_report": {
+      "tests": 60,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "persistence_report": {
+      "tests": 104,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "browser_probe_report": {
+      "tests": 238,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "architect_report": {
+      "tests": 264,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "council_report": {
+      "tests": 50,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "quality_report": {
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pilot_report": {
+      "tests": 73,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "api_report": {
+      "tests": 147,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "quality_checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.038
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.112
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.028
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.108
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 3.571
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.055
+    }
+  ],
+  "strict_types": "PASS_TWO_API_BOUNDARY_MODULES",
+  "build": "PASS_WHEEL",
+  "live_provider_calls": 0,
+  "successful_reservation_implemented": false,
+  "dispatch_enabled": false,
+  "phase_advanced": false,
+  "initial_test_failures": {
+    "status": "CORRECTED_TEST_FIXTURE_FAILURES",
+    "first_run": {
+      "tests": 23,
+      "failures": 1,
+      "errors": 1,
+      "issues": [
+        "replacement fixture missing actor/reason",
+        "trace assertion included unrelated read transaction commit"
+      ]
+    },
+    "second_run": {
+      "tests": 23,
+      "errors": 1,
+      "issue": "binding revisions start at zero"
+    },
+    "correction": "Use explicit actor/reason and current zero-based binding revision; constrain SQL assertion to reservation transaction. Product guards unchanged."
+  },
+  "limitations": [
+    "No registered trusted live observer; no successful durable reservation or live dispatch implemented.",
+    "Current-source Windows evidence not yet verified."
+  ]
+}

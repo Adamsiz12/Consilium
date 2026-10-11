@@ -1,93 +1,144 @@
 {
   "schema_version": 1,
-  "status": "API_LEDGER_PREFLIGHT_LINUX_VALIDATED_P08_BLOCKED",
-  "scope": "READ_ONLY_API_LEDGER_PREFLIGHT_NOT_LIVE_ADMISSION_OR_RESERVATION",
-  "current_phase": "P08",
-  "last_accepted_phase": "P07",
-  "source_digest": "dad79e97620e136d3dfeb37365f6c4edb84cbe097d8e9f2d27f4eea4297c319c",
-  "native_target_reports": [
-    {
-      "path": "evidence/targets/Linux/20261011T133112Z_2977a648/RUN.json",
-      "sha256": "def1fd0b84d3ff06be6a7d77a1d8b5925ea035609bd26b8465fbbebbdb739d24"
-    }
-  ],
-  "counts_per_native_os": {
-    "Linux": {
-      "all_tests": 1065,
+  "status": "ATOMIC_REJECTION_BOUNDARY_PASS_SUCCESSFUL_RESERVATION_BLOCKED",
+  "source_digest": "a9a75c4de776e5ee8450d74112aecc02d2c0ccfde399812ab653a7e37506a278",
+  "native_report": {
+    "path": "evidence/targets/Linux/20261011T134858Z_cd064acc/RUN.json",
+    "sha256": "5aa211d8dfa18132f33d64cb264229db8ccc61d439689ae3eff80ff4deec4e3d"
+  },
+  "new_tests": 9,
+  "counts": {
+    "maintenance_report": {},
+    "environment_report": {},
+    "control_report": {
+      "tests": 123,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0
+    },
+    "foundation_report": {
+      "tests": 60,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "persistence_report": {
+      "tests": 104,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "browser_probe_report": {
+      "tests": 238,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "architect_report": {
+      "tests": 264,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "council_report": {
+      "tests": 50,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "quality_report": {
+      "tests": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pilot_report": {
+      "tests": 73,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "api_report": {
+      "tests": 147,
       "failures": 0,
       "errors": 0,
       "skipped": 0
     }
   },
-  "new_tests": 14,
   "quality_checks": [
     {
       "id": "lint",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.044
+      "elapsed_seconds": 0.038
     },
     {
       "id": "types",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.352
+      "elapsed_seconds": 0.112
     },
     {
       "id": "conformance",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.026
+      "elapsed_seconds": 0.028
     },
     {
       "id": "transitions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.101
+      "elapsed_seconds": 0.108
     },
     {
       "id": "properties_and_regressions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 3.581
+      "elapsed_seconds": 3.571
     },
     {
       "id": "targeted_coverage",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.06
+      "elapsed_seconds": 0.055
     }
   ],
-  "new_module_types": {
-    "command": "python -m mypy --strict --follow-imports=skip src/consilium/shell/api_dispatch_preflight.py",
-    "status": "PASS",
-    "exit_code": 0
-  },
-  "build_result": "PASS_WHEEL_NO_DEPENDENCY_CHANGES",
-  "full_application_requirements_verified": 0,
-  "phase_advanced": false,
-  "independent_review": false,
+  "strict_types": "PASS_TWO_API_BOUNDARY_MODULES",
+  "build": "PASS_WHEEL",
   "live_provider_calls": 0,
-  "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
-  "next_action": "Implement atomic durable API dispatch reservation that rechecks the exact request plan, current ledger state, and trusted admission inside the write transaction. Keep live dispatch blocked until genuine registered observations exist; live API testing remains deferred by the user.",
-  "github_authorization_changed": false,
-  "resume_compaction_performed": false,
-  "evidence_relocation_performed": false,
-  "validation_summary": {
-    "path": "evidence/p08-api-preflight/20261011/RUN.json",
-    "sha256": "d975d16b7c39d630e188acf1eff8db62ba570d89b7abdc550c4fef7d7df371ad"
+  "successful_reservation_implemented": false,
+  "dispatch_enabled": false,
+  "phase_advanced": false,
+  "initial_test_failures": {
+    "status": "CORRECTED_TEST_FIXTURE_FAILURES",
+    "first_run": {
+      "tests": 23,
+      "failures": 1,
+      "errors": 1,
+      "issues": [
+        "replacement fixture missing actor/reason",
+        "trace assertion included unrelated read transaction commit"
+      ]
+    },
+    "second_run": {
+      "tests": 23,
+      "errors": 1,
+      "issue": "binding revisions start at zero"
+    },
+    "correction": "Use explicit actor/reason and current zero-based binding revision; constrain SQL assertion to reservation transaction. Product guards unchanged."
   },
+  "limitations": [
+    "No registered trusted live observer; no successful durable reservation or live dispatch implemented.",
+    "Current-source Windows evidence not yet verified."
+  ],
+  "scope": "OFFLINE_ATOMIC_API_RESERVATION_REJECTION_NOT_LIVE_ACCEPTANCE",
+  "current_phase": "P08",
   "previous_validation_report": {
-    "path": "evidence/p08-api-preflight/20261011/PREVIOUS_VALIDATION_REPORT.json",
-    "sha256": "3649652933dd6360e986edee07dbed7ebd8b892701c40c4a3a4beef62baffc66"
+    "path": "evidence/p08-api-reservation/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "37845fc1daad00dfef704780fa8e8b45ca91c79a33bebdea9fc739d84c4b981b"
   },
-  "windows_current_source": "REMOTE_CI_REQUIRES_SEPARATE_VERIFICATION",
-  "updated_at_utc": "2026-10-11T13:33:50.204380+00:00",
-  "handoff_validation": {
-    "status": "PASS",
-    "verified_files": 1552,
-    "extracted_source_matches": true,
-    "extracted_navigation": "PASS",
-    "scope": "HASH_PATH_AND_CANONICAL_STATE_REPRODUCTION_NOT_REPEAT_NATIVE_SUITE"
-  }
+  "next_action": "Design and implement the registered API observation provenance contract offline, then complete successful atomic durable reservation with exact plan persistence and concurrency/recovery tests. Keep live dispatch blocked and live API testing deferred by the user.",
+  "github_authorization_changed": false
 }

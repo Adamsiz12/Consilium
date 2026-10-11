@@ -2,7 +2,7 @@
 
 Generated from `ROADMAP.json`, `PROGRESS.json`, and `CHECKS.json`. Manual edits are not authoritative; regenerate after canonical inputs change. Original source text, including historical quotations, is preserved.
 
-Input digest: `f465ffc2eaeefff5d32e6c524518a1acf023888494f49a1a15f53283ac6e5004`.
+Input digest: `9c1cfe0ac5e70c57f0c11d50e8bf0a92e8915a59077520bbecb81cc7f9cc4b40`.
 
 Continue only the first unfinished phase, subject to recorded user-authorized exceptions. These criteria define planned checks; they are not execution results.
 

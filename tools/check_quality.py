@@ -25,6 +25,7 @@ def main():
                   'src/consilium/shell/pilot.py', 'src/consilium/shell/pilot_review.py',
                   'tools/p06_pilot.py', 'tools/check_p06.py',
                   'src/consilium/shell/api_dispatch_preflight.py',
+                  'src/consilium/shell/api_dispatch_reservation.py',
                   'src/consilium/core/output_contract.py', 'src/consilium/shell/council_export.py',
                   'tools/p07_output.py', 'tools/render_p07_visual.py', 'tools/check_p07_evidence.py', 'tests/council/test_output.py', 'tests/council/output_crash_worker.py',
                   'src/consilium/adapters/api_codec.py', 'src/consilium/adapters/api_offline.py', 'src/consilium/adapters/api_http.py',

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "API_LEDGER_PREFLIGHT_LINUX_VALIDATED_P08_BLOCKED",
+  "scope": "READ_ONLY_API_LEDGER_PREFLIGHT_NOT_LIVE_ADMISSION_OR_RESERVATION",
+  "current_phase": "P08",
+  "last_accepted_phase": "P07",
+  "source_digest": "dad79e97620e136d3dfeb37365f6c4edb84cbe097d8e9f2d27f4eea4297c319c",
+  "native_target_reports": [
+    {
+      "path": "evidence/targets/Linux/20261011T133112Z_2977a648/RUN.json",
+      "sha256": "def1fd0b84d3ff06be6a7d77a1d8b5925ea035609bd26b8465fbbebbdb739d24"
+    }
+  ],
+  "counts_per_native_os": {
+    "Linux": {
+      "all_tests": 1065,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "new_tests": 14,
+  "quality_checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.044
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.352
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.026
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.101
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 3.581
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.06
+    }
+  ],
+  "new_module_types": {
+    "command": "python -m mypy --strict --follow-imports=skip src/consilium/shell/api_dispatch_preflight.py",
+    "status": "PASS",
+    "exit_code": 0
+  },
+  "build_result": "PASS_WHEEL_NO_DEPENDENCY_CHANGES",
+  "full_application_requirements_verified": 0,
+  "phase_advanced": false,
+  "independent_review": false,
+  "live_provider_calls": 0,
+  "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
+  "next_action": "Implement atomic durable API dispatch reservation that rechecks the exact request plan, current ledger state, and trusted admission inside the write transaction. Keep live dispatch blocked until genuine registered observations exist; live API testing remains deferred by the user.",
+  "github_authorization_changed": false,
+  "resume_compaction_performed": false,
+  "evidence_relocation_performed": false,
+  "validation_summary": {
+    "path": "evidence/p08-api-preflight/20261011/RUN.json",
+    "sha256": "d975d16b7c39d630e188acf1eff8db62ba570d89b7abdc550c4fef7d7df371ad"
+  },
+  "previous_validation_report": {
+    "path": "evidence/p08-api-preflight/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "3649652933dd6360e986edee07dbed7ebd8b892701c40c4a3a4beef62baffc66"
+  },
+  "windows_current_source": "REMOTE_CI_REQUIRES_SEPARATE_VERIFICATION",
+  "updated_at_utc": "2026-10-11T13:33:50.204380+00:00",
+  "handoff_validation": {
+    "status": "PASS",
+    "verified_files": 1552,
+    "extracted_source_matches": true,
+    "extracted_navigation": "PASS",
+    "scope": "HASH_PATH_AND_CANONICAL_STATE_REPRODUCTION_NOT_REPEAT_NATIVE_SUITE"
+  }
+}
