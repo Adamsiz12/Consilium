@@ -1,104 +1,93 @@
 {
   "schema_version": 1,
-  "status": "ENGLISH_OPERATIONAL_DOCS_LINUX_VALIDATED_PRODUCT_P08_BLOCKED",
-  "scope": "APPROVED_ENGLISH_OPERATIONAL_GUIDES_AND_NAVIGATION_LABELS_NOT_PRODUCT_ACCEPTANCE",
+  "status": "API_LEDGER_PREFLIGHT_LINUX_VALIDATED_P08_BLOCKED",
+  "scope": "READ_ONLY_API_LEDGER_PREFLIGHT_NOT_LIVE_ADMISSION_OR_RESERVATION",
   "current_phase": "P08",
   "last_accepted_phase": "P07",
-  "source_digest": "e3a65ad747ec5230d0d2243348fd7004d2575a13c15df437ed371f149e3bbbb5",
+  "source_digest": "dad79e97620e136d3dfeb37365f6c4edb84cbe097d8e9f2d27f4eea4297c319c",
   "native_target_reports": [
     {
-      "path": "evidence/targets/Linux/20261011T125640Z_1ab096b1/RUN.json",
-      "sha256": "f9f488d89f448498110525c6a6de673803f8d82fb0e93500cb3500e252030837"
+      "path": "evidence/targets/Linux/20261011T133112Z_2977a648/RUN.json",
+      "sha256": "def1fd0b84d3ff06be6a7d77a1d8b5925ea035609bd26b8465fbbebbdb739d24"
     }
   ],
   "counts_per_native_os": {
     "Linux": {
-      "all_tests": 1051,
+      "all_tests": 1065,
       "failures": 0,
       "errors": 0,
       "skipped": 0
     }
   },
-  "windows_current_source": "NOT_RUN_LOCALLY_REMOTE_RESULT_REQUIRES_SEPARATE_VERIFICATION",
+  "new_tests": 14,
   "quality_checks": [
     {
       "id": "lint",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.039
+      "elapsed_seconds": 0.044
     },
     {
       "id": "types",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.101
+      "elapsed_seconds": 0.352
     },
     {
       "id": "conformance",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.03
+      "elapsed_seconds": 0.026
     },
     {
       "id": "transitions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.093
+      "elapsed_seconds": 0.101
     },
     {
       "id": "properties_and_regressions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 2.219
+      "elapsed_seconds": 3.581
     },
     {
       "id": "targeted_coverage",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.061
+      "elapsed_seconds": 0.06
     }
   ],
-  "advisory_tool_lint": {
-    "status": "NO_NEW_FINDINGS",
-    "current_findings": 17,
-    "baseline_findings": 17,
-    "new_findings": 0,
-    "scope": "ADVISORY_FULL_TOOL_FILES_OUTSIDE_REGISTERED_LINT_TARGETS"
+  "new_module_types": {
+    "command": "python -m mypy --strict --follow-imports=skip src/consilium/shell/api_dispatch_preflight.py",
+    "status": "PASS",
+    "exit_code": 0
   },
   "build_result": "PASS_WHEEL_NO_DEPENDENCY_CHANGES",
-  "dependency_audit": "NOT_RERUN_NO_DEPENDENCY_CHANGE",
   "full_application_requirements_verified": 0,
   "phase_advanced": false,
   "independent_review": false,
   "live_provider_calls": 0,
   "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
-  "next_action": "Connect the product observation gate and durable dispatch reservation to the request plan and operation-bound result; do not register or activate a live connection without genuine evidence. Continue browser preparation with actual selectors and independently observed real context. Live API testing remains open under the user's deferral.",
+  "next_action": "Implement atomic durable API dispatch reservation that rechecks the exact request plan, current ledger state, and trusted admission inside the write transaction. Keep live dispatch blocked until genuine registered observations exist; live API testing remains deferred by the user.",
   "github_authorization_changed": false,
-  "deferred_task_ids": [
-    "MAINT-RESUME-COMPACTION",
-    "MAINT-EVIDENCE-RETENTION"
-  ],
   "resume_compaction_performed": false,
   "evidence_relocation_performed": false,
   "validation_summary": {
-    "path": "evidence/english-documentation/20261011/RUN.json",
-    "sha256": "06a3574bbac3e8d46aff3f85a001cd7960632260b034079336f2d766b00ed53f"
+    "path": "evidence/p08-api-preflight/20261011/RUN.json",
+    "sha256": "d975d16b7c39d630e188acf1eff8db62ba570d89b7abdc550c4fef7d7df371ad"
   },
   "previous_validation_report": {
-    "path": "evidence/english-documentation/20261011/PREVIOUS_VALIDATION_REPORT.json",
-    "sha256": "0f56a404e67b418c00003010e54abf334c74777ad53cfe2127af2b9b3b490e86"
+    "path": "evidence/p08-api-preflight/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "3649652933dd6360e986edee07dbed7ebd8b892701c40c4a3a4beef62baffc66"
   },
-  "first_failed_validation_report": {
-    "path": "evidence/targets/Linux/20261011T125424Z_e9bdc9d7/RUN.json",
-    "sha256": "afae8398ec94f269260e69042eeea66fcbf45e806c67cce64b95f51cc38d93e1"
-  },
-  "updated_at_utc": "2026-10-11T12:59:52.284002+00:00",
+  "windows_current_source": "REMOTE_CI_REQUIRES_SEPARATE_VERIFICATION",
+  "updated_at_utc": "2026-10-11T13:33:50.204380+00:00",
   "handoff_validation": {
     "status": "PASS",
-    "verified_files": 1547,
-    "source_digest_matches": true,
+    "verified_files": 1552,
+    "extracted_source_matches": true,
     "extracted_navigation": "PASS",
-    "extracted_canonical_state": "P08_BLOCKED",
-    "scope": "ARCHIVE_HASH_PATH_AND_DERIVED_STATE_REPRODUCTION; NATIVE_SUITE_NOT_REPEATED"
+    "scope": "HASH_PATH_AND_CANONICAL_STATE_REPRODUCTION_NOT_REPEAT_NATIVE_SUITE"
   }
 }

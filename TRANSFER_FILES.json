@@ -1011,7 +1011,12 @@
     "evidence/targets/Linux/20261011T125424Z_e9bdc9d7/smoke_1.log",
     "evidence/targets/Linux/20261011T125424Z_e9bdc9d7/smoke_2.log",
     "evidence/targets/Linux/20261011T125424Z_e9bdc9d7/smoke_3.log",
-    "evidence/targets/Linux/20261011T125424Z_e9bdc9d7/smoke_4.log"
+    "evidence/targets/Linux/20261011T125424Z_e9bdc9d7/smoke_4.log",
+    "src/consilium/shell/api_dispatch_preflight.py",
+    "tests/api/test_api_dispatch_preflight.py",
+    "docs/decisions/ADR-058-API-DISPATCH-PREFLIGHT.md",
+    "evidence/p08-api-preflight/20261011/RUN.json",
+    "evidence/p08-api-preflight/20261011/PREVIOUS_VALIDATION_REPORT.json"
   ],
   "note": "Every public source, canonical progress and selected supplemental evidence. Accepted proofs, latest current-phase attempt and native report graphs are collected automatically. Application foundation exists; V1 runtime acceptance is pending."
 }

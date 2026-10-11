@@ -716,7 +716,7 @@
       "Publication block resolved after direct permanent user authorization. Exact five-file tree, commit, parent, message, branch and blob contents independently verified. CI38069235311: both native hosts 830 tests including 106 browser and five new cases; ZIP and nested artifact hashes verified; matrix PASS. No live calls; P08/P09 final acceptance remains open.",
       "Published one-read Qwen ingest bridge: exact before/raw/after binding checks, committed-event reuse without reread, stale/closed preflight, private reader failure quarantine and optimistic commit race checks. Eight new tests, 838 per native host including 114 browser tests; CI38070682276, ZIP/nested artifact hashes and matrix PASS. Driver is injected/unregistered; no live authority, model calls or phase acceptance. Initial lint failure retained."
     ],
-    "next_action": "Connect the product observation gate and durable dispatch reservation to the request plan and operation-bound result; do not register or activate a live connection without genuine evidence. Continue browser preparation with actual selectors and independently observed real context. Live API testing remains open under the user's deferral.",
+    "next_action": "Implement atomic durable API dispatch reservation that rechecks the exact request plan, current ledger state, and trusted admission inside the write transaction. Keep live dispatch blocked until genuine registered observations exist; live API testing remains deferred by the user.",
     "next_command": null,
     "note": "Update this record with precise subtask and pending work during development.",
     "github_authorization": {
@@ -1908,6 +1908,35 @@
       "advisory_lint": "17_PRE_EXISTING_FINDINGS_ZERO_NEW",
       "validated_at_utc": "2026-10-11T12:59:52.284002+00:00",
       "publication_validation": "INDEPENDENT_REF_AND_TREE_READ_RECORDED_IN_FINAL_COMPLETION_REPORT"
+    },
+    "api_dispatch_preflight": {
+      "status": "COMPLETED_LINUX_VALIDATED_P08_BLOCKED",
+      "branch": "feature/continue-P08-api-preflight",
+      "scope": "Read-only API plan correlation with committed product ledger; no reservation or live dispatch.",
+      "implementation": "src/consilium/shell/api_dispatch_preflight.py",
+      "tests": "tests/api/test_api_dispatch_preflight.py",
+      "decision": "docs/decisions/ADR-058-API-DISPATCH-PREFLIGHT.md",
+      "new_test_count": 14,
+      "report": "evidence/p08-api-preflight/20261011/RUN.json",
+      "phase_advanced": false,
+      "github_authorization_changed": false,
+      "live_provider_calls": 0,
+      "source_digest": "dad79e97620e136d3dfeb37365f6c4edb84cbe097d8e9f2d27f4eea4297c319c",
+      "native_report": {
+        "path": "evidence/targets/Linux/20261011T133112Z_2977a648/RUN.json",
+        "sha256": "def1fd0b84d3ff06be6a7d77a1d8b5925ea035609bd26b8465fbbebbdb739d24"
+      },
+      "tests_total": 1065,
+      "api_tests": 138,
+      "dispatch_allowed": false,
+      "reservation_implemented": false,
+      "next_action": "Implement atomic durable API dispatch reservation that rechecks the exact request plan, current ledger state, and trusted admission inside the write transaction. Keep live dispatch blocked until genuine registered observations exist; live API testing remains deferred by the user.",
+      "validated_at_utc": "2026-10-11T13:33:50.204380+00:00",
+      "remaining_work": [
+        "Atomic durable dispatch reservation with trusted admission",
+        "Operation-bound result persistence through the product ledger",
+        "Genuine registered live observers and executable P08 acceptance evidence"
+      ]
     }
   },
   "runtime_conformance": [

@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "READ_ONLY_API_LEDGER_PREFLIGHT_NOT_LIVE_ADMISSION_OR_RESERVATION",
+  "source_digest": "dad79e97620e136d3dfeb37365f6c4edb84cbe097d8e9f2d27f4eea4297c319c",
+  "validated_at_utc": "2026-10-11T13:33:50.204380+00:00",
+  "current_phase": "P08",
+  "previous_status": "BLOCKED",
+  "new_status": "BLOCKED",
+  "branch": "feature/continue-P08-api-preflight",
+  "native_command": "python tools/development_supervisor.py native",
+  "native_exit_code": 0,
+  "native_report": {
+    "path": "evidence/targets/Linux/20261011T133112Z_2977a648/RUN.json",
+    "sha256": "def1fd0b84d3ff06be6a7d77a1d8b5925ea035609bd26b8465fbbebbdb739d24"
+  },
+  "artifacts_verified": 25,
+  "counts": {
+    "tests": 1065,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "suite": "control_junit",
+      "counts": {
+        "tests": 123,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "foundation_junit",
+      "counts": {
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "persistence_junit",
+      "counts": {
+        "tests": 104,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "browser_probe_junit",
+      "counts": {
+        "tests": 238,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "architect_junit",
+      "counts": {
+        "tests": 264,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "council_junit",
+      "counts": {
+        "tests": 50,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "quality_junit",
+      "counts": {
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "pilot_junit",
+      "counts": {
+        "tests": 73,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "suite": "api_junit",
+      "counts": {
+        "tests": 138,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "new_tests": 14,
+  "quality": {
+    "scope": "TARGETED_DEV_QUALITY_NOT_FULL_STATIC_VERIFICATION",
+    "status": "PASS",
+    "source_digest_before": "dad79e97620e136d3dfeb37365f6c4edb84cbe097d8e9f2d27f4eea4297c319c",
+    "source_digest_after": "dad79e97620e136d3dfeb37365f6c4edb84cbe097d8e9f2d27f4eea4297c319c",
+    "checks": [
+      {
+        "id": "lint",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.044
+      },
+      {
+        "id": "types",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.352
+      },
+      {
+        "id": "conformance",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.026
+      },
+      {
+        "id": "transitions",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.101
+      },
+      {
+        "id": "properties_and_regressions",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 3.581
+      },
+      {
+        "id": "targeted_coverage",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.06
+      }
+    ],
+    "strict_type_targets": [
+      "src/consilium/core/evidence_provenance.py",
+      "src/consilium/core/rubrics.py",
+      "src/consilium/shell/evidence_store.py"
+    ],
+    "coverage_targets": [
+      "src/consilium/core/evidence_provenance.py",
+      "src/consilium/core/rubrics.py",
+      "src/consilium/shell/evidence_store.py"
+    ],
+    "coverage_minimum": 70,
+    "whole_product_type_checked": false
+  },
+  "new_module_types": {
+    "command": "python -m mypy --strict --follow-imports=skip src/consilium/shell/api_dispatch_preflight.py",
+    "status": "PASS",
+    "exit_code": 0,
+    "output": "Success: no issues found in 1 source file\n"
+  },
+  "smoke_results": [
+    {
+      "mode": "API",
+      "scenario": "success",
+      "returncode": 0,
+      "expected": 0,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "749685a0-87eb-4cd8-ae83-7daa882c280d",
+            "attempt_id": "3163dc35-48cd-4245-a925-05caa89ff40a",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "a02cb733-afb4-43f8-a76d-9b67ec58a29c",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "COMPLETE",
+          "content": "{\"answer\":\"offline mock response\"}",
+          "failure": "NONE",
+          "response_id": "mock-3163dc35-48cd-4245-a925-05caa89ff40a",
+          "evidence": [
+            "MOCK_ONLY:success"
+          ],
+          "elapsed_seconds": 0.0
+        }
+      }
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "success",
+      "returncode": 0,
+      "expected": 0,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "0e4e543a-78f2-4c23-8fd6-9356f0ace541",
+            "attempt_id": "d680d6b4-bfaa-41a2-ac53-4d08a339b20e",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "7e873624-164a-40f8-9ceb-1ecc90f60fe9",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "COMPLETE",
+          "content": "{\"answer\":\"offline mock response\"}",
+          "failure": "NONE",
+          "response_id": "mock-d680d6b4-bfaa-41a2-ac53-4d08a339b20e",
+          "evidence": [
+            "MOCK_ONLY:success"
+          ],
+          "elapsed_seconds": 0.0
+        }
+      }
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "timeout_after_send",
+      "returncode": 2,
+      "expected": 2,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "edbb8e5b-0dd2-45fe-911a-32b6abc18756",
+            "attempt_id": "3a5679e3-377b-4f1c-9c41-688440289802",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "d78f1bcf-5262-410b-9498-f2b9121b442a",
+          "connection_revision": 0,
+          "delivery": "UNKNOWN_DELIVERY",
+          "response_state": "NONE",
+          "content": null,
+          "failure": "TIMEOUT",
+          "response_id": null,
+          "evidence": [
+            "MOCK_ONLY:timeout_after_send"
+          ],
+          "elapsed_seconds": 2.0
+        }
+      }
+    },
+    {
+      "mode": "API",
+      "scenario": "partial",
+      "returncode": 2,
+      "expected": 2,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "0c2e8a2a-1c27-491b-b3fa-83db67cf50e2",
+            "attempt_id": "a02d6cf1-95c2-447a-ba21-af61b3f6e1bc",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "e60cb344-f252-4a30-a82b-58959d76c6f7",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "PARTIAL",
+          "content": "{\"answer\":\"unfinished",
+          "failure": "TIMEOUT",
+          "response_id": "mock-a02d6cf1-95c2-447a-ba21-af61b3f6e1bc",
+          "evidence": [
+            "MOCK_ONLY:partial"
+          ],
+          "elapsed_seconds": 2.0
+        }
+      }
+    }
+  ],
+  "build": {
+    "status": "PASS",
+    "command": "python -m pip wheel PACKAGE_COPY --no-deps --no-build-isolation --wheel-dir WHEEL_DIRECTORY",
+    "wheel": "consilium_local-0.1.0.dev1-py3-none-any.whl",
+    "sha256": "f814e91e0f2709fcc974d1cfd4c713ae03d8b9d3f65db11b1bfb4ce9ccc541b0"
+  },
+  "phase_checks": {
+    "status": "BLOCKED",
+    "execution": "NOT_RUN",
+    "blocker_recording": "PASS",
+    "registered_P08_checks": 0,
+    "phase_accepted": false
+  },
+  "preservation": {
+    "phase_statuses_equal": true,
+    "standing_authorization_equal": true,
+    "protected_files_unchanged": true,
+    "existing_migrations_unchanged": true,
+    "resume_compaction": false,
+    "evidence_relocation": false
+  },
+  "next_action_before": "Connect the product observation gate and durable dispatch reservation to the request plan and operation-bound result; do not register or activate a live connection without genuine evidence. Continue browser preparation with actual selectors and independently observed real context. Live API testing remains open under the user's deferral.",
+  "next_action_after": "Implement atomic durable API dispatch reservation that rechecks the exact request plan, current ledger state, and trusted admission inside the write transaction. Keep live dispatch blocked until genuine registered observations exist; live API testing remains deferred by the user.",
+  "dispatch_allowed": false,
+  "reservation_implemented": false,
+  "live_provider_calls": 0,
+  "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
+  "independent_review": false,
+  "previous_validation": {
+    "path": "evidence/p08-api-preflight/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "3649652933dd6360e986edee07dbed7ebd8b892701c40c4a3a4beef62baffc66"
+  },
+  "handoff_validation": {
+    "status": "PASS",
+    "verified_files": 1552,
+    "extracted_source_matches": true,
+    "extracted_navigation": "PASS",
+    "scope": "HASH_PATH_AND_CANONICAL_STATE_REPRODUCTION_NOT_REPEAT_NATIVE_SUITE"
+  },
+  "windows_current_source": "REMOTE_CI_REQUIRES_SEPARATE_VERIFICATION"
+}
