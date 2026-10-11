@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "workflow_run_id": 38025959612,
+  "head_sha": "26a5412a5691991e06b91eb7d301b42b78449dac",
+  "source_digest": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "tests_per_target": 729,
+  "output_tests_in_council_suite": 9,
+  "native_targets": [
+    "Windows",
+    "Linux"
+  ],
+  "all_four_jobs": "SUCCESS",
+  "source_only_publication": true,
+  "private_model_responses_published": false,
+  "new_model_calls": 0
+}

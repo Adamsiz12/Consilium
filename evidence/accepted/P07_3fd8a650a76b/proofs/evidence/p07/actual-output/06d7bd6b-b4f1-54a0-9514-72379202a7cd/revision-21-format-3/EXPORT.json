@@ -1,0 +1,15 @@
+{
+  "debate_id": "06d7bd6b-b4f1-54a0-9514-72379202a7cd",
+  "files": {
+    "assessments/participant-03b2abf5-1d76-56a3-9f66-c9b1b655e144.md": "67fc54694690026999eb839406699788afe9a68bae0bc1137b84b7e65dca7236",
+    "assessments/participant-fa58636c-aa42-52d9-b371-3421176d689f.md": "f0e464e181d161ff8a85063b6848fbd836fd5e6389e0820bc630087dd6320aad",
+    "debate.html": "0239c096424fc0121d3dab1d2270bdd542d2478062aab81ff74f54b90dfed26d",
+    "debate.json": "1cde3fbc6b900c5f4d5e08e9d12e7f9aa72b664dd17703ad16ce70aaa54a6cca",
+    "debate.md": "bd15a920a4af36add4b8b6abfd4732655b56a3d43b8c85e39adfe1dfcb46f376",
+    "final.md": "c2b3e33baee8210153d74c7a62bc0ed96f0413dda0e2464ae18861f57ddaaca2",
+    "participants/participant-03b2abf5-1d76-56a3-9f66-c9b1b655e144.md": "24aa320e9604035e8aa0e1f0320908123746b33b06ff2e1daf464d317ebc7aee",
+    "participants/participant-fa58636c-aa42-52d9-b371-3421176d689f.md": "322d99f666ffc6c55a8b5b13132b9abd91955b87ecdbc30aba07ab7ec7f5a855"
+  },
+  "format_version": 3,
+  "revision": 21
+}

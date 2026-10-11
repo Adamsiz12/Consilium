@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/workspace/scratch/78a523f436eb/consilium/.venv/bin/python",
+    "tools/record_target_checks.py"
+  ],
+  "root": "/workspace/scratch/78a523f436eb/consilium",
+  "nonce": "283e0f5a3f5d4d41ba138f897b46fd9f",
+  "supervisor_pid": 2
+}

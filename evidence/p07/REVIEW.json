@@ -1,0 +1,180 @@
+{
+  "phase": "P07",
+  "source_digest": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "status": "PASS",
+  "reviewer": "Codex same author, separate criterion review",
+  "reviewer_independent": false,
+  "method": "Separate review against original exit criteria; actual canonical output re-rendered and hash-compared, immutable formats preserved, fresh native graph verified and four PNG images inspected. No new model calls.",
+  "impact_assessment": "Original P00-P06 accepted snapshots and all 30 protected requirements retained. New versioned stable-ID output avoids overwriting older generations. JSON recovery is read-only and never grants dispatch authority. Existing regressions and both native suites pass; full V1 conformance remains unaccepted.",
+  "findings": [
+    {
+      "id": "P07-F01-DOCUMENT-BIDI",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "notes": "Initial lexical failure retained; visible isolation fixed and final checks pass."
+    },
+    {
+      "id": "P07-F02-CHECK-REGISTRATION",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "notes": "Independent P07 JUnit and explicit evidence reason registered; configured checks all pass."
+    },
+    {
+      "id": "P07-F03-PACKAGING",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "notes": "Initial executable-mode loss preserved; four tools republished as 100755 and final native lint passes."
+    },
+    {
+      "id": "P07-F04-BIDI-VISUAL",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "notes": "Initial native image defects retained; format 3 path/link isolation, safe code and table display directly reviewed."
+    },
+    {
+      "id": "P07-F05-WINDOWS-CAPTURE",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "notes": "390 px Windows capture clipped; declared 500 px view re-captured and directly reviewed. Exact underlying viewport cause not proven."
+    }
+  ],
+  "criteria": [
+    {
+      "id": "P07.E01",
+      "criterion": "تاریخچه، گزارش اصلی و ارزیابی هر شرکت‌کننده از دادهٔ مرجع قابل بازتولیدند.",
+      "status": "PASS",
+      "notes": "Canonical actual P06 final JSON kept byte-identical; eight rendered files and manifest verified. Formats 1 and 2 remain byte-reproducible. Stable-ID reorder test passes. Actual output files will be frozen with this review.",
+      "evidence": [
+        {
+          "path": "evidence/p07/REAL_OUTPUT.json",
+          "sha256": "4de9994594eb5e874ecfd4bb9cf04f8d2c5400f7357fe301babc4918fce4267c"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/EXPORT.json",
+          "sha256": "e5e8335aa12a25b7b38a6f6f9ae45075d22f587416251a123a5e9b3dd8014083"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/assessments/participant-03b2abf5-1d76-56a3-9f66-c9b1b655e144.md",
+          "sha256": "67fc54694690026999eb839406699788afe9a68bae0bc1137b84b7e65dca7236"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/assessments/participant-fa58636c-aa42-52d9-b371-3421176d689f.md",
+          "sha256": "f0e464e181d161ff8a85063b6848fbd836fd5e6389e0820bc630087dd6320aad"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/debate.html",
+          "sha256": "0239c096424fc0121d3dab1d2270bdd542d2478062aab81ff74f54b90dfed26d"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/debate.json",
+          "sha256": "1cde3fbc6b900c5f4d5e08e9d12e7f9aa72b664dd17703ad16ce70aaa54a6cca"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/debate.md",
+          "sha256": "bd15a920a4af36add4b8b6abfd4732655b56a3d43b8c85e39adfe1dfcb46f376"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/final.md",
+          "sha256": "c2b3e33baee8210153d74c7a62bc0ed96f0413dda0e2464ae18861f57ddaaca2"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/participants/participant-03b2abf5-1d76-56a3-9f66-c9b1b655e144.md",
+          "sha256": "24aa320e9604035e8aa0e1f0320908123746b33b06ff2e1daf464d317ebc7aee"
+        },
+        {
+          "path": "evidence/p07/actual-output/06d7bd6b-b4f1-54a0-9514-72379202a7cd/revision-21-format-3/participants/participant-fa58636c-aa42-52d9-b371-3421176d689f.md",
+          "sha256": "322d99f666ffc6c55a8b5b13132b9abd91955b87ecdbc30aba07ab7ec7f5a855"
+        },
+        {
+          "path": "docs/decisions/ADR-036-P07-VERSIONED-OUTPUT_FA.md",
+          "sha256": "0437e19673424c0a61ec13b9b9c43cd0c0d6d951b5b4388b1b101f404e8b336b"
+        },
+        {
+          "path": "evidence/output-tests/RUN.json",
+          "sha256": "01843f56bb89f9f35a30fc60458d4df114f4ea2ddbffb0a5f429466e1b001db6"
+        }
+      ]
+    },
+    {
+      "id": "P07.E02",
+      "criterion": "آزمون قطع خروجی، بازیابی نسل معتبر و ورود کنترل‌شدهٔ JSON موفق است.",
+      "status": "PASS",
+      "notes": "Nine output tests cover four genuine abrupt subprocess exits, confirmed hash-bound JSON import, malformed/duplicate/nonfinite/tampered input rejection, legacy preservation and broken pointer recovery. Both native graphs have 729 tests, zero failures/skips.",
+      "evidence": [
+        {
+          "path": "evidence/output-tests/RUN.json",
+          "sha256": "01843f56bb89f9f35a30fc60458d4df114f4ea2ddbffb0a5f429466e1b001db6"
+        },
+        {
+          "path": "evidence/output-tests/JUNIT.xml",
+          "sha256": "5cad9c9ac9d7993415cd4af7f710f93666435c612e322d40cc6502e78d0df063"
+        },
+        {
+          "path": "evidence/runs/20261010T050556Z_d1b90f9422/RUN.json",
+          "sha256": "033705f038aa0a2a63ef90e63c0de945a902c2dee6acf10e6055f481c7fe0e0e"
+        },
+        {
+          "path": "evidence/target-matrix/RUN.json",
+          "sha256": "771ee833739a7916659b963ad334a711c0294fc9bcf32fb21d784b4ecb84fa81"
+        },
+        {
+          "path": "evidence/targets/Windows/20261010T050021Z_0678d04b/RUN.json",
+          "sha256": "3e2a69074c0f8a1b5e921502f7623001d83fab27256b7004066fd4b32a0c974b"
+        },
+        {
+          "path": "evidence/targets/Linux/20261010T045949Z_234a5327/RUN.json",
+          "sha256": "9249ec27d56597f461e606851290d71d96047da981cad31726c5a12d1e59c745"
+        }
+      ]
+    },
+    {
+      "id": "P07.E03",
+      "criterion": "نمونه‌های ترکیبی در نمایشگرهای توافق‌شده شاهد تصویری قابل قبول دارند.",
+      "status": "PASS",
+      "notes": "Native Chrome desktop 1280 px, Linux narrow 390 px and Windows narrow 500 px directly inspected. Persian/English, code, paths, table and URL punctuation readable. Failed images retained; other viewers, physical phones and Windows 390 px capture not certified.",
+      "evidence": [
+        {
+          "path": "evidence/p07/VISUAL_REVIEW.json",
+          "sha256": "d29d8ed7bdb1e4db3b7ccb5bb0896be95bc7b41fb04b26d5d895b837884c9a8d"
+        },
+        {
+          "path": "evidence/p07/CI_SUMMARY.json",
+          "sha256": "d2c35a1c955e8eddf6764f2520efb12f6e8d0bc0b55fb069668e600093c370e7"
+        },
+        {
+          "path": "evidence/p07-visual/Windows/RUN.json",
+          "sha256": "2be208e45ae2cb7e05fae35390789852171cd836e08bf3e0851552a4f22645a8"
+        },
+        {
+          "path": "evidence/p07-visual/Windows/sample.html",
+          "sha256": "6dab79b856e829929044a12629d932402d1be9b54acfb5618dbdaf3224c33264"
+        },
+        {
+          "path": "evidence/p07-visual/Windows/desktop.png",
+          "sha256": "35c169c8df41915638fc10166f4a6cd3248a0333e854e3b39945b4b767aba46f"
+        },
+        {
+          "path": "evidence/p07-visual/Windows/mobile.png",
+          "sha256": "8acf9cf26b47e032998810cfcaa12b73ebb7b74e0cea53bce2df0f9feab028b8"
+        },
+        {
+          "path": "evidence/p07-visual/Linux/RUN.json",
+          "sha256": "9572b5f87f94b3746a3b5aba53b89552d1fe35297a32c4c64798b34609054f8b"
+        },
+        {
+          "path": "evidence/p07-visual/Linux/sample.html",
+          "sha256": "ab45d19776171732be0d86a1d3b2fd0f01d69995e3483664e2b57148e550f2f7"
+        },
+        {
+          "path": "evidence/p07-visual/Linux/desktop.png",
+          "sha256": "a47e5380dd9cd296133db7b773ef1185303b82047d02de23940c2902203d6778"
+        },
+        {
+          "path": "evidence/p07-visual/Linux/mobile.png",
+          "sha256": "767165ec91b903ec4d880c5c200c4c1927f286d37643885d1b6657b02304fc7a"
+        }
+      ]
+    }
+  ],
+  "actual_engineering_hours": null
+}

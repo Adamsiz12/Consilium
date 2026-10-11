@@ -1,0 +1,48 @@
+{
+  "phase": "P07",
+  "status": "PASS",
+  "source_digest": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "reviewer": "Codex same author in separate visual review",
+  "reviewer_independent": false,
+  "human_independent_review": false,
+  "method": "Direct assistant inspection of native Chrome PNG images, same-byte desktop images previously inspected and re-bound by SHA256; no simulated rendering proof.",
+  "views": [
+    {
+      "target": "Windows",
+      "name": "desktop",
+      "sha256": "35c169c8df41915638fc10166f4a6cd3248a0333e854e3b39945b4b767aba46f",
+      "viewport_requested": "1280,900",
+      "result": "PASS",
+      "notes": "Direct visual inspection: Persian glyphs legible; paths, query punctuation and code order preserved; table columns visible; no right-edge clipping in declared viewport."
+    },
+    {
+      "target": "Windows",
+      "name": "mobile",
+      "sha256": "8acf9cf26b47e032998810cfcaa12b73ebb7b74e0cea53bce2df0f9feab028b8",
+      "viewport_requested": "500,844",
+      "result": "PASS",
+      "notes": "Direct visual inspection: Persian glyphs legible; paths, query punctuation and code order preserved; table columns visible; no right-edge clipping in declared viewport."
+    },
+    {
+      "target": "Linux",
+      "name": "desktop",
+      "sha256": "a47e5380dd9cd296133db7b773ef1185303b82047d02de23940c2902203d6778",
+      "viewport_requested": "1280,900",
+      "result": "PASS",
+      "notes": "Direct visual inspection: Persian glyphs legible; paths, query punctuation and code order preserved; table columns visible; no right-edge clipping in declared viewport."
+    },
+    {
+      "target": "Linux",
+      "name": "mobile",
+      "sha256": "767165ec91b903ec4d880c5c200c4c1927f286d37643885d1b6657b02304fc7a",
+      "viewport_requested": "390,844",
+      "result": "PASS",
+      "notes": "Direct visual inspection: Persian glyphs legible; paths, query punctuation and code order preserved; table columns visible; no right-edge clipping in declared viewport."
+    }
+  ],
+  "limitations": [
+    "Windows narrow viewport certified at 500 px; Linux at 390 px. Windows 390 px capture remains historical failed evidence.",
+    "Only declared native Chrome HTML viewer certified; other Markdown viewers and physical phones not certified.",
+    "No hardware/power-loss or concurrent-writer certification."
+  ]
+}

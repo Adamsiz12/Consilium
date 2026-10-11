@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "source_digest": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "scope": "REAL_P06_PRODUCT_EXPORT_REPRODUCED_WITHOUT_NEW_MODEL_CALLS",
+  "source_json_sha256": "1cde3fbc6b900c5f4d5e08e9d12e7f9aa72b664dd17703ad16ce70aaa54a6cca",
+  "format_version": 3,
+  "manifest": {
+    "debate_id": "06d7bd6b-b4f1-54a0-9514-72379202a7cd",
+    "files": {
+      "assessments/participant-03b2abf5-1d76-56a3-9f66-c9b1b655e144.md": "67fc54694690026999eb839406699788afe9a68bae0bc1137b84b7e65dca7236",
+      "assessments/participant-fa58636c-aa42-52d9-b371-3421176d689f.md": "f0e464e181d161ff8a85063b6848fbd836fd5e6389e0820bc630087dd6320aad",
+      "debate.html": "0239c096424fc0121d3dab1d2270bdd542d2478062aab81ff74f54b90dfed26d",
+      "debate.json": "1cde3fbc6b900c5f4d5e08e9d12e7f9aa72b664dd17703ad16ce70aaa54a6cca",
+      "debate.md": "bd15a920a4af36add4b8b6abfd4732655b56a3d43b8c85e39adfe1dfcb46f376",
+      "final.md": "c2b3e33baee8210153d74c7a62bc0ed96f0413dda0e2464ae18861f57ddaaca2",
+      "participants/participant-03b2abf5-1d76-56a3-9f66-c9b1b655e144.md": "24aa320e9604035e8aa0e1f0320908123746b33b06ff2e1daf464d317ebc7aee",
+      "participants/participant-fa58636c-aa42-52d9-b371-3421176d689f.md": "322d99f666ffc6c55a8b5b13132b9abd91955b87ecdbc30aba07ab7ec7f5a855"
+    },
+    "format_version": 3,
+    "revision": 21
+  },
+  "original_generation_preserved": {
+    "debate.md": "35a80d5f86bbb5aa8c25adc9cb89eebb4550d656b1ffc8efb00b0d411e571536",
+    "debate.json": "1cde3fbc6b900c5f4d5e08e9d12e7f9aa72b664dd17703ad16ce70aaa54a6cca",
+    "EXPORT.json": "648eb72423d1b25edcc2553865efb6716d02a4d0c677470cf64e5a5922f5888a",
+    "final.md": "c2b3e33baee8210153d74c7a62bc0ed96f0413dda0e2464ae18861f57ddaaca2",
+    "assessments/participant-2.md": "f0e464e181d161ff8a85063b6848fbd836fd5e6389e0820bc630087dd6320aad",
+    "assessments/participant-1.md": "67fc54694690026999eb839406699788afe9a68bae0bc1137b84b7e65dca7236",
+    "participants/participant-2.md": "5a708de6fcb894c31e419111a4e9ed95a4b23a1298c78bd988f88d9e6af54360",
+    "participants/participant-1.md": "b189e4073d8c39f060edeceb56d8efd4e511674d543b8d41f15c0b78249bb23f"
+  },
+  "format2_still_validated": true,
+  "operational_database_changed": false,
+  "new_model_calls": 0
+}

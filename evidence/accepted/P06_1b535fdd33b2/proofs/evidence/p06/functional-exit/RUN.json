@@ -1,0 +1,173 @@
+{
+  "status": "PASS",
+  "scope": "USER_AUTHORIZED_FUNCTIONAL_P06_EXIT",
+  "benchmark_completed": false,
+  "benchmark": {
+    "version": "p06-three-stage.v1",
+    "plan_sha256": "5f76d1e404588a62ce789361d039832216d3469a24dcead7a5138c44dce3bddd",
+    "status": "INCOMPLETE",
+    "required_final_outputs": 24,
+    "real_manual_final_outputs": 9,
+    "recorded_method_observations": 62,
+    "unique_model_attempts": 52,
+    "per_task_method": [
+      {
+        "task_id": "PILOT-001",
+        "method": "COUNCIL",
+        "protocol_complete": true,
+        "recorded_attempts": 9,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 1,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      },
+      {
+        "task_id": "PILOT-001",
+        "method": "REPEATED_SINGLE",
+        "protocol_complete": true,
+        "recorded_attempts": 9,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 1,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      },
+      {
+        "task_id": "PILOT-001",
+        "method": "SINGLE",
+        "protocol_complete": true,
+        "recorded_attempts": 3,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 7,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      },
+      {
+        "task_id": "PILOT-003",
+        "method": "COUNCIL",
+        "protocol_complete": true,
+        "recorded_attempts": 10,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 0,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      },
+      {
+        "task_id": "PILOT-003",
+        "method": "REPEATED_SINGLE",
+        "protocol_complete": true,
+        "recorded_attempts": 10,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 0,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      },
+      {
+        "task_id": "PILOT-003",
+        "method": "SINGLE",
+        "protocol_complete": true,
+        "recorded_attempts": 3,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 7,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      },
+      {
+        "task_id": "PILOT-005",
+        "method": "COUNCIL",
+        "protocol_complete": true,
+        "recorded_attempts": 8,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 2,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      },
+      {
+        "task_id": "PILOT-005",
+        "method": "REPEATED_SINGLE",
+        "protocol_complete": true,
+        "recorded_attempts": 8,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 2,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      },
+      {
+        "task_id": "PILOT-005",
+        "method": "SINGLE",
+        "protocol_complete": true,
+        "recorded_attempts": 2,
+        "remaining_required_successes": 0,
+        "remaining_call_allowance": 8,
+        "call_budget_feasible": true,
+        "unresolved_outcome": null
+      }
+    ],
+    "model_superiority_claimed": false,
+    "phase_accepted": false,
+    "cross_method_context": "SAME_TOPIC_CONVERSATION; CARRYOVER_CONFOUNDS_COMPARISON",
+    "repeated_single_independence": "NOT_CLAIMED; SAME_MODEL_SAME_CONVERSATION",
+    "external_origin_authenticated": false,
+    "token_accounting": "UNKNOWN_OR_PARTIAL"
+  },
+  "products": [
+    {
+      "task_id": "PILOT-001",
+      "method": "SINGLE",
+      "integrity": "PASS",
+      "sha256": "03d65d4720e4a31e9553dcfb08a9cb583e7ed666416ee05848a9222fcd15a763"
+    },
+    {
+      "task_id": "PILOT-001",
+      "method": "COUNCIL",
+      "integrity": "PASS",
+      "sha256": "69e347bb9c4c4f604bbf6c52f97e2630640680b23da19e24cb37728ae2a634a8"
+    },
+    {
+      "task_id": "PILOT-001",
+      "method": "REPEATED_SINGLE",
+      "integrity": "PASS",
+      "sha256": "7f358a8b7caf9a3644e658a1a6ef7bcacfa4a000c1867847e5511215b7927251"
+    },
+    {
+      "task_id": "PILOT-003",
+      "method": "SINGLE",
+      "integrity": "PASS",
+      "sha256": "c2cf55b812679f0e61f8643102e9a5c9a00f08c07ba089242febb44283e57573"
+    },
+    {
+      "task_id": "PILOT-003",
+      "method": "COUNCIL",
+      "integrity": "PASS",
+      "sha256": "f52818a53e90e22ae4f54203337520ba2cdbd2384ee1a3fd5597f57026bce46f"
+    },
+    {
+      "task_id": "PILOT-003",
+      "method": "REPEATED_SINGLE",
+      "integrity": "PASS",
+      "sha256": "0db4f32523b6a7ec79a38041397ab051b623dcebd2d7d1d6486aa1418475779f"
+    },
+    {
+      "task_id": "PILOT-005",
+      "method": "SINGLE",
+      "integrity": "PASS",
+      "sha256": "b53e766bd28adeb89db230a33fada9028643063bed890eb43ec0293aa4d57c6c"
+    },
+    {
+      "task_id": "PILOT-005",
+      "method": "COUNCIL",
+      "integrity": "PASS",
+      "sha256": "541a4d4364996cdd0cd71a8273b2e20b1dfd78c4b222767437241688ae782a99"
+    },
+    {
+      "task_id": "PILOT-005",
+      "method": "REPEATED_SINGLE",
+      "integrity": "PASS",
+      "sha256": "a1f7b57f1fe3aafad715e651aadb80582f7df9ec35625cd2f7d0d95e9b2e03e6"
+    }
+  ],
+  "review_sha256": "8e15dfb383e3f8194d27b708d483dd63c0b8aca8ba8fadcf12d2f5e2ef3b36dc",
+  "model_superiority_claimed": false,
+  "phase_accepted": false,
+  "source_digest_before": "5208dc9add5bb60d2df4c7cc156b1a2dc8c59afbd368ee836440009e87c96567",
+  "source_digest_after": "5208dc9add5bb60d2df4c7cc156b1a2dc8c59afbd368ee836440009e87c96567"
+}

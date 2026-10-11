@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "development_step_id": "1a60aae894dc44559bbd99c5ba541e4e",
+  "development_step_id": "35b6848d4b944893b3f0dfe8ea501822",
   "artifacts": {
     "evidence/environment/RUN.json": {
       "path": "evidence/environment/RUN.json",
@@ -8,15 +8,15 @@
     },
     "evidence/control-tests/RUN.json": {
       "path": "evidence/control-tests/RUN.json",
-      "sha256": "7a213726ff58ef07fc0e9539753641d3247894543c05f29d8d7866c232602ae4"
+      "sha256": "6f0b4049f9bc4a14cb35fc3901ecdec485af540391b760e2151b69da13825ae2"
     },
     "evidence/control-tests/JUNIT.xml": {
       "path": "evidence/control-tests/JUNIT.xml",
-      "sha256": "5e01713271a9f8dad4cacafbb20a9c4d86c6e6ec06151dbd17c4353c6fa5ab47"
+      "sha256": "064b2ae9949a7c6737618c43f8cbf4babaacad7da1b9f959733181785a3a1ebe"
     },
     "evidence/foundation-tests/RUN.json": {
       "path": "evidence/foundation-tests/RUN.json",
-      "sha256": "226d3e4a9d5fb980db98e10fc7c8e2c8f5de02a5371980f687b1bab51aae33bd"
+      "sha256": "6ed7ae600d5f84409c113e80f763c41875e55ed0ef5c42ad9512e1afadc8c4a1"
     },
     "evidence/foundation-tests/JUNIT.xml": {
       "path": "evidence/foundation-tests/JUNIT.xml",
@@ -24,7 +24,7 @@
     },
     "evidence/persistence-tests/RUN.json": {
       "path": "evidence/persistence-tests/RUN.json",
-      "sha256": "efaccbaec53f11f45227c5580d07f596429676adbabe8d77986a139bed1c3638"
+      "sha256": "12a1a0082200b83078f71fa10d0095c77488a313d83962d476ea1cc9d0d8cfce"
     },
     "evidence/persistence-tests/JUNIT.xml": {
       "path": "evidence/persistence-tests/JUNIT.xml",
@@ -32,15 +32,15 @@
     },
     "evidence/browser-probe-tests/RUN.json": {
       "path": "evidence/browser-probe-tests/RUN.json",
-      "sha256": "4fa431f61fae169ea5b001673fef42e51797a69c9d528f757417bdd991690f44"
+      "sha256": "4538d84422b44c4c6fcd58c8733b2cf20590bdfa3c96e98658ba4c328fd297d4"
     },
     "evidence/browser-probe-tests/JUNIT.xml": {
       "path": "evidence/browser-probe-tests/JUNIT.xml",
-      "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+      "sha256": "3d843142877c0a28fae973e9b5f1abcbd37bf45d195ecc40ad2cdfb8387940f9"
     },
     "evidence/architect-tests/RUN.json": {
       "path": "evidence/architect-tests/RUN.json",
-      "sha256": "6b7c3bdc3c925318c326df537c655e928d50cc2cf17cd85185160c7fd6da10a7"
+      "sha256": "331310c6c6f0c50354be00ceed7ee2ddb709fde9d3c3bc628989c5438b5a3bc6"
     },
     "evidence/architect-tests/JUNIT.xml": {
       "path": "evidence/architect-tests/JUNIT.xml",
@@ -48,15 +48,15 @@
     },
     "evidence/council-tests/RUN.json": {
       "path": "evidence/council-tests/RUN.json",
-      "sha256": "4daafd6b41f952910255143b440be58c40e7e9dd3ba3adfa4a762890b3a08233"
+      "sha256": "53f35f1774173010bdafafd287c77906cdf47a191ea6681d0bfd9bf586bbd03e"
     },
     "evidence/council-tests/JUNIT.xml": {
       "path": "evidence/council-tests/JUNIT.xml",
-      "sha256": "4affb898c1c0a1c2f9504d26dbff714b9cf5d80248bafff81e0c580d8ad286ee"
+      "sha256": "594857729644cc88a6ba7486c7ef4424b89756efb5d5c5b1f7d63af0b20d6b47"
     },
     "evidence/quality-tests/RUN.json": {
       "path": "evidence/quality-tests/RUN.json",
-      "sha256": "4bc309e35c51f50a746d71a7e0484eb76f084e45dc8fd723281c7fe6f63f78cb"
+      "sha256": "b8dafb04c0445dd639fc5024893f7621b5545ea98bf994b40836cec1313fe767"
     },
     "evidence/quality-tests/JUNIT.xml": {
       "path": "evidence/quality-tests/JUNIT.xml",
@@ -64,15 +64,23 @@
     },
     "evidence/pilot-tests/RUN.json": {
       "path": "evidence/pilot-tests/RUN.json",
-      "sha256": "2aa0df939b86c89388d2a6e92155624602fb8b05a8e3e9a8e2462e20e501fc26"
+      "sha256": "0cfa7c2b5435fd994ba1b3aed86e1d3b9cb90854b8f8bcda1fcc24cf76c18a56"
     },
     "evidence/pilot-tests/JUNIT.xml": {
       "path": "evidence/pilot-tests/JUNIT.xml",
-      "sha256": "9da9618f96dd84de9b61fad0d268d63e601ded9113799dbd90b25a8096a4881d"
+      "sha256": "94a9022966ddb9200fa68e2a8f080714b8510a2e54fe92f2d28ad25d0d9a12c6"
+    },
+    "evidence/api-tests/RUN.json": {
+      "path": "evidence/api-tests/RUN.json",
+      "sha256": "c903680dd580aa941c78ea58b326100e8ec663eddecd4fabae1df9401ca16728"
+    },
+    "evidence/api-tests/JUNIT.xml": {
+      "path": "evidence/api-tests/JUNIT.xml",
+      "sha256": "bbe3c17801e7514bd0f399c04e0c1ad39f3a8bc68ebbfec22320ca9b5e01ace4"
     }
   },
   "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
-  "status": "FAIL",
+  "status": "PASS",
   "checks": [
     {
       "id": "state_navigation_python_syntax",
@@ -82,65 +90,71 @@
       "id": "control_tests",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 16.572
+      "elapsed_seconds": 27.15
     },
     {
       "id": "markdown_lexical",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.123
+      "elapsed_seconds": 0.065
     },
     {
       "id": "environment_lock",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.217
+      "elapsed_seconds": 0.114
     },
     {
       "id": "foundation_tests",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 2.876
+      "elapsed_seconds": 0.415
     },
     {
       "id": "persistence_tests",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 25.637
+      "elapsed_seconds": 8.596
     },
     {
       "id": "browser_probe_preparation_tests",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 7.859
+      "elapsed_seconds": 21.004
     },
     {
       "id": "architect_contract_tests",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 36.85
+      "elapsed_seconds": 16.111
     },
     {
       "id": "council_pipeline_tests",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 45.436
+      "elapsed_seconds": 26.804
     },
     {
       "id": "approved_quality_checks",
-      "status": "FAIL",
-      "returncode": 1,
-      "elapsed_seconds": 2.779
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 5.98
     },
     {
       "id": "pilot_accounting_tests",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 4.627
+      "elapsed_seconds": 1.467
+    },
+    {
+      "id": "api_offline_tests",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 9.37
     }
   ],
-  "source_digest_before": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
-  "source_digest_after": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
+  "source_digest_before": "7ae11e269445ae1c21671f979e82f905d2480d7588873ff8494c7e8f08155fd8",
+  "source_digest_after": "7ae11e269445ae1c21671f979e82f905d2480d7588873ff8494c7e8f08155fd8",
   "application_runtime_tests": "FOUNDATION_P02_KERNEL_P03_P04_AND_P05_OFFLINE_COUNCIL",
   "application_phase_accepted": false,
   "static_type_check": "TARGETED_NEW_MODULES",

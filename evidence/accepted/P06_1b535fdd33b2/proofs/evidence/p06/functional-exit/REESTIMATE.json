@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "basis": "Explicit user functional-exit scope, actual call/repair counts; historical labor unavailable",
+  "reestimate": {
+    "P06_remaining_model_calls": 0,
+    "P07_confidence": "LOW; unchanged planning range, not calibrated from missing hours",
+    "P07_planning_hours": [
+      18,
+      32
+    ],
+    "historical_hours": null,
+    "measured_hours_claimed": false,
+    "next_chunk": "One export/history gap inventory; no model calls.",
+    "reason": "Prior P00-P05 engineering hours were never measured; wall clock and UI timing cannot reconstruct labor. No fabricated actual-hours recalibration."
+  },
+  "benchmark_status": "DISCONTINUED_NOT_COMPLETED",
+  "protected_requirements_unchanged": 30
+}

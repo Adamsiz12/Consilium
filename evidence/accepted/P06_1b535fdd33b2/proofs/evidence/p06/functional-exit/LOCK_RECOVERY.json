@@ -1,0 +1,11 @@
+{
+  "status": "STALE_LOCK_RECOVERED_AFTER_READ_ONLY_INSPECTION",
+  "original_bytes_sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+  "owner_record": "2",
+  "active_gate_processes_in_current_task": [],
+  "phase_before": "P06",
+  "last_accepted_phase": "P05",
+  "completed_supervisor": "formal phase checks passed and process exited",
+  "exact_original_lock_cause": "UNKNOWN; interrupted or restored historical lock",
+  "no_live_process_killed": true
+}

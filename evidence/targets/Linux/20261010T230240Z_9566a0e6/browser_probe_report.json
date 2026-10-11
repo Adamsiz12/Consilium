@@ -1,0 +1,988 @@
+{
+  "phase": "P03",
+  "scope": "P03_PROBE_RECORDER_OFFLINE_NOT_LIVE_BROWSER_ACCEPTANCE",
+  "status": "PASS",
+  "counts": {
+    "tests": 238,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "44a7f7fc86398f091d5fed3b02dcc600d4f008771447b9410bd6cccac44fed0c",
+  "source_digest_after": "44a7f7fc86398f091d5fed3b02dcc600d4f008771447b9410bd6cccac44fed0c",
+  "date_utc": "2026-10-10T23:03:38.753850+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "live_provider_calls": 0,
+  "phase_accepted": false,
+  "process_exit_cases": [
+    "test_browser_watch_journal.BrowserJournalTests.test_actual_process_exit_after_observation_commit_recovers_partial",
+    "test_browser_watch_journal.BrowserJournalTests.test_actual_process_exit_before_observation_commit_rolls_back",
+    "test_probe.BrowserProbeTests.test_process_exit_after_dispatch_never_reinvokes",
+    "test_probe.BrowserProbeTests.test_process_exit_after_result_keeps_received_response",
+    "test_probe.BrowserProbeTests.test_process_exit_after_ticket_before_ledger_leaves_prepared",
+    "test_qwen_capture_journal.QwenCaptureJournalTests.test_actual_process_exit_after_raw_capture_commit_recovers_both",
+    "test_qwen_capture_journal.QwenCaptureJournalTests.test_actual_process_exit_before_raw_capture_commit_rolls_back_both",
+    "test_qwen_site_journal.QwenSiteJournalTests.test_actual_process_exit_after_site_commit_recovers_packet_and_receipt",
+    "test_qwen_site_journal.QwenSiteJournalTests.test_actual_process_exit_before_site_commit_rolls_back_packet_and_receipt"
+  ],
+  "process_exit_case_count": 9,
+  "external_transport": "SYNTHETIC_OBSERVATIONS_NO_BROWSER_DRIVER",
+  "cases": [
+    {
+      "id": "test_bounded_read_process.BoundedReadProcessTests.test_actual_bytes_preserved_without_protocol_interpretation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_bounded_read_process.BoundedReadProcessTests.test_actual_child_failure_discards_private_stderr",
+      "status": "PASS"
+    },
+    {
+      "id": "test_bounded_read_process.BoundedReadProcessTests.test_actual_custom_output_limit_enforced",
+      "status": "PASS"
+    },
+    {
+      "id": "test_bounded_read_process.BoundedReadProcessTests.test_command_configuration_exact_types",
+      "status": "PASS"
+    },
+    {
+      "id": "test_bounded_read_process.BoundedReadProcessTests.test_invalid_output_budget_prevents_spawn",
+      "status": "PASS"
+    },
+    {
+      "id": "test_bounded_read_process.BoundedReadProcessTests.test_spawn_error_has_no_private_exception_context",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch.BrowserWatchTests.test_correlated_partial_then_complete_and_closed_cannot_resend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch.BrowserWatchTests.test_interruption_and_invalid_completion_or_duplicate_ids",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch.BrowserWatchTests.test_model_account_or_conversation_change_stops",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch.BrowserWatchTests.test_old_same_prompt_is_not_new_delivery_evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch.BrowserWatchTests.test_partial_is_preserved_after_logout_or_history_loss",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch.BrowserWatchTests.test_replaced_shrunk_or_disappeared_answer_preserves_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch.BrowserWatchTests.test_stale_snapshot_and_edited_prior_transcript_stop",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch.BrowserWatchTests.test_wrong_prompt_parent_and_multiple_answers_do_not_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_attachment.JournalAttachmentTests.test_changed_request_cannot_attach_even_with_same_input_hash",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_attachment.JournalAttachmentTests.test_exact_sent_request_attaches_and_reopens_without_mutating_ledger",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_attachment.JournalAttachmentTests.test_prepared_attempt_cannot_be_attached_or_sent_by_journal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_attachment.JournalAttachmentTests.test_synthetic_complete_does_not_record_or_confirm_product_result",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_actual_process_exit_after_observation_commit_recovers_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_actual_process_exit_before_observation_commit_rolls_back",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_changed_header_or_invalid_revision_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_committed_event_replay_is_idempotent_but_id_reuse_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_deleted_tail_is_detected_by_committed_head",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_interrupt_and_context_loss_are_durable_without_resend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_known_secret_rejected_before_append_and_limits_preserve_prior_state",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_operation_binding_and_frozen_hash_cannot_change",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_partial_reopens_and_completion_stays_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_tampered_event_hash_or_header_blocks_reconstruction",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_journal.BrowserJournalTests.test_two_writers_stale_revision_cannot_overwrite",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_closed_journal_stops_even_if_ledger_delivery_unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_corrupt_journal_blocks_ledger_view_without_ledger_mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_explicit_wait_gate_blocks_observation_without_losing_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_foreign_operation_request_prompt_and_conversation_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_interrupted_dispatch_only_observes_no_resend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_mutated_in_memory_spec_cannot_relabel_journal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_partial_reopen_does_not_record_result_or_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_prepared_attempt_cannot_observe_as_started",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_stale_ledger_and_changed_connection_block_correlation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_browser_watch_ledger.BrowserLedgerTests.test_synthetic_complete_requires_reconciliation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_cli_process.CdpCliProcessTests.test_actual_argument_failure_empty_stdout_fixed_stderr",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_cli_process.CdpCliProcessTests.test_actual_malformed_config_preserved_and_private",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_cli_process.CdpCliProcessTests.test_actual_missing_config_error_private",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_cli_process.CdpCliProcessTests.test_actual_remote_endpoint_rejected_without_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_duplicate_nonfinite_invalid_utf8_and_depth",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_empty_or_non_text_html_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_encoder_rejects_plain_dict",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_exact_private_html_round_trip_no_visibility_claim",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_exact_version_kind_and_fields",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_identity_fields_and_node_types",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_input_byte_and_dom_byte_limits",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_invalid_selector_contract_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_modified_html_or_hash_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_private_decode_error_has_no_context",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_raw_dom_rejected_by_qwen_packet_decoder",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_dom_wire.CdpDomWireTests.test_wrong_selector_hash_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_process_reader.CdpProcessReaderTests.test_cli_argument_boundary_has_no_stdout",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_process_reader.CdpProcessReaderTests.test_cli_malformed_input_private_no_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_process_reader.CdpProcessReaderTests.test_configuration_rejected_before_start",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_process_reader.CdpProcessReaderTests.test_packaged_command_private_config_and_cleanup",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_process_reader.CdpProcessReaderTests.test_process_failure_private_and_not_retried",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_process_reader.CdpProcessReaderTests.test_process_output_binding_must_match_config",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_concurrent_read_rejected_without_disturbing_active_read",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_connect_returning_after_deadline_never_sends",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_context_manager_closes_only_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_dom_configuration_binds_endpoint_and_validates_without_read",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_dom_loader_or_frame_drift_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_dom_malformed_html_private_error",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_dom_missing_or_ambiguous_subtree_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_dom_wrong_target_type_or_url_rejected_before_subtree",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_endpoint_rejects_remote_browser_credentials_and_encoded_path",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_event_flood_is_bounded",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_expired_session_never_connects",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_invalid_frame_identity_rejected_before_dom_query",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_invalid_parameters_fail_before_connect",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_ipv6_loopback_configuration",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_malformed_replies_reject_without_private_content",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_mutating_commands_fail_before_connect",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_navigation_and_detach_events_poison_session",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_other_target_metadata_rejected_before_connect",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_oversized_unicode_and_deep_frames_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_reply_after_deadline_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_single_connection_exact_read_order_and_raw_html",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_timeout_configuration_exact_and_finite",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_transport_failure_private_and_no_retry",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_read_only.CdpReadOnlyTests.test_unrelated_event_before_reply_is_allowed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_websocket.CdpWebSocketTests.test_bad_timeout_rejected_before_dependency_loading",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_websocket.CdpWebSocketTests.test_cleanup_timeout_never_exceeds_budget",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_websocket.CdpWebSocketTests.test_handshake_failure_no_retry_and_private_error",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_websocket.CdpWebSocketTests.test_pinned_read_only_transport_options",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_websocket.CdpWebSocketTests.test_remote_endpoint_rejected_before_dependency_loading",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_websocket.CdpWebSocketTests.test_unavailable_dependency_has_private_error",
+      "status": "PASS"
+    },
+    {
+      "id": "test_cdp_websocket.CdpWebSocketTests.test_wrong_dependency_version_not_connected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_ambiguous_result_cannot_be_replaced_by_later_claimed_success",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_an_assistant_message_cannot_be_the_user_message",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_another_operation_or_input_is_rejected_without_ledger_change",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_authentication_needs_all_observed_identity_fields",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_budget_is_finite_and_never_above_sixty_seconds",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_cached_authenticated_ticket_cannot_start_after_logout_expiry_or_observer_loss",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_changed_account_conversation_or_model_cannot_confirm",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_cli_diagnostics_never_dump_private_invalid_input",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_cli_logout_context_blocks_without_ticket_or_ledger_mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_cli_single_step_start_inspect_record_works_without_account_or_ui",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_cli_start_requires_current_context_but_read_only_inspection_does_not",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_click_success_without_correlated_prompt_remains_unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_complete_requires_positive_completion_evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_complete_transport_output_does_not_bypass_product_validation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_current_context_cannot_be_omitted_or_replaced_with_ticket_default",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_dispatch_commits_before_external_ui_action",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_expired_authenticated_session_remains_ambiguous_after_dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_failed_ledger_start_preserves_ticket_but_does_not_dispatch",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_fresh_context_must_keep_account_conversation_and_model_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_identical_result_recording_is_idempotent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_known_secret_cannot_enter_ticket_or_result",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_matching_prompt_without_response_is_pending_not_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_missing_click_observation_never_proves_not_sent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_new_observation_evidence_does_not_change_the_frozen_request",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_no_response_cannot_contain_hidden_output",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_observation_schema_rejects_credential_fields",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_old_matching_prompt_without_unique_attempt_marker_cannot_start",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_partial_cannot_claim_completion_evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_partial_output_is_durable_and_never_confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_partial_ticket_is_not_silently_repaired",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_probe_rejects_api_mode",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_probe_rejects_unfrozen_transport_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_probe_version_cannot_be_boolean",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_process_exit_after_dispatch_never_reinvokes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_process_exit_after_result_keeps_received_response",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_process_exit_after_ticket_before_ledger_leaves_prepared",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_recorder_never_certifies_adapter_capabilities",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_response_must_reference_exact_observed_user_message",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_rewritten_ticket_cannot_change_the_durable_conversation_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_sign_in_page_is_not_proof_of_expiration",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_signed_out_context_cannot_start_probe",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_stale_result_is_quarantined_without_confirming",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_started_attempt_cannot_be_started_twice",
+      "status": "PASS"
+    },
+    {
+      "id": "test_probe.BrowserProbeTests.test_wrong_prompt_hash_cannot_confirm_delivery",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_ingest.QwenCaptureIngestTests.test_changed_before_after_or_capture_context_cannot_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_ingest.QwenCaptureIngestTests.test_committed_retry_does_not_read_again_even_after_completion",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_ingest.QwenCaptureIngestTests.test_concurrent_writer_during_read_is_not_overwritten",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_ingest.QwenCaptureIngestTests.test_invalid_arguments_and_non_capture_id_do_not_invoke_reader",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_ingest.QwenCaptureIngestTests.test_invalid_packet_context_or_capture_does_not_mutate_journal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_ingest.QwenCaptureIngestTests.test_private_reader_exception_is_not_exported_and_prior_capture_survives",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_ingest.QwenCaptureIngestTests.test_read_once_commits_exact_bytes_and_reopens_without_authority",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_ingest.QwenCaptureIngestTests.test_stale_or_closed_new_event_never_invokes_reader",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_actual_process_exit_after_raw_capture_commit_recovers_both",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_actual_process_exit_before_raw_capture_commit_rolls_back_both",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_completion_keeps_original_capture_without_live_promotion",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_encoded_event_and_total_limits_apply_to_raw_capture",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_exact_duplicate_replay_but_changed_encoding_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_exact_utf8_bytes_newlines_hash_and_partial_reopen",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_malformed_and_deep_capture_preserve_previous_raw_and_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_missing_event_or_other_kind_has_no_capture",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_private_decoder_failure_does_not_change_committed_capture",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_private_unicode_escaped_in_raw_json_is_rejected_before_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_stale_writer_cannot_append_capture",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_capture_journal.QwenCaptureJournalTests.test_tampered_capture_blocks_both_raw_retrieval_and_replay",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_body_action_names_cannot_complete_response",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_bounds_bad_utf8_duplicate_keys_unknown_fields_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_changed_context_stops_watch_without_losing_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_claimed_completion_without_exact_prefix_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_complete_removes_exact_prefix_once_only",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_decoder_errors_do_not_retain_private_document_or_exception_chain",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_deep_json_rejection_preserves_committed_partial_response",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_duplicate_page_error_does_not_expose_validated_message_details",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_missing_control_or_visible_stop_stays_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_no_response_and_full_history_loss_are_preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_nonfinite_numbers_and_unpaired_surrogates_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_partial_preserves_exact_unicode_and_trailing_newline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_reader_journal_reopen_completion_remains_synthetic",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_schema_boolean_and_numeric_strings_are_not_valid_versions",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_schema_errors_have_no_input_bearing_validation_details",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_stale_sequence_is_not_fresh_delivery",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_page_reader.QwenPageReaderTests.test_wrong_reply_duplicate_ids_and_duplicate_actions_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_process_reader.QwenProcessReaderTests.test_actual_process_exact_capture_ingest_and_reuse_without_process",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_process_reader.QwenProcessReaderTests.test_actual_process_failure_does_not_export_stderr",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_process_reader.QwenProcessReaderTests.test_actual_process_output_limit_stops_without_unbounded_buffer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_process_reader.QwenProcessReaderTests.test_actual_process_timeout_stops_descendant_and_preserves_partial",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_process_reader.QwenProcessReaderTests.test_invalid_command_and_budget_fail_before_start",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_process_reader.QwenProcessReaderTests.test_invalid_output_base64_duplicates_versions_and_depth_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_actual_partial_output_timeout_stops_child_without_committing_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_actual_process_preserves_receipt_and_journal_commits_it_atomically",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_actual_truncated_output_preserves_previously_committed_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_changed_receipt_or_context_is_rejected_without_private_error_chain",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_encoder_rejects_tampered_packet_and_keeps_private_failures_fixed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_envelope_size_and_nonfinite_numbers_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_legacy_version_one_round_trip_never_invents_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_replay_after_source_deleted_does_not_start_process",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_version_two_round_trip_preserves_receipt_bytes_and_contexts",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_receipt_wire.QwenReceiptWireTests.test_versions_cannot_smuggle_omit_or_promote_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_read.QwenSavedReadTests.test_bounded_file_rejects_directory_missing_and_pipe_without_wait",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_read.QwenSavedReadTests.test_encoder_rejects_changed_identity_and_private_invalid_input",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_read.QwenSavedReadTests.test_encoder_round_trip_keeps_exact_raw_and_different_evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_read.QwenSavedReadTests.test_real_cli_invalid_inputs_emit_no_partial_packet_or_private_error",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_read.QwenSavedReadTests.test_real_saved_reader_ingests_without_writing_inputs_and_replays_without_files",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_actual_process_journal_ingest_leaves_files_unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_changed_after_file_rejected_by_role_hash",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_changed_before_file_rejected_by_role_hash",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_changed_capture_file_rejected_by_role_hash",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_changed_receipt_file_rejected_by_role_hash",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_cli_private_failure_emits_no_partial_stdout",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_deep_json_manifest_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_empty_input_files_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_manifest_change_during_assembly_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_manifest_duplicate_keys_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_manifest_nonfinite_numbers_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_manifest_unknown_authority_and_missing_fields_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_manifest_version_is_exact_and_supported",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_matching_manifest_cannot_legitimize_context_drift",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_missing_and_nonregular_inputs_rejected_without_wait",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_oversized_context_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_oversized_manifest_and_receipt_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_pinned_file_assembly_preserves_exact_observation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_replay_after_all_inputs_deleted_never_reexecutes_producer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_saved_site_read.QwenSavedSiteReadTests.test_valid_cli_emits_wire_v2_without_private_surface_strings",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_actual_process_exit_after_site_commit_recovers_packet_and_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_actual_process_exit_before_site_commit_rolls_back_packet_and_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_atomic_reopen_preserves_exact_packet_receipt_and_prior_format",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_bridge_reuses_receipt_without_reading_source_again",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_event_decoder_rejects_authority_fields_and_private_context_errors",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_exact_duplicate_is_idempotent_but_changed_receipt_conflicts",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_invalid_receipt_or_stale_writer_preserves_existing_event",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_legacy_capture_is_readable_without_invented_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_journal.QwenSiteJournalTests.test_receipt_mismatch_rejected_even_with_recomputed_outer_chain",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_after_navigation_or_context_change_preserves_committed_capture",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_bounded_metadata_configuration_rejected_without_read",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_capture_document_or_identity_drift_stops_before_after_read",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_comparison_objects_cannot_impersonate_url_or_tab",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_invalid_document_metadata_preserves_existing_journal",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_invalid_or_mismatched_capture_rejected_before_after_read",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_order_exact_bytes_and_replay_without_reobserving",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_receipt_binds_exact_bytes_and_separate_context_evidence_without_reread",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_receipt_does_not_accept_authority_fields_or_private_invalid_packet",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_receipt_rejects_changed_bytes_or_context_even_when_identity_matches",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_signed_out_or_missing_document_rejected_before_capture",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_source_exception_is_private_at_each_observation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_surface_receipt_changes_when_document_changes_between_acquisitions",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_unsafe_configuration_rejected_without_observation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qwen_site_reader.QwenSiteReaderTests.test_wrong_initial_url_or_tab_stops_before_capture",
+      "status": "PASS"
+    }
+  ]
+}

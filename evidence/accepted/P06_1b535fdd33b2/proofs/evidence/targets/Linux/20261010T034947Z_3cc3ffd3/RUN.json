@@ -1,0 +1,245 @@
+{
+  "phase": "P01",
+  "development_step_id": "4d6c885751b74f42a8e16a277a8e6bad",
+  "scope": "NATIVE_TARGET_OFFLINE_EXECUTION",
+  "status": "PASS",
+  "check_returncode": 0,
+  "errors": [],
+  "source_digest_before": "5208dc9add5bb60d2df4c7cc156b1a2dc8c59afbd368ee836440009e87c96567",
+  "source_digest_after": "5208dc9add5bb60d2df4c7cc156b1a2dc8c59afbd368ee836440009e87c96567",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14"
+  },
+  "date_utc": "2026-10-10T03:50:50.861381+00:00",
+  "artifacts": {
+    "check_log": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/CHECK.log",
+      "sha256": "277604fd776645be3b9d7860247b1855c8665461b84f902401ceb12434993216"
+    },
+    "maintenance_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/maintenance_report.json",
+      "sha256": "cebec859a4394874c290ec0e7fca6ecb2f73c5c4ab23cc6251f55d7cc237d4a2"
+    },
+    "environment_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/environment_report.json",
+      "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+    },
+    "control_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/control_report.json",
+      "sha256": "3faf20a3d85d524b3341b29db95a42319238d1b43a9496ea3cf10531a5414be9"
+    },
+    "control_junit": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/control_junit.xml",
+      "sha256": "00e9c1595c9cfd828cb042a70b89412a6241c445fd8a4bc735c2abee6c873e27"
+    },
+    "foundation_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/foundation_report.json",
+      "sha256": "c85c2673652f7c1b7147f468690d8c2cda54a3396172ca52dcdb4e38aa89fe98"
+    },
+    "foundation_junit": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/foundation_junit.xml",
+      "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+    },
+    "persistence_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/persistence_report.json",
+      "sha256": "d667e2b2009eb331d522402344289b29b6afef939167e8eb76fa5cb832bccc5f"
+    },
+    "persistence_junit": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/persistence_junit.xml",
+      "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+    },
+    "browser_probe_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/browser_probe_report.json",
+      "sha256": "d7374f453f4c76726b7c4c26e6b4e768ce63d82acf13d881e9952a4ce2401a28"
+    },
+    "browser_probe_junit": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/browser_probe_junit.xml",
+      "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+    },
+    "architect_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/architect_report.json",
+      "sha256": "de57ab9f3a8007e5f075c224098644b29580f161aa44536895e269e6534d4867"
+    },
+    "architect_junit": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/architect_junit.xml",
+      "sha256": "6ac89d475fe50da36fcdfc3c216607779488b7207e7b17bcbfb14f6e41bdcf06"
+    },
+    "council_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/council_report.json",
+      "sha256": "a39c44c542bb1b64ee06c74db76baaca8327a0271f2f0f9b57ca170c574646cb"
+    },
+    "council_junit": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/council_junit.xml",
+      "sha256": "4affb898c1c0a1c2f9504d26dbff714b9cf5d80248bafff81e0c580d8ad286ee"
+    },
+    "quality_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/quality_report.json",
+      "sha256": "cfa252111018cb19e4581764563bcdb9b9ceaeddb8ae16729fdc60223cc8d99b"
+    },
+    "quality_junit": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/quality_junit.xml",
+      "sha256": "93219cb3e3cc52ebb1c2dbec9345b6ddb473867f09d4c32be0c1d3027fbf9f95"
+    },
+    "pilot_report": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/pilot_report.json",
+      "sha256": "f8ffa6efe168e7bca4c7d41f652dd6e6117b593e93d01712f8cd5f019647d8b9"
+    },
+    "pilot_junit": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/pilot_junit.xml",
+      "sha256": "94a9022966ddb9200fa68e2a8f080714b8510a2e54fe92f2d28ad25d0d9a12c6"
+    },
+    "smoke_1_log": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/smoke_1.log",
+      "sha256": "54b4537235177414081aaeb725de3266f97b15a3fded5f29d5d0be944a76846f"
+    },
+    "smoke_2_log": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/smoke_2.log",
+      "sha256": "7e8fcef4aebb9904fa1f5bf96a25598e50e0a18d9e6e138c59b0ebe684fbd0cd"
+    },
+    "smoke_3_log": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/smoke_3.log",
+      "sha256": "256a99157957182ae22901d87a496b7d6aa822f16a23e2e69674496732b3f4dd"
+    },
+    "smoke_4_log": {
+      "path": "evidence/targets/Linux/20261010T034947Z_3cc3ffd3/smoke_4.log",
+      "sha256": "e2016fd11ecfe05e117cbc304fa7f3ddcdd3c946e260ebb3e72949317c77fd85"
+    }
+  },
+  "smoke": [
+    {
+      "mode": "API",
+      "scenario": "success",
+      "returncode": 0,
+      "expected": 0,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "0f91dbe7-8f11-4d95-bbb7-d340a4b1f088",
+            "attempt_id": "9b855515-5904-4171-bb03-a47641e48314",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "85866d6d-ad4d-4ad4-b7cc-85a7787a5ef1",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "COMPLETE",
+          "content": "{\"answer\":\"offline mock response\"}",
+          "failure": "NONE",
+          "response_id": "mock-9b855515-5904-4171-bb03-a47641e48314",
+          "evidence": [
+            "MOCK_ONLY:success"
+          ],
+          "elapsed_seconds": 0.0
+        }
+      }
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "success",
+      "returncode": 0,
+      "expected": 0,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "6d22efdf-9b0c-4859-af65-8d9a23b7543d",
+            "attempt_id": "1a51707e-0a71-433b-bc6b-a0b908a0bfb8",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "8471784e-41e8-4992-9854-c0646fccb14d",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "COMPLETE",
+          "content": "{\"answer\":\"offline mock response\"}",
+          "failure": "NONE",
+          "response_id": "mock-1a51707e-0a71-433b-bc6b-a0b908a0bfb8",
+          "evidence": [
+            "MOCK_ONLY:success"
+          ],
+          "elapsed_seconds": 0.0
+        }
+      }
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "timeout_after_send",
+      "returncode": 2,
+      "expected": 2,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "8f8b2e2e-6579-4cd5-853e-32275f975052",
+            "attempt_id": "af4bcebc-3f29-45ae-98dd-5d34b419d6f7",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "b394d566-b68a-4c8b-945e-9cf2ffeca828",
+          "connection_revision": 0,
+          "delivery": "UNKNOWN_DELIVERY",
+          "response_state": "NONE",
+          "content": null,
+          "failure": "TIMEOUT",
+          "response_id": null,
+          "evidence": [
+            "MOCK_ONLY:timeout_after_send"
+          ],
+          "elapsed_seconds": 2.0
+        }
+      }
+    },
+    {
+      "mode": "API",
+      "scenario": "partial",
+      "returncode": 2,
+      "expected": 2,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "edcb85b8-70b6-4b9f-b761-63a1534157fc",
+            "attempt_id": "c347e167-f890-4a6e-a752-4f313ec59535",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "7753d7f4-a2b0-4b36-8a26-7f34c82cf559",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "PARTIAL",
+          "content": "{\"answer\":\"unfinished",
+          "failure": "TIMEOUT",
+          "response_id": "mock-c347e167-f890-4a6e-a752-4f313ec59535",
+          "evidence": [
+            "MOCK_ONLY:partial"
+          ],
+          "elapsed_seconds": 2.0
+        }
+      }
+    }
+  ],
+  "live_provider_calls": 0,
+  "full_v1_conformance": "NOT_RUN"
+}

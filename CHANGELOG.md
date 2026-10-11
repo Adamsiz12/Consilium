@@ -1,6 +1,25 @@
 # Changelog
 
-## Unreleased — approved quality improvements
+## Unreleased — current P08 checkpoint, 2026-10-11
+
+- Preserve accepted P00–P07 evidence and P06's explicitly scoped functional exit;
+  the broader comparative pilot remains incomplete.
+- Complete stable participant exports, controlled recovery, and P07 native visual checks.
+- Add preparatory API contracts, incremental SSE framing, bounded owned HTTPS
+  execution, conservative partial-response recovery, and exact operation-result binding.
+- Add durable browser observation journals, atomic private captures, saved Qwen
+  packet producers, read-only CDP transport, and owned bounded DOM acquisition.
+- Refresh the current status, continuation map, source inventory, transfer
+  metadata, and repository guides from the canonical progress record.
+- Keep private API and CDP CLI error-code framing identical on Windows and
+  Linux; retain the initial six Windows failures and rerun the strict checks.
+
+P08 remains blocked and P09 work is authorized offline preparation. Live API
+testing is deferred; full V1 acceptance, the broad comparative pilot, and
+license selection remain open. Native evidence is valid only for its recorded
+source digest. Publication and CI observations are recorded in PROGRESS.json.
+
+## Earlier approved quality improvements
 
 - Encapsulate Council SQL behind a repository interface while preserving transactions.
 - Separate deterministic analysis and define an optional semantic annotation interface.
@@ -12,5 +31,6 @@
 - Deduplicate new evidence by content hash; preserve historical accepted artifacts.
 - Preregister P06 and provide zero-cost manual observation and blinded export tools.
 
-Fresh native Windows verification, live P06 collection, public publication, and
-license selection are pending. No full V1 acceptance or model superiority is claimed.
+These entries describe the earlier quality checkpoint. Current implementation,
+publication, and native verification are recorded in PROGRESS.json and
+docs/CURRENT_STATUS_FA.md. No full V1 acceptance or model superiority is claimed.

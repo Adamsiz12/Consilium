@@ -1,0 +1,61 @@
+{
+  "phase": "P07",
+  "scope": "P07_OUTPUT_IMPORT_PROCESS_EXIT_RECOVERY",
+  "status": "PASS",
+  "counts": {
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "source_digest_after": "32ff4169628f33287e79b7c429d3227eaa65c813d51cdb9aae96b360b886fe4c",
+  "date_utc": "2026-10-10T05:07:55.675892+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14"
+  },
+  "windows_execution": "NOT_RUN",
+  "real_process_exit_cases": 0,
+  "manual_origin": "USER_ACCEPTED_SYNTHETIC_FIXTURES_NOT_AUTHENTICATED_EXTERNAL_GENERATION",
+  "live_provider_calls": 0,
+  "verified_application_requirements": 0,
+  "cases": [
+    {
+      "id": "test_output.OutputCase.test_generation_rejects_extra_files_tampering_and_unsupported_format",
+      "status": "PASS"
+    },
+    {
+      "id": "test_output.OutputCase.test_html_escapes_untrusted_code_and_links_without_scripts",
+      "status": "PASS"
+    },
+    {
+      "id": "test_output.OutputCase.test_import_rejects_invalid_versions_references_and_completion",
+      "status": "PASS"
+    },
+    {
+      "id": "test_output.OutputCase.test_json_import_requires_confirmed_exact_hash_without_db_mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_output.OutputCase.test_legacy_generation_not_overwritten_at_same_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_output.OutputCase.test_mixed_paths_links_tables_and_code_have_visible_isolation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_output.OutputCase.test_real_process_exits_during_export_keep_recoverable_complete_generation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_output.OutputCase.test_recovery_ignores_newest_invalid_generation_and_broken_pointer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_output.OutputCase.test_stable_identity_survives_reordered_participants",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,1 +1,21 @@
-/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3: No module named coverage
+{"scope": "APPROVED_QUALITY_IMPROVEMENTS_OFFLINE_NOT_MODEL_QUALITY", "status": "PASS", "counts": {"tests": 15, "failures": 0, "errors": 0, "skipped": 0}}
+test_conformance_and_transition_projections_check_real_sources (test_quality.QualityTests.test_conformance_and_transition_projections_check_real_sources) ... ok
+test_content_addressed_evidence_deduplicates_and_detects_corruption (test_quality.QualityTests.test_content_addressed_evidence_deduplicates_and_detects_corruption) ... ok
+test_demo_requires_explicit_scripted_mode_and_never_overwrites (test_quality.QualityTests.test_demo_requires_explicit_scripted_mode_and_never_overwrites) ... ok
+test_diagnostic_redaction_copies_without_altering_canonical_data (test_quality.QualityTests.test_diagnostic_redaction_copies_without_altering_canonical_data) ... ok
+test_echoes_are_one_primary_source_and_cycles_are_errors (test_quality.QualityTests.test_echoes_are_one_primary_source_and_cycles_are_errors) ... ok
+test_forged_review_span_cannot_become_confirmed_or_complete_round (test_quality.QualityTests.test_forged_review_span_cannot_become_confirmed_or_complete_round) ... ok
+test_multibyte_cut_and_forged_quote_are_rejected (test_quality.QualityTests.test_multibyte_cut_and_forged_quote_are_rejected) ... ok
+test_old_points_keep_the_original_serialization (test_quality.QualityTests.test_old_points_keep_the_original_serialization) ... ok
+test_pilot_mock_or_missing_intermediates_never_certify_quality (test_quality.QualityTests.test_pilot_mock_or_missing_intermediates_never_certify_quality) ... ok
+test_provider_registry_preserves_scope_without_mock_live_claim (test_quality.QualityTests.test_provider_registry_preserves_scope_without_mock_live_claim) ... ok
+test_review_aliases_balance_and_replay_preserves_seed_and_rubric (test_quality.QualityTests.test_review_aliases_balance_and_replay_preserves_seed_and_rubric) ... ok
+test_review_fixture_preserves_reported_count_and_single_lineage (test_quality.QualityTests.test_review_fixture_preserves_reported_count_and_single_lineage) ... ok
+test_rubric_has_explicit_dimensions_without_truth_probability (test_quality.QualityTests.test_rubric_has_explicit_dimensions_without_truth_probability) ... ok
+test_unicode_span_binds_exact_bytes_and_rejects_modified_text (test_quality.QualityTests.test_unicode_span_binds_exact_bytes_and_rejects_modified_text) ... ok
+runTest (hypothesis.stateful.DurableDispatchMachine.TestCase.runTest) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 4.473s
+
+OK

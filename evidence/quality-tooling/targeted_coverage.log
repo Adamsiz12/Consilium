@@ -1,1 +1,7 @@
-/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3: No module named coverage
+Name                                        Stmts   Miss Branch BrPart  Cover
+-----------------------------------------------------------------------------
+src/consilium/core/evidence_provenance.py      35      4     18      4    85%
+src/consilium/core/rubrics.py                  25      0      4      0   100%
+src/consilium/shell/evidence_store.py          42      7     16      4    78%
+-----------------------------------------------------------------------------
+TOTAL                                         102     11     38      8    85%

@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "reviewer": "Codex, separate review of earlier captured real execution",
+  "reviewer_independent": false,
+  "answer_checks": [
+    {
+      "call_id": "PILOT-001_SINGLE_SINGLE_R1_0",
+      "reason": "Bayes calculation: 0.90*0.02 / (0.90*0.02 + 0.10*0.98) = 0.15517; response matches approximately 15.5%.",
+      "response_sha256": "7918b1c6e036b359ac1d0dd7cf83a44bd0928a4831b39ff068f328e2632faf56",
+      "status": "PASS"
+    },
+    {
+      "call_id": "PILOT-001_COUNCIL_SYNTHESIS_R4_0",
+      "reason": "Bayes calculation: 0.90*0.02 / (0.90*0.02 + 0.10*0.98) = 0.15517; response matches approximately 15.5%.",
+      "response_sha256": "df47f9e2d9fa8f2b0bdf0a33d20e1ab29eb2bdbec0dc2d599b0d1d7aa1f5ca9c",
+      "status": "PASS"
+    },
+    {
+      "call_id": "PILOT-001_REPEATED_SINGLE_SYNTHESIS_R4_0",
+      "reason": "Bayes calculation: 0.90*0.02 / (0.90*0.02 + 0.10*0.98) = 0.15517; response matches approximately 15.5%.",
+      "response_sha256": "f028f121f4d59d61615f242aaa2177aac3face7d33d4735ea5872e0bbc6273d8",
+      "status": "PASS"
+    },
+    {
+      "call_id": "PILOT-003_SINGLE_SINGLE_R1_0",
+      "reason": "Five-minute feasible schedule and critical-path lower bound; any earlier six-minute claim is self-corrected and retained.",
+      "response_sha256": "f903841ee91577e081436ef8bd4dc4964d584988a488488c1b5495291f26f984",
+      "status": "PASS"
+    },
+    {
+      "call_id": "PILOT-003_COUNCIL_SYNTHESIS_R4_0_REPAIR_1",
+      "reason": "Five-minute feasible schedule and critical-path lower bound; any earlier six-minute claim is self-corrected and retained.",
+      "response_sha256": "778f57fdecd4358198aad1c10472e1e6738cf014d6db2a7234e9b3c23b41db6e",
+      "status": "PASS"
+    },
+    {
+      "call_id": "PILOT-003_REPEATED_SINGLE_SYNTHESIS_R4_0",
+      "reason": "Five-minute feasible schedule and critical-path lower bound; any earlier six-minute claim is self-corrected and retained.",
+      "response_sha256": "508891cbae9ed30f1c6d0631fed35450bf55f84c2287f543b569056c2e1c96f5",
+      "status": "PASS"
+    },
+    {
+      "call_id": "PILOT-005_SINGLE_SINGLE_R1_0",
+      "reason": "Necessary implication is false; A={1}, B={1,2}, C={2} is a counterexample. Judge alias attribution is inconsistent and is excluded from the reviewed identity-free conclusion.",
+      "response_sha256": "e7a7ed99606d9fab3616f4ed9cc91d64ff1b56c10a1e75dbde88cda2a78929b1",
+      "status": "PASS"
+    },
+    {
+      "call_id": "PILOT-005_COUNCIL_SYNTHESIS_R4_0",
+      "reason": "Necessary implication is false; A={1}, B={1,2}, C={2} is a counterexample. Judge alias attribution is inconsistent and is excluded from the reviewed identity-free conclusion.",
+      "response_sha256": "6419a143ef57c1232f72be32c939e8160917c00f992bc93679cff9144e0d0d4a",
+      "status": "PASS"
+    },
+    {
+      "call_id": "PILOT-005_REPEATED_SINGLE_SYNTHESIS_R4_0",
+      "reason": "Necessary implication is false; A={1}, B={1,2}, C={2} is a counterexample. Judge alias attribution is inconsistent and is excluded from the reviewed identity-free conclusion.",
+      "response_sha256": "bec1cca273832b6afd2485c513afceafda74bd1004b2a392502be42cda5b5c5b",
+      "status": "PASS"
+    }
+  ],
+  "limitations": [
+    "Copied manual origin is not cryptographically authenticated.",
+    "UI token usage is unknown; requested caps are not API enforced.",
+    "Same conversation carries earlier methods; no unbiased model-comparison inference.",
+    "Three completed tasks and nine finals only; original and new 24-output experiments remain incomplete.",
+    "Legacy original-run unresolved sends are frozen and must never be blindly replayed."
+  ],
+  "judge_alias_ranking_accepted": false,
+  "common_mathematical_conclusions_verified": true,
+  "raw_responses_preserved_privately": true,
+  "private_review_sha256": "8e15dfb383e3f8194d27b708d483dd63c0b8aca8ba8fadcf12d2f5e2ef3b36dc"
+}
