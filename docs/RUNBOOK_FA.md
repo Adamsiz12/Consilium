@@ -1,21 +1,19 @@
-# اجرا و ادامهٔ پژوهش
+# Development execution and continuation
 
-محیط لازم `Python 3.12` است. برای آزمون واقعی حفظ بایت گزارش در ثبت و استخراج مخزن، `Git` نیز باید نصب باشد؛ اجراگرهای خودکار هر دو محیط آن را دارند. آزمون‌های جاری آفلاین‌اند و هزینهٔ مدل ندارند. مرجع پذیرش و مرحلهٔ جاری، `PROGRESS.json` و گزارش‌های منطبق با هش منبع هستند.
+Use Python 3.12. Git is required for tests that verify byte preservation through repository recording and extraction. Current offline checks do not incur model charges. Canonical progress and source-bound receipts determine current state and acceptance.
 
-## ساخت محیط
+## Environment
 
-برای نقطهٔ جاری `P08`، ابتدا نماهای وضعیت را تازه و فرمان `check` را اجرا کنید. فرمان `local` علاوه بر بررسی کد، پذیرش مرحلهٔ جاری را درخواست می‌کند؛ نبود بررسی‌های پذیرش ثبت‌شدهٔ مرحلهٔ هشتم باعث مسدودماندن همان بخش می‌شود. نصب ابزارهای توسعه برای بررسی کامل لازم است. وضعیت و محدودیت‌های جاری در `CURRENT_STATUS_FA.md` ثبت شده‌اند.
+Reuse a validated environment. Install development dependencies when a complete check is needed. From the repository root on Linux:
 
-در لینوکس، از ریشهٔ مخزن:
-
-```bash
+```sh
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock -r requirements-dev.lock
 .venv/bin/python tools/qualityctl.py navigation
 .venv/bin/python tools/development_supervisor.py check
 ```
 
-در ویندوز، برای پژوهشگر دارای محیط:
+On Windows:
 
 ```powershell
 py -3.12 -m venv .venv
@@ -24,62 +22,66 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe tools/development_supervisor.py check
 ```
 
-این دستورهای بازتولید، تکلیف کاربر نیستند. دستیار آزمون ویندوز را در گردش‌کار دوردست انجام می‌دهد و گزارش را خودش دریافت می‌کند.
+These are reproduction instructions. The assistant owns authorized remote Windows execution and receipt retrieval.
 
-## بررسی و شواهد
+## Checks and evidence
 
-```text
+Choose the workflow needed; these commands overlap:
+
+```sh
 python tools/development_supervisor.py native
 python tools/check_target_matrix.py
 python tools/development_supervisor.py phase
 ```
 
-فرمان اول، آزمون کنترل و پایه و هستهٔ ماندگاری و چهار سناریوی پایهٔ `CLI` را روی میزبان واقعی اجرا می‌کند. خروجی‌های قابل بازنویسی پیشین پاک می‌شوند؛ گزارش تازه، نسخهٔ محیط، هش منبع و فایل‌های ثابت نتیجه را ثبت می‌کند. آزمون ماندگاری، دوازده مورد قطع واقعی پردازه و مسیر تازهٔ ذخیره و ادامهٔ `CLI` را نیز اجرا می‌کند.
+`native` runs development suites and four CLI scenarios on the actual host, records environment and source identity, and refreshes mutable outputs while preserving immutable reports. Development checks include foundation, persistence, browser, architect/context, council, quality, pilot, and offline API tests. Persistence includes twelve genuine process-termination cases.
 
-فرمان دوم فقط با گزارش موفق هر دو محیط برای همین منبع موفق می‌شود. نبودن شاهد، هش متفاوت، گزارش نامعتبر یا آزمون ناموفق باعث انسداد می‌شود. فرمان سوم تمام بررسی‌های ثبت‌شدهٔ مرحلهٔ جاری و مراحل قبلی را اجرا می‌کند؛ پذیرش مرحله انجام نمی‌دهد.
+`check_target_matrix.py` requires valid passing Windows and Linux reports for the same source; missing, invalid, failed, or mismatched evidence blocks it. `phase` executes registered current/prior regression checks without accepting the phase. `local` combines development and phase checks; missing P08 acceptance checks leave the phase portion blocked.
 
-`python tools/development_supervisor.py local` بررسی نحو، وضعیت، نما، قالب متن، قفل محیط و سه مجموعهٔ آزمون را اجرا می‌کند. بررسی نوع ایستا و نمایش بصری همهٔ اسناد هنوز انجام نشده‌اند.
+Strict typing, lint, and coverage have explicitly limited scope; successful checks do not certify all source or all document rendering. Consult `CHECKS.json` and actual run receipts for authoritative commands and scope.
 
-## محدودهٔ ذخیره‌سازی
+## Storage and recovery
 
-`SQLiteStore` در `src/consilium/shell/storage.py` قرار دارد. فایل پایگاه را روی دیسک محلی و بیرون مخزن نگه دارید. هر کارگر اتصال خودش را دارد؛ یک اتصال بین رشته‌ها به اشتراک گذاشته نمی‌شود. تنظیم دوام `WAL` و `synchronous=FULL` است؛ آزمون قطع پردازه، آزمون قطع برق یا خرابی سخت‌افزار نیست.
+`SQLiteStore` is in `src/consilium/shell/storage.py`. Store databases on a local disk outside the checkout. Each worker owns a connection; connections are not shared between threads. Durability uses WAL and `synchronous=FULL`. Process-kill tests do not establish resistance to power loss or hardware failure.
 
-مهاجرت دوم، تاریخچهٔ نسخهٔ اول را حفظ و حالت‌های ارسال و نتیجه و تصمیم را اضافه می‌کند. `store.ledger.begin_send` پیش از تماس خارجی و `record_result` پس از آن، وضعیت و رویداد و نقطهٔ ادامه را تراکنشی ثبت می‌کنند. اعتبارسنجی و تأیید پاسخ جدا هستند. تماس اتصال در `DurableRunner` بیرون تراکنش است. خواندن قصد آماده یا طبقه‌بندی ادامه، مجوز ارسال یا تکرار نیست. هش محتوا شاخص یکتای عملیات نیست؛ شناسه‌های عملیات، تلاش و نسل جدا می‌مانند.
+Migration V2 preserves V1 history and adds dispatch, result, and decision states. `store.ledger.begin_send` records state/events before external contact; `record_result` records the outcome transactionally. Validation and formal confirmation are separate. `DurableRunner` contacts adapters outside the transaction. Reading a prepared intent or resume classification is not permission to dispatch or retry.
 
-`SENT` شاهد آغاز تلاش و در شروع دوباره مبهم است؛ `RESPONSE_PENDING` تحویل تأییدشده و پاسخ در انتظار است. `CONFIRMED` تنها با اعتبارسنجی مثبت و ثبت پاسخ رسمی ساخته می‌شود. تکرار مبهم در این مرحله مجاز نیست. برای تکرار ارسال‌نشده، عامل و دلیل و مشاهدهٔ معتبر عدم ارسال و قابلیت تأییدشدهٔ همان اتصال لازم‌اند. نمایش آفلاین قابلیت زنده را تأیید نمی‌کند.
+`SENT` records attempt start and is ambiguous after interruption. `RESPONSE_PENDING` represents confirmed delivery with a pending answer. `CONFIRMED` requires positive validation and a formal answer. Unknown delivery cannot be automatically resent. A verified unsent retry requires an actor, reason, reliable non-delivery observation, and verified capability of that exact connection. An offline demonstration is not live capability evidence.
 
-## نمایش ذخیره و ادامه
+Logical operation, attempt, and output-generation identifiers remain distinct; matching content hashes do not establish operation identity.
 
-از ریشهٔ مخزن، پایگاه تازه بیرون منبع بسازید:
+## Durable offline demonstration
 
-```text
+Use a new database outside the checkout:
+
+```sh
 python tools/run_consilium.py durable-mock --database ../local-demo.sqlite3 --question "offline question"
 python tools/run_consilium.py resume --database ../local-demo.sqlite3 --debate-id DEBATE_UUID_FROM_OUTPUT
 ```
 
-فرمان اول ثبت و ارسال ساختگی و تأیید و بازکردن دوبارهٔ پایگاه را بررسی می‌کند. شناسهٔ واقعی بحث در خروجی است. فرمان دوم فقط وضعیت ذخیره‌شده را می‌خواند؛ اتصال مدل را فراخوانی نمی‌کند. اجرای نمایش تازه روی فایل موجود رد می‌شود. افزودن `--mode BROWSER --scenario timeout_after_send` نمایش آفلاین حالت مبهم است و آزمون مرورگر واقعی نیست.
+The first command exercises synthetic dispatch, confirmation, and database reopening. Substitute its actual debate identifier in the second command. `resume` reads state and makes no model call. Existing demonstration databases are rejected. `--mode BROWSER --scenario timeout_after_send` simulates ambiguity; it is not a real browser test.
 
-خروجی نسخهٔ دوم، قصدها، همهٔ تلاش‌ها، نتیجه‌های رسمی، قرنطینه، تصمیم‌ها، اتصال‌ها و نقطهٔ ادامه را دارد. `debate_completed` همواره نادرست است؛ شورای کامل و خروجی نهایی در مرحله‌های بعد ساخته می‌شوند.
+The V2 kernel export contains intents, attempts, formal results, quarantine, decisions, bindings, and resume state. Its `debate_completed` remains false; use the later council/export path for council completion rather than treating this kernel demonstration as a finished debate.
 
-پشتیبان با رابط `backup` کتابخانهٔ `SQLite` و نام تازه ساخته می‌شود؛ فایل موجود بازنویسی نمی‌شود. کپی خام فایل پایگاه فعال مجاز نیست. خطای عادی، اتصال مقصد را می‌بندد و فایل ناقص را حذف می‌کند. نتیجهٔ پشتیبان تنها پس از بازگشت موفق و بررسی صحت معتبر است؛ بازیابی خودکار و پشتیبان‌گیری زمان‌بندی‌شده هنوز پیاده نشده‌اند.
+Backups use SQLite's backup API and a new destination. Do not copy an active database as a raw file. Ordinary failures close the destination and remove incomplete output. A backup is valid only after successful return and integrity checks. Automatic restore and scheduled backup are not established by this path.
 
-## ادامهٔ دقیق و گیت
+## Acceptance
 
-اقدام بعدی را از `PROGRESS.json.resume` بگیرید. هستهٔ این مرحله پیاده شده؛ بسته‌شدن آن به شاهد جاری دو محیط و بازبینی معیارها وابسته است. نقص باز در محدودهٔ مرحله باعث توقف گیت می‌شود. بعد از پذیرش، بررسی واقعی امکان مرورگر در `P03` انجام شود.
+Start from `PROGRESS.json.resume.next_action`. An open in-scope defect blocks acceptance. Only gate the current phase with satisfied prerequisites, real registered evidence, and a criterion-based review. The following is a historical P02 example, not a command to run at current P08:
 
-```text
+```sh
 python tools/qualityctl.py review-template P02 --out evidence/reviews/P02-final.json
 python tools/qualityctl.py gate P02 --receipt evidence/runs/ACTUAL_RUN/RUN.json --review evidence/reviews/P02-final.json --commit
 ```
 
-این فرمان گیت فقط وقتی مرحلهٔ جاری `P02` است و معیارها و بازبینی تکمیل شده‌اند مجاز است. مسیر `ACTUAL_RUN` باید واقعی باشد. موفقیت مجموعهٔ آزمون به‌تنهایی پذیرش مرحله نیست. گزینهٔ `--commit` پیشرفت را ثبت می‌کند و ثبت `Git` نیست. پس از پذیرش، گیت قبلی دوباره اجرا نشود؛ تصویر ثابت آن حفظ شود.
+Use real paths. `--commit` updates progress, not Git. Do not rerun an already accepted phase gate; preserve its immutable snapshot. P03 browser feasibility follows P02 historically; current continuation is governed by current progress and ADR-038.
 
-## تحویل
+## Transfer
 
-```text
+```sh
 python tools/qualityctl.py navigation
 python tools/qualityctl.py handoff --out ../Consilium_Handoff_NEW.zip
 python tools/qualityctl.py verify ../Consilium_Handoff_NEW.zip
 ```
 
-نام آرشیو تازه باشد. منبع و تاریخچهٔ ثابت لازم در `TRANSFER_FILES.json` ثبت شوند. شواهد پذیرفته‌شده و آخرین شکست نیز منتقل می‌شوند. بایت‌های معیار پذیرش هنگام گیت ثابت می‌شوند. آرشیو باید در پوشهٔ تازه استخراج و واقعاً اجرا شود؛ بررسی هش جای بازتولید را نمی‌گیرد.
+Choose a new archive destination. Register required source/history in `TRANSFER_FILES.json`. Transfers include accepted proofs and the latest failure where recorded; acceptance criteria are frozen at the gate. For a reproduction exercise, extract into a fresh directory and run the applicable checks: hash verification alone is not execution. Do not overwrite immutable evidence or private files.

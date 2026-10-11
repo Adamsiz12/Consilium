@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "status": "ENGLISH_AGENT_GUIDE_LINUX_VALIDATED_PRODUCT_P08_BLOCKED",
+  "scope": "TWELVE_APPROVED_ENGLISH_GUIDE_IMPROVEMENTS_AND_DEFERRED_TASK_REGISTRATION_ONLY",
+  "current_phase": "P08",
+  "last_accepted_phase": "P07",
+  "source_digest": "a485d99b2b4317d14aa1136def4052a74a511522167f439fe9f6379acbe14e5c",
+  "native_target_reports": [
+    {
+      "path": "evidence/targets/Linux/20261011T122047Z_0ff9067a/RUN.json",
+      "sha256": "69e84a568565309fd506bbf7149487d9f34224f2031fc138a1fa434b904e3db6"
+    }
+  ],
+  "counts_per_native_os": {
+    "Linux": {
+      "all_tests": 1050,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "windows_current_source": "NOT_RUN_LOCALLY",
+  "quality_checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.041
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.427
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.03
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.098
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 3.577
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.057
+    }
+  ],
+  "build_result": "NOT_RERUN_DOCUMENTATION_AND_TRANSFER_METADATA_ONLY",
+  "dependency_audit": "NOT_RERUN_NO_DEPENDENCY_CHANGE",
+  "full_application_requirements_verified": 0,
+  "phase_advanced": false,
+  "independent_review": false,
+  "live_provider_calls": 0,
+  "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
+  "next_action": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر باز می‌ماند.",
+  "github_authorization_changed": false,
+  "deferred_task_ids": [
+    "MAINT-RESUME-COMPACTION",
+    "MAINT-EVIDENCE-RETENTION"
+  ],
+  "resume_compaction_performed": false,
+  "evidence_relocation_performed": false,
+  "validation_summary": {
+    "path": "evidence/agent-guide-english/20261011/RUN.json",
+    "sha256": "891283eadc113f12cc4d4ff6be8f1aaa267da287a794e01071314ad20d850450"
+  },
+  "previous_validation_report": {
+    "path": "evidence/agent-guide-english/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "6542c1a12a7f552b0ecfa3e1248bdc037d04d8fc9afdfccbc8ecf0f97a2030f6",
+    "scope": "HISTORICAL_BEFORE_ENGLISH_GUIDE_CHANGE"
+  },
+  "updated_at_utc": "2026-10-11T12:23:01.336627+00:00"
+}

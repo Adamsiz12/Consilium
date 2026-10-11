@@ -1,54 +1,53 @@
-# اجرای محدود آزمون مرورگر
+# Bounded browser feasibility probe
 
-مسیر مثبت یک اتصال واقعی با ورود دستی کاربر بررسی شده است؛ نتیجهٔ جاری و مجوز را از `PROGRESS.json.resume` بخوانید. سوابق رد و انتظار ورود تاریخی‌اند و مرجع وضعیت فعلی نیستند. این راهنما مجوز ورود تازه یا ادعای قابلیت کامل ایجاد نمی‌کند.
+A real positive connection path was examined with manually authorized login. Read current results and permissions from `PROGRESS.json.resume`; historical refusals and login waits are not current state. This runbook grants no new login permission and makes no full-capability claim.
 
-## پیش‌نیاز و ثبت
+## Prerequisites and recording
 
-پس از نشست واقعاً مجاز، هویت حساب، مدل و همان گفتگو را مشاهده و به شناسه‌های محلی غیرمحرمانه وصل کنید. شاهد پاک‌سازی‌شدهٔ مشاهده را خارج از مخزن ذخیره و هش آن را ثبت کنید. نشانی دارای توکن، کوکی، رمز و دادهٔ نشست وارد قرارداد نشوند. قالب‌ها از قراردادهای `core/browser_probe.py` گرفته می‌شوند؛ دادهٔ آزمایش نمونه، شاهد سرویس نیست.
+After a genuinely authorized session, observe the account, model, and exact conversation and bind them to non-secret local identifiers. Store sanitized observation evidence outside the checkout and record its hash. Do not include token-bearing URLs, cookies, passwords, or session data. Use contracts from `core/browser_probe.py`; sample fixture values are not service evidence.
 
-در پایگاه موجود با `SQLiteStore` یک بحث آزمایشی، دور، اتصال و قصد تک‌پیامی آماده کنید. اتصال باید حالت `BROWSER` و شناسهٔ حساب داشته باشد. از `BrowserBinding.content_hash` در `AdapterRequest.transport_binding_hash` استفاده کنید. بودجهٔ درخواست حداکثر ۶۰ ثانیه است. سپس درخواست و اتصال و مشاهدهٔ نشست معتبر را به `ProbeTicket` تبدیل کنید. هیچ فرمان این ابزار حساب یا بحث آزمایشی را خودکار ایجاد نمی‌کند.
+With `SQLiteStore`, prepare an existing test debate, round, browser binding with an account identifier, and one-message intent. Use `BrowserBinding.content_hash` as `AdapterRequest.transport_binding_hash`. The request budget is at most sixty seconds. Convert request, binding, and valid session observation into a `ProbeTicket`. The tool does not create accounts or debates automatically.
 
-پیش از انجماد، نشانگر زیر را با شناسهٔ تازهٔ تلاش به پرسش اضافه کنید. متن مشاهده‌شده باید همین نشانگر را داشته باشد تا پیام قدیمی با سؤال مشابه، شاهد ارسال جدید تلقی نشود:
+Before freezing the prompt, add a fresh attempt marker. The observed user message must include that exact marker so an older similar question cannot prove a new send:
 
 ```text
 [consilium-probe:<attempt_id>]
 ```
 
-فایل‌های ورودی و ثبت را بیرون منبع نگه دارید. نسخهٔ جاری پایگاه را بخوانید؛ نمونهٔ زیر نسخه را به‌طور نمادین نشان می‌دهد و نسخهٔ واقعی باید جایگزین شود:
+Keep inputs and receipts outside source. Substitute the actual database revision; these numbers are illustrative:
 
 ```sh
 python tools/run_browser_probe.py start --database /private/probe.sqlite3 --ticket /private/ticket.json --input /private/plan.json --current-context /private/current-context.json --expected-revision 3
 ```
 
-مشاهدهٔ تازهٔ حساب و مدل و گفتگو درست پیش از آغاز لازم است؛ آن را جدا از شاهد منجمد اولیه به `BrowserContext` تبدیل کنید. حالت‌های `SIGNED_OUT` و `EXPIRED` و `UNKNOWN` یا اتصال تغییرکرده، پیش از ایجاد بلیت و تغییر دفتر رد می‌شوند. در رابط برنامه نیز آرگومان `current_context` اجباری است. این کنترل، مشاهدهٔ قدیمی را خودکار تازه نمی‌کند و اصالت ورودی را ثابت نمی‌کند؛ مشاهدهٔ واقعی و ثبت زمان بر عهدهٔ مسیر مجاز مرورگر است. تغییر میان مشاهده و اقدام هنوز ممکن است و پس از آغاز به نتیجهٔ مبهم نیاز دارد.
+Immediately before start, separately observe account/model/conversation and build fresh `BrowserContext`. `SIGNED_OUT`, `EXPIRED`, `UNKNOWN`, or changed bindings are rejected before ticket creation and ledger mutation. `current_context` is mandatory. This control neither refreshes an old observation nor proves its authenticity. The authorized browser path must supply actual observation and time. Context can still change between observation and action; a post-start uncertainty must be recorded as such.
 
-فقط پس از بازگشت موفق، یک اقدام ارسال را با ابزار مرورگر مجاز انجام دهید. حالت `SENT` آغاز تلاش محلی است، نه اثبات ارسال دوردست. شروع را با همان عملیات دوباره اجرا نکنید. هیچ حلقهٔ انتظار نامحدود اضافه نکنید؛ هر مشاهده یک گام کوتاه با مهلت مشخص باشد. خطای ابزار یا رسیدن به مهلت، موفقیت نیست.
+Only after successful start, perform one authorized external browser send. `SENT` means local attempt start, not verified remote delivery. Do not start the same operation again. Use short observations with explicit deadlines, never an unlimited waiting loop. Tool failure or timeout is not success.
 
-## مشاهده و ادامه
+## Observation and continuation
 
-در یک پنجرهٔ محدود، پیام کاربر و پاسخ مرتبط و شاهد مثبت پایان را بخوانید. هش پیام از متن دقیق پرسش با `SHA-256` محاسبه می‌شود؛ هش درخواست شامل پارامترهاست و جای آن استفاده نمی‌شود. پیام‌های محلیِ پاسخ و پرسش دو شناسهٔ جدا دارند. به همهٔ ارجاع‌های هش، فایل پاک‌سازی‌شدهٔ قابل بررسی متصل کنید.
+Within a bounded window, read the matching user message, associated answer, and positive completion evidence. Hash the exact prompt with SHA-256; the request hash also covers parameters and cannot replace the prompt hash. User and answer messages have separate local identifiers. Every hash reference needs reviewable sanitized evidence.
 
-مشاهدات میانی را تا پایان پنجره در فایل‌های شاهد نگه دارید و تنها یک نتیجهٔ نهایی پنجره را در دفتر ثبت کنید. اگر پاسخ کامل نشده، حالت جزئی یا تحویل نامعلوم را ثبت کنید؛ بازنویسی بعدی نتیجهٔ جزئی یا مبهم مجاز نیست. این ابزار دریافت تدریجی یا بازیابی کامل را پیاده نمی‌کند.
+Preserve intermediate observations until the window ends and record only one final window result. An unfinished answer requires a partial or unknown-delivery outcome. Do not later overwrite that outcome. This probe recorder does not implement full incremental acquisition or recovery.
 
 ```sh
 python tools/run_browser_probe.py record --database /private/probe.sqlite3 --ticket /private/ticket.json --input /private/observation.json --expected-revision 4
 python tools/run_browser_probe.py inspect --database /private/probe.sqlite3 --ticket /private/ticket.json
 ```
 
-بازرسی فقط وضعیت و اقدام مجاز ادامه را می‌خواند؛ ارسال نمی‌کند. قطع پس از آغاز، به بررسی تحویل نیاز دارد. خروجی کامل خام هنوز تأیید رسمی پاسخ نیست؛ اعتبارسنجی ساختاری شورا در مرحلهٔ مربوط پیاده می‌شود. برای آزمون محدود ادامه، از مدل بخواهید واقعاً یک شیء `JSON` با تنها فیلد متنی `answer` بدهد. پس از دریافت کامل، اعتبارسنجی موجود `P02MockAnswer.v1` را با `ledger.validate_response` اجرا کنید؛ فقط در صورت حالت واقعاً معتبر، `ledger.confirm_result` مجاز است. این تأیید، همان قالب محدود آزمایش را ثابت می‌کند و کیفیت پاسخ یا تحقق محصول شورا نیست. ورودی نامعتبر را با دادهٔ ساختگی جایگزین نکنید.
+Inspection reads state and permitted continuation without sending. Interruption after start requires delivery verification. A complete raw answer is not formal confirmation. For the limited continuation probe, request a genuine JSON object with only a textual `answer`, then use `ledger.validate_response` with `P02MockAnswer.v1`. `ledger.confirm_result` is allowed only after actual positive validation. This establishes that limited schema, not council quality or full product conformance. Do not replace invalid live input with fabricated content.
 
-پس از تأیید محدود واقعی، قصد جدید برای پیام ادامه در همان اتصال و گفتگو، با شناسه و نشانگر تازه آماده شود. ابزار ثبت دوباره پیش از اقدام بیرونی شروع شود. پیوند واقعی گفتگو و رفتار ادامه با دو شاهد زنده جدا بررسی شوند؛ صرف تطبیق شناسه‌های محلی، قابلیت ادامهٔ سرویس را تأیید نمی‌کند.
+After genuine limited confirmation, prepare a new continuation intent in the same binding/conversation with fresh identifiers and marker; start recording before the external action. Verify real conversation linkage and continuation with two distinct live observations. Local identifier matching alone cannot prove service continuation.
 
-## معیار ادامهٔ پروژه
+## Historical P03 acceptance
 
-سه معیار `P03` شامل اجرای واقعی ارسال و دریافت و ادامهٔ همان گفتگو، روشن‌شدن انقضا و مشاهدهٔ نامطمئن، و به‌روزرسانی قابلیت‌ها و برآورد است. هیچ‌یک با موفقیت آزمون آماده‌سازی پاس نمی‌شود. تا تکمیل آن‌ها `P04` بسته می‌ماند.
+P03 criteria cover real send/receive and same-conversation continuation, expiration/uncertain observation behavior, and updated capability/estimate records. Preparation tests alone cannot meet them. P03's recorded acceptance is historical; read current progress instead of reopening P03 or blocking already accepted P04 from this example.
 
-انتظار نامحدود برای انقضای طبیعیِ سرویس روش آزمون نیست. آزمون کنترل‌شدهٔ خروج از نشست معتبر می‌تواند از دست‌رفتن دسترسی و توقف شروع را واقعاً بررسی کند، ولی باید با علت `CONTROLLED_SIGN_OUT` ثبت شود؛ این شاهد، عمر نشست یا انقضای طبیعی را ثابت نمی‌کند. مسیر `EXPIRED` در آزمون قراردادی جدا بررسی می‌شود و ساختگی‌بودن ورودی آن پنهان نمی‌شود. بستن گیت نیازمند بازبینی همین حدود، شاهد مثبت واقعی و شاهد منفی واقعی است؛ موفقیت آزمون قراردادی جای شاهد سرویس نیست.
+Do not wait indefinitely for natural expiration. A controlled sign-out can test loss of access and start refusal when recorded as `CONTROLLED_SIGN_OUT`; it does not measure session lifetime or natural expiration. Contract tests separately cover synthetic `EXPIRED` input and must disclose that origin. Review both real positive/negative evidence and these limits when evaluating the historical gate.
 
 ```sh
 python tools/run_browser_probe_tests.py
 python tools/qualityctl.py navigation
-python tools/check.py
 ```
 
-آزمون‌ها بدون کلید و حساب اجرا می‌شوند. سقف زمانی و فرمان‌های کوتاه به جلوگیری از انتظار نامحدود کمک می‌کنند؛ تضمین حذف همهٔ هنگ‌های محیط یا سرویس نیستند.
+Tests need no key or account. Select the supervisor workflow when running the full development suite; avoid separately rerunning a suite it already covers. Bounds reduce unlimited waits without guaranteeing that every environment or service hang is impossible.

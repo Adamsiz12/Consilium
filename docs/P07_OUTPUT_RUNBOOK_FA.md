@@ -1,19 +1,19 @@
-# خروجی و بازیابی کنترل‌شده
+# Stable exports and controlled recovery
 
-نسخهٔ سوم فایل‌ها را با شناسهٔ ثابت مشارکت‌کننده می‌سازد و نسل پیشین را حفظ می‌کند. مرجع عملیاتی پایگاه داده است؛ خروجی از تصویر ثابت تراکنش خواندنی تولید می‌شود. ورود `JSON` فقط برای بازتولید گزارش مجاز است و هیچ عملیات ارسال یا تغییر اتصال ایجاد نمی‌کند. بازیابی عملیاتی از پشتیبان پایگاه داده در مسیر جدا انجام می‌شود.
+V3 exports use stable participant identifiers and preserve prior generations. The operational authority is the database; exports use a consistent read-transaction snapshot. JSON import is only for report reproduction and cannot send or change a binding. Operational restoration from database backup is a separate path.
 
-```text
+```sh
 python tools/p07_output.py validate /path/to/generation
 python tools/p07_output.py recover /path/to/debate-uuid --confirm
 python tools/p07_output.py import /path/to/debate.json /path/to/recovered --sha256 EXPECTED_SHA256 --confirm
 ```
 
-بدون تأیید، بازیابی فقط نسل معتبر را پیدا می‌کند. ورود، تأیید صریح و هش مورد انتظار می‌خواهد. هش، تمامیت را اثبات می‌کند؛ هویت تولیدکننده و صحت معنایی پاسخ را تضمین نمی‌کند. شناسه‌های بحث و شرکت‌کننده، ارجاع منابع، نسخه، تکمیل و هش پاسخ‌ها کنترل می‌شوند. دادهٔ واردشده اختیار کاربر محسوب نمی‌شود.
+Without confirmation, recovery only locates a valid generation. Import requires explicit confirmation and an expected hash. Hashes establish integrity, not author identity or semantic truth. Checks cover debate/participant identifiers, source references, revision, completion, and answer hashes. Imported content does not grant user authority.
 
-فایل `debate.json` تمام سوابق تلاش‌ها و رویدادها را حفظ می‌کند. پروندهٔ اصلی `debate.md` پاسخ‌های پذیرفته‌شده، تصمیم‌ها، تحلیل‌ها، مخالفت‌ها و افشای داور را همراه با پیوند تاریخچهٔ ماشین نشان می‌دهد. ارزیابی هر شرکت‌کننده مشتق از مواضع ثبت‌شده است و داوری تازهٔ مدل معرفی نمی‌شود.
+`debate.json` preserves attempt/event history. `debate.md` displays adopted answers, decisions, analysis, dissent, and judge disclosures with machine-history links. Participant evaluations derive from recorded positions and are not new model judgments.
 
-نمایشگر عملی این مرحله، فایل مستقل `debate.html` در مرورگر `Chrome` بومی ویندوز و لینوکس است؛ اندازه‌های دسکتاپ و باریک بررسی می‌شوند. پشتیبانی تصویری از نمایشگرهای دیگر ادعا نمی‌شود. متن مدل به صورت متن امن و با جهت خودکار نمایش داده می‌شود؛ مسیرها و کد با جهت ثابت، جدول با ستون‌های جدا و پیوندهای وب با نشانی خوانا نمایش داده می‌شوند. متن خام نیز در پرونده‌های مرجع محفوظ است. نسخهٔ اصلی `Markdown` جداگانه برای نمایشگر `Markdown` حفظ است.
+The recorded visual viewer is standalone `debate.html` in native Chrome on Windows/Linux, with desktop/narrow checks. Other viewers are not visually certified. Model content is safe text with automatic direction; paths/code use fixed direction, tables have separate columns, and web links expose readable destinations. Raw content remains in reference files; Markdown remains separately available.
 
-نسل و اشاره‌گر پس از نوشتن کامل نهایی می‌شوند. آزمون خروج واقعی پردازه چهار مرز را پوشش می‌دهد. دوام در قطع برق یا خرابی سخت‌افزار اثبات نشده؛ ویندوز همگام‌سازی قابل‌حمل پوشه ندارد. استفادهٔ همزمان چند نویسنده در این مرحله پشتیبانی نمی‌شود؛ یک نویسندهٔ ترتیبی لازم است.
+Generations and pointers are finalized after complete writes. Real process-exit tests cover four boundaries. Power-loss/hardware durability is unproven, and Windows lacks portable directory synchronization here. Only one sequential writer is supported.
 
-نسخهٔ دوم اولیه پس از مشاهدهٔ ایراد جهت متن، محفوظ ماند؛ اصلاح نمایش در نسخهٔ سوم انجام شد و بازتولید نسخه‌های اول و دوم همچنان ممکن است.
+The original V2 generation was preserved after a text-direction defect; V3 corrected rendering while V1/V2 reproduction remains available. Repository documentation language changes do not rewrite exported participant/model text.

@@ -1,14 +1,14 @@
-# اجرای شورای مرحلهٔ پنجم
+# P05 council operation
 
-هماهنگ‌کنندهٔ `Council` روی همان دفتر پایدار عملیات، پذیرش دستی و منابع رسمی کار می‌کند. مسیر اجرا شامل پذیرش صریح پرسش معمار، پاسخ‌های مستقل، تحلیل دور، تصمیم کاربر، نقد ساختاریافته، ادامهٔ هدفمند و خروجی داور انتخاب‌شده است. هر دور عادی پس از تکمیل تمام مشارکت‌کنندگان وارد `WAITING_DECISION` می‌شود. تحلیل‌گر فقط پیشنهاد می‌دهد و مجوز ایجاد دور ندارد.
+`Council` uses the durable operation ledger, manual adoption, and official sources. Its path covers adopted architect questions, independent answers, analysis, user decisions, structured critique, targeted continuation, and an explicitly selected judge. A completed ordinary round enters WAITING_DECISION. The analyzer offers recommendations without authority to create a round.
 
-چهار تصمیم `CONTINUE`، `CUSTOM`، `PAUSE` و `FINISH` ثبت می‌شوند. پایان پیش از نقد همتای کامل رد می‌شود؛ درخواست پایان پس از آن وارد `WAITING_JUDGE_SELECTION` می‌شود. فقط انتخاب صریح کاربر، دور `SYNTHESIS` را می‌سازد. داور از مشارکت‌کنندگان پیکربندی‌شده انتخاب می‌شود؛ سابقهٔ حضور، اتصال و نسخهٔ اتصال او ثبت می‌شوند. ورودی شامل همهٔ منابع پیشین با نام مستعار است. سابقهٔ حضور و روش کاهش سوگیری در گزارش نهایی افشا می‌شوند؛ این روش تضمین بی‌طرفی نیست.
+Decisions are CONTINUE, CUSTOM, PAUSE, and FINISH. Finishing before complete peer critique is rejected. A later finish request enters WAITING_JUDGE_SELECTION; only user selection creates SYNTHESIS. The judge is a configured participant whose involvement, binding, and revision are recorded. Input preserves all earlier sources with aliases. Reports disclose judge involvement and bias mitigation, without guaranteeing impartiality.
 
-نقد برای هر هدف دارای پذیرش کامل، جزئی یا رد همراه مرجع و علت است. امتیاز عددی فقط در بازهٔ `1..10` معتبر است؛ نقد بدون امتیاز باید صریحاً `NOT_SCORED` داشته باشد. نقد ناقص در دفتر تلاش‌ها حفظ می‌شود و منبع رسمی یا امتیاز ساختگی نمی‌گیرد. اختلاف متن پاسخ‌های مستقل و اعتراض‌های گزارش‌شده همراه شناسه و هش حفظ می‌شوند؛ تحلیل قطعی محلی، داوری معنایی یا احتمال درستی نیست. خروجی داور نیز عدم‌قطعیت، مسائل حل‌نشده و مخالفت را صریح دارد.
+Critiques identify full/partial acceptance or rejection with references/reasons. Scores are numeric 1–10 or explicitly NOT_SCORED. Incomplete critiques remain in attempt history without official sources or invented scores. Answer differences and objections retain identifiers/hashes; local deterministic analysis is not semantic judgment or truth probability. Judge output explicitly preserves uncertainty, unresolved issues, and dissent.
 
-## فرمان‌ها
+## Commands
 
-فایل پایگاه داده و خروجی بحث را بیرون از پوشهٔ منبع نگه دارید. فرمان `new` یک فایل پیکربندی با دو کلید `debate` و `bindings` می‌گیرد. اولی قرارداد `DebateSpec` است و دومی فهرست اشیای `participant_id` و `connection` از نوع `ConnectionSpec`. تمام مشارکت‌کنندگان باید دقیقاً یک اتصال داشته باشند. این فرمان پرسش را خودکار تأیید نمی‌کند؛ پیشنهاد معمار با مسیر مرحلهٔ چهارم ثبت و با `tools/review_architect.py` بازبینی و پذیرفته می‌شود.
+Keep databases and debate exports outside source. `new` reads configuration containing `debate` (DebateSpec) and `bindings` (participant_id plus ConnectionSpec). Every participant needs exactly one binding. It does not adopt the question: stage an architect proposal through P04 and explicitly review it with `tools/review_architect.py`.
 
 ```sh
 python tools/council.py --database /local/council.sqlite3 --debate-id UUID --revision 0 --exports /local/exports --actor LOCAL_USER --confirm-user-action new --config /local/config.json
@@ -16,32 +16,32 @@ python tools/council.py --database /local/council.sqlite3 --debate-id UUID statu
 python tools/council.py --database /local/council.sqlite3 --debate-id UUID --revision N --exports /local/exports --actor LOCAL_USER --confirm-user-action start --kind INDEPENDENT
 ```
 
-برای هر تغییر، نسخهٔ فعلی را از `status` بردارید. همین پیشوند نسخه، مسیر خروجی و کنش صریح برای فرمان‌های زیر استفاده می‌شود:
+Read the actual revision with `status` before each change. Use the same database/debate, current revision, export destination, actor, and explicit-action prefix for:
 
-| فرمان | کار |
-| --- | --- |
-| `mock-answer --participant-id UUID --response-file FILE` | اجرای پاسخ آزمون با اتصال دقیق `mock/mock-v1` و ثبت نتیجهٔ معتبر |
-| `manual-context --participant-id UUID` | نمایش متن دقیق و اهداف پاسخ دستی؛ دورهای بعد به تأیید انتقال نیاز دارند |
-| `seal` | تحلیل دور کامل و توقف برای تصمیم کاربر |
-| `decide --choice CONTINUE` | اجازهٔ دور بعد |
-| `decide --choice CUSTOM --instruction TEXT` | ثبت دستور سفارشی برای ادامه |
-| `start --kind REVIEW` | شروع نقد همتایان پس از تصمیم |
-| `start --kind TARGETED --target TEXT` | شروع ادامهٔ هدفمند پس از تصمیم |
-| `decide --choice PAUSE` | توقف پایدار |
-| `resume-pause` | بازگشت به انتخاب تصمیم؛ ادامه خودکار ندارد |
-| `decide --choice FINISH` | درخواست انتخاب داور پس از نقد کامل |
-| `judge --participant-id UUID` | انتخاب صریح داور و آغاز جمع‌بندی |
-| `finalize` | ثبت اتمی نتیجهٔ معتبر همان داور و حالت پایان |
-| `export` | بازسازی خروجی از پایگاه داده |
+| Command | Effect |
+|---|---|
+| `mock-answer --participant-id UUID --response-file FILE` | Validated synthetic response on exact mock/mock-v1 binding |
+| `manual-context --participant-id UUID` | Exact prompt/targets; later rounds need transfer confirmation |
+| `seal` | Analyze a complete round and wait for a user decision |
+| `decide --choice CONTINUE` | Permit a next round |
+| `decide --choice CUSTOM --instruction TEXT` | Record custom continuation instructions |
+| `start --kind REVIEW` | Begin authorized peer critique |
+| `start --kind TARGETED --target TEXT` | Begin authorized targeted continuation |
+| `decide --choice PAUSE` | Persist a pause |
+| `resume-pause` | Return to decision selection without automatic continuation |
+| `decide --choice FINISH` | Request judge selection after complete critique |
+| `judge --participant-id UUID` | Explicitly select judge and begin synthesis |
+| `finalize` | Atomically store that judge's valid result and completion |
+| `export` | Reconstruct outputs from the database |
 
-ورود و بازبینی پاسخ دستی اولیه با `tools/manual_answer.py` و دورهای بعد و داوری با `tools/manual_round.py` انجام می‌شود. فایل قاب خروجی `manual-context` به ورودی `--context-file` دورهای بعد متصل می‌شود. منشأ دستی با پذیرش کاربر ثبت می‌شود و هویت سرویس خارجی تأییدشده محسوب نمی‌شود. مسیرهای آزمون دستی از متن نمونه استفاده می‌کنند و اجرای واقعی مدل خارجی را ثابت نمی‌کنند.
+Use `tools/manual_answer.py` for initial manual answers and `tools/manual_round.py` for later rounds/judging. Save `manual-context` output for later `--context-file`. Explicit manual adoption does not verify external provider identity; synthetic manual tests do not prove external generation.
 
-## خروجی و بازیابی
+## Exports and recovery
 
-هر فرمان تغییردهندهٔ این رابط، خروجی نقطهٔ ثبت را ایجاد می‌کند. پایگاه داده مرجع عملیات است؛ خطای نوشتن خروجی، تراکنش ثبت‌شده را پس نمی‌گیرد. پس از هر خطا ابتدا `status` را بخوانید و فقط `export` را برای بازسازی خروجی تکرار کنید. ارسال را براساس خطای خروجی تکرار نکنید.
+Mutating commands produce checkpoint exports. The database remains operational authority: an export-write failure does not roll back a committed transaction. After failure, inspect `status` and retry only `export` to reconstruct output. Never resend because an export failed.
 
-پوشهٔ هر نسخه شامل `debate.json`، `debate.md` و تاریخچهٔ جدا برای مشارکت‌کنندگان است. پس از پایان، `final.md` و ارزیابی‌های مبتنی بر مواضع و نقدهای ثبت‌شده هم ایجاد می‌شوند؛ ارزیابی‌ها ادعای داوری تازهٔ مدل ندارند. فایل `EXPORT.json` هش فایل‌ها و `LATEST.json` اشاره‌گر اتمی آخرین خروجی است. نسخهٔ موجود با محتوای متفاوت بازنویسی نمی‌شود. متن مدل در حصار بلندتر از حصارهای خودش قرار می‌گیرد تا قالب گزارش فارسی آسیب نبیند.
+Each revision includes debate.json, debate.md, and participant histories. Completion adds final.md and evaluations derived from recorded positions/critiques, not fresh model judgment. EXPORT.json hashes files; LATEST.json is an atomic pointer. Existing differing generations are not overwritten. Model text uses fences longer than its own fences to preserve Markdown structure.
 
-`recover` هیچ ارسال خودکاری ندارد. تلاش نامعلوم، خروجی ناقص یا نتیجهٔ دیررس دور قبلی، اجازهٔ تکمیل دور نمی‌دهند. ادامهٔ دستی عملیات مبهم همچنان نیازمند تطبیق صریح مرحلهٔ چهارم است. قطع واقعی فرایند قبل و بعد از ثبت تحلیل، انتخاب داور و نتیجهٔ نهایی آزمون می‌شود.
+`recover` never sends automatically. Unknown attempts, incomplete output, and late prior-round results cannot complete a round. Ambiguous-operation manual continuation still needs explicit reconciliation. Tests cover genuine process termination around analysis, judge selection, and final commit.
 
-دامنهٔ مرحلهٔ پنجم، خط شورا با رانندهٔ آزمون محلی و پذیرش دستی است. راننده‌های زندهٔ `API` و مرورگر به ترتیب در `P08` و `P09` و آزمون جامع بازیابی در `P11` هستند. پایلوت کیفیت واقعی مرحلهٔ `P06` است. پذیرش این مرحله تحقق کامل سی الزام نسخهٔ اول را اعلام نمی‌کند.
+P05 acceptance covers the internal council with local mock and manual paths. Live API/browser drivers belong to P08/P09; comprehensive recovery is P11. Real quality pilot scope is P06. P05 acceptance does not establish all thirty final V1 requirements.

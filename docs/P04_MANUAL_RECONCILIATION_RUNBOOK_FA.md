@@ -1,8 +1,8 @@
-# ادامهٔ دستی پس از عملیات قبلی
+# Manual continuation after an unresolved operation
 
-این مسیر برای یک بحث موجود، دور جاری و شرکت‌کنندهٔ دارای عملیات حل‌نشده است. انتخاب دستی واقعیت ارسال قبلی را تغییر نمی‌دهد و تماس با سرویس یا تکرار پیام انجام نمی‌دهد. پاسخ کامل دریافت‌شده یا تأییدشده قابل جایگزینی نیست.
+This path applies to an existing debate/current round and a participant with an unresolved operation. Manual selection does not change prior delivery facts, contact a service, or resend. A complete received or confirmed answer cannot be replaced.
 
-ابتدا مشخصات اتصال دستی تازه را در فایلی خارج از مخزن قرار دهید. شناسهٔ اتصال باید تازه باشد و مشخصات سرویس ادعایی به معنی تأیید منشأ نیست:
+Create a fresh manual-binding specification outside the checkout. A claimed service/model is not verified provenance:
 
 ```json
 {
@@ -14,16 +14,16 @@
 }
 ```
 
-شناسهٔ نمونه را برای اتصال واقعی مجدداً استفاده نکنید. پایگاه، فایل اتصال و محتوای خصوصی بیرون مخزن بمانند. فرمان بازبینی:
+Use a genuinely fresh identifier, not this sample. Keep databases, bindings, and private content outside source.
 
-```text
+```sh
 python tools/reconcile_manual.py --database ../state.sqlite3 --revision CURRENT_REVISION --debate-id DEBATE_UUID --round-id ROUND_UUID --participant-id PARTICIPANT_UUID --manual-connection-file ../manual-connection.json
 ```
 
-برنامه مشخصات و همهٔ تلاش‌های قبلی و اثر انتخاب را نمایش می‌دهد. تنها تایپ عبارت دقیق شامل هش و نسخهٔ جاری و سپس دلیل غیرخالی، ادامهٔ دستی را ثبت می‌کند. پایان ورودی، پاسخ عمومیِ «بله»، هش قدیمی یا تغییر وضعیت باعث پذیرش نمی‌شود.
+The interface shows binding details, every earlier attempt, and selection consequences. Only the exact phrase containing current hash/revision followed by a nonempty reason records manual continuation. EOF, generic approval, stale hash, or a concurrent change cannot do so.
 
-پس از ثبت، از نسخهٔ تازه استفاده کنید. برای پاسخ اولیه، مسیر `tools/manual_answer.py` و برای نقد یا پاسخ دورهای بعد، مسیر `tools/manual_round.py` به کار می‌روند. نمای دورهای بعد و مجوزهای انتقال باید دوباره برای اتصال و نسخهٔ جدید ساخته شوند؛ نمای قبلی قابل استفاده نیست. پذیرش محتوای دستی همچنان جدا و صریح است. محتوای ناهماهنگ محفوظ می‌ماند اما دور را کامل نمی‌کند.
+After recording, use the new revision. Use `tools/manual_answer.py` for initial answers and `tools/manual_round.py` for later answers/critiques. Rebuild later-round context and transfer grants for the new binding/revision; old context is invalid. Manual content adoption remains a separate explicit action. Diverged content is retained without completing the round.
 
-رکوردهای تطبیق در خروجی `manual_operation_reconciliations` همراه تلاش‌های دست‌نخورده موجودند. وضعیت `UNKNOWN_DELIVERY` همچنان نامعلوم است. پاسخ دیررس در `rejected_results` با دلیل `MANUALLY_RECONCILED_OPERATION` ثبت می‌شود. این خروجی مجوز ارسال یا شاهد منشأ زنده نیست.
+Exports include `manual_operation_reconciliations` and untouched attempt history. `UNKNOWN_DELIVERY` remains unknown. Late results enter `rejected_results` with `MANUALLY_RECONCILED_OPERATION`. This record is neither dispatch authority nor live-origin evidence.
 
-اگر گیت انتظار متعلق به اقدام دیگر است یا پاسخ قبلی کامل دریافت شده، فرمان رد می‌شود. رکورد را حذف یا حالت تلاش را دستی اصلاح نکنید؛ کار باقی‌مانده را در مرجع پیشرفت ثبت کنید. رابط گرافیکی ورود متن در `P12` باقی می‌ماند.
+The operation is rejected if the waiting gate belongs to another action or a complete answer already exists. Do not delete records or manually repair attempt states. Record remaining work in canonical progress. GUI text entry remains P12 scope.

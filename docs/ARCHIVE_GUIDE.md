@@ -1,0 +1,79 @@
+# Original-language archive guide
+
+Operational instructions and new report labels are English. The following original records remain unchanged to preserve authority, attribution, and evidence. They are not separate current-state authorities. Read PROGRESS.json for continuation.
+
+## Historical decisions
+
+Decision identifiers and English filename descriptors provide an index to original rationale. ADR-038 records the live-API deferral and offline P09 exception; ADR-025 covers the context-observation boundary.
+
+- [ADR-001-TRUTH_AND_HANDOFF](decisions/ADR-001-TRUTH_AND_HANDOFF_FA.md)
+- [ADR-002-DEVELOPMENT_CHECK_AND_MODEL_SELECTION](decisions/ADR-002-DEVELOPMENT_CHECK_AND_MODEL_SELECTION_FA.md)
+- [ADR-003-P01_FOUNDATION](decisions/ADR-003-P01_FOUNDATION_FA.md)
+- [ADR-004-P01_REAUDIT](decisions/ADR-004-P01_REAUDIT_FA.md)
+- [ADR-005-AUTONOMOUS_NATIVE_TESTS](decisions/ADR-005-AUTONOMOUS_NATIVE_TESTS_FA.md)
+- [ADR-006-P02_STORAGE_SLICE](decisions/ADR-006-P02_STORAGE_SLICE_FA.md)
+- [ADR-007-P02_DURABLE_DISPATCH](decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md)
+- [ADR-008-P03_PROBE_RECORDER](decisions/ADR-008-P03_PROBE_RECORDER_FA.md)
+- [ADR-009-P03_CURRENT_AUTH_PREFLIGHT](decisions/ADR-009-P03_CURRENT_AUTH_PREFLIGHT_FA.md)
+- [ADR-013-P04-INDEPENDENT-CONTEXT](decisions/ADR-013-P04-INDEPENDENT-CONTEXT_FA.md)
+- [ADR-014-P04-DURABLE-ADOPTION](decisions/ADR-014-P04-DURABLE-ADOPTION_FA.md)
+- [ADR-015-P04-REVIEW-AND-DISPATCH-POLICY](decisions/ADR-015-P04-REVIEW-AND-DISPATCH-POLICY_FA.md)
+- [ADR-016-P04-DURABLE-POLICY-AND-ROUND-VIEWS](decisions/ADR-016-P04-DURABLE-POLICY-AND-ROUND-VIEWS_FA.md)
+- [ADR-017-P04-CANONICAL-SOURCE-STORAGE](decisions/ADR-017-P04-CANONICAL-SOURCE-STORAGE_FA.md)
+- [ADR-018-P04-FROZEN-OUTPUT-AND-SOURCE-BATCH](decisions/ADR-018-P04-FROZEN-OUTPUT-AND-SOURCE-BATCH_FA.md)
+- [ADR-019-DEVELOPMENT-SUPERVISOR](decisions/ADR-019-DEVELOPMENT-SUPERVISOR_FA.md)
+- [ADR-020-P04-MANUAL-SOURCE-ACCEPTANCE](decisions/ADR-020-P04-MANUAL-SOURCE-ACCEPTANCE_FA.md)
+- [ADR-021-BOUNDED-EXTERNAL-OPERATIONS](decisions/ADR-021-BOUNDED-EXTERNAL-OPERATIONS_FA.md)
+- [ADR-022-DURABLE-LATER-ROUND-ADMISSION](decisions/ADR-022-DURABLE-LATER-ROUND-ADMISSION_FA.md)
+- [ADR-023-P04-MANUAL-ROUND-AND-ENTRY](decisions/ADR-023-P04-MANUAL-ROUND-AND-ENTRY_FA.md)
+- [ADR-024-P04-EXPLICIT-MANUAL-RECONCILIATION](decisions/ADR-024-P04-EXPLICIT-MANUAL-RECONCILIATION_FA.md)
+- [ADR-025-P04-CONTEXT-OBSERVATION-BOUNDARY](decisions/ADR-025-P04-CONTEXT-OBSERVATION-BOUNDARY_FA.md)
+- [ADR-026-P05-DURABLE-COUNCIL](decisions/ADR-026-P05-DURABLE-COUNCIL_FA.md)
+- [ADR-027-APPROVED_QUALITY_IMPROVEMENTS](decisions/ADR-027-APPROVED_QUALITY_IMPROVEMENTS_FA.md)
+- [ADR-028-P06-OFFLINE-REVIEW](decisions/ADR-028-P06-OFFLINE-REVIEW_FA.md)
+- [ADR-029-P06-MANUAL-OUTPUT-CONTRACT](decisions/ADR-029-P06-MANUAL-OUTPUT-CONTRACT_FA.md)
+- [ADR-030-NATIVE-SUPERVISOR-TEST-DEADLINE](decisions/ADR-030-NATIVE-SUPERVISOR-TEST-DEADLINE_FA.md)
+- [ADR-031-PRUNE-IGNORED-SOURCE-TREES](decisions/ADR-031-PRUNE-IGNORED-SOURCE-TREES_FA.md)
+- [ADR-032-P06-CALL-BUDGET-FEASIBILITY](decisions/ADR-032-P06-CALL-BUDGET-FEASIBILITY_FA.md)
+- [ADR-033-P06-THREE-STAGE-RECOVERY_COUNCIL](decisions/ADR-033-P06-THREE-STAGE-RECOVERY_COUNCIL_FA.md)
+- [ADR-034-P06-VERSIONED-THREE-STAGE-PROTOCOL](decisions/ADR-034-P06-VERSIONED-THREE-STAGE-PROTOCOL_FA.md)
+- [ADR-035-P06-FUNCTIONAL-EXIT](decisions/ADR-035-P06-FUNCTIONAL-EXIT_FA.md)
+- [ADR-036-P07-VERSIONED-OUTPUT](decisions/ADR-036-P07-VERSIONED-OUTPUT_FA.md)
+- [ADR-037-P08-OFFLINE-WIRE-CONTRACT](decisions/ADR-037-P08-OFFLINE-WIRE-CONTRACT_FA.md)
+- [ADR-038-DEFERRED-LIVE-AND-P09-PREPARATION](decisions/ADR-038-DEFERRED-LIVE-AND-P09-PREPARATION_FA.md)
+- [ADR-039-P09-DURABLE-PAGE-JOURNAL](decisions/ADR-039-P09-DURABLE-PAGE-JOURNAL_FA.md)
+- [ADR-040-OWNERSHIP-STARTUP-AND-WINDOWS-HANDLES](decisions/ADR-040-OWNERSHIP-STARTUP-AND-WINDOWS-HANDLES_FA.md)
+- [ADR-041-READ-ONLY-BROWSER-JOURNAL-ATTACHMENT](decisions/ADR-041-READ-ONLY-BROWSER-JOURNAL-ATTACHMENT_FA.md)
+- [ADR-042-QWEN-RENDERED-CAPTURE-READER](decisions/ADR-042-QWEN-RENDERED-CAPTURE-READER_FA.md)
+- [ADR-043-ATOMIC-RAW-QWEN-CAPTURES](decisions/ADR-043-ATOMIC-RAW-QWEN-CAPTURES_FA.md)
+- [ADR-044-PRIVATE-CAPTURE-ERRORS](decisions/ADR-044-PRIVATE-CAPTURE-ERRORS_FA.md)
+- [ADR-045-READ-ONLY-QWEN-INGEST](decisions/ADR-045-READ-ONLY-QWEN-INGEST_FA.md)
+- [ADR-046-BOUNDED-QWEN-PROCESS-READER](decisions/ADR-046-BOUNDED-QWEN-PROCESS-READER_FA.md)
+- [ADR-047-SAVED-QWEN-PACKET-PRODUCER](decisions/ADR-047-SAVED-QWEN-PACKET-PRODUCER_FA.md)
+- [ADR-048-QWEN-SURFACE-ACQUISITION-GATE](decisions/ADR-048-QWEN-SURFACE-ACQUISITION-GATE_FA.md)
+- [ADR-049-ATOMIC-QWEN-SITE-RECEIPT](decisions/ADR-049-ATOMIC-QWEN-SITE-RECEIPT_FA.md)
+- [ADR-050-VERSIONED-QWEN-RECEIPT-WIRE](decisions/ADR-050-VERSIONED-QWEN-RECEIPT-WIRE_FA.md)
+- [ADR-051-PINNED-QWEN-RECORDED-PRODUCER](decisions/ADR-051-PINNED-QWEN-RECORDED-PRODUCER_FA.md)
+- [ADR-052-READ-ONLY-CDP-TRANSPORT](decisions/ADR-052-READ-ONLY-CDP-TRANSPORT_FA.md)
+- [ADR-053-OWNED-CDP-DOM-ACQUISITION](decisions/ADR-053-OWNED-CDP-DOM-ACQUISITION_FA.md)
+- [ADR-054-INCREMENTAL-SSE-FRAMING](decisions/ADR-054-INCREMENTAL-SSE-FRAMING_FA.md)
+- [ADR-055-OWNED-API-PROCESS-AND-PREFIX-RECOVERY](decisions/ADR-055-OWNED-API-PROCESS-AND-PREFIX-RECOVERY_FA.md)
+- [ADR-056-BOUND-API-PRODUCT-RESULT](decisions/ADR-056-BOUND-API-PRODUCT-RESULT_FA.md)
+- [ADR-057-NATIVE-CLI-ERROR-FRAMING](decisions/ADR-057-NATIVE-CLI-ERROR-FRAMING_FA.md)
+
+## Research and historical context
+
+- [CONSILIUM_DEEP_GL_CL_COMPARISON_FA.md](../CONSILIUM_DEEP_GL_CL_COMPARISON_FA.md): original research or checkpoint, retained for provenance.
+- [CONSILIUM_HANDOFF_AND_QUALITY_PROTOCOL_FA.md](../CONSILIUM_HANDOFF_AND_QUALITY_PROTOCOL_FA.md): original research or checkpoint, retained for provenance.
+- [CONSILIUM_MASTER_ROADMAP_FA.md](../CONSILIUM_MASTER_ROADMAP_FA.md): original research or checkpoint, retained for provenance.
+- [CONSILIUM_PROGRESS_P01_FA.md](../CONSILIUM_PROGRESS_P01_FA.md): original research or checkpoint, retained for provenance.
+- [CONSILIUM_PROGRESS_P02_FA.md](../CONSILIUM_PROGRESS_P02_FA.md): original research or checkpoint, retained for provenance.
+- [P04 context development history](P04_CONTEXT_EVIDENCE_FA.md): earlier admission, canonical-source, frozen-artifact, and durable later-round slices. Historical statements about unfinished P04 work do not override later acceptance. Use [the completion runbook](P04_COMPLETION_RUNBOOK_FA.md) and [contract reference](DATA_CONTRACTS_FA.md) for current behavior.
+
+## Protected and audit sources
+
+- The baseline package, protected governance, and canonical ROADMAP.json criteria retain original wording. Translating criteria in place would obscure byte-bound acceptance history.
+- Original user quotations/authorizations and historical progress/checkpoint prose retain their original language. New current action/blocker prose is translated equivalently, without compaction.
+- Historical evidence, accepted snapshots, pilot observations, and multilingual test/model inputs retain bytes, identifiers, and hashes. The language of input is not a defect to remove.
+
+These originals are deliberately preserved, not claimed to be translated.

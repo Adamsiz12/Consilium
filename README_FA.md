@@ -1,32 +1,34 @@
-# Consilium
+# Consilium — Extended guide
 
-برنامهٔ محلی مشورت چندمدلی با اختیار تصمیم کاربر و وضعیت ماندگار. دامنهٔ محفوظ شامل ۳۰ خواسته و نقشهٔ ۱۷ مرحله است.
+Consilium is a local council of multiple models with durable state and explicit user control. The protected scope contains thirty requirements and seventeen development phases.
 
-وضعیت جاری در تاریخ `2026-10-11`: مرحله‌های `P00` تا `P07` در محدودهٔ شواهد ثبت‌شده پذیرفته شده‌اند. مرحلهٔ جاری `P08` مسدود است؛ بخشی از آماده‌سازی آفلاین `P09` با مجوز کاربر انجام شده است. گزارش یکپارچه در [وضعیت جاری](docs/CURRENT_STATUS_FA.md) و ساختار فایل‌ها و ادامهٔ کار در [نقشهٔ انتقال پروژه](docs/PROJECT_CONTINUATION_MASTER_FA.md) آمده‌اند.
+P00–P07 are accepted within their recorded scopes. P08 is blocked; offline P09 preparation has a recorded user exception. Read [current status](docs/CURRENT_STATUS_FA.md), the [continuation map](docs/PROJECT_CONTINUATION_MASTER_FA.md), and canonical `PROGRESS.json` before continuing.
 
-قراردادهای ارسال و دریافت، قاب‌بندی افزایشی پاسخ، اجرای محدود پردازهٔ متعلق به برنامه، بازیابی پاسخ جزئی و اتصال نتیجه به عملیات ساخته شده‌اند. آماده‌سازی مرورگر شامل دفتر مشاهدهٔ پایدار، خواندن بسته‌های ثبت‌شده و دریافت خواندنی صفحه است. این زیرساخت‌ها به معنی تکمیل اتصال زندهٔ پنج ارائه‌دهنده نیستند. آزمون زندهٔ `API` طبق تصمیم کاربر معوق و ارزیابی مقایسه‌ای گستردهٔ مرحلهٔ ششم ناقص است.
+Preparation includes request/result contracts, incremental SSE framing, bounded owned worker processes, partial-response recovery, exact operation-result binding, durable browser observation journals, saved packet readers, and read-only page acquisition. These modules do not establish complete live integrations for five providers. Live API testing remains deferred by the user; broader P06 comparative evaluation is incomplete.
 
-پایه و هستهٔ ماندگاری ساخته شده‌اند: قصد و آغاز ارسال، نتیجه و تأیید رسمی، تصمیم دارای نسخه، ادامهٔ بدون ارسال خودکار و مهاجرت داده. وضعیت پذیرش هر مرحله از `PROGRESS.json` و شواهد ثابت آن خوانده می‌شود. اجرای واقعی روی ویندوز و لینوکس باید با هش منبع جاری منطبق باشد. این نسخه، محصول کامل شورا نیست.
+The persistence kernel stores dispatch intent, attempt start, results, formal confirmation, versioned decisions, and recovery without automatic resend. Acceptance snapshots and native results must be interpreted within their recorded scope and source hashes. This is not a complete V1 product.
 
-برای ادامه، `START_HERE_FA.md`، `AGENTS.md`، `HANDOFF.json` و `PROGRESS.json` را بخوانید. دستورهای بازتولید در `docs/RUNBOOK_FA.md` هستند. وضعیت جاری از روی گزارش دارای هش سنجیده می‌شود؛ یک اجرای موفق، مرحله را خودکار قبول نمی‌کند.
+Read `AGENTS.md`, `PROGRESS.json`, `START_HERE_FA.md`, and `HANDOFF.json` in the mandatory order. Reproduction commands are in `docs/RUNBOOK_FA.md`. A passing execution does not automatically accept a phase.
 
-```text
+```sh
 python tools/qualityctl.py navigation
 python tools/development_supervisor.py check
 python tools/run_consilium.py mock --question "offline question"
 python tools/run_consilium.py durable-mock --database ../local-demo.sqlite3 --question "offline question"
 ```
 
-محیط لازم `Python 3.12` و وابستگی‌های دقیق `requirements.lock` است. آزمون‌های آفلاین به حساب مدل یا کلید نیاز ندارند. کاربر مسئول اجرای ویندوز یا انتقال گزارش نیست؛ دستیار گردش‌کار دو محیط را اجرا و خروجی را دریافت می‌کند.
+Use Python 3.12 and pinned dependencies. Offline checks need no provider account or API key. The assistant runs authorized Windows automation and retrieves the results; these commands do not assign that work to the user.
 
-فرمان `check` بررسی کد را با ناظر محدود اجرا می‌کند. فرمان `native` شاهد وابسته به منبع برای محیط اجرای همان فرمان می‌سازد. فرمان `local` بررسی پذیرش مرحلهٔ جاری را نیز درخواست می‌کند؛ تا ثبت معیارها و شواهد مرحلهٔ هشتم، آن بخش مسدود می‌ماند. نتیجهٔ هر دو محیط باید با هش همان نسخه تطبیق داده شود.
+`check` runs supervised development checks. `native` also records evidence for its actual host. `local` attempts current phase checks as well; P08 acceptance remains blocked until registered checks and real evidence exist. Cross-host evidence must match the same source digest.
 
-شواهد پذیرش در `evidence/accepted` حفظ می‌شوند. موفقیت پایه و ذخیره‌سازی، تحقق کامل ۳۰ خواسته، کیفیت شورا یا اتصال واقعی را اثبات نمی‌کند.
+Preserve accepted evidence in `evidence/accepted/`. Passing foundation or persistence checks does not prove all thirty requirements, council quality, or live connectivity.
 
-قراردادهای معمار پرسش، نمای مستقل و نقد و هدف‌دار و داور، ورود دستی و منشأ، بودجه و تاریخچه در `docs/P04_COMPLETION_RUNBOOK_FA.md` توضیح داده شده‌اند. نمونهٔ اجرایی زیر خروجی قبل و بعد و ورودی نقش‌ها و بازیابی محلی را ثبت می‌کند؛ سرویس زنده فراخوانی نمی‌شود.
+`docs/P04_COMPLETION_RUNBOOK_FA.md` describes architect review, independent/critique/targeted/judge context, manual provenance, budgets, and history. The following optional recorder produces before/after questions, role inputs, and local recovery evidence using synthetic data without live calls:
 
-```text
+```sh
 python tools/record_p04_context_examples.py
 ```
 
-مسیر شورای مرحلهٔ پنجم، فرمان‌های توقف و ادامه و انتخاب داور و خروجی پایه در [راهنمای شورای مرحلهٔ پنجم](docs/P05_COUNCIL_RUNBOOK_FA.md) توضیح داده شده است. پذیرش مرحله و آزمون بومی باید از `PROGRESS.json` و گزارش‌های وابسته به منبع بررسی شود.
+See [P05 council operation](docs/P05_COUNCIL_RUNBOOK_FA.md) for stop, continue, judge selection, and exports. Read actual acceptance and source-bound receipts rather than inferring phase completion from a demonstration.
+
+This guide is English. Its `_FA` filename is retained for existing links. [Localization scope](docs/LOCALIZATION_REPORT.md) explains why original requirements, user quotations, test data, and historical evidence retain their original language.

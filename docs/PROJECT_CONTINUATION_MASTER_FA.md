@@ -1,117 +1,113 @@
-# نقشهٔ جاری پروژه و انتقال ادامهٔ کار
+# Project map and continuation handoff
 
-تاریخ به‌روزرسانی: `2026-10-11`. این سند ساختار و وضعیت جاری پروژهٔ `Consilium` را جمع می‌کند. مرجع اجرایی مرحله‌ها `PROGRESS.json` است؛ پذیرش‌های تاریخی، نتیجهٔ آزمون کد، انتشار مخزن و پذیرش کامل محصول چهار نتیجهٔ متفاوت‌اند.
+Updated 2026-10-11. This document maps Consilium's implementation, authorities, evidence, and remaining work. PROGRESS.json is canonical. Historical acceptance, passing development checks, repository publication, and final product conformance are separate outcomes.
 
-## محصول و دامنهٔ محفوظ
+## Protected product scope
 
-محصول، شورای محلی چندمدلی با پرسش اصلی محفوظ، معمار پرسش، پاسخ‌های مستقل، نقد، تحلیل اختلاف، تصمیم کاربر و داور منتخب است. پایگاه محلی وضعیت عملیات و ادامهٔ بحث را حفظ می‌کند. نسخهٔ اول شامل پنج سرویس، سه مسیر اتصال و دو محیط هدف است:
+The local council preserves the original question, architect proposal, independent answers, peer critiques, disagreements, user decisions, and selected judge. A local database preserves operational and continuation state.
 
-| موضوع | دامنهٔ مرجع |
+| Topic | Required scope |
 |---|---|
-| سرویس‌ها | `ChatGPT`، `Claude`، `Gemini`، `DeepSeek`، `Qwen` |
-| اتصال‌ها | `API`، مرورگر، دستی |
-| محیط‌ها | ویندوز و لینوکس |
-| خواسته‌های محفوظ | `30` خواسته در بستهٔ حاکمیت نسخهٔ `1.3` |
-| نقشهٔ نسخهٔ اول | `P00` تا `P16` |
-| بودجهٔ فعلی | صفر؛ آزمون زندهٔ `API` طبق تصمیم کاربر معوق |
+| Providers | ChatGPT, Claude, Gemini, DeepSeek, Qwen |
+| Connection paths | API, browser, manual |
+| Target hosts | Windows, Linux |
+| Protected requirements | Thirty, in immutable governance v1.3 |
+| V1 phases | P00–P16 |
+| Current call budget | Zero; live API tests deferred by the user |
 
-پیشنهاد پژوهشگر، مجوز حذف یا کاهش خواستهٔ کاربر نیست. مسیر دستی، جایگزین الزام مرورگر نمی‌شود. پاسخ مدل نمی‌تواند دور بعد را مجاز کند، داور برگزیند یا اختیار انتقال بدهد. جزئیات الزام در تصویر محفوظ حاکمیت و `SCOPE.json` قرار دارند.
+Researcher recommendations cannot remove or weaken user requirements. Manual input does not replace browser support. Model content cannot authorize continuation, select the judge, or grant a transfer. The protected package and SCOPE.json define the scope.
 
-## فایل‌های مرجع و رابطهٔ آن‌ها
+## Authorities and repository structure
 
-| فایل یا مسیر | نقش |
+| File/path | Responsibility |
 |---|---|
-| `AGENTS.md` | قواعد ادامه، حدود اختیار و الزام حفظ شواهد |
-| `START_HERE_FA.md` | ترتیب ورود پژوهشگر به پروژه |
-| `PROGRESS.json` | وضعیت مرحله‌ها، گیت‌های پذیرفته‌شده، موانع و نقطهٔ ادامه |
-| `PROGRESS.json.resume` | کار موجود، محدودیت‌ها، اقدام بعدی و تاریخچهٔ نقطه‌های کار |
-| `PROGRESS.json.resume.repository_sync` | نتیجهٔ این همگام‌سازی، انتشار و بررسی نسخهٔ مخزن |
-| `ROADMAP.json` | ترتیب مرحله‌ها، وابستگی‌ها، کارها و معیار پایان |
-| `CHECKS.json` | فرمان‌های پذیرش ثبت‌شده؛ وجود آزمون عمومی جای آن‌ها را نمی‌گیرد |
-| `SCOPE.json` | دامنه، سرویس‌ها، بودجه و محیط‌های منتخب |
-| `INVENTORY.json` | موجودی اجرایی و ارجاع به وضعیت و شواهد جاری |
-| `CONFORMANCE_MAP.yaml` | ردیابی قرارداد، کد و آزمون برای خواسته‌های محفوظ |
-| `governance/PROJECTION.json` | تطبیق بایتی الزام‌ها با بستهٔ محفوظ |
-| `HANDOFF.json` | نمای تولیدشدهٔ انتقال از وضعیت مرجع و هش منبع |
-| `TRANSFER_FILES.json` | فهرست منابع و شواهد منتخب انتقال |
-| `MANIFEST.json` | اندازه و هش فایل‌های بستهٔ انتقال |
-| `evidence/navigation` | نماهای تولیدشدهٔ وضعیت و کارهای بعدی |
-| `docs/decisions` | دلیل، پیامد و حدود تصمیم‌های معماری |
+| AGENTS.md | Continuation instructions, authority limits, evidence preservation |
+| START_HERE_FA.md | Entry guide, following AGENTS.md reading order |
+| PROGRESS.json / resume | Phase status, gates, blockers, exact next action, checkpoint history |
+| resume.english_documentation_update | This English-documentation maintenance record |
+| ROADMAP.json | Phase order, dependencies, tasks, exit criteria |
+| CHECKS.json | Registered acceptance commands; generic tests cannot substitute |
+| SCOPE.json / INVENTORY.json | Scope and inventory with current evidence references |
+| CONFORMANCE_MAP.yaml | Requirement-to-contract/implementation/test traceability |
+| governance/PROJECTION.json | Byte verification against protected baseline |
+| HANDOFF.json / MANIFEST.json | Generated transfer state and file hashes |
+| TRANSFER_FILES.json | Explicit transferable source/evidence allowlist |
+| evidence/navigation | Derived status/backlog, retaining original canonical text |
+| docs/decisions | Architectural rationale, consequences, and limits |
+| src/consilium/core | Pure contracts, question/context/analysis/observation logic |
+| src/consilium/ports | Adapter and I/O boundaries |
+| src/consilium/adapters | Protocol conversion, mock adapters, send/read preparation |
+| src/consilium/shell | SQLite, ledgers, council orchestration, workers, journals |
+| tests / tools | Behavioral/negative/recovery tests, supervision, validation, transfer |
+| .github/workflows/check.yml | Native host automation and matrix validation |
 
-پس از تغییر پیشرفت، نماهای انتقال و راهبری باید دوباره ساخته شوند. یادداشت تاریخی، مرجع دومِ وضعیت جاری نیست. فایل‌های پذیرفته‌شده در پوشهٔ شواهد بازنویسی نمی‌شوند.
+Refresh generated views after canonical changes. Historical prose is not a second current-state authority. Accepted evidence is immutable. Operational intent precedes dispatch; raw and formal results remain distinct. Late/conflicting results cannot authorize a new operation. Read-only recovery does not resend unknown delivery. Operation, attempt, and export-generation identities remain separate.
 
-## ساختار کد
+## Accepted phase scope
 
-| مسیر | مسئولیت |
+| Phase | Recorded scope and limits |
 |---|---|
-| `src/consilium/core` | قراردادها و منطق خالص پرسش، زمینه، تحلیل و مشاهده |
-| `src/consilium/ports` | قرارداد اتصال و مرزهای ورودی و خروجی |
-| `src/consilium/adapters` | تبدیل پروتکل، اتصال ساختگی، آماده‌سازی ارسال و خواندن پاسخ |
-| `src/consilium/shell` | ذخیرهٔ محلی، دفتر عملیات، اجرای شورا، پردازه‌ها و دفتر مشاهده |
-| `tests` | آزمون رفتار، مرز اعتماد، قطع پردازه و موارد منفی |
-| `tools` | اجراگر، ناظر توسعه، بررسی کیفیت، گزارش بومی و انتقال |
-| `.github/workflows/check.yml` | اجرای خودکار بررسی‌ها روی هر دو محیط و تطبیق گزارش‌ها |
+| P00 | Established scope and honest inventory |
+| P01 | Foundation/contracts with native evidence |
+| P02 | Durable storage, migrations, dispatch/results, versioned decisions, real process-kill tests |
+| P03 | Limited real browser feasibility within recorded conditions |
+| P04 | Architect review, role contexts, independent-input preservation |
+| P05 | Internal council using local mock/manual paths |
+| P06 | Scoped functional acceptance; broader comparative evaluation incomplete |
+| P07 | Stable participant exports, controlled recovery, recorded native visual checks |
 
-قصد عملیات پیش از ارسال ثبت می‌شود. نتیجهٔ خام و پاسخ رسمی جدا هستند؛ نتیجهٔ دیررس یا متعارض به عملیات جدید اختیار نمی‌دهد. ادامهٔ خواندنی، ارسال مبهم را خودکار تکرار نمی‌کند. شناسهٔ عملیات، تلاش ارسال و نسل خروجی از هم جدا می‌مانند.
+These acceptances do not establish live integrations or final V1 conformance. All thirty final requirements remain unverified. PROGRESS.json records acceptance snapshot paths and hashes.
 
-## آنچه تا این نقطه پذیرفته شده است
+## P08 preparation and blockers
 
-| مرحله | نتیجه و حد آن |
+Offline codecs currently cover google and qwen. Request/observation contracts, explicit account/model binding, operation-bound results, incremental SSE, bounded owned workers, descendant cleanup, and conservative interrupted-prefix recovery exist. Local encrypted-transport and negative tests validate infrastructure, not provider accounts.
+
+Relevant adapters include api_codec.py, api_plan.py, api_process.py, api_process_wire.py, api_process_progress.py, api_result.py, and sse_framer.py. The worker is `src/consilium/shell/api_process_worker.py`.
+
+Trusted observations and durable product dispatch reservation are not fully connected to acceptance and the complete council path. Five-provider coverage, real account/model identity, quota, and response provenance remain unverified. CHECKS.json has no executable P08 acceptance registrations. User-deferred live API testing remains a separate external blocker; do not request keys or make live/paid calls under current instructions.
+
+## Authorized P09 preparation
+
+Durable observation journals, atomic raw capture, private errors without response echo, bounded saved-packet readers, and versioned receipts exist. Read-only CDP acquisition uses an owned worker. The attached browser is not owned by this worker and is not killed during cleanup.
+
+Relevant shell modules include browser_watch_journal.py, browser_watch_ledger.py, qwen_capture_ingest.py, qwen_saved_read.py, qwen_saved_site_read.py, qwen_site_journal.py, and cdp_dom_read.py. See `docs/CDP_READ_ONLY_RUNBOOK_FA.md`.
+
+Raw DOM text is not proof of response completion, real display, or independently observed account/conversation identity. Actual site selectors and trusted observation-to-product-ledger binding remain incomplete. ADR-038 permits offline preparation only, without accepting P09 or removing P08 prerequisites.
+
+## Evidence interpretation
+
+Read VALIDATION_REPORT.json for the latest completed task validation rather than copying changing test counts into static guides. Verify source digest, actual host, counts, run identity, and each referenced artifact hash.
+
+| Evidence path | Meaning |
 |---|---|
-| `P00` | دامنه و موجودی تثبیت‌شده |
-| `P01` | پایهٔ فنی و قراردادهای داده با شواهد بومی ثبت‌شده |
-| `P02` | هستهٔ پایدار، مهاجرت، ارسال و نتیجه، تصمیم دارای نسخه و آزمون قطع واقعی پردازه |
-| `P03` | بررسی محدود امکان اتصال مرورگر با شواهد واقعی در محدودهٔ همان بررسی |
-| `P04` | معمار پرسش، زمینهٔ نقش‌ها و حفظ استقلال ورودی |
-| `P05` | مسیر داخلی کامل شورا با اتصال ساختگی و ورودی دستی |
-| `P06` | پذیرش عملکردی محدود طبق تصمیم ثبت‌شده؛ ارزیابی مقایسه‌ای گسترده هنوز ناقص است |
-| `P07` | خروجی پایدار شرکت‌کنندگان، بازیابی کنترل‌شده و بررسی بصری بومی ثبت‌شده |
+| evidence/accepted | Frozen accepted gate snapshots |
+| evidence/targets | Native reports and per-host latest pointers |
+| evidence/development-supervisor | Run-bound completion, interruption, failure, and recovery receipts |
+| evidence/api-https-history | Local transport tests, not live provider/account evidence |
+| evidence/p09 | Observation and saved-reader preparation |
+| evidence/p06 | Real/incomplete pilot results with disclosed limits |
+| evidence/english-documentation | Localization validation and preserved previous summary |
 
-تمام‌شدن این مرحله‌ها به معنی تکمیل اتصال‌های زنده یا تأیید همهٔ خواسته‌های نسخهٔ اول نیست. تعداد خواسته‌های دارای پذیرش نهایی اجرایی همچنان `0/30` است. مسیرهای ثابت پذیرش و هش هر شاهد در `PROGRESS.json.phases` ثبت شده‌اند.
+Same-author review in another pass is not independent. Development success does not accept a phase. Historical Windows evidence cannot verify changed source. Consult current CI separately and do not label queued work as passed.
 
-## بخش آماده‌شدهٔ مرحلهٔ هشتم
+## Continuation priorities
 
-مبدل‌های آفلاین فعلی برای `google` و `qwen` ساخته شده‌اند. قرارداد درخواست و مشاهده، هویت صریح حساب و مدل، نتیجهٔ وابسته به عملیات و قاب‌بندی افزایشی `SSE` موجودند. پردازهٔ متعلق به برنامه، مهلت قطعی و پاک‌سازی فرزندان دارد؛ پیشوند پاسخ پس از قطع با قواعد محافظه‌کارانه بازیابی می‌شود. آزمایش محلی رمزنگاری انتقال و موارد منفی، شواهد زیرساخت هستند.
+The exact approved entry point is PROGRESS.json.resume.next_action. Select one bounded task from it, present a Plan, and wait for implementation approval.
 
-کدهای اصلی در `api_codec.py`، `api_plan.py`، `api_process.py`، `api_process_wire.py`، `api_process_progress.py`، `api_result.py` و `sse_framer.py` در پوشهٔ اتصال‌ها قرار دارند. مسیر اجرایی پردازه در `src/consilium/shell/api_process_worker.py` است.
+1. Bind trusted observations and durable dispatch reservation to request plans and operation-bound results; test interruption/restart before live activation.
+2. Complete provider coverage and verified identities, quota, and response provenance without weakening the five-service scope.
+3. Register P08 acceptance checks and execute genuine full-path evidence only after live-testing deferral is lifted.
+4. Within the browser exception, bind actual selectors and independent site context to product operations.
+5. Accept subsequent phases only through their prerequisites/current gate; P10–P16 retain roadmap order.
 
-اتصال این بخش‌ها به گیت پذیرش و رزرو پایدار دفتر محصول هنوز کامل نیست. پوشش پنج ارائه‌دهنده و هویت زندهٔ حساب، مدل، سهمیه و منشأ پاسخ اثبات نشده‌اند. معیارهای پذیرش اجرایی `P08` نیز هنوز در `CHECKS.json` ثبت نشده‌اند. بنابراین مرحلهٔ هشتم مسدود باقی می‌ماند.
+Earlier P08/P09 preparation estimates were 45–55 and 25–35 percent, with 20–35 remaining P08 engineering hours. These are planning estimates, not measured completion or logged time; external wait is unknown.
 
-## آماده‌سازی مجاز مرحلهٔ نهم
+Resume compaction and evidence relocation remain deferred separately approved migration tasks, not part of this localization. Preserve existing history and accepted bytes.
 
-دفتر مشاهدهٔ ماندگار، دریافت خام اتمی، خطاهای خصوصی بدون بازتاب متن پاسخ، خواندن محدود بسته‌های ثبت‌شده و رسید نسخه‌دار ساخته شده‌اند. انتقال خواندنی `CDP` و دریافت صفحه در پردازهٔ متعلق به برنامه آماده‌اند. مرورگر متصل، پردازهٔ متعلق به برنامه محسوب نمی‌شود و برای پاک‌سازی کشته نمی‌شود.
+## Publication and language
 
-مسیرهای اصلی شامل `browser_watch_journal.py`، `browser_watch_ledger.py`، `qwen_capture_ingest.py`، `qwen_saved_read.py`، `qwen_saved_site_read.py`، `qwen_site_journal.py` و `cdp_dom_read.py` در پوشهٔ اجرایی هستند. راهنمای دریافت خواندنی در `docs/CDP_READ_ONLY_RUNBOOK_FA.md` قرار دارد.
+The public destination is mehrangtr/Consilium. The standing GitHub authorization remains unchanged until separately revoked. This task uses `feature/continue-P08-english-project-docs` and corrects the earlier branch-only publication gap by updating main too. Verify publication with independent ref/tree reads; merely creating a commit is insufficient.
 
-دریافت متن خام صفحه، به‌تنهایی مشاهدهٔ پایان پاسخ، نمایش واقعی یا هویت مستقل حساب و گفتگو نیست. انتخابگرهای سایت و اتصال قابل اعتماد مشاهده به دفتر محصول باقی مانده‌اند. این کار طبق استثنای مجاز `ADR-038` آماده‌سازی آفلاین است؛ پذیرش مرحلهٔ نهم باز نشده است.
+Publish only reviewed public source, tests, guides, and evidence. Exclude keys, sessions, virtual environments, and private data. Publication does not accept P08. On reopening, inspect canonical progress and receipts before repeating past sends or pilots.
 
-## شواهد و حدود آزمون
-
-آخرین بررسی پیش از این همگام‌سازی، `1050` آزمون لینوکس شامل `124` آزمون اتصال را گذرانده است. اجرای تازه و نتیجهٔ گیت‌هاب در مرجع همگام‌سازی ثبت می‌شوند. برای هر گزارش، هش منبع، سیستم میزبان، شمار آزمون‌ها و هش فایل‌های وابسته باید تطبیق داده شوند.
-
-| مسیر شاهد | تفسیر |
-|---|---|
-| `evidence/accepted` | تصویر ثابت گیت‌های پذیرفته‌شده |
-| `evidence/targets` | گزارش بومی و اشاره‌گر تازه‌ترین اجرای هر محیط |
-| `evidence/development-supervisor` | پایان، توقف، شکست و رسید متعلق به اجرای مشخص |
-| `evidence/api-https-history` | آزمایش انتقال محلی؛ شاهد حساب یا ارائه‌دهندهٔ زنده نیست |
-| `evidence/p09` | شواهد آماده‌سازی مشاهده و خواندن ثبت‌شده |
-| `evidence/p06` | پایلوت و نتیجه‌های واقعی یا ناقص با حدود ثبت‌شده |
-
-بازبینی این به‌روزرسانی در دور جدا توسط همان نویسنده انجام می‌شود و مستقل معرفی نمی‌شود. نتیجهٔ موفق آزمون کد، مرحله را خودکار قبول نمی‌کند. اجرای قدیمی ویندوز نمی‌تواند منبع تغییرکرده را تأیید کند.
-
-## ادامهٔ کار به ترتیب
-
-1. گیت مشاهده و رزرو پایدار ارسال را به برنامهٔ درخواست و نتیجهٔ وابسته به عملیات متصل کنید؛ قطع و شروع دوباره را پیش از فعال‌کردن ارسال واقعی بررسی کنید.
-2. پوشش ارائه‌دهندگان، هویت حساب و مدل، سهمیه و منشأ واقعی پاسخ را تکمیل کنید؛ دامنهٔ پنج سرویس محفوظ است.
-3. معیارهای اجرایی پذیرش مرحلهٔ هشتم را ثبت کنید و پس از رفع تعویق آزمون زنده، مسیر کامل شورا را با شواهد معتبر اجرا کنید.
-4. در محدودهٔ آماده‌سازی مجاز مرورگر، انتخابگرها و مشاهدهٔ مستقل زمینهٔ سایت را به دفتر عملیات محصول وابسته کنید.
-5. پذیرش بعدی را تنها پس از گیت مرحلهٔ جاری انجام دهید؛ مراحل `P10` تا `P16` همچنان در توالی اصلی مسدودند.
-
-برآورد قبلیِ برنامه‌ریزی برای `P08` حدود `45–55%` و آماده‌سازی `P09` حدود `25–35%` است. زمان مهندسی باقی‌ماندهٔ مرحلهٔ هشتم حدود `20–35` ساعت تخمین زده شده؛ زمان انتظار دسترسی نامعلوم است. این اعداد اندازه‌گیری پذیرش یا ساعت ثبت‌شده نیستند.
-
-## انتشار و بازیابی ادامه
-
-مقصد عمومی همان مخزن `mehrangtr/Consilium` است. درخواست کاربر در `2026-10-11` به‌روزرسانی و انتشار همهٔ فایل‌ها و گزارش‌های پروژه است. شاخهٔ جاری کار `work/p08-api-offline-20261010` و شاخهٔ اصلی `main` است. نتیجهٔ هر انتشار در `PROGRESS.json.resume.repository_sync` ثبت می‌شود؛ وضعیت اصلی باید با خواندن مستقل شاخه تأیید شود.
-
-فایل‌های منبع، آزمون‌ها، راهنماها و شواهد عمومیِ بررسی‌شده منتشر می‌شوند. کلیدها، نشست‌ها، محیط مجازی و داده‌های خصوصی بیرون از خروجی عمومی می‌مانند. انتشار به معنی پذیرش `P08` نیست. پس از بازگشایی پروژه، نخست همین مرجع پیشرفت و گیت‌ها را بخوانید و ارسال زنده یا پایلوت گذشته را بدون دلیل تازه تکرار نکنید.
+Operational guides/report labels are English. Legacy `_FA` filenames preserve links. Protected requirements, original quotes, historical ADRs/evidence, and multilingual input retain their source language. See `docs/LOCALIZATION_REPORT.md` and `docs/ARCHIVE_GUIDE.md` for the retained originals.

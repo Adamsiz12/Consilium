@@ -1,14 +1,14 @@
-# وضعیت ادامهٔ پروژه
+# Project continuation status
 
-این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
+Generated from `ROADMAP.json`, `PROGRESS.json`, and `CHECKS.json`. Manual edits are not authoritative; regenerate after canonical inputs change. Original source text, including historical quotations, is preserved.
 
-شناسهٔ مبنای نما: `bafeaa0c3418d4a0c92c513d5748b1e6d8278d4d27606fb7aa80fa2214c5d723`.
+Input digest: `628e1e866bb5a2abc832ec9d2d0bf12d8b412e0f65e46bcdb808750ad14631df`.
 
-مرحلهٔ فعلی: `P08`. آخرین مرحلهٔ پذیرفته‌شده: `P07`.
+Current phase: `P08`. Last accepted phase: `P07`.
 
-خواسته‌های اجرایی تأییدشده: `0/30`. موفقیت ابزار توسعه، پذیرش محصول نیست.
+Verified application requirements: `0/30`. Passing development tooling does not establish product acceptance.
 
-## نقطهٔ دقیق ادامه
+## Exact continuation point
 
 ```json
 {
@@ -30,7 +30,7 @@
     "Publication block resolved after direct permanent user authorization. Exact five-file tree, commit, parent, message, branch and blob contents independently verified. CI38069235311: both native hosts 830 tests including 106 browser and five new cases; ZIP and nested artifact hashes verified; matrix PASS. No live calls; P08/P09 final acceptance remains open.",
     "Published one-read Qwen ingest bridge: exact before/raw/after binding checks, committed-event reuse without reread, stale/closed preflight, private reader failure quarantine and optimistic commit race checks. Eight new tests, 838 per native host including 114 browser tests; CI38070682276, ZIP/nested artifact hashes and matrix PASS. Driver is injected/unregistered; no live authority, model calls or phase acceptance. Initial lint failure retained."
   ],
-  "next_action": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر باز می‌ماند.",
+  "next_action": "Connect the product observation gate and durable dispatch reservation to the request plan and operation-bound result; do not register or activate a live connection without genuine evidence. Continue browser preparation with actual selectors and independently observed real context. Live API testing remains open under the user's deferral.",
   "next_command": null,
   "note": "Update this record with precise subtask and pending work during development.",
   "github_authorization": {
@@ -157,15 +157,15 @@
         "id": "MAINT-RESUME-COMPACTION",
         "phase": "P08",
         "status": "DEFERRED_REQUIRES_SEPARATE_APPROVED_PLAN",
-        "title_fa": "کوچک‌سازی وضعیت ادامه بدون ازبین‌بردن تاریخچه و قرارداد ابزارها",
-        "next_action_fa": "در تسک مستقل، خوانندگان resume، تولید HANDOFF، حفظ تاریخچه و آزمون‌های انتقال را بررسی و Plan مهاجرت ارائه کن؛ اکنون اجرا نشود."
+        "title_fa": "Compact continuation state without losing history or tooling contracts",
+        "next_action_fa": "In a separate task, inspect resume readers, HANDOFF generation, history preservation, and transfer tests; present a migration Plan. Do not execute now."
       },
       {
         "id": "MAINT-EVIDENCE-RETENTION",
         "phase": "P08",
         "status": "DEFERRED_REQUIRES_SEPARATE_APPROVED_PLAN",
-        "title_fa": "بررسی نگهداری و ارجاع شواهد حجیم بدون حذف تصاویر پذیرش",
-        "next_action_fa": "در تسک مستقل، حفظ بایت‌ها و هش‌ها، دسترسی و ماندگاری artifact و بازتولید انتقال را بررسی و Plan ارائه کن؛ اکنون جابه‌جایی یا حذف انجام نشود."
+        "title_fa": "Review large-evidence retention and references without deleting acceptance snapshots",
+        "next_action_fa": "In a separate task, inspect byte/hash preservation, artifact access/retention, and transfer reproduction; present a Plan. Do not relocate or delete now."
       }
     ]
   },
@@ -1190,13 +1190,45 @@
         "skipped": 0
       }
     }
+  },
+  "english_documentation_update": {
+    "task": "ENGLISH_OPERATIONAL_DOCUMENTATION_AND_REPORT_LABELS",
+    "status": "COMPLETED_LOCAL_VALIDATION_PRODUCT_P08_BLOCKED",
+    "branch": "feature/continue-P08-english-project-docs",
+    "publication_targets": [
+      "main",
+      "feature/continue-P08-english-project-docs"
+    ],
+    "scope": "English operational guides, fixed navigation labels, one regression test, equivalent current continuation/blocker translations; immutable records preserved.",
+    "code_plan_approved_by_user": true,
+    "next_action_change": "EQUIVALENT_TRANSLATION_ONLY_NO_SCOPE_OR_PRIORITY_CHANGE",
+    "phase_advanced": false,
+    "github_authorization_changed": false,
+    "resume_compaction_performed": false,
+    "evidence_relocation_performed": false,
+    "live_provider_calls": 0,
+    "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
+    "report": "docs/LOCALIZATION_REPORT.md",
+    "validation": "evidence/english-documentation/20261011/RUN.json",
+    "source_digest": "e3a65ad747ec5230d0d2243348fd7004d2575a13c15df437ed371f149e3bbbb5",
+    "linux_native_report": {
+      "path": "evidence/targets/Linux/20261011T125640Z_1ab096b1/RUN.json",
+      "sha256": "f9f488d89f448498110525c6a6de673803f8d82fb0e93500cb3500e252030837"
+    },
+    "linux_tests": 1051,
+    "windows_current_source": "NOT_RUN_LOCALLY_CI_PENDING_AFTER_PUBLICATION",
+    "build_result": "PASS",
+    "registered_lint_and_type_check": "PASS_SCOPED",
+    "advisory_lint": "17_PRE_EXISTING_FINDINGS_ZERO_NEW",
+    "validated_at_utc": "2026-10-11T12:59:52.284002+00:00",
+    "publication_validation": "INDEPENDENT_REF_AND_TREE_READ_RECORDED_IN_FINAL_COMPLETION_REPORT"
   }
 }
 ```
 
-## وضعیت مراحل
+## Phase status
 
-| مرحله | وضعیت | مانع‌های ثبت‌شده |
+| Phase | Status | Recorded blockers |
 |---|---|---|
 | `P00` | `COMPLETED` | 0 |
 | `P01` | `COMPLETED` | 0 |

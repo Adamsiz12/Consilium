@@ -1,30 +1,23 @@
-# ادامهٔ پروژه — `Consilium`
+# Consilium — Continue here
 
-ابتدا `AGENTS.md`، `HANDOFF.json`، `PROGRESS.json`، `SCOPE.json` و مرحلهٔ جاری در `ROADMAP.json` را بخوانید. سپس `docs/RUNBOOK_FA.md` و `docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md` را بررسی کنید.
+Read `AGENTS.md`, then `PROGRESS.json`, especially `resume.next_action`, the current phase, and blockers. Continue with `HANDOFF.json`, `SCOPE.json`, the current phase in `ROADMAP.json`, `CHECKS.json`, and the relevant runbook. The mandatory reading order in `AGENTS.md` takes precedence.
 
-مرحلهٔ جاری و آخرین پذیرش را از `PROGRESS.json` بخوانید؛ متن نقطه‌های ثبت پیشین، وضعیت جاری نیست. تصاویر ثابت پذیرش در `evidence/accepted` قرار دارند. بدون نقص تازه، ارسال‌های مرورگر یا مرحله‌های پذیرفته‌شده را تکرار نکنید.
+Current phase and accepted scope come from canonical progress, not old checkpoint prose. Immutable acceptance snapshots are in `evidence/accepted/`. Do not repeat accepted browser sends or completed phases without a fresh defect or authorized need.
 
-هستهٔ `P02` شامل مهاجرت نسخهٔ دوم، ثبت قصد و آغاز ارسال، نتیجهٔ خام و تأیید رسمی، قرنطینهٔ نتیجهٔ دیررس، تصمیم دارای نسخه، ادامهٔ خواندنی، خروجی پایه و پشتیبان است. دوازده آزمون قطع واقعی پردازه مرزهای قصد، ارسال و نتیجه را پوشش می‌دهند. برای پذیرش و مرحلهٔ جاری به `PROGRESS.json` مراجعه کنید و گزارش‌های `evidence/targets` و `evidence/persistence-tests` را با هش منبع تطبیق دهید.
+The durable kernel records intent before dispatch, raw results before formal confirmation, late-result quarantine, versioned decisions, read-only recovery, exports, and backups. Tests include twelve genuine process-termination cases. These tests do not demonstrate power-loss durability or live provider coverage.
 
-اقدام دقیق بعدی در `PROGRESS.json.resume` است. برای قراردادهای زمینه، `docs/P04_COMPLETION_RUNBOOK_FA.md` و `docs/P04_CONTEXT_EVIDENCE_FA.md` را بخوانید. ورود تازه برای توسعهٔ آفلاین لازم نیست؛ دادهٔ ساختگی شاهد قابلیت زندهٔ سرویس نیست.
+For context contracts, read `docs/P04_COMPLETION_RUNBOOK_FA.md`; for API/browser blockers, read `docs/CURRENT_STATUS_FA.md`. Offline development needs no model login or key. Synthetic data cannot establish live capability.
 
-```text
+```sh
 python tools/qualityctl.py navigation
-python tools/check.py
-python tools/run_persistence_tests.py
+python tools/development_supervisor.py check
 python tools/qualityctl.py status
 ```
 
-مخزن عمومی با مجوز صریح کاربر منتشر شده است. دستیار مسئول اجرای خودکار ویندوز، دریافت خروجی و رفع خطاست؛ کمک ویندوز از کاربر درخواست نشود. هر تغییر منبع، شاهد تازهٔ هر دو محیط می‌خواهد. گردش‌کار فقط آزمون و رسید تولید می‌کند و مرحله را قبول نمی‌کند.
+Use `native` when fresh source-bound host evidence is required; it includes development checks. Do not rerun its covered suites separately. `local` also attempts the current phase checks; missing P08 acceptance checks block that part without invalidating successful development checks.
 
-تا تکمیل همهٔ معیارهای مرحلهٔ جاری و بازبینی واقعی، مرحلهٔ بعد پذیرفته نشود. استثنای مجاز کاربر در تصمیم `ADR-038` فقط آماده‌سازی آفلاین `P09` است. پذیرش کامل اجرایی محصول همچنان `0/30` است. بازبینی این هسته توسط همان نویسنده در دور جدا انجام شده و مستقل نیست.
+The assistant owns authorized Windows automation and report retrieval. Native evidence must match the source it verifies; historical Windows evidence cannot certify a changed source. Workflows produce receipts and do not automatically accept phases.
 
-اگر مرحلهٔ بعد تازه آماده شده و بررسی‌هایش هنوز تعریف نشده‌اند، بخش مرحلهٔ فرمان `local` مسدود می‌ماند. این وضعیت با شکست آزمون‌های نسخهٔ پذیرفته‌شده متفاوت است. برای بازتولید بررسی همان نسخه، فرمان محافظت‌شدهٔ زیر را اجرا کنید؛ سپس فقط اولین کار مرحلهٔ جاری را طبق وضعیت تعریف کنید.
+P08 remains blocked, P07 is the last accepted phase, and final V1 requirements remain unverified. ADR-038 records the user's exception for offline P09 preparation; it does not waive P08 or authorize live API calls. Same-author review is not independent review.
 
-```text
-python tools/development_supervisor.py check
-```
-
-وضعیت تجمیعی جاری در `docs/CURRENT_STATUS_FA.md` است. گزارش انتقال از `PROGRESS.json.resume` تولید می‌شود؛ یادداشت‌های تاریخچه جای اقدام بعدی جاری نیستند.
-
-ساختار فایل‌ها، حدود پذیرش‌ها، بخش‌های آماده‌شده و کارهای باقی‌مانده در `docs/PROJECT_CONTINUATION_MASTER_FA.md` یکجا آمده‌اند. برای نتیجهٔ انتشار و بررسی دو محیط، بخش `resume.repository_sync` و اشاره‌گرهای `evidence/targets` را بخوانید. تمام کد و گزارش‌های عمومیِ بررسی‌شده در مخزن `mehrangtr/Consilium` منتشر می‌شوند؛ اطلاعات ورود و محیط‌های خصوصی وارد انتشار نمی‌شوند.
+Use `docs/PROJECT_CONTINUATION_MASTER_FA.md` for the repository map and remaining work, `VALIDATION_REPORT.json` for the latest validation, and `docs/REPOSITORY_SYNC_STATUS_FA.md` for publication verification. Keep private login state and responses out of public transfers. English guides retain legacy `_FA` paths; preserved originals are explained in `docs/LOCALIZATION_REPORT.md`.

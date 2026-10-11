@@ -135,3 +135,5 @@ A user-requested guide or maintenance task does not silently replace the product
 After interruption, verify the outcome of the same run before continuing. Follow [supervisor recovery rules](docs/DEVELOPMENT_SUPERVISOR_FA.md); heartbeat output is not completed work, and the supervisor does not control the conversation or external tool service. Automatic replay is restricted to safe local checks under the documented limits, never unknown external dispatch.
 
 Report to the user in Persian, with English identifiers and commands visibly isolated. Keep updates concise; do not repeat “no action needed” messages. Explain only concrete user actions that are actually necessary.
+
+Write new repository instructions, operational documentation, and report labels in English. Keep legacy `_FA` paths for link compatibility. Preserve original user quotations, protected requirements, historical evidence, and multilingual test inputs; do not rewrite them merely to remove Persian text. See [the localization report](docs/LOCALIZATION_REPORT.md) for scope and retained originals.

@@ -605,6 +605,27 @@ class QualityControls(unittest.TestCase):
         q.navigation(self.root)
         self.assertEqual(q.navigation(self.root, check=True)["status"], "PASS")
 
+    def test_navigation_uses_english_labels_and_preserves_original_source_text(self):
+        progress = q.load(self.root / "PROGRESS.json")
+        original = "اقدام بعدی با حفظ متن اصلی"
+        progress["resume"]["next_action"] = original
+        self.write("PROGRESS.json", progress)
+        before = {name: (self.root / name).read_bytes()
+                  for name in ("ROADMAP.json", "PROGRESS.json", "CHECKS.json")}
+        q.navigation(self.root)
+        status = (self.root / q.NAVIGATION_FILES[0]).read_text(encoding="utf-8")
+        backlog = (self.root / q.NAVIGATION_FILES[1]).read_text(encoding="utf-8")
+        for label in ("# Project continuation status", "Current phase:",
+                      "## Exact continuation point", "| Phase | Status | Recorded blockers |"):
+            self.assertIn(label, status)
+        for label in ("# Backlog and exit criteria", "Tasks:", "Exit criteria:",
+                      "`Priority rationale:`", "registered acceptance checks:"):
+            self.assertIn(label, backlog)
+        self.assertIn(original, status)
+        for name, data in before.items():
+            self.assertEqual((self.root / name).read_bytes(), data)
+        self.assertEqual(q.navigation(self.root, check=True)["status"], "PASS")
+
     def test_handoff_includes_generated_navigation(self):
         q.navigation(self.root)
         out = self.transfer()

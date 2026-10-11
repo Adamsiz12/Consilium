@@ -1,35 +1,35 @@
-# مرجع قراردادهای توسعه
+# Development contract reference
 
-این سند محل قراردادهای موجود و تکلیف قراردادهای آینده را مشخص می‌کند. پایه در `src/consilium/core/contracts.py` و حالت‌ها و اعتبارسنجی عملیات در `src/consilium/core/operation_states.py` هستند. پذیرش پایه با شاهد واقعی دو محیط انجام شده؛ هر تغییر منبع، اجرای تازه می‌خواهد.
+Foundation contracts live in `src/consilium/core/contracts.py`; operation states and validation live in `src/consilium/core/operation_states.py`. Foundation acceptance was source-bound to native host evidence. Historical acceptance does not verify subsequent source changes.
 
-| داده | مرجع | معنای عملی |
+| Data | Authority | Meaning |
 |---|---|---|
-| خواستهٔ کاربر | `requirements/USER_CONSTRAINTS.yaml` داخل بستهٔ حاکمیت ۱٫۳ | ۳۰ خواستهٔ محفوظ؛ تغییر با مجوز صریح کاربر |
-| توصیه و قاعدهٔ مشتق | رجیستری‌های توصیه و قواعد همان بسته | نوع و منشأ جدا؛ پیشنهاد جای خواسته را نمی‌گیرد |
-| ترتیب و معیار مرحله | `ROADMAP.json` | ۱۷ مرحلهٔ توسعه؛ رجیستری خواستهٔ تازه نیست |
-| پیشرفت و ادامه | `PROGRESS.json` و `resume` | مرحلهٔ جاری، آخرین نقطهٔ معتبر، کار ناقص، اقدام بعدی و نکات ظریف |
-| فرمان بررسی | `CHECKS.json` | دستور و نوع آزمون، خروجی `JUnit` و نگاشت به خواسته |
-| نتیجهٔ اجرای بررسی | `evidence/runs/*/RUN.json` | وضعیت واقعی اجرای فرمان‌ها، هش منبع و خروجی‌ها؛ پذیرش خودکار نیست |
-| آخرین اجرای مرحله | `evidence/latest/Pxx.json` | مسیر و هش جدیدترین اجرای کامل‌شدهٔ ابزار؛ موفق یا ناموفق |
-| بازبینی مرحله | فایل ثبت‌شده در `exit_evidence` | معیار، شاهد، اثر تغییر و نقص‌های باز |
-| نمای خواندن وضعیت | `evidence/navigation` | خروجی مشتق؛ قدیمی‌شدن یا ویرایش دستی با بررسی نما رد می‌شود |
-| بستهٔ انتقال | `HANDOFF.json` و `MANIFEST.json` | تصویر ادامه، وضعیت اجرای جاری و هش همهٔ فایل‌های منتقل‌شده |
-| دلیل تصمیم | `docs/decisions` | تصمیم معماری و پیامد؛ دفتر عملیات زمان اجرای محصول نیست |
+| User requirement | `requirements/USER_CONSTRAINTS.yaml` in governance v1.3 | Thirty protected requirements; explicit user approval for changes |
+| Recommendation / derived rule | Recommendation and rule registries in the same package | Distinct type and provenance; a recommendation cannot replace a requirement |
+| Phase order / criteria | `ROADMAP.json` | Seventeen development phases, not a new requirement registry |
+| Progress / continuation | `PROGRESS.json`, `resume` | Current phase, valid checkpoint, unfinished work, next action, quirks |
+| Registered check | `CHECKS.json` | Command, test type, JUnit outputs, requirement mapping |
+| Executed phase check | `evidence/runs/*/RUN.json` | Actual outcomes, source hashes, outputs; not automatic acceptance |
+| Latest phase run | `evidence/latest/Pxx.json` | Path/hash of the latest completed recorded run, passing or failing |
+| Phase review | Recorded `exit_evidence` file | Criteria, evidence, change impacts, open defects |
+| Navigation | `evidence/navigation` | Derived output; freshness checks reject stale/manual versions |
+| Transfer snapshot | `HANDOFF.json`, `MANIFEST.json` | Continuation snapshot, recorded execution state, transferred file hashes |
+| Decision rationale | `docs/decisions` | Architecture reasoning and consequences, not the runtime operation ledger |
 
-## قراردادهای برنامه
+## Application contracts
 
-در برش جاری `P04`، `AdmissionBundle` شواهد کنترل ورودی مستقل را با قصد عملیات در مهاجرت افزودهٔ `V4` نگه می‌دارد. `ContextSource` و `TransferGrant` و `RoundContext` نیز نمای محلی دورهای بعد را تعریف می‌کنند. محدوده و کار باز اتصال این نماها به دفتر عملیات در `docs/P04_CONTEXT_EVIDENCE_FA.md` آمده است؛ هیچ‌کدام به‌تنهایی شاهد مجوز ارسال زنده نیستند.
+P04 added `AdmissionBundle` with intent and independent-context evidence in additive V4 storage. `ContextSource`, `TransferGrant`, and `RoundContext` define later-round context. Use `docs/P04_COMPLETION_RUNBOOK_FA.md` for completed contract behavior; `docs/P04_CONTEXT_EVIDENCE_FA.md` preserves historical slices. Neither establishes live dispatch permission.
 
-قراردادهای فعلی شامل بحث، شرکت‌کننده، اتصال، دور، پاسخ، نقد، تصمیم کاربر، هویت عملیات، ورودی تثبیت‌شده، قصد عملیات، قابلیت اتصال، درخواست و نتیجهٔ اتصال و مشاهدهٔ تحویل‌اند. قالب‌ها سختگیرانه و غیرقابل تغییرند و فیلد اضافی را رد می‌کنند. خروجی طرح داده با `model_json_schema` از خود مدل‌ها تولید می‌شود. رمز، کلید، کوکی و مسیر پروفایل در فیلدهای عمومی وجود ندارند.
+Contracts cover debates, participants, bindings, rounds, answers, critiques, user decisions, operation identity, frozen input, intent, capability, adapter requests/results, and delivery observations. Models are strict and immutable and reject extra fields. Generate schemas with `model_json_schema`. Public contracts have no password, key, cookie, or browser-profile fields.
 
-`OperationIntent` ورودی تغییرناپذیر قصد با حالت `PREPARED` است؛ تغییر حالت تلاش در `AttemptRecord` ثبت می‌شود. `SQLiteStore` و دفتر عملیات آن قصد و آغاز ارسال و نتیجه و تأیید را ماندگار می‌کنند. `Delivery` و `ResponseState` جدا هستند تا `UNKNOWN_DELIVERY` با پاسخ در انتظار پس از تحویل تأییدشده اشتباه نشود. مشاهده به شناسه‌ها، نسخهٔ اتصال و هش ورودی وابسته است.
+`OperationIntent` is immutable intent in `PREPARED`; changes to attempts appear in `AttemptRecord`. SQLite and the operation ledger persist intent, dispatch start, results, and confirmation. `Delivery` and `ResponseState` remain separate: unknown delivery differs from confirmed delivery with an answer still pending. Observations bind to identifiers, connection revision, and input hash.
 
-`CapabilityBinding` قابلیت را به اتصال و نسخهٔ دقیق آن محدود می‌کند. این ساختار صحت ادعای تأیید زنده را ثابت نمی‌کند؛ لایهٔ تأیید قابلیت باید شاهد واقعی بدهد. `ResumePlan` تنها وضعیت و اقدام مجاز را توصیف می‌کند و هیچ ارسال خودکار مجاز نمی‌کند. طرح کوچک `P02MockAnswer.v1` پاسخ نمایش آفلاین را بررسی می‌کند؛ طرح‌های شورا در مرحلهٔ مربوط افزوده می‌شوند.
+`CapabilityBinding` scopes capability to the exact connection revision; the structure itself cannot prove a claimed live verification. `ResumePlan` describes state and permitted action without authorizing automatic dispatch. `P02MockAnswer.v1` validates the limited offline answer; later artifact/council schemas have their own scope.
 
-شناسهٔ عملیات منطقی، تلاش ارسال و نسل خروجی از هم جدا می‌مانند. هش محتوا برای تشخیص هویت کار کافی نیست؛ تولید مستقلِ عمدیِ ورودی یکسان نباید صرفاً به‌علت هش یکسان حذف شود. تعداد وضعیت‌ها از پوشش معنا تعیین می‌شود، نه عبارت «شش وضعیت» در پیشنهاد. تحویل نامعلوم، تحویل تأییدشده با پاسخ در انتظار، نتیجهٔ ثبت‌شده و انتظار ورود/تصمیم باید قابل تفکیک باشند.
+Logical operation, send attempt, and output generation have different identities. Matching content does not justify deleting a deliberately independent generation. State count follows the required semantics rather than a recommendation of a fixed number. Unknown delivery, delivered-but-pending, recorded result, and pending user/login decisions must remain distinguishable.
 
-قرارداد اتصال از ابتدا لازم است، چون مسیرهای ساختگی، دستی، `API` و مرورگر نیاز و محدودیت متفاوت دارند. رفتار هسته یکسان و معنای نتایج مشترک است؛ توانایی تأیید تحویل، شناسهٔ درخواست، ادامهٔ گفتگو و لغو در هر اتصال جدا اعلام می‌شود. نبود قابلیت، با قابلیت ساختگی جایگزین نمی‌شود.
+Adapters are needed from the beginning because MOCK, MANUAL, API, and BROWSER paths have different limits. Core behavior and result semantics are shared; delivery verification, request identifiers, conversation continuation, and cancellation capabilities are declared per connection. A missing capability cannot be replaced with a fabricated one.
 
-طرح داده ساختار و قیود تعریف‌شده را اعتبارسنجی می‌کند. منع پایان بدون داور یا رد نتیجهٔ دیررس به قاعدهٔ دامنه، کنترل نسخه و تراکنش زمان اجرا هم نیاز دارد. تمام آزمون‌ها از همان جدول گذار تولید نشوند؛ چند شاهد مستقل و گذار ممنوع لازم است تا اشتباه جدول خودش را تأیید نکند.
+Schema validation covers declared structure and constraints. Prohibiting completion without a judge and rejecting late results also require domain rules, revision checks, and runtime transactions. Do not derive every test from the implementation transition table: independently specified forbidden transitions and evidence help expose errors in that table.
 
-هستهٔ تصمیم‌گیری ورودی صریح دارد و شبکه، فایل، پایگاه، ساعت و تصادف پنهان را فراخوانی نمی‌کند. دریافت پاسخ مدل و خلاصه‌سازی توسط مدل در پوسته انجام می‌شود؛ تصمیم روی متنِ دریافت‌شده و فرادادهٔ صریح می‌تواند خالص باشد. `Pydantic` پس از بررسی نیاز اعتبارسنجی انتخاب و نسخهٔ آن قفل شد؛ علت و حدود آن در تصمیم سوم ثبت شده‌اند.
+Pure decision functions use explicit inputs, without hidden network, files, databases, clocks, or randomness. The shell obtains model answers and summaries; decisions over received text and explicit metadata can be pure. Pydantic was selected after evaluating validation needs and is pinned; ADR-003 records the rationale and limits.

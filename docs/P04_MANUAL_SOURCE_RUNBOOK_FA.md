@@ -1,12 +1,10 @@
-# پاسخ دستی با پذیرش صریح
+# Initial manual answers with explicit adoption
 
-این برش از `P04-002` فقط پاسخ دستی دور مستقل اول را پوشش می‌دهد. پرسش باید قبلاً صریح پذیرفته شده و اتصال آن شرکت‌کننده در حالت `MANUAL` ثبت شده باشد. این مسیر هیچ سرویس بیرونی را فراخوانی نمی‌کند، عملیات ارسال را تأیید نمی‌کند و بحث را پایان‌یافته اعلام نمی‌کند.
+This P04 path covers the first independent round. The question must already be explicitly adopted and the participant binding must be MANUAL. No external service is contacted; the path does not confirm a send or finish the debate.
 
-متن پاسخ، پرامپت واقعاً استفاده‌شده، اعلام دیدن دور و منشأ ادعایی وارد می‌شوند. پرامپت مورد انتظار از پرسش پذیرفته‌شده و قرارداد دور در مخزن بازسازی می‌شود؛ فایل ورودی اختیار تعیین آن یا اعلام تأیید را ندارد. برچسب اتصال یا ادعای نویسنده، شاهد تولید زنده نیست. منشأ منبع پس از پذیرش همواره `MANUAL` و منشأ بیرونی همچنان تأییدنشده است.
+Input includes answer text, actual prompt, declaration that the round was seen, and optional claimed provenance. Expected prompt is reconstructed from the adopted question and round contract. Input cannot set expected prompt or approval. Binding labels and author claims do not prove live origin. An adopted source remains MANUAL with unverified external provenance.
 
-نامزد ابتدا بدون تغییر وضعیت بحث ثبت می‌شود. سپس متن، هر دو پرامپت، اختلاف، منشأ و هش نمایش داده می‌شوند. کاربر محلی باید عبارت دقیق پذیرش شامل هش و نسخه را تایپ کند. پاسخ دیگر یا پایان ورودی پذیرش نیست. اگر در زمان مشاهده، نسخه یا اتصال تغییر کرده باشد، پذیرش رد می‌شود.
-
-قرارداد فایل ورودی:
+Stage the candidate without changing debate state. Review answer, both prompts, divergence, provenance, and hash. Adoption requires typing the exact hash/revision phrase. Other input, EOF, or a changed revision/binding rejects adoption.
 
 ```json
 {
@@ -23,19 +21,17 @@
 }
 ```
 
-شناسه‌ها نمونه‌اند. پایگاه محلی، دور و شرکت‌کننده باید واقعاً وجود داشته باشند؛ فرمان نمونه پایگاه را ایجاد نمی‌کند. مقدار نسخه باید آخرین نسخهٔ واقعی بحث باشد.
+Identifiers and revision below are samples. The database, round, and participant must exist; staging does not create them. Substitute actual identifiers/current revision and retain private input outside source.
 
 ```sh
 python tools/manual_answer.py --database /local/path/debate.sqlite3 --revision 3 stage --submission /local/path/manual.json
 python tools/manual_answer.py --database /local/path/debate.sqlite3 --revision 3 review --candidate-id 00000000-0000-0000-0000-000000000006
 ```
 
-پذیرش منبع و رویداد و نقطهٔ وضعیت در یک تراکنش ثبت می‌شوند. قبل از ثبت کامل، قطع پردازه همه را برمی‌گرداند؛ بعد از ثبت، منبع با راه‌اندازی مجدد بازسازی می‌شود. مهاجرت نسخهٔ `7` هیچ‌یک از هش‌ها و تعریف‌های منتشرشدهٔ مهاجرت‌های قبلی را تغییر نمی‌دهد.
+Adoption records source, event, and checkpoint in one transaction. Interruption before commit rolls them back; reopening after commit reconstructs the source. Additive migration V7 preserves previously published migration definitions and hashes.
 
-اگر پرامپت دقیق متفاوت باشد یا اعلام دیدن دور منفی باشد، وضعیت `DIVERGED` ثبت می‌شود. چنین محتوا حتی با پذیرش، فقط در خروجی حفظ می‌شود و وارد مجموعهٔ منابع هم‌راستای نمای دور بعد نمی‌شود. منبع هم‌راستا نیز مجوز انتقال ندارد؛ سیاست حریم خصوصی و بودجه و مجوزهای انتقال همچنان لازم‌اند. وجود عملیات قبلی برای همان شرکت‌کننده، جایگزینی دستی را مسدود می‌کند؛ نتیجهٔ مبهم بدون تطبیق پوشانده نمی‌شود.
+Prompt mismatch or an unseen round records `DIVERGED`. Even when adopted, diverged content is exported without entering aligned later-round context. Alignment is not a transfer grant: privacy policy, budgets, and grants still apply. Existing unresolved operations cannot be concealed by manual replacement; use explicit reconciliation first.
 
-پاسخ اولیهٔ دستیِ پذیرفته‌شده و هم‌راستا اکنون می‌تواند در شرط کامل‌بودن دور شمرده شود. نامزد پذیرفته‌نشده یا پاسخ واگرا این اثر را ندارد. وجود عملیات تأییدنشده همچنان گیت را می‌بندد. پس از کامل‌شدن پاسخ‌ها نیز تصمیم صریح کاربر برای ثبت دور بعد لازم است. نمای دور بعد اکنون با منابع رسمی و مجوز و بودجه همراه قصد اتمیک ثبت می‌شود؛ این کار پاسخ دستی را به نتیجهٔ ارسال زنده تبدیل نمی‌کند.
+Aligned adopted initial answers can satisfy round completeness. Unadopted or diverged answers cannot; unconfirmed operations still block the gate. A complete round still requires an explicit user decision to create the next round. Later-round context is recorded atomically with intent, official sources, grants, and budget; this does not convert manual content into live dispatch results.
 
-نقد دستی و پاسخ دستی دورهای بعد اکنون مسیر مستقل محلی دارند؛ شرح در `docs/P04_MANUAL_ROUND_RUNBOOK_FA.md` است. جای ورود چندخطی اولیه نیز با فرمان `enter` اضافه شده است. این متن پذیرش کامل مرحله را اعلام نمی‌کند؛ وضعیت اجرای دو محیط در `PROGRESS.json` ثبت می‌شود.
-
-کار باقی‌مانده: تطبیق صریح عملیات قبلی، منشأ زندهٔ قابل راستی‌آزمایی و بازبینی کامل معیارهای `P04`. مرحلهٔ `P05` باز نشده است.
+See `docs/P04_MANUAL_ROUND_RUNBOOK_FA.md` for later answers/critiques and `enter` for multiline initial input. Reconciliation is now described in its dedicated runbook. Historical notes that P05 was unopened are superseded by current progress: P04 and P05 have recorded scoped acceptance. Live provenance and full V1 verification remain unresolved.

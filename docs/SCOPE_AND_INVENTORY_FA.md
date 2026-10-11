@@ -1,23 +1,17 @@
-# دامنه و موجودی تثبیت‌شده
+# Established scope and initial inventory
 
-کاربر در این جلسه ویندوز و لینوکس، پنج سرویس و بودجهٔ فعلی صفر را انتخاب کرد. مرجع این انتخاب‌ها `SCOPE.json` است. نسخهٔ `1.3` شامل هر ۳۰ خواستهٔ محفوظ بدون تغییر باقی مانده است.
+This document records historical P00 discovery, not the current implementation inventory. Current scope is in SCOPE.json; current implementation and evidence are in INVENTORY.json and PROGRESS.json. The governance v1.3 package preserves all thirty requirements unchanged.
 
-| سرویس | اتصال برنامه‌ریزی‌شده | مدل و حساب | اجرای واقعی |
-| --- | --- | --- | --- |
-| `ChatGPT / OpenAI` | `API` و `BROWSER` | انتخاب‌نشده؛ دسترسی نامعلوم | انجام‌نشده |
-| `Claude / Anthropic` | `API` و `BROWSER` | انتخاب‌نشده؛ دسترسی نامعلوم | انجام‌نشده |
-| `Gemini / Google` | `API` و `BROWSER` | انتخاب‌نشده؛ دسترسی نامعلوم | انجام‌نشده |
-| `DeepSeek` | `API` و `BROWSER` | انتخاب‌نشده؛ دسترسی نامعلوم | انجام‌نشده |
-| `Qwen` | `API` و `BROWSER` | انتخاب‌نشده؛ دسترسی نامعلوم | انجام‌نشده |
+The user selected Windows/Linux, five services, and an initial zero-cost budget. Planned services are ChatGPT/OpenAI, Claude/Anthropic, Gemini/Google, DeepSeek, and Qwen. Each requires API and browser integration; manual integration is additional and cannot replace browser support. Initial account/model selections and live access were unknown. Later limited browser observations do not establish five complete integrations; read recorded current capability evidence.
 
-اتصال دستی افزوده و لازم است؛ جای مرورگر را نمی‌گیرد. پنج اتصال برنامه‌نویسی و پنج اتصال مرورگر برای برآورد در نظر گرفته شده‌اند. امکان استفادهٔ هر اتصال و قابلیت‌های دقیق آن باید جدا با شاهد واقعی تأیید شود. مستند عمومی شاهد دسترسی به حساب، اعتبار رایگان، هویت گفتگو یا قابلیت تشخیص ارسال نیست. اشتراک وب و دسترسی برنامه‌نویسی نیز یک اتصال واحد محسوب نمی‌شوند.
+Planning assumes five API and five browser connections. Verify every connection's actual capability separately. Public documentation cannot prove account access, free quota, conversation identity, or delivery detection. A web subscription and programmatic access are different bindings.
 
-دو مشخصات اولیه، پیشنهادهای پژوهشگران، بستهٔ حاکمیت، بستهٔ اجرای نقشه و فایل‌های مرتبط موجود بررسی شدند. در این ورودی‌ها کد اجرایی برنامه یافت نشد؛ کار از ایجاد کد محصول پس از پذیرش مرحلهٔ صفر ادامه می‌یابد. ابزارهای کنترل موجود دوباره آزموده شدند: ۵۲ آزمون موفق و صفر خطا، شکست یا مورد کنارگذاشته‌شده. اینها پذیرش محصول نیستند.
+Initial discovery examined two specifications, researcher proposals, governance and roadmap packages, and related files. Those inputs contained no executable product code. The existing control tools passed 52 tests with zero failures, errors, or skips at that checkpoint; this was not product acceptance. Product code and later native Windows evidence have since been added and are described in current progress.
 
-محیط حاضر لینوکس با `Python 3.12.14` است. آزمون بومی ویندوز انجام نشده؛ ویندوز از دامنه حذف نمی‌شود. رابط خط فرمان ابزار مراحل اولیه است؛ رابط محلی محصول در مرحلهٔ `P12` ساخته می‌شود.
+The initial available environment was Linux with Python 3.12.14, with Windows not yet run. Windows remained in scope. CLI supports early development; the local product UI belongs to P12.
 
-بودجهٔ فعلی آزمون صفر است و درخواست هزینه‌دار مجاز نیست. کار داخلی با اتصال ساختگی انجام می‌شود. آزمون واقعی دستی ممکن است، اما گیت‌های الزام‌آور اتصال برنامه‌نویسی و مرورگر باید شاهد واقعی خودشان را داشته باشند. اگر دسترسی لازم فراهم نشود، مرحله متوقف می‌ماند؛ نتیجهٔ ساختگی جای آن قرار نمی‌گیرد.
+The initial zero-cost policy authorizes no paid request. Synthetic work can prepare contracts but cannot meet mandatory API/browser live gates. Genuine manual input is possible with explicit adoption, without overriding those gates. Missing real prerequisites leave acceptance blocked.
 
-برآورد پایه با این شمار اتصال از ۳۳۶–۵۴۴ ساعت به ۴۰۲–۶۷۶ ساعت می‌رسد؛ با ذخیرهٔ ریسک حدود ۵۰۳–۸۴۵ ساعت، پیش از هزینهٔ اضافی دو محیط. این بازبرآورد برنامه‌ریزی است و دادهٔ اجرای واقعی نیست. ظرفیت اعلام‌شده ۷۰ ساعت در هفته است. زمان انتظار برای دسترسی رایگان نامعلوم است؛ موعد پایان تضمین‌شده نداریم. پس از آماده‌سازی محیط و آزمون مرورگر، هزینهٔ واقعی دو محیط و اتصال‌ها دوباره بررسی می‌شود.
+Historical planning moved the 336–544-hour baseline to 402–676 hours for this connection count, or 503–845 with risk reserve before extra two-host cost. These are estimates, not measured execution. Declared capacity was seventy hours/week; free-access wait and completion date were not guaranteed. Re-estimate from actual environment and browser findings rather than presenting estimates as logged time.
 
-گیت مرحلهٔ صفر، روشن‌بودن دامنه و ثبت صادقانهٔ موجودی و مجهول‌ها را بررسی می‌کند. در این مرحله هیچ ادعایی دربارهٔ تحقق اجرایی خواسته‌های محصول نداریم.
+P00 evaluated clear scope and honest inventory/unknowns. It made no implementation-conformance claim. Current P00–P07 acceptance remains limited to recorded scope, and final V1 conformance is still unverified.

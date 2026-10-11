@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "status": "PASS_WITH_PRE_EXISTING_ADVISORY_LINT_FINDINGS",
+  "scope": "APPROVED_ENGLISH_OPERATIONAL_GUIDES_AND_NAVIGATION_LABELS_NOT_PRODUCT_ACCEPTANCE",
+  "validated_at_utc": "2026-10-11T12:59:52.284002+00:00",
+  "source_digest": "e3a65ad747ec5230d0d2243348fd7004d2575a13c15df437ed371f149e3bbbb5",
+  "branch": "feature/continue-P08-english-project-docs",
+  "publication_targets": [
+    "main",
+    "feature/continue-P08-english-project-docs"
+  ],
+  "phase_before": "P08_BLOCKED",
+  "phase_after": "P08_BLOCKED",
+  "phase_advanced": false,
+  "next_action_before": "گیت مشاهده و رزرو پایدار ارسال محصول به برنامه و نتیجهٔ وابسته به عملیات متصل شود؛ تا وجود شاهد واقعی، اتصال زنده ثبت یا فعال نشود. آماده‌سازی مرورگر با انتخابگرها و زمینهٔ مستقل واقعی ادامه یابد. آزمون زنده API طبق تعویق کاربر باز می‌ماند.",
+  "next_action_after": "Connect the product observation gate and durable dispatch reservation to the request plan and operation-bound result; do not register or activate a live connection without genuine evidence. Continue browser preparation with actual selectors and independently observed real context. Live API testing remains open under the user's deferral.",
+  "next_action_change": "EQUIVALENT_TRANSLATION_ONLY",
+  "native_command": "python tools/development_supervisor.py native",
+  "native_exit_code": 0,
+  "native_report": {
+    "path": "evidence/targets/Linux/20261011T125640Z_1ab096b1/RUN.json",
+    "sha256": "f9f488d89f448498110525c6a6de673803f8d82fb0e93500cb3500e252030837"
+  },
+  "native_artifact_hashes_verified": 25,
+  "counts": {
+    "tests": 1051,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "suites": [
+    {
+      "id": "control",
+      "counts": {
+        "tests": 123,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "foundation",
+      "counts": {
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "persistence",
+      "counts": {
+        "tests": 104,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "browser_probe",
+      "counts": {
+        "tests": 238,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "architect",
+      "counts": {
+        "tests": 264,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "council",
+      "counts": {
+        "tests": 50,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "quality",
+      "counts": {
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "pilot",
+      "counts": {
+        "tests": 73,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "id": "api",
+      "counts": {
+        "tests": 124,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  ],
+  "smoke_results": [
+    {
+      "mode": "API",
+      "scenario": "success",
+      "returncode": 0,
+      "expected": 0,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "1d87414c-6ec8-4fed-adf9-b36894092f84",
+            "attempt_id": "48edb36f-c790-4458-b2d3-083df937b658",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "93f64005-22b6-4ced-8d51-95485be38825",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "COMPLETE",
+          "content": "{\"answer\":\"offline mock response\"}",
+          "failure": "NONE",
+          "response_id": "mock-48edb36f-c790-4458-b2d3-083df937b658",
+          "evidence": [
+            "MOCK_ONLY:success"
+          ],
+          "elapsed_seconds": 0.0
+        }
+      }
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "success",
+      "returncode": 0,
+      "expected": 0,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "a483b2dd-7100-49c4-8c37-7b24513e33b6",
+            "attempt_id": "ec3d72f1-a6ac-4570-869f-ab06d9c661c7",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "cf127a48-4277-493d-a7b4-813d6d31e3be",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "COMPLETE",
+          "content": "{\"answer\":\"offline mock response\"}",
+          "failure": "NONE",
+          "response_id": "mock-ec3d72f1-a6ac-4570-869f-ab06d9c661c7",
+          "evidence": [
+            "MOCK_ONLY:success"
+          ],
+          "elapsed_seconds": 0.0
+        }
+      }
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "timeout_after_send",
+      "returncode": 2,
+      "expected": 2,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "29c7e191-a000-4ada-a518-c0b848acaa78",
+            "attempt_id": "95488ae2-e4af-4f65-a2ac-542f9441ad39",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "83204be0-7605-4a9e-b271-27ca90096886",
+          "connection_revision": 0,
+          "delivery": "UNKNOWN_DELIVERY",
+          "response_state": "NONE",
+          "content": null,
+          "failure": "TIMEOUT",
+          "response_id": null,
+          "evidence": [
+            "MOCK_ONLY:timeout_after_send"
+          ],
+          "elapsed_seconds": 2.0
+        }
+      }
+    },
+    {
+      "mode": "API",
+      "scenario": "partial",
+      "returncode": 2,
+      "expected": 2,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "c2b2b30a-33a0-4122-b2a6-c17a67dc3197",
+            "attempt_id": "0f3677e1-17f0-46a4-b639-758b497d86df",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "f4a35bb3-20f0-4d6f-a57e-af8462e15828",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "PARTIAL",
+          "content": "{\"answer\":\"unfinished",
+          "failure": "TIMEOUT",
+          "response_id": "mock-0f3677e1-17f0-46a4-b639-758b497d86df",
+          "evidence": [
+            "MOCK_ONLY:partial"
+          ],
+          "elapsed_seconds": 2.0
+        }
+      }
+    }
+  ],
+  "quality_checks": {
+    "scope": "TARGETED_DEV_QUALITY_NOT_FULL_STATIC_VERIFICATION",
+    "status": "PASS",
+    "source_digest_before": "e3a65ad747ec5230d0d2243348fd7004d2575a13c15df437ed371f149e3bbbb5",
+    "source_digest_after": "e3a65ad747ec5230d0d2243348fd7004d2575a13c15df437ed371f149e3bbbb5",
+    "checks": [
+      {
+        "id": "lint",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.039
+      },
+      {
+        "id": "types",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.101
+      },
+      {
+        "id": "conformance",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.03
+      },
+      {
+        "id": "transitions",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.093
+      },
+      {
+        "id": "properties_and_regressions",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 2.219
+      },
+      {
+        "id": "targeted_coverage",
+        "status": "PASS",
+        "returncode": 0,
+        "elapsed_seconds": 0.061
+      }
+    ],
+    "strict_type_targets": [
+      "src/consilium/core/evidence_provenance.py",
+      "src/consilium/core/rubrics.py",
+      "src/consilium/shell/evidence_store.py"
+    ],
+    "coverage_targets": [
+      "src/consilium/core/evidence_provenance.py",
+      "src/consilium/core/rubrics.py",
+      "src/consilium/shell/evidence_store.py"
+    ],
+    "coverage_minimum": 70,
+    "whole_product_type_checked": false
+  },
+  "first_validation_failure": {
+    "report": {
+      "path": "evidence/targets/Linux/20261011T125424Z_e9bdc9d7/RUN.json",
+      "sha256": "afae8398ec94f269260e69042eeea66fcbf45e806c67cce64b95f51cc38d93e1"
+    },
+    "cause": "English Priority rationale label was not visibly isolated beside preserved Persian criteria.",
+    "behavioral_tests": "PASS",
+    "correction": "Isolate the label with inline code and extend the output regression assertion.",
+    "failed_evidence_preserved": true
+  },
+  "advisory_tool_lint": {
+    "status": "NO_NEW_FINDINGS",
+    "current_exit_code": 1,
+    "baseline_exit_code": 1,
+    "current_findings": 17,
+    "baseline_findings": 17,
+    "new_findings": 0,
+    "scope": "ADVISORY_FULL_TOOL_FILES_OUTSIDE_REGISTERED_LINT_TARGETS",
+    "diagnostics": [
+      {
+        "file": "test_qualityctl.py",
+        "code": "I001",
+        "message": "Import block is un-sorted or un-formatted",
+        "line": 2
+      },
+      {
+        "file": "test_qualityctl.py",
+        "code": "F401",
+        "message": "`sys` imported but unused",
+        "line": 6
+      },
+      {
+        "file": "test_qualityctl.py",
+        "code": "UP031",
+        "message": "Use format specifiers instead of percent format",
+        "line": 63
+      },
+      {
+        "file": "test_qualityctl.py",
+        "code": "UP031",
+        "message": "Use format specifiers instead of percent format",
+        "line": 76
+      },
+      {
+        "file": "test_qualityctl.py",
+        "code": "RUF059",
+        "message": "Unpacked variable `receipt` is never used",
+        "line": 111
+      },
+      {
+        "file": "test_qualityctl.py",
+        "code": "RUF059",
+        "message": "Unpacked variable `receipt` is never used",
+        "line": 405
+      },
+      {
+        "file": "test_qualityctl.py",
+        "code": "RUF059",
+        "message": "Unpacked variable `record` is never used",
+        "line": 409
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "EXE001",
+        "message": "Shebang is present but file is not executable",
+        "line": 1
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "I001",
+        "message": "Import block is un-sorted or un-formatted",
+        "line": 3
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "UP031",
+        "message": "Use format specifiers instead of percent format",
+        "line": 98
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "UP031",
+        "message": "Use format specifiers instead of percent format",
+        "line": 101
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "RUF059",
+        "message": "Unpacked variable `progress` is never used",
+        "line": 204
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "UP017",
+        "message": "Use `datetime.UTC` alias",
+        "line": 207
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "PLW1510",
+        "message": "`subprocess.run` without explicit `check` argument",
+        "line": 222
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "UP031",
+        "message": "Use format specifiers instead of percent format",
+        "line": 404
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "RUF059",
+        "message": "Unpacked variable `progress` is never used",
+        "line": 460
+      },
+      {
+        "file": "qualityctl.py",
+        "code": "UP031",
+        "message": "Use format specifiers instead of percent format",
+        "line": 465
+      }
+    ]
+  },
+  "build": {
+    "status": "PASS",
+    "command": "python -m pip wheel PACKAGE_COPY --no-deps --no-build-isolation --wheel-dir WHEEL_DIRECTORY",
+    "wheel_filename": "consilium_local-0.1.0.dev1-py3-none-any.whl",
+    "sha256": "3aa6623f9984eaf633c264dc04e38086eaaf7fc84bee823761f2a9e68080c0a1",
+    "dependency_changes": false
+  },
+  "phase_check": {
+    "command": "python tools/development_supervisor.py phase",
+    "exit_code": 0,
+    "scope": "DEVELOPMENT_BLOCKER_RECORDING_ONLY",
+    "phase_status": "BLOCKED",
+    "execution": "NOT_RUN",
+    "phase_accepted": false,
+    "recorded_blocker": {
+      "phase": "P08",
+      "phase_status": "BLOCKED",
+      "blockers": [
+        "Live API connection testing is deferred by the user; account, model, free quota, and independent live observation are unverified.",
+        "Live send/receive integration with the acceptance gate and durable product ledger is incomplete; process transport and result conversion alone do not establish product acceptance.",
+        "Executable P08 acceptance checks are not yet registered in CHECKS.json; mock tests cannot substitute for the complete council path with a real connection."
+      ],
+      "phase_accepted": false,
+      "progress_sha256": "51d076f6bb18fd51ced4a9a6e25a76c40209124c9930b79794f9585edeb73feb",
+      "checks_sha256": "1743dcb3c1a1a2c8bd05eb593f3e2fff3cf8f9f33c19df25c1d16d0540bf93c4"
+    }
+  },
+  "preservation_checks": {
+    "status": "PASS",
+    "protected_files_changed": [],
+    "standing_authorization_equal": true,
+    "phase_statuses_equal": true,
+    "final_requirements_verified": 0,
+    "original_resume_history_equal": true,
+    "deferred_tasks_preserved": true,
+    "english_guides": 27,
+    "checks_json_unchanged": true,
+    "criteria_unchanged": true,
+    "no_files_deleted": true
+  },
+  "handoff_validation": {
+    "status": "PASS",
+    "verified_files": 1547,
+    "source_digest_matches": true,
+    "extracted_navigation": "PASS",
+    "extracted_canonical_state": "P08_BLOCKED",
+    "scope": "ARCHIVE_HASH_PATH_AND_DERIVED_STATE_REPRODUCTION; NATIVE_SUITE_NOT_REPEATED"
+  },
+  "previous_validation": {
+    "path": "evidence/english-documentation/20261011/PREVIOUS_VALIDATION_REPORT.json",
+    "sha256": "0f56a404e67b418c00003010e54abf334c74777ad53cfe2127af2b9b3b490e86"
+  },
+  "github_authorization_changed": false,
+  "resume_compaction_performed": false,
+  "evidence_relocation_performed": false,
+  "checks_json_changed": false,
+  "live_provider_calls": 0,
+  "live_api_tests": "USER_DEFERRED_NO_KEY_REQUEST",
+  "independent_review": false,
+  "windows_current_source": "NOT_RUN_LOCALLY_REMOTE_RESULT_REQUIRES_SEPARATE_VERIFICATION",
+  "dependency_audit": "NOT_RERUN_NO_DEPENDENCY_CHANGE"
+}

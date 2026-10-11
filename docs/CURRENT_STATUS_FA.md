@@ -1,30 +1,31 @@
-# وضعیت جاری پروژه
+# Current project status
 
-مرجع اجرایی `PROGRESS.json` و بخش `resume` آن است. مرحلهٔ جاری `P08` مسدود و آخرین مرحلهٔ پذیرفته‌شده `P07` است. آماده‌سازی آفلاین `P09` با مجوز کاربر و تصمیم `ADR-038` انجام شده؛ پذیرش مرحلهٔ نهم هنوز باز نشده است. دامنهٔ محفوظ شامل پنج ارائه‌دهنده و مسیرهای `API`، مرورگر و دستی است؛ زیرساخت دو کدک به معنی تکمیل پنج ارائه‌دهنده نیست.
+Read `PROGRESS.json` and its `resume` for authoritative state. P08 remains BLOCKED, and P07 is the last accepted phase. ADR-038 authorizes offline P09 preparation without opening P09 acceptance. The protected scope remains five providers with API, browser, and manual paths; two codecs do not establish five completed integrations.
 
-## کار موجود
+## Available implementation
 
-قرارداد درخواست و نتیجه، قاب‌بندی افزایشی `SSE`، پردازهٔ متعلق به برنامه با مهلت و پاک‌سازی، بازیابی پیشوند پاسخ و اتصال دقیق نتیجه به هویت عملیات پیاده شده‌اند. آماده‌سازی مرورگر شامل دفتر مشاهدهٔ پایدار، دریافت فایل‌های ثبت‌شده و انتقال خواندنی `CDP` با محدودیت‌های هویت و زمینه است. دریافت خام صفحه به‌تنهایی پایان پاسخ یا منشأ زنده را اثبات نمی‌کند.
+Preparation includes request/result contracts, incremental SSE framing, bounded owned processes and cleanup, conservative response-prefix recovery, and exact operation-result binding. Browser preparation includes durable observation journals, saved packet acquisition/readers, and read-only CDP transport with identity/context guards. Raw page text does not establish answer completion or live origin.
 
-آخرین بررسی پیش از این به‌روزرسانی، `1050` آزمون لینوکس شامل `124` آزمون `API` را گذرانده است. رسید ثابت آن در `evidence/development-supervisor/82ffb13119cf4065829016265252631d/STATE.json` محفوظ است. نتیجهٔ بررسی تازه و انتشار در `PROGRESS.json.resume.repository_sync` ثبت می‌شود؛ اشاره‌گرهای `evidence/targets/Linux/LATEST.json` و `evidence/targets/Windows/LATEST.json` باید با هش منبع جاری تطبیق داده شوند. شواهد قدیمی ویندوز، شاهد منبع جاری نیستند. هیچ فراخوانی تولید پاسخ به ارائه‌دهنده در این به‌روزرسانی انجام نمی‌شود؛ آزمون زنده طبق تصمیم کاربر معوق است. بازبینی در دور جدا توسط همان نویسنده انجام شده و مستقل نیست.
+Use `VALIDATION_REPORT.json` and `evidence/targets/Linux/LATEST.json` for the latest local validation. Check source digest, host, test counts, and every referenced artifact hash. Historical Windows receipts cannot verify changed source; current remote verification must be read separately. Same-author review is not independent review. Documentation publication makes no live provider call.
 
-## کار باقی‌مانده
+## Blockers and remaining work
 
-- اتصال مشاهدهٔ قابل اعتماد و رزرو پایدار ارسال به دفتر عملیات محصول و مسیر کامل شورا.
-- تکمیل پوشش ارائه‌دهندگان، هویت حساب و مدل، ظرفیت و سهمیه و منشأ واقعی پاسخ.
-- تعریف معیارهای پذیرش اجرایی `P08` و اجرای واقعی با شواهد معتبر پس از رفع تعویق آزمون زنده.
-- انتخابگرها و مشاهدهٔ مستقل زمینهٔ سایت واقعی برای آماده‌سازی مرورگر و پذیرش بعدی `P09`.
+- Connect trusted observation and durable dispatch reservation to the product ledger and full council path.
+- Complete provider coverage and genuinely verified account/model identity, capacity/quota, and response provenance.
+- Register genuine executable P08 acceptance checks in CHECKS.json; its P08 list is currently empty.
+- Execute live API acceptance only after the user's deferral is explicitly lifted. The current instruction is not to request keys; continue secure preparation/offline tests.
+- Within authorized browser preparation, obtain real site selectors and independent context observations and bind them to product operations.
 
-بررسی بومی هر نسخه باید روی ویندوز و لینوکس انجام و گزارش‌ها با هش منبع همان نسخه تطبیق داده شوند؛ مسئولیت اجرا و ثبت نتیجه با دستیار است. نتیجهٔ جاری در `PROGRESS.json.resume.repository_sync` ثبت می‌شود.
+Passing development tests cannot resolve these acceptance blockers. The assistant owns required authorized Windows automation and artifact retrieval. Native cross-host evidence must match the same source when a registered acceptance workflow requires it; do not invent a two-host acceptance requirement for every document edit.
 
-طولانی‌شدن مرحله از اضافه‌شدن زیرساخت ارسال و بازیابی، پوشش موارد منفی، آماده‌سازی مجاز مرورگر و تأخیر در انتشار و شاهد ویندوز ناشی شده است. موفقیت ابزار توسعه، پذیرش محصول نیست.
+## Estimates
 
-## برآورد برنامه‌ریزی
+Earlier planning estimates were 45–55 percent for P08 preparation, 25–35 percent for P09 preparation, and 20–35 remaining engineering hours for P08. Access/live-testing wait remains unknown. These are planning estimates, not measured acceptance or logged engineering time. Legacy zero-hour fields do not mean no work occurred.
 
-برآورد قبلی برای پیشرفت `P08` حدود `45–55%` و آماده‌سازی `P09` حدود `25–35%` است. حدود `20–35` ساعت مهندسی برای باقی‌ماندهٔ مرحلهٔ هشتم برآورد شده؛ زمان انتظار دسترسی و آزمون زنده جدا و نامعلوم است. این اعداد اندازه‌گیری پذیرش یا زمان ثبت‌شده نیستند. مقدار صفر ساعت در ساختار قدیمی نباید به معنی نبود کار تفسیر شود.
+## Continuation and publication
 
-## ادامه و ارتباط
+Start from `PROGRESS.json.resume.next_action`, reconciled with the latest approved task. Resume compaction and evidence relocation remain separate deferred tasks; neither is implemented in this localization change. All final V1 requirements remain unverified.
 
-کار بعدی در `PROGRESS.json.resume.next_action` ثبت شده است. مجوز کامل گیت‌هاب تا لغو صریح کاربر برقرار است. گزارش‌های جاری و فایل انتقال باید از مرجع پیشرفت ساخته شوند؛ شواهد ثابت تاریخی بازنویسی نشوند. پاسخ‌ها کوتاه و فایل فقط پایان مرحله یا با درخواست صریح کاربر ارائه شود. حافظهٔ ادامهٔ پروژه در همین فایل‌های نسخه‌دار ثبت می‌شود؛ به‌روزرسانی حافظهٔ داخلی گفتگو ادعا نمی‌شود.
+The user's permanent GitHub authorization remains unchanged until separately revoked. Use `resume.english_documentation_update` for this task's validation scope and `docs/REPOSITORY_SYNC_STATUS_FA.md` for publication verification. Preserve historical acceptance and original user quotations. Versioned files provide continuation memory; do not claim internal conversation memory was updated.
 
-درخواست `2026-10-11` کاربر، به‌روزرسانی همهٔ فایل‌ها و گزارش‌های پروژه و انتشار آن‌ها در گیت‌هاب است. مقصد همان مخزن عمومی `mehrangtr/Consilium` است. فایل‌های فعال، کد، آزمون‌ها و شواهد عمومیِ بررسی‌شده منتشر می‌شوند. نتیجهٔ انتشار از خواندن مستقل شاخه و درخت سنجیده می‌شود؛ ساخت شیء گیت به‌تنهایی انتشار شاخه نیست. [نقشهٔ انتقال پروژه](PROJECT_CONTINUATION_MASTER_FA.md) رابطهٔ فایل‌ها و حدود نتیجه را یکجا توضیح می‌دهد.
+Reports to the user remain concise Persian; operational guides and new report labels use English. Legacy filenames and original authoritative/audit data are intentionally retained as explained in `docs/LOCALIZATION_REPORT.md`.

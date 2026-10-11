@@ -1,29 +1,21 @@
-# اجرای خودکار ویندوز و لینوکس
+# Automated native Windows and Linux checks
 
-کاربر امکان کمک در ویندوز خود را ندارد. نصب، اجرا، دریافت گزارش و رفع خطا بر عهدهٔ دستیار است. مجوز صریح انتشار عمومی بسته دریافت شد و انتشار در `mehrangtr/Consilium` انجام شده است. رمز، کلید مدل و نشست ورود برای آزمون آفلاین لازم نیستند.
+The assistant owns authorized Windows setup, execution, artifact retrieval, and troubleshooting. Do not assign those duties to the user. The public repository publication has explicit standing authorization; offline checks need no model keys or login secrets.
 
-## اجرای پایهٔ پذیرفته‌شده
+## Historical baseline
 
-گردش‌کار واقعی `37446806486` روی نسخهٔ `1f8191cac322f15e6118cf62b8f0c6f5b636595a` موفق شد. هر ۲۲۲ فایل بستهٔ تأییدشده با شناسهٔ بایت‌های `Git` تطبیق داده شدند. گزارش‌های هر دو محیط و گزارش تجمیعی دریافت و هش آرشیوهای آنها بررسی شدند.
+Workflow 37446806486 verified commit 1f8191cac322f15e6118cf62b8f0c6f5b636595a. Its 222 packaged files were compared to Git blobs, and both host/matrix reports and ZIP hashes were verified. Windows used windows-2025/Python 3.12.10; Linux used ubuntu-24.04/Python 3.12.14. Each recorded sixty foundation tests, seventy-eight control tests, and four CLI scenarios at that source.
 
-| محیط | اجرای واقعی پایه |
-| --- | --- |
-| ویندوز | `windows-2025`، `Python 3.12.10`؛ ۶۰ آزمون پایه، ۷۸ آزمون کنترل و چهار سناریوی `CLI` موفق |
-| لینوکس | `ubuntu-24.04`، `Python 3.12.14`؛ همان آزمون‌ها و سناریوها موفق |
-| بررسی تجمیعی | هش منبع، میزبان، نسخهٔ پایتون، قفل وابستگی، شمار `JUnit` و نتیجهٔ سناریوها موفق |
+References include `evidence/automation/CI_PUBLICATION.json` and CI_JOBS_FINAL. P01's separate recorded review accepted that historical source; these counts and receipts do not certify newer implementation.
 
-شاهد انتشار و اجرا در `evidence/automation/CI_PUBLICATION.json` و نتیجهٔ نهایی کارها در `evidence/automation/CI_JOBS_FINAL.json` است. مرحلهٔ `P01` پس از بازبینی جدا پذیرفته شد. این شاهد متعلق به نسخهٔ پایهٔ پذیرفته‌شده است؛ تغییرات بعدی اجرای تازه می‌خواهند.
+## Current workflow
 
-## گردش‌کار جاری
+`.github/workflows/check.yml` runs native Windows/Linux jobs and the matrix validator, with a separate dependency audit. Mutable target outputs are refreshed while historical/accepted snapshots remain intact. Host outputs are separate; text is UTF-8 and dependencies are pinned. Native execution also includes current persistence and other development suites. Use `evidence/targets/TARGET/LATEST.json` and verify source digests and report graphs.
 
-`.github/workflows/check.yml` دو اجرای بومی و یک کار بررسی تجمیعی دارد. گزارش‌های به‌جامانده در پوشهٔ کاری موقت پاک می‌شوند؛ تصاویر ثابت پذیرش حفظ می‌شوند. هر هدف خروجی جدا دارد. نسخه‌های میزبان به‌طور صریح تثبیت شده و رمزگذاری `UTF-8` است.
+The matrix runs `tools/run_current_phase.py` for the first unfinished phase and registered regressions, with combined-phase-evidence outputs. It does not accept the phase; criterion-based review/gating remains separate.
 
-آزمون ذخیره‌سازی نیز اکنون در هر دو کار اجرا می‌شود. ارزیاب منبع دارای این مجموعه را بدون گزارش بومی آن نمی‌پذیرد. برای نسخهٔ جاری، اشاره‌گر `evidence/targets/TARGET/LATEST.json` و هش منبع آن را بررسی کنید؛ نتیجهٔ پایهٔ قدیمی جای نتیجهٔ ذخیره‌سازی تازه نیست.
+Workflow permissions are read-only. Native/matrix jobs are bounded at twenty minutes; the audit at ten. Remote artifacts have thirty-day retention. Retrieve and verify them before expiration. Missing downloads block evidence reconciliation; after a retrieval failure, continue diagnosis without claiming verified host results.
 
-کار تجمیعی با `tools/run_current_phase.py` فقط نخستین مرحلهٔ ناتمام و بررسی‌های بازگشتی را اجرا می‌کند. نام خروجی تجمیعی `combined-phase-evidence` است. گردش‌کار مرحله را خودکار قبول نمی‌کند؛ بازبینی و گیت جدا لازم‌اند.
+P08 has no registered executable acceptance checks and remains blocked even when native code checks pass. Read exact current statuses from PROGRESS.json, VALIDATION_REPORT.json, and actual workflow results rather than old publication checkpoints.
 
-دسترسی گردش‌کار فقط خواندن مخزن است. در پیکربندی جاری، کارهای بومی و تجمیعی حداکثر ۲۰ دقیقه و کار ممیزی وابستگی حداکثر ۱۰ دقیقه دارند؛ خروجی‌ها ۳۰ روز نگهداری می‌شوند. دستیار شواهد لازم را پیش از انقضا دریافت و با هش منبع تطبیق می‌دهد. ادامه پس از خطای دریافت فقط برای تشخیص است؛ نبود شاهد موفق، انسداد باقی می‌ماند.
-
-مرحلهٔ جاری `P08` است. گردش‌کار برای این نقطه بررسی کد و شواهد بومی می‌سازد؛ چون بررسی‌های پذیرش اجرایی مرحلهٔ هشتم هنوز ثبت نشده‌اند، بخش پذیرش مرحله مسدود می‌ماند. نتیجهٔ انتشار و اجرای تازه در `PROGRESS.json.resume.repository_sync` ثبت می‌شود؛ شاهد پایهٔ این سند مربوط به همان نسخهٔ تاریخی است.
-
-حفظ ۳۰ خواسته و ترتیب ۱۷ مرحله الزامی است. بازبینی همان نویسنده در دور جدا مستقل محسوب نمی‌شود. هیچ آزمون پولی یا اتصال زندهٔ مدل با این گردش‌کار انجام نمی‌شود.
+Preserve all thirty requirements and seventeen phases. Same-author review is not independent. These workflows make no paid or live provider-generation calls. Passing or queued CI does not waive live prerequisites or advance P08.

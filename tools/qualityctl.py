@@ -527,34 +527,35 @@ def navigation(root, check=False):
     inputs = {name: digest((root / name).read_bytes())
               for name in ("ROADMAP.json", "PROGRESS.json", "CHECKS.json")}
     fingerprint = digest(encoded(inputs))
-    header = ("این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. "
-              "ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.\n\n"
-              "شناسهٔ مبنای نما: `" + fingerprint + "`.\n\n")
+    header = ("Generated from `ROADMAP.json`, `PROGRESS.json`, and `CHECKS.json`. "
+              "Manual edits are not authoritative; regenerate after canonical inputs change. "
+              "Original source text, including historical quotations, is preserved.\n\n"
+              "Input digest: `" + fingerprint + "`.\n\n")
     completed = [p["id"] for p in progress["phases"] if p["status"] == "COMPLETED"]
     resume = json.dumps(progress["resume"], ensure_ascii=False, indent=2)
-    status = ("# وضعیت ادامهٔ پروژه\n\n" + header
-              + "مرحلهٔ فعلی: `" + (current or "COMPLETE") + "`. "
-              + "آخرین مرحلهٔ پذیرفته‌شده: `" + (completed[-1] if completed else "NONE") + "`.\n\n"
-              + "خواسته‌های اجرایی تأییدشده: `" + str(progress["verified_application_requirements"])
-              + "/30`. موفقیت ابزار توسعه، پذیرش محصول نیست.\n\n"
-              + "## نقطهٔ دقیق ادامه\n\n```json\n" + resume + "\n```\n\n"
-              + "## وضعیت مراحل\n\n| مرحله | وضعیت | مانع‌های ثبت‌شده |\n|---|---|---|\n")
+    status = ("# Project continuation status\n\n" + header
+              + "Current phase: `" + (current or "COMPLETE") + "`. "
+              + "Last accepted phase: `" + (completed[-1] if completed else "NONE") + "`.\n\n"
+              + "Verified application requirements: `" + str(progress["verified_application_requirements"])
+              + "/30`. Passing development tooling does not establish product acceptance.\n\n"
+              + "## Exact continuation point\n\n```json\n" + resume + "\n```\n\n"
+              + "## Phase status\n\n| Phase | Status | Recorded blockers |\n|---|---|---|\n")
     for row in progress["phases"]:
         status += "| `" + row["id"] + "` | `" + row["status"] + "` | " + str(len(row["blockers"])) + " |\n"
-    # Task and criterion text is copied verbatim. Technical words are enclosed
-    # for Persian Markdown; tests use independent state changes to detect drift.
+    # Preserve source text and technical spans, including legacy Persian input.
     def display(value):
         return re.sub(r"[A-Za-z][A-Za-z0-9_./:-]*(?:[ \t]+[A-Za-z][A-Za-z0-9_./:-]*)*",
                       lambda m: "`" + m.group(0) + "`", value)
-    backlog = "# کارهای بعدی و معیار پایان\n\n" + header
-    backlog += "فقط اولین مرحلهٔ ناتمام قابل ادامه است. معیارهای زیر برنامهٔ آزمون‌اند؛ نتیجهٔ اجرا محسوب نمی‌شوند.\n\n"
+    backlog = "# Backlog and exit criteria\n\n" + header
+    backlog += "Continue only the first unfinished phase, subject to recorded user-authorized exceptions. " \
+               "These criteria define planned checks; they are not execution results.\n\n"
     config = load(root / "CHECKS.json")
     for phase, row in zip(plan["phases"], progress["phases"]):
         backlog += "## `" + phase["id"] + "` — " + display(phase["title"]) + "\n\n"
-        backlog += "وضعیت: `" + row["status"] + "`؛ بررسی‌های پذیرش ثبت‌شده: `" + str(len(config["phases"].get(phase["id"], []))) + "`.\n\n"
-        backlog += "کارها:\n\n" + "".join("- " + display(x) + "\n" for x in phase["tasks"]) + "\n"
-        backlog += "معیار پایان:\n\n" + "".join("- " + display(x) + "\n" for x in phase["exit"]) + "\n"
-        backlog += "علت اولویت: " + display(phase["why"]) + "\n\n"
+        backlog += "Status: `" + row["status"] + "`; registered acceptance checks: `" + str(len(config["phases"].get(phase["id"], []))) + "`.\n\n"
+        backlog += "Tasks:\n\n" + "".join("- " + display(x) + "\n" for x in phase["tasks"]) + "\n"
+        backlog += "Exit criteria:\n\n" + "".join("- " + display(x) + "\n" for x in phase["exit"]) + "\n"
+        backlog += "`Priority rationale:` " + display(phase["why"]) + "\n\n"
     content = dict(zip(NAVIGATION_FILES, (status.encode("utf-8"), backlog.encode("utf-8"))))
     for name, data in content.items():
         path = safe_path(root, name)

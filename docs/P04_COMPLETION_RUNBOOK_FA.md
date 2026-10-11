@@ -1,26 +1,26 @@
-# بازتولید خروجی مرحلهٔ چهار
+# Reproducing P04 context contracts
 
-مرجع وضعیت و پذیرش، `PROGRESS.json` و تصویر ثابت در `evidence/accepted` است. این سند روش بررسی قراردادهای زمینه را توضیح می‌دهد. اجرای موفق نمونه، پذیرش کامل نسخهٔ اول یا تأیید مدل زنده نیست.
+Canonical progress and immutable `evidence/accepted/` snapshots determine phase acceptance. This runbook explains context checks; a passing example is not full V1 acceptance or live model verification.
 
-```text
+```sh
 python tools/qualityctl.py navigation
-python tools/development_supervisor.py local
+python tools/development_supervisor.py check
 python tools/record_p04_context_examples.py
 python tools/qualityctl.py status
 ```
 
-نمونهٔ آخر در `evidence/p04/context-examples/RUN.json` ذخیره می‌شود. متن قبل و بعد پرسش، قیود دقیق، فرض‌ها و منشأ، ورودی دورها، حفظ مخالفت، سنجش مدل آزمایشی و نتیجهٔ بازگشایی قابل بررسی‌اند. دادهٔ نمونه در پایگاه موقتی اجرا می‌شود و پس از بسته‌شدن اتصال‌ها پاک می‌شود. هیچ حساب، کلید یا تماس شبکه لازم ندارد.
+The optional recorder writes `evidence/p04/context-examples/RUN.json`. It exposes before/after questions, exact constraints, assumptions/provenance, round inputs, preserved dissent, synthetic model measurement, and database reopening. It uses a temporary database, removed after connections close, with no account, key, or network call. Do not run it solely to regenerate historical evidence during documentation maintenance.
 
-ورود واقعی کاربر برای قبول پیشنهاد معمار، پاسخ اولیهٔ دستی، نقد دستی و تطبیق عملیات قبلی در ابزارهای موجود حفظ شده است:
+Existing tools preserve genuine user input for architect adoption, initial manual answers, manual critiques, and prior-operation reconciliation:
 
-```text
+```sh
 python tools/review_architect.py --help
 python tools/manual_round.py --help
 python tools/reconcile_manual.py --help
 ```
 
-برای اتصال آینده، ابتدا قرارداد مقصد و قابلیت همان مدل را پیاده کنید. دادهٔ پاسخ مدل نمی‌تواند تصمیم ادامه، رضایت انتقال، انتخاب داور یا مشاهده‌گر ثبت‌شده بسازد. `observe_context` تنها مشاهده‌گر آفلاین ثبت‌شده را می‌پذیرد. شمارش مدل آزمایشی به سرویس واقعی تعمیم داده نشود. خواندن رسید ذخیره‌شده نیز مجوز ارسال یا تکرار نیست.
+A future connection must first implement the destination contract and that model's capability. Model content cannot authorize continuation, transfer consent, judge selection, or a registered observer. `observe_context` accepts only the registered offline observer. Synthetic token measurement cannot be generalized to a live provider. Reading a stored receipt grants neither send nor retry permission.
 
-ساختار و علت‌ها در `docs/decisions/ADR-025-P04-CONTEXT-OBSERVATION-BOUNDARY_FA.md` آمده‌اند. آزمون‌های `test_context_observers.py` و `test_context_history_observer.py` مرز مشاهده و تاریخچه را بررسی می‌کنند. آزمون‌های قبلی معمار و دورها و منابع و ورود دستی همچنان جزو بررسی کامل هستند. هیچ مرحلهٔ پذیرفته‌شدهٔ پیشین یا ارسال امکان‌سنجی مرورگر دوباره اجرا نمی‌شود.
+ADR-025 describes the observation boundary. `test_context_observers.py` and `test_context_history_observer.py` cover observation/history; earlier architect, round, source, and manual-input tests remain part of full checks. Do not repeat accepted phases or past feasibility sends without a new authorized reason.
 
-ورودی معمار با `build_architect_request` منجمد می‌شود و طرح دقیق خروجی را همراه اصل پرسش و همهٔ قیود دارد. `stage_architect_response` متن خروجی را سختگیرانه می‌خواند؛ کلید تکراری، تغییر قید و خودتأییدی را رد می‌کند و فقط نامزد می‌سازد. نامزد پیش از دور اول باید در رابط محلی بررسی و پذیرفته شود. ارسال واقعی درخواست معمار، از اتصال‌های مراحل بعد استفاده خواهد کرد.
+`build_architect_request` freezes the original question, all constraints, and exact output schema. `stage_architect_response` strictly parses output, rejecting duplicate keys, constraint changes, and self-approval. It creates only a candidate. Local explicit review/adoption is required before the first round. Live architect dispatch belongs to later integration work.

@@ -1,24 +1,22 @@
-# توقف انتظار و تطبیق انتشار
+# Bounded external operations and publication reconciliation
 
-برای فراخوانی اتصال بیرونی، تابع `boundedConnector` در فایل `tools/connector_wait.js` سقف انتظار پیش‌فرض `25000` میلی‌ثانیه دارد. از محیط اجرای ابزار، فایل خوانده و همان تابع اجرا می‌شود. پایان مهلت، نتیجهٔ `UNKNOWN_WAIT_TIMEOUT` می‌دهد؛ خطای اتصال نیز بدون بازتاب متن خصوصی، نامعلوم ثبت می‌شود. این تابع سرویس بیرونی یا خود نشست گفتگو را لغو یا راه‌اندازی مجدد نمی‌کند. نتیجهٔ دیررس ممکن است هنوز روی سرویس اعمال شود.
+`boundedConnector` in `tools/connector_wait.js` defaults to a 25000-ms wait ceiling. Load and invoke it in the tool runtime. Timeout returns UNKNOWN_WAIT_TIMEOUT; connector errors remain unknown without echoing private error content. It does not cancel the external service or restart the conversation. A late operation may still take effect.
 
-پیش از نوشتن گیت، دفتر محلی `PublicationGuard` در فایل `tools/publication_guard.py` طرح و سپس مجوز تلاش را پایدار می‌کند. پایگاه دفتر بیرون از مخزن و بستهٔ عمومی قرار می‌گیرد. طرح فقط نوع عملیات، نام عمومی منبع، هش درخواست، هش منبع پروژه و شناسهٔ مورد انتظار گیت را می‌پذیرد؛ بدنهٔ فایل، رمز و پاسخ خصوصی در طرح ذخیره نمی‌شوند. نام عمومی منبع هم نباید حاوی راز باشد؛ اعتبارسنجی ساختاری آشکارساز همهٔ اسرار نیست.
+Before Git publication, persist the plan and attempt permit with PublicationGuard in `tools/publication_guard.py`. Keep its SQLite database outside source and public transfers. Plans contain operation kind, public resource name, request hash, project source digest, and expected Git identity, not file bodies, secrets, or private responses. Structural validation is not a universal secret detector; resource names must be public.
 
-ترتیب هر فراخوانی:
-
-1. طرح را با `prepare` ثبت و وضعیت قبلی همان طرح را بخوانید؛ نتیجهٔ کامل دوباره نوشته نمی‌شود.
-2. با `begin` یک مجوز دارای شناسهٔ تلاش بگیرید؛ سقف انتظار را از همان مجوز اعمال کنید.
-3. فقط یک فراخوانی اتصال اجرا کنید. پاسخ موفق باید شناسهٔ دقیق مورد انتظار داشته باشد.
-4. پس از پایان مهلت یا خطا، با `unknown` ابهام را حفظ کنید. پس از قطع نشست، تلاش مانده را با علت `SESSION_INTERRUPTED` نامعلوم کنید.
-5. شناسهٔ واقعی شیء یا شاخه را با خواندن مستقل بررسی و نتیجه را با `reconcile` ثبت کنید. نتیجهٔ خواندن نامعلوم، شاهد نبودن عملیات نیست.
-6. فقط شیء تغییرناپذیر گیت، پس از شاهد صریح نبودن آن، حداکثر یک بار مجوز تازه می‌گیرد. این نوع فقط برای ساخت `blob` و `tree` و `commit` با شناسهٔ ازپیش‌محاسبه‌شده است. درخواست تازهٔ تغییر شاخه برای همان منبع نیز تا حل ابهام قبلی مسدود می‌ماند.
+1. `prepare` the plan and inspect any prior state. Do not write an already completed operation again.
+2. `begin` a fresh attempt permit and honor its deadline/nonce.
+3. Make one external call; a success response must match the expected identity.
+4. On timeout/error, preserve uncertainty with `unknown`. A leftover attempt after interruption becomes SESSION_INTERRUPTED.
+5. Independently read actual object/ref state and `reconcile`. An unknown read is not evidence of absence.
+6. Only a precomputed immutable Git blob/tree/commit may receive one additional attempt after explicit absence proof. A new branch-update plan for the same resource is blocked while its earlier uncertainty remains unresolved.
 
 ```sh
 python tools/publication_guard.py --database /local/path/publication.sqlite3 pending
 ```
 
-ورودی فرمان‌های دیگر یک شیء `JSON` از ورودی استاندارد است. پوشهٔ پایگاه باید از پیش موجود باشد. دفتر محصول، ارسال پیام مدل، ساخت درخواست ادغام و ادغام مخزن عضو این تکرار خودکار نیستند. برای آن‌ها نتیجهٔ مبهم باید جدا تطبیق داده شود. این دفتر همراه سقف انتظار و ناظر پردازه، انتظار و تکرار را محدود می‌کند؛ کنترل مستقل دائمی خود گفتگو پیاده نشده است.
+Other commands accept a JSON object on stdin; the database parent directory must already exist. Product dispatch, model messages, PR creation, and repository merging do not inherit immutable-object retry. Reconcile their unknown outcomes separately. The ledger, deadline, and process supervisor limit waits/repetition without independently controlling the conversation.
 
-آزمون‌های دفتر شامل بازگشایی، دو کنترل‌کننده، ابهام، پاسخ دیررسِ تلاش قدیمی، تغییر شاخه، دورزدن با طرح تازه، دو تلاش محدود و رد دادهٔ خصوصی‌اند. پنج آزمون تابع انتظار در محیط واقعی اجرای جاوااسکریپت ابزار با اتصال شبیه‌سازی‌شده اجرا شده‌اند؛ آن‌ها شاهد لغو سرویس اتصال نیستند.
+Ledger tests cover reopening, concurrent controllers, ambiguity, old-attempt late replies, ref updates, fresh-plan bypass, bounded attempts, and private input rejection. The recorded five JavaScript wait-helper tests used simulated connectors in an actual JS runtime; they do not prove external-service cancellation.
 
-اتصال ساخت `commit`، زمان و هویت نویسنده را در سمت سرویس تعیین می‌کند؛ شناسهٔ کامل آن پیش از فراخوانی قابل پیش‌بینی نیست. نوع `SERVER_COMMIT` برای این مسیر، هش درخت را در `expected_sha` و هش درخواست شامل `tree_sha`، والدهای مرتب `parent_shas` و `message_sha256` را پیش از فراخوانی ثبت می‌کند. این مسیر فقط یک تلاش دارد و از تکرار اشیای تغییرناپذیر استفاده نمی‌کند. پس از خواندن مستقل شیء، فرمان `reconcile_commit` شناسهٔ واقعی، درخت، ترتیب والدها و هش پیام را با طرح تطبیق می‌دهد. تطبیق صرف شناسه با فرمان معمولی برای این نوع رد می‌شود. نتیجهٔ مبهم یا نامطابق مجوز تکرار نیست؛ تغییر شاخه فقط پس از شاهد کامل شیء انجام می‌شود.
+For server-created commits whose author/time metadata prevents advance prediction, SERVER_COMMIT records expected tree SHA and a request hash covering tree_sha, ordered parent_shas, and message_sha256. It allows one attempt, without immutable-object retry. After independent object retrieval, `reconcile_commit` verifies actual commit identity, tree, parent order, and message hash. Ordinary identity-only reconciliation is forbidden for this operation. Unknown/mismatched results do not authorize retry; update a ref only after the commit is fully verified.

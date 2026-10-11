@@ -1,19 +1,18 @@
-# استفادهٔ محدود از خوانندهٔ `DOM`
+# Read-only CDP acquisition
 
-این اتصال آماده‌سازی فنی است؛ پروفایل پذیرفته‌شدهٔ `Qwen` یا اتصال محصول زنده نیست. خواننده مرورگر باز نمی‌کند، صفحه را جابه‌جا نمی‌کند و ورود انجام نمی‌دهد. نشانی تب و انتخابگر باید از مشاهدهٔ مجاز همان تب به دست آمده باشند؛ از دادهٔ پاسخ مدل انتخاب نمی‌شوند.
+This is preparation, not accepted Qwen/live product integration. It neither opens a browser nor navigates/logs in. Endpoint, target, and selector must come from explicitly authorized observation, not model inference.
 
-نصب اختیاری در محیط پروژه:
+Optional transport dependencies:
 
-```text
+```sh
 python -m pip install '.[browser-read]'
 ```
 
-مسیر پردازهٔ محدود برای تب از پیش انتخاب‌شده:
+Example with values supplied by authorized acquisition configuration:
 
 ```python
 from consilium.adapters.cdp_process_reader import CdpProcessDomReader
 
-# Values supplied explicitly by the authorized acquisition configuration.
 reader = CdpProcessDomReader(
     endpoint=endpoint, target_id=target_id, expected_url=expected_url,
     selector=observed_selector, timeout_seconds=10,
@@ -21,14 +20,14 @@ reader = CdpProcessDomReader(
 observation = reader()
 ```
 
-مسیر بالا فراخوانی را در پردازهٔ متعلق به اجرای محدود انجام می‌دهد؛ سقف اجرا به‌علاوهٔ حداکثر پنج ثانیهٔ پاک‌سازی برقرار است. اتصال فقط به تب از پیش موجود صورت می‌گیرد. دفتر خصوصی و حد اندازهٔ خروجی باید پیش از تحویل داده برقرار باشند. `QwenProcessReader` فعلی فقط بستهٔ نسخه‌دار `Qwen` می‌پذیرد؛ `HTML` خام این خواننده نباید به آن معرفی شود. این مرحله عمداً یک تبدیل حدسی از `HTML` به پاسخ کامل نمی‌سازد.
+The owned reader process has a bounded deadline plus up to five seconds for cleanup; it reads only an existing target. Keep acquired data in a private journal with output-size limits before handoff. QwenProcessReader accepts only versioned Qwen packets, not arbitrary raw HTML. No heuristic converts HTML into a verified complete answer.
 
-`HTML` شامل دادهٔ خصوصی و متن نامطمئن است. آن را در لاگ، رسید عمومی، گیت یا خروجی انتقال پروژه قرار ندهید. داشتن نشانی `loopback` یا رسید هش، هویت مرورگر و سایت را ثابت نمی‌کند. چرخهٔ تغییر `DOM` هنگام خواندن کاملاً اتمی نیست؛ این خواننده رویداد تغییر سند و جابه‌جایی فریم را رد می‌کند، اما تغییر محتوای همان سند همچنان باید با قرارداد مشاهدهٔ پاسخ بررسی شود.
+HTML is private untrusted data. Do not place it in public logs, receipts, Git, or transfer archives. Loopback and content hashes cannot prove browser/account identity. DOM reading is not atomic: document/frame navigation changes are rejected, while same-document edits still require answer-observation checks.
 
-آزمون مستقل انتقال اختیاری:
+Optional transport fixture:
 
-```text
+```sh
 python tools/run_cdp_transport_probe.py
 ```
 
-رسید `REAL_LOOPBACK_WEBSOCKET_CDP_FIXTURE_NOT_LIVE_BROWSER` فقط تبادل محلی با `fixture` را ثابت می‌کند. برای پذیرش زنده به مرورگر واقعی، انتخابگرهای مشاهده‌شدهٔ سایت، زمینهٔ مستقل حساب/مدل/گفتگو و آزمون منفی تغییر زمینه نیاز است. نبود این شواهد اجازهٔ بستن مرحله نیست.
+Its receipt is REAL_LOOPBACK_WEBSOCKET_CDP_FIXTURE_NOT_LIVE_BROWSER: a real local transport fixture, not live browser evidence. Real integration still needs observed selectors, independent account/model/conversation context, and negative context-change checks. A fixture does not close a phase. The connected browser is not an owned worker and is not killed for reader cleanup.

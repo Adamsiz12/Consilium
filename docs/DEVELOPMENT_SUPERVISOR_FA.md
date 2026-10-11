@@ -1,22 +1,24 @@
-# ناظر توقف توسعه
-
-برای بررسی محلی محافظت‌شده:
+# Supervised development and recovery
 
 ```sh
 python tools/qualityctl.py navigation
 python tools/development_supervisor.py local
 ```
 
-فرمان `local` بررسی توسعه و سپس بررسی پیکربندی‌شدهٔ مرحلهٔ جاری را اجرا می‌کند. فرمان‌های `check` و `native` و `phase` نیز جدا قابل اجرا هستند. مرحلهٔ محصول خودکار پذیرفته یا جابه‌جا نمی‌شود. بررسی بومی در گردش‌کار هر دو میزبان و بررسی مرحله نیز اکنون از ناظر عبور می‌کنند.
+`local` performs development checks and configured current-phase checks; acceptance is separate. Use `check`, `native`, or `phase` for the required subset. Native and phase jobs are supervised. A blocked current phase remains blocked even when development checks pass.
 
-پس از `300` ثانیه بدون پایان یک کار مشخص، درخت پردازهٔ متعلق به همان فرمان قطع می‌شود. فقط نقطهٔ پایان ثبت‌شده توسط خود فرمان، با شناسه و شمارهٔ ترتیب تازه، زمان را تمدید می‌کند. چاپ خروجی، زنده‌بودن پردازه، پیام تکراری و پیام فرزند چنین اثری ندارند. سقف مطلق هر فرمان `900` ثانیه است؛ محدودیت‌های کوتاه‌تر آزمون‌ها نیز برقرارند.
+## Time and process ownership
 
-در لینوکس پردازه‌ها در نشست اختصاصی قرار می‌گیرند. در ویندوز، پردازهٔ نگهدارنده پیش از شروع فرمان واقعی عضو `Job Object` می‌شود؛ شکست عضویت جلوی اجرای فرمان را می‌گیرد. این ابزار محصورکنندهٔ امنیتی برای برنامهٔ مخرب یا پردازه‌ای که عمدی از نشست لینوکس جدا شود نیست.
+The default idle limit is 300 seconds without completed work, with a 900-second hard limit; individual tests have shorter bounds. Only a valid fresh milestone with the run nonce and ordered sequence refreshes progress. Ordinary output and heartbeats do not count as completed work.
 
-پس از قطع، ناظر گزارش پایان تازه را دوباره باز می‌کند: شناسهٔ همان اجرا، وضعیت موفق، تصویر منبع ثابت و هش همهٔ پیوست‌های گزارش باید مطابق باشند. گزارش بومی علاوه بر این از بررسی کامل نمودار گزارش عبور می‌کند. اگر نتیجه پیش از توقف کامل ثبت شده باشد، وضعیت `RECOVERED_COMPLETE` و فرمان بعدی ثبت می‌شود. اگر ناقص باشد، فقط بررسی محلی قابل تکرار حداکثر یک بار دوباره اجرا می‌شود. شکست یا ابهام حل‌نشده، ادامهٔ صف را متوقف می‌کند.
+Linux uses a dedicated process session. Windows starts an owned keeper inside a Job Object before the actual command; failed membership prevents execution. Termination covers owned descendants. These mechanisms are not a sandbox against malicious code or deliberate process escape.
 
-هر اجرا پوشهٔ مستقل در مسیر `evidence/development-supervisor` دارد. فایل `STATE.json` کار فعال، تلاش‌ها، آخرین پایان معتبر، علت توقف، گزارش تطبیق و کار باقی‌مانده را حفظ می‌کند. خروجی خام هر تلاش حذف نمی‌شود. پس از قطع خود نشست، این فایل نقطهٔ بررسی است؛ برای ادامه، ابتدا گزارش‌های ثبت‌شده را دوباره راستی‌آزمایی کنید، سپس تنها کار ناقص را اجرا کنید.
+## Recovery
 
-این ناظر خود `ChatGPT`، سرویس اتصال گیت‌هاب یا صف دوردست را متوقف یا راه‌اندازی مجدد نمی‌کند. انتشار و ارسال بیرونی عضو این صف نیستند. درخواست بیرونی با نتیجهٔ مبهم ابتدا با خواندن شناسهٔ واقعی عملیات تطبیق داده می‌شود؛ از تکرار کور ارسال پرهیز می‌شود.
+Reconcile the exact run identity, source digest, successful receipt, and all artifact hashes, including the complete native report graph. If work finished before interruption and its complete receipt verifies, recover completion rather than execute it again. Incomplete safe local work may retry once; a failure or unresolved outcome stops the queue.
 
-آزمون‌های کوتاه‌شده واقعاً پردازهٔ والد و فرزند را متوقف می‌کنند، گزارش پایان پیش از توقف را بازیابی می‌کنند و عبور پس از گزارش قدیمی یا پیوست گمشده را رد می‌کنند. کوتاه‌کردن زمان فقط در فراخوانی داخلی آزمون است؛ خط فرمان زمان پیش‌فرض پنج‌دقیقه‌ای را تغییر نمی‌دهد.
+Each `evidence/development-supervisor` run retains state.json, current work, attempts, checkpoints, stop reasons, remaining work, and raw logs. After a chat interruption, inspect those receipts first and resume only genuinely incomplete authorized work. Do not replace prior accepted evidence.
+
+The supervisor does not control ChatGPT, the GitHub connector, or the conversation's task queue. External publication is not a local check to replay. Independently inspect unknown external outcomes using PublicationGuard; never blindly resend.
+
+Tests use short bounds to verify actual parent/child termination, recovery of fresh complete receipts, and rejection of stale/missing/hash-mismatched evidence. The command's normal five-minute default remains unchanged. Reuse valid work; new source, a failed run, stale evidence, or unresolved ambiguity justifies new execution.

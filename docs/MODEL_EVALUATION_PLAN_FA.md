@@ -1,21 +1,21 @@
-# انتخاب مدل برای توسعه با آزمایش مشترک
+# Shared experiment for development model selection
 
-منشأ پیشنهاد: `CL`؛ بخش مفید `DEEP` دربارهٔ ارزیابی هزینه هم حفظ شده است. مدل برنده از پیش تعیین نمی‌شود و این سند نتیجهٔ اجرای مقایسه نیست. آزمایش واقعی هنوز `NOT_RUN` است.
+This proposal originated with CL and retains useful DEEP cost-evaluation advice. It does not preselect a winner or report an executed comparison. The actual experiment remains `NOT_RUN`.
 
-## طرح آزمایش
+## Experimental design
 
-ابتدا مشخصات، محیط، ابزارهای مجاز، سقف هزینه و زمان، معیارها و آزمون‌های مستقل تثبیت شوند. دو یا سه مدل در پوشه‌های جدا و با ورودی و ابزار یکسان کار کنند. شناسهٔ دقیق مدل، تاریخ، تنظیم تلاش، نسخهٔ دستور و نسخهٔ منبع ثبت شوند. فرصت اصلاح خطا برای همه یکسان باشد؛ زمان اولین قبولی به‌تنهایی معیار نیست.
+Freeze the specification, environment, permitted tools, cost/time budgets, criteria, and independent tests first. Two or three models should work in separate directories with identical inputs and tools. Record exact model identifiers, date, reasoning settings, instruction revision, and source revision. Give equal correction opportunities; time to first passing result is not the sole metric.
 
-| کار نماینده | چه چیزی سنجیده می‌شود | شاهد لازم |
+| Representative task | Measurement | Evidence |
 |---|---|---|
-| قرارداد اتصال و اتصال ساختگی | سادگی، پیروی از قابلیت‌ها و خطای خروجی | آزمون قرارداد، ورودی ناقص و عدم‌قطعیت |
-| تصمیم خالص و نتیجهٔ دیررس | پیروی از قیود و رد عملیات قدیمی | آزمون مستقل حالت ممنوع و نسخهٔ قدیمی |
-| اصلاح یک خطا در چند فایل | حفظ رفتار قبلی و کیفیت تحویل | آزمون پس‌رفت و یادداشت ادامه با شواهد |
+| Adapter contract and mock adapter | Simplicity, capability compliance, output failures | Contract checks, incomplete input, uncertainty |
+| Pure decision and late result | Constraint compliance, stale-operation rejection | Independent forbidden-state and stale-revision tests |
+| Multi-file defect fix | Regression preservation, handoff quality | Regression results and evidence-backed continuation notes |
 
-مشخصات و آزمون‌های عمومی یکسان‌اند؛ بخشی از موارد منفی باید مستقل از کد و آزمون تولیدشدهٔ مدل باقی بماند. کارها هنگام رسیدن به مرحلهٔ مجاز در نقشه انتخاب می‌شوند. این طرح مجوز شروع زودهنگام مراحل محصول یا ارسال داده و اسرار به سرویس تازه نیست.
+Use common specifications and public tests; keep some negative cases independent of model-generated code/tests. Select tasks only when their roadmap scope is authorized. This plan does not authorize early product phases or transferring private data/secrets to another service.
 
-برای هر تلاش، نتیجهٔ اجرا، خطاهای کشف‌شده در بازبینی، میزان تغییر خارج از کار، وابستگی غیرضروری، زمان، توکن و هزینهٔ مشاهده‌شده ثبت شود. ادعای «آزمون گذشت» بدون گزارش اجرا، امتیاز موفقیت نمی‌گیرد. چند اجرای تکراری در صورت بودجه، تفاوت شانس را روشن‌تر می‌کند. یک کار کوچک شاهد محدود است و برندهٔ قطعی تمام پروژه را اثبات نمی‌کند.
+Record actual execution, review defects, out-of-scope changes, unnecessary dependencies, elapsed time, tokens, and observed cost for each attempt. An unsupported claim that tests passed earns no passing result. Repeated trials can reduce chance effects when budget permits. A small task gives limited evidence, not a universal winner.
 
-بازبین دوم، ترجیحاً با مدل یا پژوهشگر متفاوت، تغییر را با آزمون‌های مستقل بررسی کند. متفاوت‌بودن مدل به‌تنهایی استقلال خطا یا نبود سوگیری را تضمین نمی‌کند. اگر همان نویسنده در دور جدا بازبینی کرده، این محدودیت صریح گزارش شود. هیچ بازبینی یا ارسال خودکار به مدل دیگری در این تحویل انجام نشده است.
+A second reviewer, preferably another model or researcher, should use independent tests. A different model does not by itself establish independent errors or eliminate bias. Disclose same-author review in a separate pass. This document records no automatic dispatch to another model and no such review result.
 
-مدل ارزان‌تر می‌تواند کار کم‌خطر بگیرد، مشروط به گذشتن از همان گیت کیفیت. تست‌نویسی برای بازیابی و حریم خصوصی کار ساده و کم‌خطر فرض نمی‌شود. هزینهٔ اصلاح و بازبینی هم در مقایسه لحاظ شود؛ کاهش ۸۰ تا ۹۵ درصدِ کل پروژه از قیمت توکن یا متن‌بازبودن نتیجه نمی‌شود.
+Cheaper models may handle lower-risk work only with the same quality requirements. Recovery and privacy testing are not assumed to be simple or low-risk. Include correction and review cost; token prices or open-source availability cannot establish an 80–95 percent saving for the whole project.

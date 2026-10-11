@@ -1,22 +1,15 @@
-# بازبینی محلی پیشنهاد معمار
+# Local review of an architect proposal
 
-این ابزار یک نامزد ثبت‌شده را بررسی می‌کند و هیچ پیام یا درخواست مدل ارسال نمی‌کند. آزمون‌های آن خودکارند؛ در وضعیت فعلی از کاربر اجرای دستور خواسته نشده است.
+This tool reviews a stored candidate without sending a model message. Its interface is tested automatically; these instructions do not ask the user to run checks now.
 
-**برای استفادهٔ بعدی: پایگاه دادهٔ موجود را خارج از پوشهٔ منبع نگه دارید. شناسهٔ بحث، هش نامزد و نسخهٔ جاری را از وضعیت همان بحث بردارید؛ ابزار پایگاه دادهٔ گمشده ایجاد نمی‌کند.**
+Keep an existing database outside source. Obtain the debate identifier, candidate hash, and current revision from that debate. The tool does not create a missing database.
 
-```bash
+```sh
 python tools/review_architect.py --database /private/debate.sqlite3 --debate-id DEBATE_UUID --proposal-hash PROPOSAL_SHA256 --expected-revision REVISION_NUMBER
 ```
 
-**پیش از تأیید، اصل پرسش، پیشنهاد، همهٔ قیود، فرض‌ها و تفاوت متن را بخوانید. فقط در صورت پذیرش، عبارت کامل نمایش‌داده‌شده را وارد کنید. هر پاسخ دیگر یا پایان ورودی، نامزد را تأیید نمی‌کند.**
+Before adoption, inspect the original question, proposal, every constraint, assumptions, and text differences. Only enter the complete displayed acceptance phrase if accepting. Other input or EOF does not adopt the candidate.
 
-تأیید با هش و نسخهٔ دقیق ثبت می‌شود. اگر حین بازبینی وضعیت عوض شود، فرمان مسدود می‌شود و باید وضعیت تازه بررسی شود. ابزار کلید، رمز یا نشست مرورگر نمی‌گیرد. هیچ گزینهٔ تأیید خودکار عمومی ندارد.
+Acceptance binds to the exact hash and revision. A concurrent state change blocks the operation and requires fresh review. No keys, passwords, browser sessions, or general automatic-approval option are accepted.
 
-برای بررسی خودکار:
-
-```bash
-python tools/run_architect_tests.py
-python tools/check.py
-```
-
-آزمون رابط واقعی با پردازهٔ مستقل و ورودی کنترل‌شده اجرا می‌شود. آزمون‌های کنترل بودجه و مجوز از دادهٔ مصنوعی استفاده می‌کنند و اندازه‌گیری واقعی ارائه‌دهنده را ادعا نمی‌کنند. شواهد کنترل ورودی اولیه اکنون با قصد عملیات پایدار ثبت و هنگام خواندن بررسی می‌شوند؛ ارسال زنده و ادامهٔ خودکار این مسیر هنوز فعال نیست. شرح دقیق محدوده در `docs/P04_CONTEXT_EVIDENCE_FA.md` است.
+For a focused check use `python tools/run_architect_tests.py`; the supervisor's full development workflow already includes it. Interface tests run a separate process with controlled input. Synthetic budget/grant tests do not claim provider measurements. Independent-input evidence is persisted with intent and verified when read; live dispatch and automatic continuation are not enabled by local adoption. See the completion runbook and preserved historical context notes for scope.

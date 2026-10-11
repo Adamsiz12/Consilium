@@ -1,13 +1,8 @@
-# اجرای پایلوت مرحلهٔ ششم
+# P06 quality pilot
 
-طرح ازپیش‌ثبت‌شده در `PREREGISTRATION.json` هشت مسئله و سه روش دارد.
-سقف فراخوانی، خروجی، زمان و هزینه برابر است؛ مصرف واقعی هر روش نیز جدا ثبت می‌شود.
-هر روش یک فراخوانی معمار مشترک دارد. تک‌مدل یک پاسخ نهایی می‌دهد؛ دو روش دیگر
-دو پاسخ مستقل، دو نقد و یک جمع‌بندی دارند. داور شورا باید صریح انتخاب شود.
+`PREREGISTRATION.json` fixes eight problems and three methods with equal call, output, time, and cost ceilings. Actual consumption is recorded separately. Each method shares one architect call. Single-model uses one final answer; the other methods use two independent answers, two critiques, and one synthesis. The council judge requires explicit selection.
 
-پاسخ‌های دستی واقعی از مسیر موجود محصول وارد شوند؛ تأیید منشأ دستی، تأیید هویت
-ارائه‌دهنده نیست. برای ثبت ارزیابی، متن دقیق هر ورودی و پاسخ در فضای خصوصی
-بیرون مخزن نگه داشته شود. ابزار زیر هش و بودجه را بررسی می‌کند:
+Use existing product paths for real manual answers. Manual-origin confirmation does not verify provider identity. Retain exact prompts/answers privately outside source; the tool verifies hashes and budgets:
 
 ```sh
 python tools/p06_pilot.py status --workspace /absolute/private/pilot
@@ -17,34 +12,17 @@ python tools/p06_pilot.py blind --workspace /absolute/private/pilot
 python tools/p06_pilot.py score --workspace /absolute/private/pilot --scores completed-scores.json
 ```
 
-رکورد هر فراخوانی شامل شناسهٔ یکتا، وظیفه، روش، ارائه‌دهندهٔ ادعاشده، هش ورودی
-و پاسخ، زمان مشاهده‌شده، هزینهٔ صفر، شمار توکنِ معلوم یا `null` و پرچم نهایی است.
-مقدار منشأ `MANUAL` و تأیید خودکار هویت خارجی `false` است. نمونهٔ ساختگی
-برای آزمون ابزار کافی است، ولی ابزار آن را شاهد کیفیت مدل حساب نمی‌کند.
+Each observation records unique identifier, task, method, claimed provider, prompt/answer hashes, observed duration, zero cost, known token counts or null, and final-output flag. Origin is MANUAL and automatic external-identity verification is false. Synthetic fixtures test tooling without establishing model quality.
 
-ثبت مشاهده اکنون در دفتر اتمیک `SQLite` انجام می‌شود؛ دو واردکننده نمی‌توانند
-رکورد یکدیگر را حذف کنند و قطع پیش از ثبت نهایی، رکورد قبلی را حفظ می‌کند.
-فایل قدیمی `CALLS.json` فقط پس از بررسی هشِ متن‌ها به دفتر منتقل می‌شود و
-بایت‌های خودش دست‌نخورده می‌مانند. برای هر روش، ترتیب مراحل و سقف هر
-فراخوانی کنترل می‌شود. تک‌مدل و تکرار تک‌مدل باید همان مدل منتخب را حفظ
-کنند. دو پاسخ مستقل شورا باید از دو مدل باشند؛ تفاوت مدل داور کافی نیست.
-ورودی و پاسخ معمار مشترک برای هر مسئله در هر سه روش یکسان می‌مانند.
-هر سه مشاهدهٔ معمار، شناسهٔ واقعی مشترک را در `shared_architect_call_id`
-دارند؛ `call_id` هر مشاهده همچنان یکتا است. سهم معمار در بودجهٔ هر روش
-محاسبه می‌شود، ولی مجموع فراخوانی و زمان واقعی آن را فقط یک بار حساب می‌کند.
-بدون این ارتباط صریح، دفتر قدیمی برای ارزیابی آماده اعلام نمی‌شود.
+## Ledger and budgets
 
-فرمان آماده‌سازی تنها متن هشت مسئله را بدون جواب مرجع استخراج می‌کند.
-تا ثبت هر `۲۴` خروجی و فراخوانی‌های میانی، خروجی کور ساخته نمی‌شود.
-شمار توکن نامعلوم، تأیید کامل سقف مصرف واقعی نیست و جدا گزارش می‌شود.
-نتیجهٔ مشاهده `outcome` یکی از `SUCCESS`، `FAILED` یا `UNKNOWN` است.
-دو حالت آخر به `failure_reason` نیاز دارند و خروجی نهایی محسوب نمی‌شوند.
-بایت‌های خطای مشاهده‌شده، یا فایل خالی در نبود پاسخ، با هش دقیق حفظ شوند.
-اصلاح فقط شکست قطعیِ آخرِ همان مرحله و مدل را با `repair_of` پیوند می‌دهد؛
-نتیجهٔ مبهم مجوز ارسال مجدد نمی‌دهد. تلاش ناموفق و اصلاح، هر دو از همان
-بودجهٔ اصلی مصرف می‌کنند. اگر روش شش‌مرحله‌ای یک شکست داشته باشد، اصلاح
-و تکمیل آن در سقف شش فراخوانی ممکن نیست؛ اجرای آن متوقف و ناقص می‌ماند.
-افزایش بودجه یا حذف شکست برای تکمیل نتیجه مجاز نیست.
+Observation storage uses atomic SQLite; concurrent importers cannot delete one another's records, and interruption before commit preserves earlier data. Legacy CALLS.json is migrated only after text-hash verification, preserving its original bytes. Method stage order and per-call ceilings are checked. Single-model and single-model iteration retain the selected model; council independent answers require two models, not merely a different judge.
+
+The shared architect prompt/answer is identical across all three methods for each problem. Observations share the genuine `shared_architect_call_id` but each has a unique `call_id`. Its share counts in every method budget; aggregate physical call/time totals count it once. A legacy ledger without this linkage is not ready for evaluation.
+
+`prepare` extracts problem text without reference answers. Blinding requires all 24 outputs and intermediate calls. Unknown token counts do not prove full actual-consumption compliance. `outcome` is SUCCESS, FAILED, or UNKNOWN; the latter two require `failure_reason` and are not final outputs. Preserve exact error bytes or an empty no-response file with its hash.
+
+A repair links through `repair_of` only to the last definite failure of the same stage/model. Unknown delivery does not permit resend. Failure and repair consume the original budget. A six-stage method with a failure cannot also repair and finish within six calls; it remains incomplete. Do not increase budget or delete failure to obtain completion.
 
 ```sh
 python tools/run_pilot_tests.py
@@ -52,31 +30,14 @@ python tools/check_p06.py preflight
 python tools/check_p06.py evidence
 ```
 
-فرمان بررسی شاهد فعلاً یک مانع صریح است. حتی پس از جمع‌آوری پاسخ‌ها،
-تا ثبت بررسی مسیر واقعی محصول، امتیازدهی کور، یافته‌ها و بازبرآورد،
-مرحله را موفق اعلام نمی‌کند. برای خواندن دفتر واقعی، مسیر فضای خصوصی
-در متغیر `CONSILIUM_P06_WORKSPACE` تنظیم می‌شود؛ این کار مجوز ارسال نیست.
+The broader evidence check remains an explicit barrier until real product-path review, blinded scoring, findings, and re-estimation exist. `CONSILIUM_P06_WORKSPACE` locates a private ledger and grants no dispatch permission. P06's separately recorded functional acceptance does not claim this broader comparison passed; P07 has subsequently been accepted within its scope.
 
-فرمان کورسازی چهار فایل خصوصی و تغییرناپذیر ثبت می‌کند: `BLINDED.json`،
-`PRIVATE_BLIND_MAP.json`، `SCORING_TEMPLATE.json` و `JUDGE_REFERENCES.json`.
-بستهٔ کور هویت روش و مدل را ندارد؛ نگاشت را به ارزیاب ندهید. مرجع مسئله
-در فایل جدا و فقط پس از تولید پاسخ‌ها در اختیار ارزیاب قرار می‌گیرد.
-بسته به هش تمام مشاهدات، نسخهٔ طرح و معیار متصل است. ثبت گروه فایل‌ها
-اتمیک است؛ پس از قطع، اجرای دوباره همان بایت‌ها را تکمیل می‌کند و چیزی را
-بازنویسی نمی‌کند. دفتر پس از کورسازی مشاهدهٔ تازه نمی‌پذیرد.
+## Blinding and scoring
 
-از الگوی امتیازدهی یک کپی بگیرید؛ نام، منشأ `HUMAN_MANUAL` یا `MODEL_MANUAL`
-و نسبت `SAME_AUTHOR` یا `DECLARED_OTHER_EVALUATOR` را صریح بنویسید. برای هر
-بعد معیار `p06-quality.v1` امتیاز `۱` تا `۱۰` و دلیل مبتنی بر مرجع بنویسید.
-بعدها و وزن‌های پیش‌ثبت‌شده ثابت‌اند: شواهد `۰٫۴۰`، استدلال `۰٫۲۵`، حفظ
-قید `۰٫۲۰` و پوشش `۰٫۱۵`. امتیاز ناقص، نامعتبر، تکراری، پاسخ متفاوت یا
-بدون دلیل ثبت نمی‌شود. فایل اصلی و گزارش با هم تثبیت می‌شوند؛ جایگزین‌کردن
-امتیاز قبلی رد می‌شود. ابزار تفاوت زوجی هر مسئله و دامنهٔ مشاهده‌شده را
-گزارش می‌کند؛ نمونهٔ کوچک برتری عمومی را ثابت نمی‌کند. هویت و استقلال
-ارزیاب همچنان ادعای دستی‌اند. امتیاز احتمال حقیقت نیست و سبک متن ممکن
-است هویت مدل را آشکار کند.
+Blinding atomically fixes four private files: BLINDED.json, PRIVATE_BLIND_MAP.json, SCORING_TEMPLATE.json, and JUDGE_REFERENCES.json. The blinded packet excludes method/model identity; do not give its private map to the evaluator. References are separate and supplied only after answer generation. Packet identity binds all observation hashes, plan revision, and rubric. Interrupted generation can finish the same bytes without overwriting; the ledger accepts no new observations after blinding.
 
-زمانِ انتظار ورود، فراخوانی اصلاح قالب و سهمیهٔ پایان‌یافته پنهان نشوند.
-زمان مهندسی مراحل قبل اندازه‌گیری نشده و نمی‌توان از برآورد، ساعت واقعی ساخت.
-تا خروجی واقعی هر سه روش، امتیاز کور، بررسی خطاهای کنترل و بازبرآورد مستند
-وجود ندارد، مرحله پذیرفته نمی‌شود و `P07` آغاز نمی‌شود.
+Copy the scoring template. Declare evaluator name, HUMAN_MANUAL or MODEL_MANUAL origin, and SAME_AUTHOR or DECLARED_OTHER_EVALUATOR relationship. Every `p06-quality.v1` dimension needs a score of 1–10 and reference-based reason. Fixed weights are evidence 0.40, reasoning 0.25, constraint preservation 0.20, and coverage 0.15.
+
+Incomplete/invalid/duplicate scores, changed answers, and missing reasons are rejected. Source scores and report are frozen together; existing scores cannot be replaced. Reports show paired task differences and observed ranges; this small sample cannot establish general superiority. Evaluator identity/independence remain manually declared. Scores are not truth probabilities, and style can reveal model identity.
+
+Disclose login wait, format-repair calls, and exhausted quotas. Earlier engineering time was not measured and estimates cannot become actual hours. A full comparative completion claim requires all methods' real outputs, blind scores, control-error review, and documented re-estimation; it cannot be inferred from scoped functional acceptance.

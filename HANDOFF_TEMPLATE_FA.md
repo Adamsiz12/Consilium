@@ -1,24 +1,25 @@
-# قالب گزارش انتقال پژوهش
+# Research handoff report template
 
-این قالب وضعیت موفق پیش‌فرض ندارد. هر مورد با شاهد یا مقدار نامعلوم پر شود.
+Do not default to a successful status. Supply evidence or explicitly record an unknown value for every applicable field.
 
-| بخش | اطلاعات لازم |
+| Section | Required information |
 |---|---|
-| هویت | نسخهٔ نقشه، نسخهٔ کد، هش تصویر منبع، محیط و تاریخ |
-| آخرین نقطهٔ تأییدشده | مرحله، نسخه، فرمان آزمون، نتیجه و شاهد بازبینی |
-| وضعیت فعلی | مرحلهٔ جاری، تکمیل‌شده‌ها، ناتمام‌ها و موانع |
-| کد نیمه‌تمام | فایل تغییرکرده، علت، چه چیز اجرا شده و چه چیز اجرا نشده |
-| روابط فایل‌ها | ورودی، خروجی، وابستگی و مسئولیت هر ماژول مهم |
-| آزمون‌ها | موارد موفق، شکست‌خورده، اجرا‌نشده و اثر تغییر بر آزمون قبلی |
-| تصمیم‌ها | تصمیم پذیرفته‌شده یا ردشده، علت و محدودیت آن |
-| خواسته‌ها | نگاشت ۳۰ خواسته به کد، آزمون و شاهد؛ بدون درصد حدسی |
-| بازیابی | آخرین وضعیت معتبر، عملیات در انتظار و ابهام‌های حل‌نشده |
-| اقدام بعدی | اولین کار مجاز، فایل‌ها، فرمان اجرا و نتیجهٔ مورد انتظار |
-| روش بازتولید | نصب محیط، وابستگی قفل‌شده، دادهٔ آزمایشی مجاز و دستور آزمون |
-| محدودیت | نبود دسترسی واقعی، دادهٔ ناقص یا رفتار هنوز اثبات‌نشده |
-| امنیت انتقال | فهرست مجاز فایل‌ها و بررسی نبود رمز، کلید و نشست ورود |
+| Identity | Plan version, code version, source digest, environment, date |
+| Last verified checkpoint | Phase, revision, test command, result, review evidence |
+| Current state | Current phase, completed work, unfinished work, blockers |
+| Partial implementation | Changed files, reasons, what ran and what did not |
+| File relationships | Inputs, outputs, dependencies, responsibilities of important modules |
+| Tests | Passes, failures, unrun checks, impact on prior tests |
+| Decisions | Accepted/rejected decision, reason, limitations |
+| Requirements | Thirty-requirement mapping to implementation, tests, and evidence; no guessed percentages |
+| Recovery | Last valid state, pending operations, unresolved uncertainty |
+| Next action | First authorized task, files, command, expected outcome |
+| Reproduction | Environment setup, locked dependencies, permitted fixtures, test commands |
+| Limitations | Missing real access, incomplete data, unproven behavior |
+| Transfer security | File allowlist and checks for passwords, keys, and login sessions |
 
-کد و تصویر کار ناتمام همراه شواهد نگهداری شوند؛ گزارش متنی تنها محل ذخیرهٔ وضعیت برنامه نیست.
+Retain the source and unfinished snapshot with its evidence. A prose report is not the only storage location for application state.
 
+Record subtle behavior in `resume.known_quirks` with reasons and code/test/decision references. The latest run may have failed: distinguish it from previous acceptance. If a newer run is unexecuted or still active, do not describe an older result as certain current verification. Refresh derived views after canonical inputs change.
 
-نکات غیرآشکار را با علت و ارجاع کد، آزمون یا تصمیم در `resume.known_quirks` ثبت کنید. آخرین اجرای جاری ممکن است شکست‌خورده باشد؛ آن را از پذیرش قبلی جدا توصیف کنید. اگر اجرای جدیدتر انجام نشده یا هنوز در جریان است، نتیجهٔ ثبت‌شده را وضعیت فعلیِ قطعی ننامید. نماها پس از تغییر دادهٔ اصلی تازه شوند. هدف ده دقیقه برای پیدا کردن اولین کار، معیار سنجش آینده است و تضمین اندازه‌گیری‌شده نیست.
+Locating the first task within ten minutes is a future measurement target, not an already measured guarantee. New reports use English labels; preserve original quotations and historical evidence.

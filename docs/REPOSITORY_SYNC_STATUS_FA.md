@@ -1,13 +1,15 @@
-# وضعیت انتشار و همگام‌سازی پروژه
+# Repository publication and synchronization
 
-تاریخ: `2026-10-11`. مقصد عمومی: `mehrangtr/Consilium`.
+Public destination: `mehrangtr/Consilium`. The corrective English-documentation task uses `feature/continue-P08-english-project-docs` and publishes the approved result to `main` as well as the task branch.
 
-وضعیت دقیق انتشار، نسخهٔ شاخه و نتیجهٔ بررسی هر دو محیط در `PROGRESS.json.resume.repository_sync` ثبت می‌شود. این فایل، راهنمای خواندن همان مرجع است؛ متن نقطهٔ تاریخی جای نتیجهٔ تازهٔ شاخه را نمی‌گیرد.
+Earlier English AGENTS.md changes existed on feature branches while main still contained the Persian guide. A branch commit is not evidence that main changed. This task corrects that publication gap; completion must be verified by independently reading main and comparing its tree/files to the published commit.
 
-گزارش‌های فعال، راهنماهای مخزن، نقشهٔ ادامه، موجودی و فایل‌های انتقال به‌روز شدند. بررسی پیش از انتشار شامل `1050` آزمون لینوکس، با صفر شکست، خطا و مورد کنارگذاشته‌شده موفق بود؛ `124` آزمون مربوط به زیرساخت اتصال هستند. گزارش تازه باید با هش همان نسخه تطبیق داده شود. آزمون زندهٔ ارائه‌دهنده در این همگام‌سازی اجرا نمی‌شود.
+Use `PROGRESS.json.resume.english_documentation_update` and `VALIDATION_REPORT.json` for the validation recorded with this task. The final completion report identifies the published commit and observed refs; private PublicationGuard receipts remain outside the checkout. Older `resume.repository_sync` and guide-update records are historical, not substitutes for a fresh remote read.
 
-آخرین پذیرش ثبت‌شده `P07` و مرحلهٔ جاری `P08` مسدود است. کار مرحلهٔ نهم، آماده‌سازی آفلاین با مجوز کاربر است. شواهد تاریخی پذیرش حفظ شده‌اند و انتشار مخزن مرحله را خودکار قبول نمی‌کند.
+Before publishing, review the exact changed files, scan for secrets, verify source-bound test receipts, and validate the transfer archive. Publish through normal pushes without force, using the standing user authorization. An unknown external result must be reconciled independently before retry.
 
-بازبینی خودکار، تلاش قبلی انتشار کامل را به دلیل نیاز به تأیید صریح مجموعه و مقصد عمومی متوقف کرد. کاربر پس از مشاهدهٔ درخواست مشخص انتشار همهٔ کدها، آزمون‌ها، گزارش‌ها و شواهد عمومیِ بررسی‌شده در همین مخزن عمومی، در `2026-10-11` تأیید صریح داد. نتیجهٔ اقدام پس از این تأیید در مرجع همگام‌سازی ثبت می‌شود؛ توقف قبلی به‌عنوان سابقه محفوظ است.
+P08 remains blocked; P07 remains the last accepted phase. P09 work is authorized offline preparation only. Publication does not accept a phase. No live API/provider call is needed for this task.
 
-انتشار کامل با خواندن مستقل شاخه، تطبیق درخت و بررسی فایل‌ها تأیید می‌شود. کلیدها، نشست‌های ورود، محیط‌های مجازی و داده‌های خصوصی خارج از مجموعهٔ عمومی هستند. برای ساختار فایل‌ها و ادامهٔ کار به `docs/PROJECT_CONTINUATION_MASTER_FA.md` مراجعه کنید.
+Historical public-payload approval and automatic-review interruption remain recorded in earlier metadata. The standing GitHub authorization does not need renewed approval for this already approved change. Keys, sessions, virtual environments, and private data remain outside the public payload.
+
+See `docs/PROJECT_CONTINUATION_MASTER_FA.md` for the repository map and `docs/LOCALIZATION_REPORT.md` for English-language scope and preserved originals. Read actual native and CI receipts separately: a queued workflow is not a passed workflow, and old Windows evidence cannot certify changed source.

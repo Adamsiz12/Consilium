@@ -46,7 +46,7 @@ Optional critique spans bind to exact UTF-8 answer bytes and quote hashes.
 
 `PROGRESS.json` is the canonical phase and continuation record; `HANDOFF.json`
 and `evidence/navigation` are derived from it. See
-[current Persian status](docs/CURRENT_STATUS_FA.md) and
+[current status](docs/CURRENT_STATUS_FA.md) and
 [project continuation map](docs/PROJECT_CONTINUATION_MASTER_FA.md) for the
 implementation, evidence, remaining work, and publication records.
 
@@ -86,5 +86,9 @@ are currently scoped to three new reliability modules, not the whole product.
 Native Windows and Linux reports must match the actual source digest. Security
 advisory checks require network access; a timeout remains unverified.
 
-See [Persian guide](README_FA.md), [contribution guide](CONTRIBUTING.md),
+Operational guides are written in English; legacy `_FA` filenames remain for
+link compatibility. Original requirements, quotations, and historical evidence
+retain their source language; see [localization scope](docs/LOCALIZATION_REPORT.md).
+
+See [extended guide](README_FA.md), [contribution guide](CONTRIBUTING.md),
 [security reporting](SECURITY.md), and [licensing status](LICENSING.md).

@@ -160,9 +160,9 @@
     "modified": false
   },
   "unknowns": [
-    "هویت مدل‌های زنده و حساب‌های مجاز بعداً توسط کاربر انتخاب و در زمان اجرا تأیید می‌شوند.",
-    "توانایی مرورگر و تشخیص ارسال هر سرویس فقط با آزمون واقعی تأیید می‌شود؛ مستند API شاهد ورود به حساب نیست.",
-    "مقدار اعتبار رایگان، سهمیه و دسترسی منطقه‌ای هیچ سرویس تأیید نشده است."
+    "Live model identifiers and authorized accounts will be selected by the user later and verified at execution time.",
+    "Browser capability and delivery detection require real checks per service; API documentation cannot prove account login.",
+    "Free credit, quota, and regional availability remain unverified for every service."
   ],
   "estimation": {
     "scope_connections": {
